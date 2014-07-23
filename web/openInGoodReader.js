@@ -1,0 +1,1 @@
+javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'0.0.0'
