@@ -49,9 +49,9 @@ module.exports = function(grunt) {
         codegen: {quote_keys: false},
         report: 'min'
       },
-      gmapplet: { src: ['src/gmapplet.js'], dest: 'web/gmapplet.js' },
       openin1password: { src: ['src/openIn1Password.js'], dest: 'web/openIn1Password.js' },
-      openingoodreader: { src: ['src/openInGoodReader.js'], dest: 'web/openInGoodReader.js' }
+      openingoodreader: { src: ['src/openInGoodReader.js'], dest: 'web/openInGoodReader.js' },
+      openingooglemaps: { src: ['src/openInGoogleMaps.js'], dest: 'web/openInGoogleMaps.js' }
     },
 
     js2uri:  {
@@ -66,9 +66,9 @@ module.exports = function(grunt) {
         forceLastSemicolon: false,
         entityEncode: false
       },
-      gmapplet: { src: ['web/gmapplet.js'], dest: 'web/gmapplet.js' },
       openin1password: { src: ['web/openIn1Password.js'], dest: 'web/openIn1Password.js' },
-      openingoodreader: { src: ['web/openInGoodReader.js'], dest: 'web/openInGoodReader.js' }
+      openingoodreader: { src: ['web/openInGoodReader.js'], dest: 'web/openInGoodReader.js' },
+      openingooglemaps: { src: ['web/openInGoogleMaps.js'], dest: 'web/openInGoogleMaps.js' }
     }
   });
 
@@ -81,17 +81,17 @@ module.exports = function(grunt) {
   // Load "js2uri" plugin
   grunt.loadNpmTasks('js2uri');
 
-  // Gmapplet
-  grunt.registerTask('Gmapplet', [ "uglify:gmapplet", "js2uri:gmapplet" ] );
-
   // OpenIn1Password
   grunt.registerTask('OpenIn1Password', [ "uglify:openin1password", "js2uri:openin1password" ] );
 
   // OpenInGoodReader
   grunt.registerTask('OpenInGoodReader', [ "uglify:openingoodreader", "js2uri:openingoodreader" ] );
 
+  // OpenInGoogleMaps
+  grunt.registerTask('OpenInGoogleMaps', [ "uglify:openingooglemaps", "js2uri:openingooglemaps" ] );
+
   // Default task
   // grunt.registerTask('default', [ "jshint:files", "uglify", "js2uri:files"] );
-  grunt.registerTask('default', [ "jshint:files", "Gmapplet", "OpenIn1Password", "OpenInGoodReader" ] );
+  grunt.registerTask('default', [ "jshint:files", "OpenIn1Password", "OpenInGoodReader", "OpenInGoogleMaps" ] );
 
 };
