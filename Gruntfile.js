@@ -4,9 +4,9 @@ module.exports = function(grunt) {
   // Project configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    openIn1Password_version: "1.0.6",
-    openInGoodReader_version: "1.0.0",
-    openInGoogleMaps_version: "1.6.4",
+    versionOpenIn1Password: "1.0.6",
+    versionOpenInGoodReader: "1.0.0",
+    versionOpenInGoogleMaps: "1.6.4",
 
     jshint: {
       files: ['Gruntfile.js', 'src/*.js'],
@@ -73,7 +73,8 @@ module.exports = function(grunt) {
       openin1password: { src: ['web/openIn1Password.js'], dest: 'web/openIn1Password.js' },
       openingoodreader: { src: ['web/openInGoodReader.js'], dest: 'web/openInGoodReader.js' },
       openingooglemaps: { src: ['web/openInGoogleMaps.js'], dest: 'web/openInGoogleMaps.js' }
-    },
+    }
+  });
 
   // Load "jshint" plugin
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -85,23 +86,31 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('js2uri');
 
   grunt.registerTask('update-README', 'update reference links in README.md', function(bookmarkName, bookmarkletFile) {
+    // read external files
     var readMeString = grunt.file.read('README.md');
     if ('' === readMeString) grunt.fail.fatal("Can't read from README.md");
     var bookmarkletFileString = grunt.file.read(bookmarkletFile);
     if ('' === bookmarkletFileString) grunt.fail.fatal("Can't read from " + bookmarkletFileString);
-    var urlPreface = 'http://mmind.me/_?';
-    // regex to match 'old' reference link bookmarklet URL
+
+    // use regex to match & replace 'old' reference link bookmarklet URL
     var matchStr = '\\[Setup ' + bookmarkName + '\\]: .*\\"Setup ' + bookmarkName + '\\"';
-    var refLinkRegEx = new RegExp(matchStr);
-		// build up Markdown reference link...
-    var refLink = '[Setup ' + bookmarkName + ']: ' + urlPreface;
-    // ... append javascript with '&' replaced by entity '&amp;' and add title attribute
-    refLink += bookmarkletFileString.replace('\\&','&amp;',"g") + ' "Setup ' +  bookmarkName + '"';
+    var refLinkRegEx = new RegExp(matchStr,'g');
+    var refLink = '[Setup ' + bookmarkName + ']: http://mmind.me/_?';
+    refLink += bookmarkletFileString.replace('\\&','&amp;') + ' "Setup ' +  bookmarkName + '"';
+    readMeString = readMeString.replace(refLinkRegEx, refLink);
+
+    // use regex to replace version references
+    matchStr = '(' + bookmarkName + '\\] v)\\d+\\.\\d+\\.\\d+';
+    grunt.log.writeln('\t matchStr: ' + matchStr);
+    var versionRegEx = new RegExp(matchStr,'g');
+    var replaceStr = '$1' + grunt.config('version' + bookmarkName);
+    grunt.log.writeln('\t replaceStr: ' + replaceStr);
+    readMeString = readMeString.replace(versionRegEx, replaceStr);
     // replace/update refLink
-    if (grunt.file.write('README.md', readMeString.replace(refLinkRegEx, refLink))) {
+    if (grunt.file.write('README.md', readMeString)) {
     	return grunt.log.writeln('README.md' + ' updated with new ' + bookmarkName);
     }
-    else grunt.fail.fatal("Can't write to README.md");
+    else grunt.fail.fatal("Can't write to README.md. Recommended action: `git checkout -- README.md`");
   });
 
 

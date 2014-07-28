@@ -27,22 +27,29 @@ Drag the indicated link to the bookmark bar or select it and add bookmark/favori
 Optionally edit or rename the bookmark/favorite. Finally, synchronize bookmarks using
 iTunes or iCloud to get the bookmarklet to iOS.
 
-Or use the [Mobile browser setup link][Setup Gmapplet], follow the instructions there and
-then sync to iOS.
+#### JavaScript bookmarks
++ [OpenIn1Password] v1.0.6
++ [OpenInGoodReader] v1.0.0
++ [OpenInGoogleMaps] v1.6.4
+
+
+Or use the a Mobile browser to visit this page (or the [OpenInlets page]) and use one of
+the Mobile browser setup links such as the ones below.
+
 
 ### Mobile browser
 Tap the link below, bookmark the new page and follow the instructions on the page to turn
 the followed bookmark into a JavaScript bookmarklet.
 
-+ **Mobile browser setup link** -- [Setup Gmapplet]
-+ **Mobile Safari setup link** -- [Setup OpenIn1Password]
-+ **Mobile Safari setup link** -- [Setup OpenInGoodReader]
++ **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.0.6
++ **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.0.0
++ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.6.4
 
 
 ## Use
-When a search or other app opens Google Maps on a web page activate the Gmapplet bookmarklet
-(click it on bookmark bar or use the Bookmarks/Favorites menu). If installed the Google Maps
-iOS app will open to the same location.
+When a search or other app opens a web page in Mobile Safari, activate the corresponding
+bookmarklet (tap it on bookmark bar or use the Bookmarks/Favorites menu). If installed the
+corresponding iOS app will open to the same document or location.
 
 ## Requirements
 * Mobile Safari 7.x or higher
