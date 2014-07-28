@@ -88,8 +88,8 @@ and other dependencies defined in `package.json`. Later you can update them usin
 [grunt]: http://gruntjs.com/
 [js2uri]: https://npmjs.org/package/js2uri
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
-[Setup Gmapplet]: http://mmind.me/_?javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.3'' "Setup Gmapplet"
-[Setup OpenIn1Password]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/https?:/.test(location.protocol)&amp;&amp;(location.href='op'+location.href);void'1.0.6' "Setup OpenIn1Password"
-[Setup OpenInGoodReader]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/https?:/.test(location.protocol)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)&amp;&amp;(location.href='gr'+location.href);void'1.0.0' "Setup OpenInGoodReader"
+[Setup OpenIn1Password]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'0.0.0' "Setup OpenIn1Password"
+[Setup OpenInGoodReader]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'0.0.0' "Setup OpenInGoodReader"
+[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'0.0.0' "Setup OpenInGoogleMaps"
 [Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
 [1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
