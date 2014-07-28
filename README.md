@@ -1,7 +1,6 @@
 # OpenInlets
-__BUILD STATUS IS COMMENTED-OUT__ *for now*
 
-// \[!\[Build Status](https://secure.travis-ci.org/mobilemind/OpenInlets.png?branch=master)]\(http://travis-ci.org/mobilemind/OpenInlets)
+[![Build Status](https://secure.travis-ci.org/mobilemind/OpenInlets.png?branch=master)](http://travis-ci.org/mobilemind/OpenInlets)
 
 OpenInlets is a collection of bookmarklets for iOS. Individual bookmarklets are described
 below.
@@ -89,12 +88,16 @@ and other dependencies defined in `package.json`. Later you can update them usin
 * Get Travis CI integrated
 * Make use of Lo dash templates to streamline updating things
 * Use some sort of Markdown or HTML templating to make a gh-pages `index.html` file
+
 <!--- reference links -->
 [nodejs]: http://nodejs.org/
 [npm]: https://npmjs.org/
 [grunt]: http://gruntjs.com/
 [js2uri]: https://npmjs.org/package/js2uri
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
+[OpenIn1Password]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'0.0.0' "Setup OpenIn1Password"
+[OpenInGoodReader]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'0.0.0' "Setup OpenInGoodReader"
+[OpenInGoogleMaps]: javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'0.0.0' "Setup OpenInGoogleMaps"
 [Setup OpenIn1Password]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'0.0.0' "Setup OpenIn1Password"
 [Setup OpenInGoodReader]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'0.0.0' "Setup OpenInGoodReader"
 [Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'0.0.0' "Setup OpenInGoogleMaps"
