@@ -73,7 +73,8 @@ module.exports = function(grunt) {
       openin1password: { src: ['web/openIn1Password.js'], dest: 'web/openIn1Password.js' },
       openingoodreader: { src: ['web/openInGoodReader.js'], dest: 'web/openInGoodReader.js' },
       openingooglemaps: { src: ['web/openInGoogleMaps.js'], dest: 'web/openInGoogleMaps.js' }
-    },
+    }
+  });
 
   // Load "jshint" plugin
   grunt.loadNpmTasks('grunt-contrib-jshint');
