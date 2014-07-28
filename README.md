@@ -2,21 +2,21 @@
 
 [![Build Status](https://secure.travis-ci.org/mobilemind/OpenInlets.png?branch=master)](http://travis-ci.org/mobilemind/OpenInlets)
 
-OpenInlets is a collection of bookmarklets for iOS. Individual bookmarklets are described
-below.
+OpenInlets is a collection of bookmarklets for iOS Mobile Safari. Individual bookmarklets
+are described below.
 
-__Gmapplet__ is a bookmarklet for Mobile Safari on iOS. Use it to automatically open the
-current web page in the Google Maps application on iOS. Handy when an app opens a Google
-maps page in Mobile Safari when you'd prefer the Google Maps _app_ show the same info.
-Just select the bookmark, it does the rest-- no need to select, copy, switch apps & paste.
+__OpenIn1Password__ Use this bookmarklet to automatically open the current web page using
+the Webview in 1Password 4.1.x. The 1Password Webview is handy for login/form completion,
+or to quickly add a new entry with login credentials.
 
-__OpenIn1Password__ is a bookmarklet for Mobile Safari. Add the bookmark and use it to
-automatically open a web page using the Web View in 1Password 4.1.x. The 1Password Web
-View is handy for login/form completion, or to quickly add a new entry with login
-credentials.
+__OpenInGoodReader__ Use this bookmarklet when viewing a PDF in Mobile Safari to
+automatically open the same PDF in GoodReader 4.
 
-__OpenInGoodReader__ is a bookmarklet for Mobile Safari. Add the bookmark and use when
-viewing a PDF in Mobile Safari to automatically open the PDF in GoodReader 4.
+__OpenInGoogleMaps__ Use this bookmarklet to automatically open the current web page in the
+Google Maps application on iOS. Handy when an app opens a Google Maps page in Mobile
+Safari, but you'd prefer that the Google Maps _app_ show the same info. Just select the
+bookmark, it does the rest-- no need to select, copy, switch apps & paste.
+
 
 ## Install
 ### Desktop browser
@@ -31,10 +31,8 @@ iTunes or iCloud to get the bookmarklet to iOS.
 + [OpenInGoodReader] v1.0.0
 + [OpenInGoogleMaps] v1.6.4
 
-
 Or use the a Mobile browser to visit this page (or the [OpenInlets page]) and use one of
 the Mobile browser setup links such as the ones below.
-
 
 ### Mobile browser
 Tap the link below, bookmark the new page and follow the instructions on the page to turn
@@ -43,7 +41,6 @@ the followed bookmark into a JavaScript bookmarklet.
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.0.6
 + **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.6.4
-
 
 ## Use
 When a search or other app opens a web page in Mobile Safari, activate the corresponding
@@ -68,10 +65,10 @@ bookmark.
 
 ## Build
 Clone the repository. If `node` is not installed go get it from [nodejs.org][nodejs].
-Finally change to the `Gmapplet` directory and install the dependencies into the project
+Finally change to the `OpenInlets` directory and install the dependencies into the project
 before invoking `grunt`.
 ```bash
-cd Gmapplet
+cd OpenInlets
 npm install
 grunt
 ```
@@ -82,12 +79,14 @@ and other dependencies defined in `package.json`. Later you can update them usin
 
 ## Version Notes
 0.0.0: July 22, 2014 - Initial commit, smushing together multiple bookmarklet repos I have; doesn't build yet
+0.0.1: July 28, 2014 - Bookmarklets build via `grunt`, `grunt deploy` updates `README.md`, version numbers not updating
 
 ## Plans
-* Get this working with 2-3 existing bookmarklets (Gmapplet, OpenIn1Password, OpenInGoodReader)
-* Get Travis CI integrated
-* Make use of Lo dash templates to streamline updating things
-* Use some sort of Markdown or HTML templating to make a gh-pages `index.html` file
+- [X] Get this working with 2-3 existing bookmarklets (Gmapplet, OpenIn1Password, OpenInGoodReader)
+- [X] Get Travis CI integrated
+- [ ] Get bookmarklet to have individual version numbers
+- [X] Make use of RegEx replacements or templates to streamline updating the README.md
+- [ ] Use some sort of Markdown or HTML templating to automate making a gh-pages `index.html` file
 
 <!--- reference links -->
 [nodejs]: http://nodejs.org/
