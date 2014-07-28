@@ -91,28 +91,32 @@ module.exports = function(grunt) {
     if ('' === readMeString) grunt.fail.fatal("Can't read from README.md");
     var bookmarkletFileString = grunt.file.read(bookmarkletFile);
     if ('' === bookmarkletFileString) grunt.fail.fatal("Can't read from " + bookmarkletFileString);
+    var bookmarkletURLwEntities = bookmarkletFileString.replace('\\&','&amp;');
 
-    // use regex to match & replace 'old' reference link bookmarklet URL
-    var matchStr = '\\[Setup ' + bookmarkName + '\\]: .*\\"Setup ' + bookmarkName + '\\"';
-    var refLinkRegEx = new RegExp(matchStr,'g');
-    var refLink = '[Setup ' + bookmarkName + ']: http://mmind.me/_?';
-    refLink += bookmarkletFileString.replace('\\&','&amp;') + ' "Setup ' +  bookmarkName + '"';
-    readMeString = readMeString.replace(refLinkRegEx, refLink);
+    // use regex to update bookmarklet javascript URL link
+    var matchStr = '(\\[' + bookmarkName + '\\]: ).*( \\"' + bookmarkName + '\\")';
+    var oldStrRegEx = new RegExp(matchStr,'g');
+    var newStr = '$1' + bookmarkletURLwEntities + '$2';
+    readMeString = readMeString.replace(oldStrRegEx, newStr);
 
-    // use regex to replace version references
+    // use regex to update reference link bookmarklet URL
+    matchStr = '(\\[Setup ' + bookmarkName + '\\]: ).*( \\"Setup ' + bookmarkName + '\\")';
+    oldStrRegEx = new RegExp(matchStr,'g');
+    newStr = '$1' + 'http://mmind.me/_?' + bookmarkletURLwEntities + '$2';
+    readMeString = readMeString.replace(oldStrRegEx, newStr);
+
+    // use regex to update version references
     matchStr = '(' + bookmarkName + '\\] v)\\d+\\.\\d+\\.\\d+';
-    grunt.log.writeln('\t matchStr: ' + matchStr);
-    var versionRegEx = new RegExp(matchStr,'g');
-    var replaceStr = '$1' + grunt.config('version' + bookmarkName);
-    grunt.log.writeln('\t replaceStr: ' + replaceStr);
-    readMeString = readMeString.replace(versionRegEx, replaceStr);
-    // replace/update refLink
+    oldStrRegEx = new RegExp(matchStr,'g');
+    newStr = '$1' + grunt.config('version' + bookmarkName);
+    readMeString = readMeString.replace(oldStrRegEx, newStr);
+
+    // update README.md file
     if (grunt.file.write('README.md', readMeString)) {
-    	return grunt.log.writeln('README.md' + ' updated with new ' + bookmarkName);
+      return grunt.log.writeln('README.md updated with ' + bookmarkName + ' ' + grunt.config('version' + bookmarkName));
     }
     else grunt.fail.fatal("Can't write to README.md. Recommended action: `git checkout -- README.md`");
   });
-
 
   // OpenIn1Password
   grunt.registerTask('OpenIn1Password', [ "uglify:openin1password", "js2uri:openin1password" ] );
