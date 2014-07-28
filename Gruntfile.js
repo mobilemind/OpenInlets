@@ -113,7 +113,7 @@ module.exports = function(grunt) {
 
     // update README.md file
     if (grunt.file.write('README.md', readMeString)) {
-      return grunt.log.writeln('README.md updated with ' + bookmarkName + ' ' + grunt.config('version' + bookmarkName));
+      return grunt.log.writeln('README.md updated to ' + bookmarkName + ' ' + grunt.config('version' + bookmarkName));
     }
     else grunt.fail.fatal("Can't write to README.md. Recommended action: `git checkout -- README.md`");
   });
