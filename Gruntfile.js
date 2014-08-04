@@ -100,38 +100,40 @@ module.exports = function(grunt) {
   // Load "js2uri" plugin
   grunt.loadNpmTasks('js2uri');
 
-  grunt.registerTask('update-README', 'update reference links in README.md', function(bookmarkName, bookmarkletFile) {
-    // read external files
-    var readMeString = grunt.file.read('README.md');
-    if ('' === readMeString) grunt.fail.fatal("Can't read from README.md");
-    var bookmarkletFileString = grunt.file.read(bookmarkletFile);
-    if ('' === bookmarkletFileString) grunt.fail.fatal("Can't read from " + bookmarkletFileString);
-    var bookmarkletURLwEntities = bookmarkletFileString.replace('\\&','&amp;');
+  grunt.registerTask('update-README', 'update reference links in README.md',
+    function(bookmarkName, bookmarkletFile) {
+      // read external files
+      var readMeString = grunt.file.read('README.md');
+      if ('' === readMeString) grunt.fail.fatal("Can't read from README.md");
+      var bookmarkletFileString = grunt.file.read(bookmarkletFile);
+      if ('' === bookmarkletFileString) grunt.fail.fatal("Can't read from " + bookmarkletFileString);
+      var bookmarkletURLwEntities = bookmarkletFileString.replace('\\&','&amp;');
 
-    // use regex to update bookmarklet javascript URL link
-    var matchStr = '(\\[' + bookmarkName + '\\]: ).*( \\"' + bookmarkName + '\\")';
-    var oldStrRegEx = new RegExp(matchStr,'g');
-    var newStr = '$1' + bookmarkletURLwEntities + '$2';
-    readMeString = readMeString.replace(oldStrRegEx, newStr);
+      // use regex to update bookmarklet javascript URL link
+      var matchStr = '(\\[' + bookmarkName + '\\]: ).*( \\"' + bookmarkName + '\\")';
+      var oldStrRegEx = new RegExp(matchStr,'g');
+			var newStr = '$1' + bookmarkletURLwEntities + '$2';
+      readMeString = readMeString.replace(oldStrRegEx, newStr);
 
-    // use regex to update reference link bookmarklet URL
-    matchStr = '(\\[Setup ' + bookmarkName + '\\]: ).*( \\"Setup ' + bookmarkName + '\\")';
-    oldStrRegEx = new RegExp(matchStr,'g');
-    newStr = '$1' + 'http://mmind.me/_?' + bookmarkletURLwEntities + '$2';
-    readMeString = readMeString.replace(oldStrRegEx, newStr);
+      // use regex to update reference link bookmarklet URL
+      matchStr = '(\\[Setup ' + bookmarkName + '\\]: ).*( \\"Setup ' + bookmarkName + '\\")';
+      oldStrRegEx = new RegExp(matchStr,'g');
+      newStr = '$1' + 'http://mmind.me/_?' + bookmarkletURLwEntities + '$2';
+			readMeString = readMeString.replace(oldStrRegEx, newStr);
 
-    // use regex to update version references
-    matchStr = '(' + bookmarkName + '\\] v)\\d+\\.\\d+\\.\\d+';
-    oldStrRegEx = new RegExp(matchStr,'g');
-    newStr = '$1' + grunt.config('version' + bookmarkName);
-    readMeString = readMeString.replace(oldStrRegEx, newStr);
+      // use regex to update version references
+      matchStr = '(' + bookmarkName + '\\] v)\\d+\\.\\d+\\.\\d+';
+      oldStrRegEx = new RegExp(matchStr,'g');
+      newStr = '$1' + grunt.config('version' + bookmarkName);
+			readMeString = readMeString.replace(oldStrRegEx, newStr);
 
-    // update README.md file
-    if (grunt.file.write('README.md', readMeString)) {
-      return grunt.log.writeln('README.md updated to ' + bookmarkName + ' ' + grunt.config('version' + bookmarkName));
+			// update README.md file
+      if (grunt.file.write('README.md', readMeString)) {
+        return grunt.log.writeln('README.md updated to ' + bookmarkName + ' ' + grunt.config('version' + bookmarkName));
+      }
+      else grunt.fail.fatal("Can't write to README.md. Recommended action: `git checkout -- README.md`");
     }
-    else grunt.fail.fatal("Can't write to README.md. Recommended action: `git checkout -- README.md`");
-  });
+  );
 
   // OpenIn1Password
   grunt.registerTask('OpenIn1Password', [ "uglify:openin1password", "js2uri:openin1password" ] );
