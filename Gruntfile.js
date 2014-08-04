@@ -32,13 +32,17 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
+        stats: true,
+        mangle: true,
         compress: {
           sequences: true,
           properties: true,
           dead_code: true,
+          drop_console: true,
           drop_debugger: true,
-          unsafe: false,
+          unsafe: true,
           conditionals: true,
+          comparisons: true,
           evaluate: true,
           booleans: true,
           loops: true,
@@ -48,9 +52,20 @@ module.exports = function(grunt) {
           if_return: true,
           join_vars: true,
           cascade: true,
-          warnings: true
+          negate_iife: true,
+          side_effects: true,
+          warnings: true,
+          global_defs: {}
           },
-        codegen: {quote_keys: false},
+        codegen: {
+          quote_keys: false,
+          space_colon: false,
+          max_line_len: 32766,
+          ie_proof: false,
+          bracketize: false,
+          comments: false,
+          semicolons: true
+        },
         report: 'min'
       },
       openin1password: { src: ['src/openIn1Password.js'], dest: 'web/openIn1Password.js' },
