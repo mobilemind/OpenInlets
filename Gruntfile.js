@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     versionOpenIn1Password: "1.0.6",
     versionOpenInGoodReader: "1.0.0",
     versionOpenInGoogleMaps: "1.6.4",
+    versionOpenIniOctocat: "1.0.0",
 
     jshint: {
       files: ['Gruntfile.js', 'src/*.js'],
@@ -70,7 +71,8 @@ module.exports = function(grunt) {
       },
       openin1password: { src: ['src/openIn1Password.js'], dest: 'web/openIn1Password.js' },
       openingoodreader: { src: ['src/openInGoodReader.js'], dest: 'web/openInGoodReader.js' },
-      openingooglemaps: { src: ['src/openInGoogleMaps.js'], dest: 'web/openInGoogleMaps.js' }
+      openingooglemaps: { src: ['src/openInGoogleMaps.js'], dest: 'web/openInGoogleMaps.js' },
+      openinioctocat: { src: ['src/openIniOctocat.js'], dest: 'web/openIniOctocat.js' }
     },
 
     js2uri:  {
@@ -87,7 +89,8 @@ module.exports = function(grunt) {
       },
       openin1password: { src: ['web/openIn1Password.js'], dest: 'web/openIn1Password.js' },
       openingoodreader: { src: ['web/openInGoodReader.js'], dest: 'web/openInGoodReader.js' },
-      openingooglemaps: { src: ['web/openInGoogleMaps.js'], dest: 'web/openInGoogleMaps.js' }
+      openingooglemaps: { src: ['web/openInGoogleMaps.js'], dest: 'web/openInGoogleMaps.js' },
+      openinioctocat: { src: ['web/openIniOctocat.js'], dest: 'web/openIniOctocat.js' }
     }
   });
 
@@ -104,28 +107,31 @@ module.exports = function(grunt) {
     function(bookmarkName, bookmarkletFile) {
       // read external files
       var readMeString = grunt.file.read('README.md');
-      if ('' === readMeString) grunt.fail.fatal("Can't read from README.md");
+      if (!readMeString || 0 === readMeString.length) grunt.fail.fatal("Can't read from README.md");
       var bookmarkletFileString = grunt.file.read(bookmarkletFile);
-      if ('' === bookmarkletFileString) grunt.fail.fatal("Can't read from " + bookmarkletFileString);
+      if (!bookmarkletFileString || 0 === bookmarkletFileString.length) grunt.fail.fatal("Can't read from " + bookmarkletFileString);
       var bookmarkletURLwEntities = bookmarkletFileString.replace('\\&','&amp;');
 
       // use regex to update bookmarklet javascript URL link
-      var matchStr = '(\\[' + bookmarkName + '\\]: ).*( \\"' + bookmarkName + '\\")';
+      var matchStr = '(\\[' + bookmarkName + '\\]: )javascript.*( \\"' + bookmarkName + '\\")';
       var oldStrRegEx = new RegExp(matchStr,'g');
 			var newStr = '$1' + bookmarkletURLwEntities + '$2';
-      readMeString = readMeString.replace(oldStrRegEx, newStr);
+      if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
+      else return grunt.fail.fatal("Can't find javascript: URL for " + bookmarkName);
 
       // use regex to update reference link bookmarklet URL
-      matchStr = '(\\[Setup ' + bookmarkName + '\\]: ).*( \\"Setup ' + bookmarkName + '\\")';
+      matchStr = '(\\[Setup ' + bookmarkName + '\\]: )http.*( \\"Setup ' + bookmarkName + '\\")';
       oldStrRegEx = new RegExp(matchStr,'g');
       newStr = '$1' + 'http://mmind.me/_?' + bookmarkletURLwEntities + '$2';
-			readMeString = readMeString.replace(oldStrRegEx, newStr);
+      if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
+      else return grunt.fail.fatal("Can't find reference link for " + bookmarkName);
 
       // use regex to update version references
       matchStr = '(' + bookmarkName + '\\] v)\\d+\\.\\d+\\.\\d+';
       oldStrRegEx = new RegExp(matchStr,'g');
       newStr = '$1' + grunt.config('version' + bookmarkName);
-			readMeString = readMeString.replace(oldStrRegEx, newStr);
+      if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
+      else grunt.fail.fatal("Can't find version references for " + bookmarkName);
 
 			// update README.md file
       if (grunt.file.write('README.md', readMeString)) {
@@ -144,14 +150,22 @@ module.exports = function(grunt) {
   // OpenInGoogleMaps
   grunt.registerTask('OpenInGoogleMaps', [ "uglify:openingooglemaps", "js2uri:openingooglemaps" ] );
 
+  // OpenIniOctocat
+  grunt.registerTask('OpenIniOctocat', [ "uglify:openinioctocat", "js2uri:openinioctocat" ] );
+
   // Default task
   // grunt.registerTask('default', [ "jshint:files", "uglify", "js2uri:files"] );
-  grunt.registerTask('default', [ "jshint:files", "OpenIn1Password", "OpenInGoodReader", "OpenInGoogleMaps" ] );
+  grunt.registerTask('default', [ "jshint:files",
+    "OpenIn1Password",
+    "OpenInGoodReader",
+    "OpenInGoogleMaps",
+    "OpenIniOctocat" ] );
 
   // Deploy task
   grunt.registerTask('deploy', [ "default",
-  	"update-README:OpenIn1Password:web/openIn1Password.js",
-  	"update-README:OpenInGoodReader:web/openInGoodReader.js",
-  	"update-README:OpenInGoogleMaps:web/openInGoogleMaps.js" ] );
+    "update-README:OpenIn1Password:web/openIn1Password.js",
+    "update-README:OpenInGoodReader:web/openInGoodReader.js",
+    "update-README:OpenInGoogleMaps:web/openInGoogleMaps.js",
+    "update-README:OpenIniOctocat:web/openIniOctocat.js" ] );
 
 };
