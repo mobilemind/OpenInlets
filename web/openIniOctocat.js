@@ -1,1 +1,0 @@
-javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'0.0.0'

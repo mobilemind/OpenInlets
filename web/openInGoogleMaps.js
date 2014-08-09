@@ -1,1 +1,0 @@
-javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'0.0.0'

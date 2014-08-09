@@ -1,1 +1,0 @@
-javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'0.0.0'
