@@ -85,11 +85,12 @@ and other dependencies defined in `package.json`. Later you can update them usin
 ## Version Notes
 0.0.0: July 22, 2014 - Initial commit, smushing together multiple bookmarklet repos I have; doesn't build yet
 0.0.1: July 28, 2014 - Bookmarklets build via `grunt`, `grunt deploy` updates `README.md`, version numbers not updating
+0.0.2: August 8, 2014 - Bookmarklets have individual version numbers that update
 
 ## Plans
 - [X] Get this working with 2-3 existing bookmarklets (Gmapplet, OpenIn1Password, OpenInGoodReader)
 - [X] Get Travis CI integrated
-- [ ] Get bookmarklet to have individual version numbers
+- [X] Get bookmarklet to have individual version numbers
 - [X] Make use of RegEx replacements or templates to streamline updating the README.md
 - [ ] Use some sort of Markdown or HTML templating to automate making a gh-pages `index.html` file
 
@@ -99,13 +100,13 @@ and other dependencies defined in `package.json`. Later you can update them usin
 [grunt]: http://gruntjs.com/
 [js2uri]: https://npmjs.org/package/js2uri
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
-[OpenIn1Password]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'0.0.0' "OpenIn1Password"
-[OpenInGoodReader]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'0.0.0' "OpenInGoodReader"
-[OpenInGoogleMaps]: javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'0.0.0' "OpenInGoogleMaps"
-[OpenIniOctocat]: javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'0.0.0' "OpenIniOctocat"
-[Setup OpenIn1Password]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'0.0.0' "Setup OpenIn1Password"
-[Setup OpenInGoodReader]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'0.0.0' "Setup OpenInGoodReader"
-[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'0.0.0' "Setup OpenInGoogleMaps"
-[Setup OpenIniOctocat]: http://mmind.me/_?javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'0.0.0' "Setup OpenIniOctocat"
+[OpenIn1Password]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'1.0.6' "OpenIn1Password"
+[OpenInGoodReader]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.0' "OpenInGoodReader"
+[OpenInGoogleMaps]: javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.4' "OpenInGoogleMaps"
+[OpenIniOctocat]: javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'1.0.0' "OpenIniOctocat"
+[Setup OpenIn1Password]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'1.0.6' "Setup OpenIn1Password"
+[Setup OpenInGoodReader]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.0' "Setup OpenInGoodReader"
+[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.4' "Setup OpenInGoogleMaps"
+[Setup OpenIniOctocat]: http://mmind.me/_?javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'1.0.0' "Setup OpenIniOctocat"
 [Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
 [1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
