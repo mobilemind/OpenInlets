@@ -4,10 +4,10 @@ module.exports = function(grunt) {
   // Project configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    versionOpenIn1Password: "1.0.6",
-    versionOpenInGoodReader: "1.0.0",
-    versionOpenInGoogleMaps: "1.6.4",
-    versionOpenIniOctocat: "1.0.0",
+    openin1password_version: "1.0.6",
+    openingoodreader_version: "1.0.0",
+    openingooglemaps_version: "1.6.4",
+    openinioctocat_version: "1.0.0",
 
     jshint: {
       files: ['Gruntfile.js', 'src/*.js'],
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
         useNewlineEOL: true,
         useSingleQuote: true,
         appendVoid: true,
-        // customVersion: '', // use value from meta.version above
+        customVersion: '0.0.0',
         appendVersion: true,
         noLastSemicolon: true,
         forceLastSemicolon: false,
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
       // use regex to update bookmarklet javascript URL link
       var matchStr = '(\\[' + bookmarkName + '\\]: )javascript.*( \\"' + bookmarkName + '\\")';
       var oldStrRegEx = new RegExp(matchStr,'g');
-			var newStr = '$1' + bookmarkletURLwEntities + '$2';
+      var newStr = '$1' + bookmarkletURLwEntities + '$2';
       if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
       else return grunt.fail.fatal("Can't find javascript: URL for " + bookmarkName);
 
@@ -129,37 +129,33 @@ module.exports = function(grunt) {
       // use regex to update version references
       matchStr = '(' + bookmarkName + '\\] v)\\d+\\.\\d+\\.\\d+';
       oldStrRegEx = new RegExp(matchStr,'g');
-      newStr = '$1' + grunt.config('version' + bookmarkName);
+      var newVersion = grunt.config(bookmarkName.toLowerCase() + '_version');
+      newStr = '$1' + newVersion ;
       if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
       else grunt.fail.fatal("Can't find version references for " + bookmarkName);
 
-			// update README.md file
+      // update README.md file
       if (grunt.file.write('README.md', readMeString)) {
-        return grunt.log.writeln('README.md updated to ' + bookmarkName + ' ' + grunt.config('version' + bookmarkName));
+        return grunt.log.writeln('README.md updated to ' + bookmarkName + ' ' + newVersion);
       }
       else grunt.fail.fatal("Can't write to README.md. Recommended action: `git checkout -- README.md`");
     }
   );
 
-  // OpenIn1Password
-  grunt.registerTask('OpenIn1Password', [ "uglify:openin1password", "js2uri:openin1password" ] );
-
-  // OpenInGoodReader
-  grunt.registerTask('OpenInGoodReader', [ "uglify:openingoodreader", "js2uri:openingoodreader" ] );
-
-  // OpenInGoogleMaps
-  grunt.registerTask('OpenInGoogleMaps', [ "uglify:openingooglemaps", "js2uri:openingooglemaps" ] );
-
-  // OpenIniOctocat
-  grunt.registerTask('OpenIniOctocat', [ "uglify:openinioctocat", "js2uri:openinioctocat" ] );
+  // BuildBookmarklet
+  grunt.registerTask('BuildBookmarklet', 'build bookmarklet', function(bookmarkName) {
+    if (!grunt.task.run(["uglify:" + bookmarkName])) grunt.fail.fatal("Failed to uglify " + bookmarkName);
+    grunt.config.set('js2uri.options.customVersion', grunt.config(bookmarkName + '_version'));
+    if (!grunt.task.run(["js2uri:" + bookmarkName])) grunt.fail.fatal("Failed to js2uri() " + bookmarkName);
+    else return true;
+  });
 
   // Default task
-  // grunt.registerTask('default', [ "jshint:files", "uglify", "js2uri:files"] );
   grunt.registerTask('default', [ "jshint:files",
-    "OpenIn1Password",
-    "OpenInGoodReader",
-    "OpenInGoogleMaps",
-    "OpenIniOctocat" ] );
+    "BuildBookmarklet:openin1password",
+    "BuildBookmarklet:openingoodreader",
+    "BuildBookmarklet:openingooglemaps",
+    "BuildBookmarklet:openinioctocat" ] );
 
   // Deploy task
   grunt.registerTask('deploy', [ "default",
