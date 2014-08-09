@@ -17,6 +17,9 @@ Google Maps application on iOS. Handy when an app opens a Google Maps page in Mo
 Safari, but you'd prefer that the Google Maps _app_ show the same info. Just select the
 bookmark, it does the rest-- no need to select, copy, switch apps & paste.
 
+__OpenIniOctocat__ Use this bookmarklet when viewing a Github repository URL in Mobile
+Safari to automatically open the same repository in the iOctocat iOS app.
+
 
 ## Install
 ### Desktop browser
@@ -30,6 +33,7 @@ iTunes or iCloud to get the bookmarklet to iOS.
 + [OpenIn1Password] v1.0.6
 + [OpenInGoodReader] v1.0.0
 + [OpenInGoogleMaps] v1.6.4
++ [OpenIniOctocat] v1.0.0
 
 Or use the a Mobile browser to visit this page (or the [OpenInlets page]) and use one of
 the Mobile browser setup links such as the ones below.
@@ -41,6 +45,7 @@ the followed bookmark into a JavaScript bookmarklet.
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.0.6
 + **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.6.4
++ **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.0.0
 
 ## Use
 When a search or other app opens a web page in Mobile Safari, activate the corresponding
@@ -94,11 +99,13 @@ and other dependencies defined in `package.json`. Later you can update them usin
 [grunt]: http://gruntjs.com/
 [js2uri]: https://npmjs.org/package/js2uri
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
-[OpenIn1Password]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'0.0.0' "Setup OpenIn1Password"
-[OpenInGoodReader]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'0.0.0' "Setup OpenInGoodReader"
-[OpenInGoogleMaps]: javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'0.0.0' "Setup OpenInGoogleMaps"
+[OpenIn1Password]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'0.0.0' "OpenIn1Password"
+[OpenInGoodReader]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'0.0.0' "OpenInGoodReader"
+[OpenInGoogleMaps]: javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'0.0.0' "OpenInGoogleMaps"
+[OpenIniOctocat]: javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'0.0.0' "OpenIniOctocat"
 [Setup OpenIn1Password]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'0.0.0' "Setup OpenIn1Password"
 [Setup OpenInGoodReader]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'0.0.0' "Setup OpenInGoodReader"
 [Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'0.0.0' "Setup OpenInGoogleMaps"
+[Setup OpenIniOctocat]: http://mmind.me/_?javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'0.0.0' "Setup OpenIniOctocat"
 [Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
 [1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
