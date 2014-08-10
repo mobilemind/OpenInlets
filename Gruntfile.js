@@ -129,7 +129,6 @@ module.exports = function(grunt) {
     matchStr = '(\\[Setup ' + this.target + '\\]: )http.*( \\"Setup ' + this.target + '\\")';
     oldStrRegEx = new RegExp(matchStr,'g');
     newStr = '$1' + 'http://mmind.me/_?' + bookmarkletString + '$2';
-      newStr = '$1' + newVersion ;
     if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
     else return grunt.fail.fatal("Can't find reference link for " + this.target);
 
@@ -141,10 +140,8 @@ module.exports = function(grunt) {
     else grunt.fail.fatal("Can't find version references for " + this.target);
 
     // update README.md file
-  grunt.registerTask('BuildBookmarklet', 'build bookmarklet', function(bookmarkName) {
     if (grunt.file.write('README.md', readMeString)) return grunt.log.writeln('README.md updated to ' + this.target + ' ' + this.data.version);
     else grunt.fail.fatal("Can't write to README.md. Recommended action: `git checkout -- README.md`");
-    else return true;
   });
 
   // Default task
