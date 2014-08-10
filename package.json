@@ -33,7 +33,7 @@
     "js2uri": "1.3.x"
   },
   "scripts": {
-    "test": "grunt"
+    "test": "grunt --verbose"
   },
   "keywords": [
     "bookmarklet",
