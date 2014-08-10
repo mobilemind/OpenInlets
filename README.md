@@ -1,5 +1,6 @@
 # OpenInlets
 
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![Build Status](https://secure.travis-ci.org/mobilemind/OpenInlets.png?branch=templatizeDocs)](http://travis-ci.org/mobilemind/OpenInlets)
 
 OpenInlets is a collection of bookmarklets for iOS Mobile Safari. Individual bookmarklets
