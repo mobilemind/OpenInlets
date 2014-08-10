@@ -3,20 +3,20 @@
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![Build Status](https://secure.travis-ci.org/mobilemind/OpenInlets.png?branch=master)](http://travis-ci.org/mobilemind/OpenInlets)
 
-OpenInlets is a collection of bookmarklets for iOS Mobile Safari. Individual bookmarklets are described
-below.
+OpenInlets is a collection of bookmarklets for iOS Mobile Safari. Individual bookmarklets are
+described below.
 
-__OpenIn1Password__ Use this bookmarklet to automatically open the current web page using the Webview
-in 1Password 4.1.x. The 1Password Webview is handy for login/form completion, or to quickly add a
-new entry with login credentials.
+__OpenIn1Password__ Use this bookmarklet to automatically open the current web page using the
+Webview in 1Password 4.1.x. The 1Password Webview is handy for login/form completion, or to
+quickly add a new entry with login credentials.
 
-__OpenInGoodReader__ Use this bookmarklet when viewing a PDF in Mobile Safari to automatically open
-the same PDF in GoodReader 4.
+__OpenInGoodReader__ Use this bookmarklet when viewing a PDF in Mobile Safari to automatically
+open the same PDF in GoodReader 4.
 
-__OpenInGoogleMaps__ Use this bookmarklet to automatically open the current web page in the Google Maps
-application on iOS. Handy when an app opens a Google Maps page in Mobile Safari, but you'd prefer that
-the Google Maps _app_ show the same info. Just select the bookmark, it does the rest-- no need to select,
-copy, switch apps & paste.
+__OpenInGoogleMaps__ Use this bookmarklet to automatically open the current web page in the
+Google Maps application on iOS. Handy when an app opens a Google Maps page in Mobile Safari,
+but you'd prefer that the Google Maps _app_ show the same info. Just select the bookmark, it does
+the rest-- no need to select, copy, switch apps & paste.
 
 __OpenIniOctocat__ Use this bookmarklet when viewing a Github repository URL in Mobile Safari to
 automatically open the same repository in the iOctocat iOS app.
@@ -26,9 +26,9 @@ automatically open the same repository in the iOctocat iOS app.
 ### Desktop browser
 Visit the [OpenInlets page].
 
-Drag the indicated link to the bookmark bar or select it and add bookmark/favorite. Optionally edit or
-rename the bookmark/favorite. Finally, synchronize bookmarks using iTunes or iCloud to get the
-bookmarklet to iOS.
+Drag the indicated link to the bookmark bar or select it and add bookmark/favorite. Optionally
+edit or rename the bookmark/favorite. Finally, synchronize bookmarks using iTunes or iCloud to
+get the bookmarklet to iOS.
 
 #### JavaScript bookmarks
 + [OpenIn1Password] v1.0.6
@@ -36,8 +36,8 @@ bookmarklet to iOS.
 + [OpenInGoogleMaps] v1.6.4
 + [OpenIniOctocat] v1.0.0
 
-Or use the a Mobile browser to visit this page (or the [OpenInlets page]) and use one of the
-Mobile browser setup links such as the ones below.
+Or use the a Mobile browser to visit this page (or the [OpenInlets page]) and use one of the Mobile
+browser setup links such as the ones below.
 
 ### Mobile browser
 Tap the link below, bookmark the new page and follow the instructions on the page to turn the
@@ -49,9 +49,9 @@ followed bookmark into a JavaScript bookmarklet.
 + **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.0.0
 
 ## Use
-When a search or other app opens a web page in Mobile Safari, activate the corresponding
-bookmarklet (tap it on bookmark bar or use the Bookmarks/Favorites menu). If installed the
-corresponding iOS app will open to the same document or location.
+When a search or other app opens a web page in Mobile Safari, activate the corresponding bookmarklet
+(tap it on bookmark bar or use the Bookmarks/Favorites menu). If installed the corresponding iOS
+app will open to the same document or location.
 
 ## Requirements
 * Mobile Safari 7.x or higher
@@ -69,9 +69,10 @@ First it prevents the browser from navigating to another page when the bookmark 
 Second, it is a convenient place to embed a string indicating the `semver` version of the bookmark.
 
 ## Build
-Clone the repository. If `node` is not installed go get it from [nodejs.org][nodejs]. Finally change to the
-`OpenInlets` directory and install the dependencies into the project before invoking `grunt`.
+Clone the repository. If `node` is not installed go get it from [nodejs.org][nodejs]. Finally change to
+the `OpenInlets` directory and install the dependencies into the project before invoking `grunt`.
 ```bash
+git clone https://github.com/mobilemind/OpenInlets.git
 cd OpenInlets
 npm install
 grunt
@@ -83,8 +84,11 @@ just invoke `grunt` to re-build OpenInlets.
 
 ## Version Notes
 0.0.0: July 22, 2014 - Initial commit, smushing together multiple bookmarklet repos I have; doesn't build yet
+
 0.0.1: July 28, 2014 - Bookmarklets build via `grunt`, `grunt deploy` updates `README.md`, version numbers not updating
+
 0.0.2: August 8, 2014 - Bookmarklets have individual version numbers that update
+
 0.0.3: August 10, 2014 - Refactor Gruntfile.js for efficiency & 'DRY'; add package.json keywords; add OpenIniOctocat
 
 ## Plans/"To Do"
