@@ -1,1 +1,1 @@
-javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.4'
+javascript:'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='comgooglemaps://'+location.search);void'1.6.5'
