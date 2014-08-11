@@ -31,10 +31,10 @@ edit or rename the bookmark/favorite. Finally, synchronize bookmarks using iTune
 get the bookmarklet to iOS.
 
 #### JavaScript bookmarks
-+ [OpenIn1Password] v1.0.6 `javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'1.0.6'`
-+ [OpenInGoodReader] v1.0.0 `javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.0'`
-+ [OpenInGoogleMaps] v1.6.4 `javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.4'`
-+ [OpenIniOctocat] v1.0.0 `javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'1.0.0'`
++ [OpenIn1Password] v1.0.7 `javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='op'+location.href);void'1.0.7'`
++ [OpenInGoodReader] v1.0.1 `javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.1'`
++ [OpenInGoogleMaps] v1.6.5 `javascript:'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='comgooglemaps://'+location.search);void'1.6.5'`
++ [OpenIniOctocat] v1.0.1 `javascript:'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href=location.href.replace('https:','ioc:'));void'1.0.1'`
 
 Or use the a Mobile browser to visit this page (or the [OpenInlets page]) and use one of the Mobile
 browser setup links such as the ones below.
@@ -43,10 +43,10 @@ browser setup links such as the ones below.
 Tap the link below, bookmark the new page and follow the instructions on the page to turn the
 followed bookmark into a JavaScript bookmarklet.
 
-+ **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.0.6
-+ **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.6.4
-+ **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.0.0
++ **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.0.7
++ **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.0.1
++ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.6.5
++ **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.0.1
 
 ## Use
 When a search or other app opens a web page in Mobile Safari, activate the corresponding bookmarklet
@@ -122,15 +122,15 @@ for details.
 - [ ] Add a "References" section to README.md with links to the underlying URL schemes used
 
 <!--- JavaScript links -->
-[OpenIn1Password]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'1.0.6' "OpenIn1Password"
-[OpenInGoodReader]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.0' "OpenInGoodReader"
-[OpenInGoogleMaps]: javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.4' "OpenInGoogleMaps"
-[OpenIniOctocat]: javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'1.0.0' "OpenIniOctocat"
+[OpenIn1Password]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='op'+location.href);void'1.0.7' "OpenIn1Password"
+[OpenInGoodReader]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.1' "OpenInGoodReader"
+[OpenInGoogleMaps]: javascript:'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='comgooglemaps://'+location.search);void'1.6.5' "OpenInGoogleMaps"
+[OpenIniOctocat]: javascript:'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href=location.href.replace('https:','ioc:'));void'1.0.1' "OpenIniOctocat"
 <!--- Setup links -->
-[Setup OpenIn1Password]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'1.0.6' "Setup OpenIn1Password"
-[Setup OpenInGoodReader]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.0' "Setup OpenInGoodReader"
-[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.4' "Setup OpenInGoogleMaps"
-[Setup OpenIniOctocat]: http://mmind.me/_?javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'1.0.0' "Setup OpenIniOctocat"
+[Setup OpenIn1Password]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='op'+location.href);void'1.0.7' "Setup OpenIn1Password"
+[Setup OpenInGoodReader]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.1' "Setup OpenInGoodReader"
+[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='comgooglemaps://'+location.search);void'1.6.5' "Setup OpenInGoogleMaps"
+[Setup OpenIniOctocat]: http://mmind.me/_?javascript:'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href=location.href.replace('https:','ioc:'));void'1.0.1' "Setup OpenIniOctocat"
 <!-- Reference links -->
 [nodejs]: http://nodejs.org/
 [npm]: https://npmjs.org/
