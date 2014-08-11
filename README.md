@@ -31,10 +31,10 @@ edit or rename the bookmark/favorite. Finally, synchronize bookmarks using iTune
 get the bookmarklet to iOS.
 
 #### JavaScript bookmarks
-+ [OpenIn1Password] v1.0.6
-+ [OpenInGoodReader] v1.0.0
-+ [OpenInGoogleMaps] v1.6.4
-+ [OpenIniOctocat] v1.0.0
++ [OpenIn1Password] v1.0.6 `javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'1.0.6'`
++ [OpenInGoodReader] v1.0.0 `javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.0'`
++ [OpenInGoogleMaps] v1.6.4 `javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.4'`
++ [OpenIniOctocat] v1.0.0 `javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'1.0.0'`
 
 Or use the a Mobile browser to visit this page (or the [OpenInlets page]) and use one of the Mobile
 browser setup links such as the ones below.
@@ -56,6 +56,9 @@ app will open to the same document or location.
 ## Requirements
 * Mobile Safari 7.x or higher
 * Corresponding iOS app
+
+**NOTE:** Bookmarklets do NOT work in current versions of Google Chrome, Ghostery and DuckDuckGo apps
+for iOS due to restrictions in those apps on `javascript:` URL bookmarks.
 
 ## License
 MIT License - <http://www.opensource.org/licenses/mit-license.php>
@@ -82,6 +85,23 @@ Note that [nodejs] and [npm] are required. The lines above will install [grunt],
 dependencies defined in `package.json`. Later you can update them using `npm update` at any time or
 just invoke `grunt` to re-build OpenInlets.
 
+## URL Scheme Notes
+Each bookmarklet does one or more rudimentary checks and then redirects to an app using a URL protocol
+scheme. Information for each bookmarklet and the URL scheme follows.
+
+* **OpenIn1Password** - Checks that the current browser UserAgent is for an iOS device (iPod/iPad/iPhone)
+and then redirects using the `ophttp://` or `ophttps://` URL protocol scheme for 1Password. See the
+subheading [Open URLs externally...][1Password URL Scheme] for details.
+* **OpenInGoodReader** - Checks that the UserAgent corresponds to an iOS device and that the current URL
+contains `.pdf` before redirecting using the `grhttp://` or `grhttps://` URL protocol scheme for GoodReader.
+See [GoodReader URL Scheme].
+* **OpenInGoogleMaps** - Checks that the current domain is `maps.google.com` and then redirects using
+the `comgooglemaps://` protocol scheme for the Google Maps app on iOS. See [Google Maps URL Scheme]
+for details.
+* **OpenIniOctocat** - Checks that the current domain is `github.com` and then redirects using the
+`ioc://` URL protocol scheme for iOctocat. See the subheading [How to open GitHub URLs in iOctocat?][iOctocat URL Scheme]
+for details.
+
 ## Version Notes
 0.0.0: July 22, 2014 - Initial commit, smushing together multiple bookmarklet repos I have; doesn't build yet
 
@@ -91,6 +111,8 @@ just invoke `grunt` to re-build OpenInlets.
 
 0.0.3: August 10, 2014 - Refactor Gruntfile.js for efficiency & 'DRY'; add package.json keywords; add OpenIniOctocat
 
+0.0.4: August 10, 2014 - Remove unneeded http/https checks & add iOS checks in bookmarklets; Add URL Scheme Notes to README;
+
 ## Plans/"To Do"
 - [X] Get this working with 2-3 existing bookmarklets (Gmapplet, OpenIn1Password, OpenInGoodReader)
 - [X] Get Travis CI integrated
@@ -99,19 +121,23 @@ just invoke `grunt` to re-build OpenInlets.
 - [ ] Use some sort of Markdown or HTML templating to automate making a gh-pages `index.html` file
 - [ ] Add a "References" section to README.md with links to the underlying URL schemes used
 
-<!--- reference links -->
+<!--- JavaScript links -->
+[OpenIn1Password]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'1.0.6' "OpenIn1Password"
+[OpenInGoodReader]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.0' "OpenInGoodReader"
+[OpenInGoogleMaps]: javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.4' "OpenInGoogleMaps"
+[OpenIniOctocat]: javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'1.0.0' "OpenIniOctocat"
+<!--- Setup links -->
+[Setup OpenIn1Password]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'1.0.6' "Setup OpenIn1Password"
+[Setup OpenInGoodReader]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.0' "Setup OpenInGoodReader"
+[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.4' "Setup OpenInGoogleMaps"
+[Setup OpenIniOctocat]: http://mmind.me/_?javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'1.0.0' "Setup OpenIniOctocat"
+<!-- Reference links -->
 [nodejs]: http://nodejs.org/
 [npm]: https://npmjs.org/
 [grunt]: http://gruntjs.com/
 [js2uri]: https://npmjs.org/package/js2uri
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
-[OpenIn1Password]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'1.0.6' "OpenIn1Password"
-[OpenInGoodReader]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.0' "OpenInGoodReader"
-[OpenInGoogleMaps]: javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.4' "OpenInGoogleMaps"
-[OpenIniOctocat]: javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'1.0.0' "OpenIniOctocat"
-[Setup OpenIn1Password]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&(location.href='op'+location.href);void'1.0.6' "Setup OpenIn1Password"
-[Setup OpenInGoodReader]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/https?:/.test(location.protocol)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.0' "Setup OpenInGoodReader"
-[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:'maps.google.com'==location.hostname&&location.search&&(location.href='comgooglemaps://'+location.search);void'1.6.4' "Setup OpenInGoogleMaps"
-[Setup OpenIniOctocat]: http://mmind.me/_?javascript:'github.com'===location.host&&(location.href=location.href.replace('https:','ioc:'));void'1.0.0' "Setup OpenIniOctocat"
-[Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
 [1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
+[GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp "GoodReader:How do I save a file from Safari to GoodReader?"
+[Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
+[iOctocat URL Scheme]: http://ioctocat.com/faq/ "iOctocat FAQs - How to open GitHub URLs in iOctocat?"
