@@ -87,10 +87,10 @@ module.exports = function(grunt) {
     },
 
     buildbookmarklet: {
-      OpenIn1Password: { version: "1.0.6", file: "openin1password.js" },
-      OpenInGoodReader: { version: "1.0.0", file: "openingoodreader.js" },
-      OpenInGoogleMaps: { version: "1.6.4", file: "openingooglemaps.js" },
-      OpenIniOctocat: { version: "1.0.0", file: "openinioctocat.js" }
+      OpenIn1Password: { version: "1.0.7", file: "openin1password.js" },
+      OpenInGoodReader: { version: "1.0.1", file: "openingoodreader.js" },
+      OpenInGoogleMaps: { version: "1.6.5", file: "openingooglemaps.js" },
+      OpenIniOctocat: { version: "1.0.1", file: "openinioctocat.js" }
     }
   });
 
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
     grunt.config.set('js2uri.options.customVersion', this.data.version);
     grunt.config.set('js2uri.files.src', [ 'web/' + this.data.file ]);
     grunt.config.set('js2uri.files.dest', 'web/' + this.data.file );
-    if (! grunt.task.run([ "js2uri" ]) ) grunt.fail.fatal("Failed to js2uri() " + this.target);
+    if (!grunt.task.run([ "js2uri" ])) grunt.fail.fatal("Failed to js2uri() " + this.target);
     else return true;
   });
 
@@ -116,12 +116,20 @@ module.exports = function(grunt) {
     if (!readMeString || 0 === readMeString.length) grunt.fail.fatal("Can't read from README.md");
     var bookmarkletString = grunt.file.read('web/' + this.data.file);
     if (!bookmarkletString || 0 === bookmarkletString.length) grunt.fail.fatal("Can't read from web/" + this.data.file);
-    bookmarkletString = bookmarkletString.replace('\\&', '&amp;');
+
+    // update `javascript:...` code blocks
+    var matchStr = '(\\[' + this.target + '\\] v\\d+\\.\\d+\\.\\d+ )`javascript:[^`].+`';
+    var oldStrRegEx = new RegExp(matchStr,'g');
+    var newStr = '$1`' + bookmarkletString + '`';
+    if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
+    else grunt.fail.fatal("Can't find `javascript:...` references for " + this.target);
 
     // use regex to update bookmarklet javascript URL link
-    var matchStr = '(\\[' + this.target + '\\]: )javascript.*( \\"' + this.target + '\\")';
-    var oldStrRegEx = new RegExp(matchStr,'g');
-    var newStr = '$1' + bookmarkletString + '$2';
+    // 1st entity encode "&"
+    bookmarkletString = bookmarkletString.replace('\\&', '&amp;');
+    matchStr = '(\\[' + this.target + '\\]: )javascript.*( \\"' + this.target + '\\")';
+    oldStrRegEx = new RegExp(matchStr,'g');
+    newStr = '$1' + bookmarkletString + '$2';
     if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
     else return grunt.fail.fatal("Can't find javascript: URL for " + this.target);
 
