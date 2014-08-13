@@ -21,6 +21,10 @@ the rest-- no need to select, copy, switch apps & paste.
 __OpenIniOctocat__ Use this bookmarklet when viewing a Github repository URL in Mobile Safari to
 automatically open the same repository in the iOctocat iOS app.
 
+__SearchIn1Password__ Use this bookmarklet to automatically open 1Password and search for entries
+containing the domain of the current web page. This works on Mobile Safari as well as Safari and
+Firefox on Mac OS X Mavericks.
+
 
 ## Install
 ### Desktop browser
@@ -31,10 +35,11 @@ edit or rename the bookmark/favorite. Finally, synchronize bookmarks using iTune
 get the bookmarklet to iOS.
 
 #### JavaScript bookmarks
-+ [OpenIn1Password] v1.0.7 `javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='op'+location.href);void'1.0.7'`
-+ [OpenInGoodReader] v1.0.1 `javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.1'`
-+ [OpenInGoogleMaps] v1.6.5 `javascript:'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='comgooglemaps://'+location.search);void'1.6.5'`
-+ [OpenIniOctocat] v1.0.1 `javascript:'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href=location.href.replace('https:','ioc:'));void'1.0.1'`
++ [OpenIn1Password] v1.1.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'`
++ [OpenInGoodReader] v1.1.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'`
++ [OpenInGoogleMaps] v1.7.0 `javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0'`
++ [OpenIniOctocat] v1.1.0 `javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'`
++ [SearchIn1Password] v1.0.0 `javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'`
 
 Or use the a Mobile browser to visit this page (or the [OpenInlets page]) and use one of the Mobile
 browser setup links such as the ones below.
@@ -43,10 +48,11 @@ browser setup links such as the ones below.
 Tap the link below, bookmark the new page and follow the instructions on the page to turn the
 followed bookmark into a JavaScript bookmarklet.
 
-+ **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.0.7
-+ **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.0.1
-+ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.6.5
-+ **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.0.1
++ **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.1.0
++ **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.1.0
++ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.7.0
++ **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.1.0
++ **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.0.0
 
 ## Use
 When a search or other app opens a web page in Mobile Safari, activate the corresponding bookmarklet
@@ -57,8 +63,10 @@ app will open to the same document or location.
 * Mobile Safari 7.x or higher
 * Corresponding iOS app
 
-**NOTE:** Bookmarklets do NOT work in current versions of Google Chrome, Ghostery and DuckDuckGo apps
+**NOTE:**
+1. On iOS bookmarklets do NOT work in current versions of Google Chrome, Ghostery and DuckDuckGo apps
 for iOS due to restrictions in those apps on `javascript:` URL bookmarks.
+2. SearchIn1Password does work on Macintosh OS X Mavericks with Safari or Firefox.
 
 ## License
 MIT License - <http://www.opensource.org/licenses/mit-license.php>
@@ -101,17 +109,23 @@ for details.
 * **OpenIniOctocat** - Checks that the current domain is `github.com` and then redirects using the
 `ioc://` URL protocol scheme for iOctocat. See the subheading [How to open GitHub URLs in iOctocat?][iOctocat URL Scheme]
 for details.
+* **SearchIn1Password** - Parses the current browser URL and then redirects using `onepassword4://search/`
+with the current domain appended to trigger a search for 1Password entries containing the current domain.
+See the subheading [Open URLs externally...][1Password URL Scheme] for details.
+
 
 ## Version Notes
-0.0.0: July 22, 2014 - Initial commit, smushing together multiple bookmarklet repos I have; doesn't build yet
+0.0.5: August 12, 2014 - Refactor bookmarklet to use anonymous functions to facilitate testing; add SearchIn1Password; update version
 
-0.0.1: July 28, 2014 - Bookmarklets build via `grunt`, `grunt deploy` updates `README.md`, version numbers not updating
-
-0.0.2: August 8, 2014 - Bookmarklets have individual version numbers that update
+0.0.4: August 11, 2014 - Remove unneeded http/https checks & add iOS checks in bookmarklets; Add URL Scheme Notes to README; update version
 
 0.0.3: August 10, 2014 - Refactor Gruntfile.js for efficiency & 'DRY'; add package.json keywords; add OpenIniOctocat
 
-0.0.4: August 11, 2014 - Remove unneeded http/https checks & add iOS checks in bookmarklets; Add URL Scheme Notes to README; update version
+0.0.2: August 8, 2014 - Bookmarklets have individual version numbers that update
+
+0.0.1: July 28, 2014 - Bookmarklets build via `grunt`, `grunt deploy` updates `README.md`, version numbers not updating
+
+0.0.0: July 22, 2014 - Initial commit, smushing together multiple bookmarklet repos I have; doesn't build yet
 
 ## Plans/"To Do"
 - [X] Get this working with 2-3 existing bookmarklets (Gmapplet, OpenIn1Password, OpenInGoodReader)
@@ -122,15 +136,17 @@ for details.
 - [ ] Add a "References" section to README.md with links to the underlying URL schemes used
 
 <!--- JavaScript links -->
-[OpenIn1Password]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='op'+location.href);void'1.0.7' "OpenIn1Password"
-[OpenInGoodReader]: javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.1' "OpenInGoodReader"
-[OpenInGoogleMaps]: javascript:'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='comgooglemaps://'+location.search);void'1.6.5' "OpenInGoogleMaps"
-[OpenIniOctocat]: javascript:'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href=location.href.replace('https:','ioc:'));void'1.0.1' "OpenIniOctocat"
+[OpenIn1Password]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0' "OpenIn1Password"
+[OpenInGoodReader]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0' "OpenInGoodReader"
+[OpenInGoogleMaps]: javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0' "OpenInGoogleMaps"
+[OpenIniOctocat]: javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0' "OpenIniOctocat"
+[SearchIn1Password]: javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0' "SearchIn1Password"
 <!--- Setup links -->
-[Setup OpenIn1Password]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='op'+location.href);void'1.0.7' "Setup OpenIn1Password"
-[Setup OpenInGoodReader]: http://mmind.me/_?javascript:/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)&&(location.href='gr'+location.href);void'1.0.1' "Setup OpenInGoodReader"
-[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href='comgooglemaps://'+location.search);void'1.6.5' "Setup OpenInGoogleMaps"
-[Setup OpenIniOctocat]: http://mmind.me/_?javascript:'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.href=location.href.replace('https:','ioc:'));void'1.0.1' "Setup OpenIniOctocat"
+[Setup OpenIn1Password]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0' "Setup OpenIn1Password"
+[Setup OpenInGoodReader]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0' "Setup OpenInGoodReader"
+[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0' "Setup OpenInGoogleMaps"
+[Setup OpenIniOctocat]: http://mmind.me/_?javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0' "Setup OpenIniOctocat"
+[Setup SearchIn1Password]: http://mmind.me/_?javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0' "Setup SearchIn1Password"
 <!-- Reference links -->
 [nodejs]: http://nodejs.org/
 [npm]: https://npmjs.org/
