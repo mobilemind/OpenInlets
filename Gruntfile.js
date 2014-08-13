@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         latedef: true,
         noarg: true,
         noempty: true,
-        strict: true,
+        strict: false,
         trailing: true,
         undef: true,
         unused: true,
@@ -29,7 +29,10 @@ module.exports = function(grunt) {
     uglify: {
       options: {
         stats: true,
-        mangle: true,
+        mangle: {
+          sort: true,
+          toplevel: true
+        },
         compress: {
           sequences: true,
           properties: true,
@@ -48,9 +51,9 @@ module.exports = function(grunt) {
           if_return: true,
           join_vars: true,
           cascade: true,
+          warnings: true,
           negate_iife: true,
           side_effects: true,
-          warnings: true,
           global_defs: {}
         },
         codegen: {
@@ -87,16 +90,23 @@ module.exports = function(grunt) {
     },
 
     buildbookmarklet: {
-      OpenIn1Password: { version: "1.0.7", file: "openin1password.js" },
-      OpenInGoodReader: { version: "1.0.1", file: "openingoodreader.js" },
-      OpenInGoogleMaps: { version: "1.6.5", file: "openingooglemaps.js" },
-      OpenIniOctocat: { version: "1.0.1", file: "openinioctocat.js" }
+      OpenIn1Password: { version: "1.1.0", file: "openin1password.js" },
+      OpenInGoodReader: { version: "1.1.0", file: "openingoodreader.js" },
+      OpenInGoogleMaps: { version: "1.7.0", file: "openingooglemaps.js" },
+      OpenIniOctocat: { version: "1.1.0", file: "openinioctocat.js" },
+      SearchIn1Password: { version: "1.0.0", file: "searchin1password.js" }
+    },
+
+    nodeunit: {
+      files: ['test/*.js']
     }
+
   });
 
-  // Load plugins: "jshint", "uglify", "js2uri"
+  // Load plugins: "jshint", "uglify", "nodeunit", "js2uri"
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('js2uri');
 
   // buildbookmarklet
