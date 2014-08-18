@@ -10,6 +10,9 @@ __OpenIn1Password__ Use this bookmarklet to automatically open the current web p
 Webview in 1Password 4.1.x. The 1Password Webview is handy for login/form completion, or to
 quickly add a new entry with login credentials.
 
+__OpenInBlogsy__ Use this bookmarklet to automatically open the current web page using the Webview
+in Blogsy on iOS. From there you can easily reblog or quote the page.
+
 __OpenInGoodReader__ Use this bookmarklet when viewing a PDF in Mobile Safari to automatically
 open the same PDF in GoodReader 4.
 
@@ -36,6 +39,7 @@ get the bookmarklet to iOS.
 
 #### JavaScript bookmarks
 + [OpenIn1Password] v1.1.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'`
++ [OpenInBlogsy] v1.0.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'`
 + [OpenInGoodReader] v1.1.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'`
 + [OpenInGoogleMaps] v1.7.0 `javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0'`
 + [OpenIniOctocat] v1.1.0 `javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'`
@@ -49,6 +53,7 @@ Tap the link below, bookmark the new page and follow the instructions on the pag
 followed bookmark into a JavaScript bookmarklet.
 
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.1.0
++ **Mobile Safari setup link** -- [Setup OpenInBlogsy] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.7.0
 + **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.1.0
@@ -100,6 +105,9 @@ scheme. Information for each bookmarklet and the URL scheme follows.
 * **OpenIn1Password** - Checks that the current browser UserAgent is for an iOS device (iPod/iPad/iPhone)
 and then redirects using the `ophttp://` or `ophttps://` URL protocol scheme for 1Password. See the
 subheading [Open URLs externally...][1Password URL Scheme] for details.
+* **OpenInBlogsy** - Checks that the UserAgent corresponds to an iOS device and then redirects using the
+`blogsy:` URL protocol scheme for Blogsy.
+See [GoodReader URL Scheme].
 * **OpenInGoodReader** - Checks that the UserAgent corresponds to an iOS device and that the current URL
 contains `.pdf` before redirecting using the `grhttp://` or `grhttps://` URL protocol scheme for GoodReader.
 See [GoodReader URL Scheme].
@@ -115,6 +123,8 @@ See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 
 
 ## Version Notes
+0.0.5: August 18, 2014 - Add OpenInBlogsy; update version
+
 0.0.5: August 12, 2014 - Refactor bookmarklet to use anonymous functions to facilitate testing; add SearchIn1Password; update version
 
 0.0.4: August 11, 2014 - Remove unneeded http/https checks & add iOS checks in bookmarklets; Add URL Scheme Notes to README; update version
@@ -137,12 +147,14 @@ See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 
 <!--- JavaScript links -->
 [OpenIn1Password]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0' "OpenIn1Password"
+[OpenInBlogsy]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0' "OpenInBlogsy"
 [OpenInGoodReader]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0' "OpenInGoodReader"
 [OpenInGoogleMaps]: javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0' "OpenInGoogleMaps"
 [OpenIniOctocat]: javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0' "OpenIniOctocat"
 [SearchIn1Password]: javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0' "SearchIn1Password"
 <!--- Setup links -->
 [Setup OpenIn1Password]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0' "Setup OpenIn1Password"
+[Setup OpenInBlogsy]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0' "Setup OpenInBlogsy"
 [Setup OpenInGoodReader]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0' "Setup OpenInGoodReader"
 [Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0' "Setup OpenInGoogleMaps"
 [Setup OpenIniOctocat]: http://mmind.me/_?javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0' "Setup OpenIniOctocat"
@@ -154,6 +166,7 @@ See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 [js2uri]: https://npmjs.org/package/js2uri
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
 [1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
+[Blogsy URL Scheme]: http://blogsyapp.com/developers/ "Blogsy URL Scheme"
 [GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp "GoodReader:How do I save a file from Safari to GoodReader?"
 [Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
 [iOctocat URL Scheme]: http://ioctocat.com/faq/ "iOctocat FAQs - How to open GitHub URLs in iOctocat?"

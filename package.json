@@ -1,7 +1,7 @@
 {
   "name": "OpenInlets",
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/mobilemind/OpenInlets",
   "author": {
     "name": "\"mobilemind\" Tom King",
@@ -36,6 +36,7 @@
   },
   "keywords": [ "bookmarklet", "iOS",
     "1Password",
+    "Blogsy",
     "GoodReader",
     "Google Maps",
     "iOctocat"
