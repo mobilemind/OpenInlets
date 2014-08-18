@@ -123,7 +123,7 @@ See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 
 
 ## Version Notes
-0.0.5: August 18, 2014 - Add OpenInBlogsy; update version
+0.0.6: August 18, 2014 - Add OpenInBlogsy; update version
 
 0.0.5: August 12, 2014 - Refactor bookmarklet to use anonymous functions to facilitate testing; add SearchIn1Password; update version
 
