@@ -3,27 +3,30 @@
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![Build Status](https://secure.travis-ci.org/mobilemind/OpenInlets.png?branch=master)](http://travis-ci.org/mobilemind/OpenInlets)
 
-OpenInlets is a collection of bookmarklets to open apps from a web page-- typically from iOS
-Mobile Safari to an iOS app.
+OpenInlets is a collection of bookmarklets to open apps from a web page-- typically from iOS Mobile
+Safari to an iOS app.
 
-__OpenIn1Password__: Open the current web page with the Webview in 1Password 4.1.x. Handy for login/form
-completion, or to quickly add a new entry with login credentials.
+__OpenIn1Password__: Open the current web page with the Webview in 1Password 4.1.x. Handy for
+login/form completion, or to quickly add a new entry with login credentials.
 
-__OpenInBlogsy__: Open the current web page using the Webview in Blogsy on iOS. Easily reblog or quote
-a page.
+__OpenInBlogsy__: Open the current web page using the Webview in Blogsy on iOS. Easily reblog or
+quote a page.
 
-__OpenInGoodReader__: When viewing a PDF in Mobile Safari, open/download the same PDF in GoodReader 4.
+__OpenInGoodReader__: When viewing a PDF in Mobile Safari, open/download the same PDF in
+GoodReader 4.
 
 __OpenInGoogleChrome__: Open the current web page in the Google Chrome app for iOS.
 
-__OpenInGoogleMaps__: Open the current web page in the Google Maps application on iOS. Handy when an app
-opens a Google Maps page in Mobile Safari, but you'd prefer the Google Maps _app_. If the current URL
-does NOT contain an address or location, it will search in the Google Maps app using the page title.
+__OpenInGoogleMaps__: Open the current web page in the Google Maps application on iOS. Handy
+when an app opens a Google Maps page in Mobile Safari, but you'd prefer the Google Maps _app_.
+If the current URL does NOT contain an address or location, it will search in the Google Maps app
+using the page title.
 
 __OpenIniOctocat__: When viewing a Github repository in Mobile Safari, open the same repository in the
 iOctocat iOS app.
 
-__SearchIn1Password__: Open 1Password and search for entries containing the domain of the current web page.
+__SearchIn1Password__: Open 1Password and search for entries containing the domain of the current
+web page.
 _NOTE:_ This also works with Safari and Firefox on Mac OS X Mavericks.
 
 
@@ -47,8 +50,8 @@ _NOTE:_ The `javascript:` bookmarks above will __not__ work from the Github repo
 Github security precautions.
 
 ### Mobile browser
-Visit the [OpenInlets page] and tap a link below. Follow the instructions on the resulting page
-to turn the followed bookmark into a JavaScript bookmarklet.
+Visit the [OpenInlets page] and tap a link below. Follow the instructions on the resulting page to turn
+the followed bookmark into a JavaScript bookmarklet.
 
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenInBlogsy] v1.0.0
@@ -59,17 +62,17 @@ to turn the followed bookmark into a JavaScript bookmarklet.
 + **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.0.0
 
 ## Use
-While viewing web page in Mobile Safari, activate the corresponding bookmarklet (tap it on bookmark
-bar or use the Bookmarks/Favorites menu). If installed the corresponding iOS app will open to the
-same document or location.
+While viewing web page in Mobile Safari, activate the corresponding bookmarklet (tap it on the
+bookmark bar or use the Bookmarks/Favorites menu). If installed the corresponding iOS app will open to
+the same document or location.
 
 ## Requirements
 * Mobile Safari 7.x or higher
 * Corresponding iOS app
 
-**NOTE:**
-1. Bookmarklets do _not_ work in Google Chrome, Ghostery and DuckDuckGo iOS apps due to restrictions
-of those apps on `javascript:` URL bookmarks.
+#### Notes
+1. Bookmarklets do _not_ work in Google Chrome, Ghostery and DuckDuckGo iOS apps due to
+restrictions of those apps on `javascript:` URL bookmarks.
 2. SearchIn1Password _does_ work on Macintosh OS X Mavericks with Safari or Firefox.
 
 ## License
@@ -83,8 +86,8 @@ The `void'x.y.z'` at the end the bookmarklet URL code serves two purposes.
 2. It is a convenient place to embed a string indicating the `semver` version of the bookmark.
 
 ## Build
-Clone the repository. If `node` is not installed go get it from [nodejs.org][nodejs]. Finally change to
-the `OpenInlets` directory and install the dependencies into the project before invoking `grunt`.
+Clone the repository. If `node` is not installed go get it from [nodejs.org][nodejs]. Finally change to the
+`OpenInlets` directory and install the dependencies into the project before invoking `grunt`.
 ```bash
 git clone https://github.com/mobilemind/OpenInlets.git
 cd OpenInlets
@@ -93,26 +96,26 @@ grunt
 ```
 
 Note that [nodejs] and [npm] are required. The lines above will install [grunt], [js2uri], and other
-dependencies defined in `package.json`. Later you can update them using `npm update` at any time or
-just invoke `grunt` to re-build OpenInlets.
+dependencies defined in `package.json`. Later you can update them using `npm update` at any time
+or just invoke `grunt` to re-build OpenInlets.
 
 ## URL Scheme Notes
-Each bookmarklet does one or more rudimentary checks and then redirects to an app using a URL protocol
-scheme. Information for each bookmarklet and the URL scheme follows.
+Each bookmarklet does some rudimentary check and then redirects to an app using a URL protocol
+scheme.
 
-* **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol scheme for 1Password. See
-the subheading [Open URLs externally...][1Password URL Scheme] for details.
+* **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol scheme for 1Password.
+See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 * **OpenInBlogsy** - Uses the `blogsy:` URL protocol scheme for Blogsy. See [Blogsy URL Scheme].
-* **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol scheme for GoodReader.
-See [GoodReader URL Scheme].
+* **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol scheme for
+GoodReader. See [GoodReader URL Scheme].
 * **OpenInGoogleChrome** - Uses the `googlechrome://` or `googlechromes://` scheme for the
 Google Chrome app on iOS. See [Google Chrome URL Scheme] for details.
 * **OpenInGoogleMaps** - Uses the `comgooglemaps://` protocol scheme for the Google Maps app
 on iOS. See [Google Maps URL Scheme] for details.
 * **OpenIniOctocat** - Uses the `ioc://` URL protocol scheme for iOctocat. See the subheading
 [How to open GitHub URLs in iOctocat?][iOctocat URL Scheme] for details.
-* **SearchIn1Password** - Uses `onepassword4://search/` with the current domain appended to trigger
-a 1Password search. See the subheading [Open URLs externally...][1Password URL Scheme] for details.
+* **SearchIn1Password** - Uses `onepassword4://search/` with the current domain appended to
+trigger a 1Password search. See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 
 
 ## Version Notes
