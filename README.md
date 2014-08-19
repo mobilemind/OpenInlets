@@ -26,13 +26,12 @@ __OpenIniOctocat__: When viewing a Github repository in Mobile Safari, open the 
 iOctocat iOS app.
 
 __SearchIn1Password__: Open 1Password and search for entries containing the domain of the current
-web page.
-_NOTE:_ This also works with Safari and Firefox on Mac OS X Mavericks.
+web page. _NOTE:_ This also works with Safari and Firefox on Mac OS X Mavericks.
 
 
 ## Install
 ### Desktop browser
-Visit the [OpenInlets page].
+Visit the [OpenInlets page] (this README.md file as a hosted HTML page).
 
 Drag a __JavaScript__ __bookmark__ to the bookmark bar or select it and add bookmark/favorite. Optionally
 edit or rename the bookmark/favorite. iTunes or iCloud will sync the bookmarklet to iOS.
