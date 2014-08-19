@@ -93,7 +93,7 @@ module.exports = function(grunt) {
       OpenIn1Password: { version: "1.1.0", file: "openin1password.js" },
       OpenInBlogsy: { version: "1.0.0", file: "openinblogsy.js" },
       OpenInGoodReader: { version: "1.1.0", file: "openingoodreader.js" },
-      OpenInGoogleMaps: { version: "1.7.0", file: "openingooglemaps.js" },
+      OpenInGoogleMaps: { version: "1.7.1", file: "openingooglemaps.js" },
       OpenIniOctocat: { version: "1.1.0", file: "openinioctocat.js" },
       SearchIn1Password: { version: "1.0.0", file: "searchin1password.js" }
     },
