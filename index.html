@@ -1,43 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv=content-type content="text/html;charset=utf-8">
+		<meta name=keywords content="bookmarklet, javascript, iOS, 1Password, Blogsy, Google, Chrome, Maps, GoodReader, app, Safari, iPhone, iPad, iPod Touch">
+		<title>mobilemind/OpenInGoodReader @ GitHub</title>
+	</head>
+	
+<body>
 <h1 id="openinlets">OpenInlets</h1>
 
-<p><a href="http://gruntjs.com/"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt" /></a><br/>
-<a href="http://travis-ci.org/mobilemind/OpenInlets"><img src="https://secure.travis-ci.org/mobilemind/OpenInlets.png?branch=master" alt="Build Status" /></a></p>
+<p><a href="http://gruntjs.com/"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt" /></a> <a href="http://travis-ci.org/mobilemind/OpenInlets"><img src="https://secure.travis-ci.org/mobilemind/OpenInlets.png?branch=master" alt="Build Status" /></a></p>
 
-<p>OpenInlets is a collection of bookmarklets for iOS Mobile Safari. Individual bookmarklets are<br/>
-described below.</p>
+<p>OpenInlets is a collection of bookmarklets to open apps from a web page&ndash; typically from iOS Mobile Safari to an iOS app.</p>
 
-<p><strong>OpenIn1Password</strong> Use this bookmarklet to automatically open the current web page using the<br/>
-Webview in 1Password 4.1.x. The 1Password Webview is handy for login/form completion, or to<br/>
-quickly add a new entry with login credentials.</p>
+<ul>
+<li><strong>OpenIn1Password</strong>: Open the current web page with the Webview in 1Password 4.1.x. Handy for login/form completion, or to quickly add a new entry with login credentials.</li>
 
-<p><strong>OpenInBlogsy</strong> Use this bookmarklet to automatically open the current web page using the Webview<br/>
-in Blogsy on iOS. From there you can easily reblog or quote the page.</p>
+<li><strong>OpenInBlogsy</strong>: Open the current web page using the Webview in Blogsy on iOS. Easily reblog or quote a page.</li>
 
-<p><strong>OpenInGoodReader</strong> Use this bookmarklet when viewing a PDF in Mobile Safari to automatically<br/>
-open the same PDF in GoodReader 4.</p>
+<li><strong>OpenInGoodReader</strong>: When viewing a PDF in Mobile Safari, open/download the same PDF in GoodReader 4.</li>
 
-<p><strong>OpenInGoogleMaps</strong> Use this bookmarklet to automatically open the current web page in the<br/>
-Google Maps application on iOS. Handy when an app opens a Google Maps page in Mobile Safari,<br/>
-but you&rsquo;d prefer that the Google Maps <em>app</em> show the same info. Just select the bookmark, it does<br/>
-the rest&ndash; no need to select, copy, switch apps &amp; paste. If the current URL does NOT contain an<br/>
-address or location, the bookmarklet will trigger a Google Maps app search using the page title.</p>
+<li><strong>OpenInGoogleChrome</strong>: Open the current web page in the Google Chrome app for iOS.</li>
 
-<p><strong>OpenIniOctocat</strong> Use this bookmarklet when viewing a Github repository URL in Mobile Safari to<br/>
-automatically open the same repository in the iOctocat iOS app.</p>
+<li><strong>OpenInGoogleMaps</strong>: Open the current web page in the Google Maps application on iOS. Handy when an app opens a Google Maps page in Mobile Safari, but you prefer the Google Maps <em>app</em>. If the current URL does NOT contain an address or location, it will search in the Google Maps app using the page title.</li>
 
-<p><strong>SearchIn1Password</strong> Use this bookmarklet to automatically open 1Password and search for entries<br/>
-containing the domain of the current web page. This works on Mobile Safari as well as Safari and<br/>
-Firefox on Mac OS X Mavericks.</p>
+<li><strong>OpenIniOctocat</strong>: When viewing a Github repository in Mobile Safari, open the same repository in the iOctocat iOS app.</li>
+
+<li><strong>SearchIn1Password</strong>: Open 1Password and search for entries containing the domain of the current web page. <em>NOTE:</em> This also works with Safari and Firefox on Mac OS X Mavericks.</li>
+</ul>
 
 <h2 id="install">Install</h2>
 
 <h3 id="desktop-browser">Desktop browser</h3>
 
-<p>Visit the <a href="http://mobilemind.github.io/OpenInlets/">OpenInlets page</a>.</p>
-
-<p>Drag the indicated link to the bookmark bar or select it and add bookmark/favorite. Optionally<br/>
-edit or rename the bookmark/favorite. Finally, synchronize bookmarks using iTunes or iCloud to<br/>
-get the bookmarklet to iOS.</p>
+<p>Drag a <strong>JavaScript</strong> <strong>bookmark</strong> to the bookmark bar or select it and add bookmark/favorite. Optionally edit or rename the bookmark/favorite. iTunes or iCloud will sync the bookmarklet to iOS.</p>
 
 <h4 id="javascript-bookmarks">JavaScript bookmarks</h4>
 
@@ -52,147 +48,50 @@ get the bookmarklet to iOS.</p>
 </ul>
 
 
-<p>Or use the a Mobile browser to visit this page (or the <a href="http://mobilemind.github.io/OpenInlets/">OpenInlets page</a>) and use one of the Mobile<br/>
-browser setup links such as the ones below.</p>
+<p><em>NOTE:</em> The <code>javascript:</code> bookmarks above will <strong>not</strong> work from the Github repository page, due to Github security precautions.</p>
 
 <h3 id="mobile-browser">Mobile browser</h3>
 
-<p>Tap the link below, bookmark the new page and follow the instructions on the page to turn the<br/>
-followed bookmark into a JavaScript bookmarklet.</p>
+<p>Click or tap a link below. Follow the instructions on the resulting page to turn the followed bookmark into a JavaScript bookmarklet.</p>
 
 <ul>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'" title="Setup OpenIn1Password">Setup OpenIn1Password</a> v1.1.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'" title="Setup OpenInBlogsy">Setup OpenInBlogsy</a> v1.0.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'" title="Setup OpenInGoodReader">Setup OpenInGoodReader</a> v1.1.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0'" title="Setup OpenInGoogleChrome">Setup OpenInGoogleChrome</a> v1.0.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'==location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'" title="Setup OpenInGoogleMaps">Setup OpenInGoogleMaps</a> v1.7.1</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Breturn'github.com'===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'" title="Setup OpenIniOctocat">Setup OpenIniOctocat</a> v1.1.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'" title="Setup SearchIn1Password">Setup SearchIn1Password</a> v1.0.0</li>
+<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'" title="Setup OpenIn1Password">Setup OpenIn1Password</a> v1.1.0</li>
+<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'" title="Setup OpenInBlogsy">Setup OpenInBlogsy</a> v1.0.0</li>
+<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'" title="Setup OpenInGoodReader">Setup OpenInGoodReader</a> v1.1.0</li>
+<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0'" title="Setup OpenInGoogleChrome">Setup OpenInGoogleChrome</a> v1.0.0</li>
+<li><a href="http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'==location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'" title="Setup OpenInGoogleMaps">Setup OpenInGoogleMaps</a> v1.7.1</li>
+<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn'github.com'===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'" title="Setup OpenIniOctocat">Setup OpenIniOctocat</a> v1.1.0</li>
+<li><a href="http://mmind.me/_?javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'" title="Setup SearchIn1Password">Setup SearchIn1Password</a> v1.0.0</li>
 </ul>
 
 
 <h2 id="use">Use</h2>
 
-<p>When a search or other app opens a web page in Mobile Safari, activate the corresponding bookmarklet<br/>
-(tap it on bookmark bar or use the Bookmarks/Favorites menu). If installed the corresponding iOS<br/>
-app will open to the same document or location.</p>
+<p>While viewing web page in Mobile Safari, activate the corresponding bookmarklet (tap it on the bookmark bar or use the Bookmarks/Favorites menu). If installed the corresponding iOS app will open to the same document or location.</p>
 
 <h2 id="requirements">Requirements</h2>
 
 <ul>
-<li>Mobile Safari 7.x or higher</li>
-<li>Corresponding iOS app</li>
+<li>Safari 7.x or higher</li>
+<li>Corresponding iOS app (and/or OS X app in the case of SearchIn1Password)</li>
 </ul>
 
 
-<p><strong>NOTE:</strong><br/>
-1. On iOS bookmarklets do NOT work in current versions of Google Chrome, Ghostery and DuckDuckGo apps<br/>
-for iOS due to restrictions in those apps on <code>javascript:</code> URL bookmarks.<br/>
-2. SearchIn1Password does work on Macintosh OS X Mavericks with Safari or Firefox.</p>
+<h4 id="notes">Notes</h4>
+
+<ol>
+<li>Bookmarklets do <em>not</em> work in Google Chrome, Ghostery and DuckDuckGo iOS apps due to restrictions of those apps on <code>javascript:</code> URL bookmarks.</li>
+<li>SearchIn1Password <em>does</em> work on Macintosh OS X Mavericks with Safari or Firefox.</li>
+</ol>
+
 
 <h2 id="license">License</h2>
 
 <p>MIT License - <a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a></p>
 
-<h2 id="source-code-notes">Source Code Notes</h2>
+<h2 id="more-information">More Information</h2>
 
-<p>The <code>void'x.y.z'</code> at the end the bookmarklet URL code serves two purposes.</p>
-
-<p>First it prevents the browser from navigating to another page when the bookmark is used.</p>
-
-<p>Second, it is a convenient place to embed a string indicating the <code>semver</code> version of the bookmark.</p>
-
-<h2 id="build">Build</h2>
-
-<p>Clone the repository. If <code>node</code> is not installed go get it from <a href="http://nodejs.org/">nodejs.org</a>. Finally change to<br/>
-the <code>OpenInlets</code> directory and install the dependencies into the project before invoking <code>grunt</code>.</p>
-
-<pre><code class="bash">git clone https://github.com/mobilemind/OpenInlets.git
-cd OpenInlets
-npm install
-grunt</code></pre>
-
-
+<p>For more information see the <a href="https://github.com/mobilemind/OpenInlets" title="Github: mobilemind/OpenInlets">OpenInlets Github repository.</a></p>
 <p></p>
-
-<p>Note that <a href="http://nodejs.org/">nodejs</a> and <a href="https://npmjs.org/">npm</a> are required. The lines above will install <a href="http://gruntjs.com/">grunt</a>, <a href="https://npmjs.org/package/js2uri">js2uri</a>, and other<br/>
-dependencies defined in <code>package.json</code>. Later you can update them using <code>npm update</code> at any time or<br/>
-just invoke <code>grunt</code> to re-build OpenInlets.</p>
-
-<h2 id="url-scheme-notes">URL Scheme Notes</h2>
-
-<p>Each bookmarklet does one or more rudimentary checks and then redirects to an app using a URL protocol<br/>
-scheme. Information for each bookmarklet and the URL scheme follows.</p>
-
-<ul>
-<li><strong>OpenIn1Password</strong> - Checks that the current browser UserAgent is for an iOS device (iPod/iPad/iPhone)<br/>
-and then redirects using the <code>ophttp://</code> or <code>ophttps://</code> URL protocol scheme for 1Password. See the<br/>
-subheading <a href="http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/" title="Agile Bits: 1Password URL Scheme">Open URLs externally&hellip;</a> for details.</li>
-<li><strong>OpenInBlogsy</strong> - Checks that the UserAgent corresponds to an iOS device and then redirects using the<br/>
-<code>blogsy:</code> URL protocol scheme for Blogsy.<br/>
-See <a href="http://blogsyapp.com/developers/" title="Blogsy URL Scheme">Blogsy URL Scheme</a>.</li>
-<li><strong>OpenInGoodReader</strong> - Checks that the UserAgent corresponds to an iOS device and that the current URL<br/>
-contains <code>.pdf</code> before redirecting using the <code>grhttp://</code> or <code>grhttps://</code> URL protocol scheme for GoodReader.<br/>
-See <a href="http://www.goodreader.com/gr-man-howto.html#ghttp" title="GoodReader:How do I save a file from Safari to GoodReader?">GoodReader URL Scheme</a>.</li>
-<li><strong>OpenInGoogleChrome</strong> - Checks that the UserAgent corresponds to an iOS device and then redirects using<br/>
-the <code>googlechrome://</code> or <code>googlechromes://</code> scheme for the Google Chrome app on iOS. See <a href="https://developer.chrome.com/multidevice/ios/links/" title="Opening links in Chrome for iOS">Google Chrome URL Scheme</a><br/>
-for details.</li>
-<li><strong>OpenInGoogleMaps</strong> - Checks that the current domain is <code>maps.google.com</code> and then redirects using<br/>
-the <code>comgooglemaps://</code> protocol scheme for the Google Maps app on iOS. See <a href="https://developers.google.com/maps/documentation/ios/urlscheme" title="Google Developers:Google Maps URL Scheme">Google Maps URL Scheme</a><br/>
-for details.</li>
-<li><strong>OpenIniOctocat</strong> - Checks that the current domain is <code>github.com</code> and then redirects using the<br/>
-<code>ioc://</code> URL protocol scheme for iOctocat. See the subheading <a href="http://ioctocat.com/faq/" title="iOctocat FAQs - How to open GitHub URLs in iOctocat?">How to open GitHub URLs in iOctocat?</a><br/>
-for details.</li>
-<li><strong>SearchIn1Password</strong> - Parses the current browser URL and then redirects using <code>onepassword4://search/</code><br/>
-with the current domain appended to trigger a search for 1Password entries containing the current domain.<br/>
-See the subheading <a href="http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/" title="Agile Bits: 1Password URL Scheme">Open URLs externally&hellip;</a> for details.</li>
-</ul>
-
-
-<h2 id="version-notes">Version Notes</h2>
-
-<p>0.0.8: August 19, 2014 - Add OpenInGoogleChrome; update version</p>
-
-<p>0.0.7: August 18, 2014 - Enhance OpenInGoogleMaps; update version</p>
-
-<p>0.0.6: August 18, 2014 - Add OpenInBlogsy; update version</p>
-
-<p>0.0.5: August 12, 2014 - Refactor bookmarklet to use anonymous functions to facilitate testing; add SearchIn1Password; update version</p>
-
-<p>0.0.4: August 11, 2014 - Remove unneeded http/https checks &amp; add iOS checks in bookmarklets; Add URL Scheme Notes to README; update version</p>
-
-<p>0.0.3: August 10, 2014 - Refactor Gruntfile.js for efficiency &amp; &lsquo;DRY&rsquo;; add package.json keywords; add OpenIniOctocat</p>
-
-<p>0.0.2: August 8, 2014 - Bookmarklets have individual version numbers that update</p>
-
-<p>0.0.1: July 28, 2014 - Bookmarklets build via <code>grunt</code>, <code>grunt deploy</code> updates <code>README.md</code>, version numbers not updating</p>
-
-<p>0.0.0: July 22, 2014 - Initial commit, smushing together multiple bookmarklet repos I have; doesn&rsquo;t build yet</p>
-
-<h2 id="plans--to-do-">Plans/&ldquo;To Do&rdquo;</h2>
-
-<ul>
-<li>[X] Get this working with 2-3 existing bookmarklets (Gmapplet, OpenIn1Password, OpenInGoodReader)</li>
-<li>[X] Get Travis CI integrated</li>
-<li>[X] Get bookmarklet to have individual version numbers</li>
-<li>[X] Make use of RegEx replacements or templates to streamline updating the README.md</li>
-<li>[ ] Use some sort of Markdown or HTML templating to automate making a gh-pages <code>index.html</code> file</li>
-<li>[ ] Add a &ldquo;References&rdquo; section to README.md with links to the underlying URL schemes used</li>
-<li>[ ] Use <code>x-callback:</code> URLs where possible</li>
-</ul>
-
-
-<!--- JavaScript links -->
-
-
-<p></p>
-
-<!--- Setup links -->
-
-
-<p></p>
-
-<!-- Reference links -->
-
-
-<p></p>
+</body>
+</html>
