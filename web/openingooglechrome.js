@@ -1,0 +1,1 @@
+javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0'

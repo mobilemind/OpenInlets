@@ -42,6 +42,7 @@ get the bookmarklet to iOS.
 + [OpenIn1Password] v1.1.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'`
 + [OpenInBlogsy] v1.0.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'`
 + [OpenInGoodReader] v1.1.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'`
++ [OpenInGoogleChrome] v1.0.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0'`
 + [OpenInGoogleMaps] v1.7.1 `javascript:function%20a()%7Bif('maps.google.com'==location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'`
 + [OpenIniOctocat] v1.1.0 `javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'`
 + [SearchIn1Password] v1.0.0 `javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'`
@@ -56,6 +57,7 @@ followed bookmark into a JavaScript bookmarklet.
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenInBlogsy] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.1.0
++ **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.7.1
 + **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.1.0
 + **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.0.0
@@ -108,10 +110,13 @@ and then redirects using the `ophttp://` or `ophttps://` URL protocol scheme for
 subheading [Open URLs externally...][1Password URL Scheme] for details.
 * **OpenInBlogsy** - Checks that the UserAgent corresponds to an iOS device and then redirects using the
 `blogsy:` URL protocol scheme for Blogsy.
-See [GoodReader URL Scheme].
+See [Blogsy URL Scheme].
 * **OpenInGoodReader** - Checks that the UserAgent corresponds to an iOS device and that the current URL
 contains `.pdf` before redirecting using the `grhttp://` or `grhttps://` URL protocol scheme for GoodReader.
 See [GoodReader URL Scheme].
+* **OpenInGoogleChrome** - Checks that the UserAgent corresponds to an iOS device and then redirects using
+the `googlechrome://` or `googlechromes://` scheme for the Google Chrome app on iOS. See [Google Chrome URL Scheme]
+for details.
 * **OpenInGoogleMaps** - Checks that the current domain is `maps.google.com` and then redirects using
 the `comgooglemaps://` protocol scheme for the Google Maps app on iOS. See [Google Maps URL Scheme]
 for details.
@@ -124,6 +129,8 @@ See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 
 
 ## Version Notes
+0.0.8: August 19, 2014 - Add OpenInGoogleChrome; update version
+
 0.0.7: August 18, 2014 - Enhance OpenInGoogleMaps; update version
 
 0.0.6: August 18, 2014 - Add OpenInBlogsy; update version
@@ -154,6 +161,7 @@ See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 [OpenIn1Password]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0' "OpenIn1Password"
 [OpenInBlogsy]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0' "OpenInBlogsy"
 [OpenInGoodReader]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0' "OpenInGoodReader"
+[OpenInGoogleChrome]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0' "OpenInGoogleChrome"
 [OpenInGoogleMaps]: javascript:function%20a()%7Bif('maps.google.com'==location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "OpenInGoogleMaps"
 [OpenIniOctocat]: javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0' "OpenIniOctocat"
 [SearchIn1Password]: javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0' "SearchIn1Password"
@@ -161,6 +169,7 @@ See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 [Setup OpenIn1Password]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0' "Setup OpenIn1Password"
 [Setup OpenInBlogsy]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0' "Setup OpenInBlogsy"
 [Setup OpenInGoodReader]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0' "Setup OpenInGoodReader"
+[Setup OpenInGoogleChrome]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0' "Setup OpenInGoogleChrome"
 [Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'==location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "Setup OpenInGoogleMaps"
 [Setup OpenIniOctocat]: http://mmind.me/_?javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0' "Setup OpenIniOctocat"
 [Setup SearchIn1Password]: http://mmind.me/_?javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0' "Setup SearchIn1Password"
@@ -173,5 +182,6 @@ See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 [1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
 [Blogsy URL Scheme]: http://blogsyapp.com/developers/ "Blogsy URL Scheme"
 [GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp "GoodReader:How do I save a file from Safari to GoodReader?"
+[Google Chrome URL Scheme]: https://developer.chrome.com/multidevice/ios/links/ "Opening links in Chrome for iOS"
 [Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
 [iOctocat URL Scheme]: http://ioctocat.com/faq/ "iOctocat FAQs - How to open GitHub URLs in iOctocat?"
