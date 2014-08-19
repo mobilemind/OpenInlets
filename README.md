@@ -19,7 +19,8 @@ open the same PDF in GoodReader 4.
 __OpenInGoogleMaps__ Use this bookmarklet to automatically open the current web page in the
 Google Maps application on iOS. Handy when an app opens a Google Maps page in Mobile Safari,
 but you'd prefer that the Google Maps _app_ show the same info. Just select the bookmark, it does
-the rest-- no need to select, copy, switch apps & paste.
+the rest-- no need to select, copy, switch apps & paste. If the current URL does NOT contain an
+address or location, the bookmarklet will trigger a Google Maps app search using the page title.
 
 __OpenIniOctocat__ Use this bookmarklet when viewing a Github repository URL in Mobile Safari to
 automatically open the same repository in the iOctocat iOS app.
@@ -41,7 +42,7 @@ get the bookmarklet to iOS.
 + [OpenIn1Password] v1.1.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'`
 + [OpenInBlogsy] v1.0.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'`
 + [OpenInGoodReader] v1.1.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'`
-+ [OpenInGoogleMaps] v1.7.0 `javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0'`
++ [OpenInGoogleMaps] v1.7.1 `javascript:function%20a()%7Bif('maps.google.com'==location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'`
 + [OpenIniOctocat] v1.1.0 `javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'`
 + [SearchIn1Password] v1.0.0 `javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'`
 
@@ -55,7 +56,7 @@ followed bookmark into a JavaScript bookmarklet.
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenInBlogsy] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.1.0
-+ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.7.0
++ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.7.1
 + **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.1.0
 + **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.0.0
 
@@ -125,6 +126,8 @@ See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 ## Version Notes
 0.0.6: August 18, 2014 - Add OpenInBlogsy; update version
 
+0.0.6: August 18, 2014 - Add OpenInBlogsy; update version
+
 0.0.5: August 12, 2014 - Refactor bookmarklet to use anonymous functions to facilitate testing; add SearchIn1Password; update version
 
 0.0.4: August 11, 2014 - Remove unneeded http/https checks & add iOS checks in bookmarklets; Add URL Scheme Notes to README; update version
@@ -144,19 +147,21 @@ See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 - [X] Make use of RegEx replacements or templates to streamline updating the README.md
 - [ ] Use some sort of Markdown or HTML templating to automate making a gh-pages `index.html` file
 - [ ] Add a "References" section to README.md with links to the underlying URL schemes used
+- [ ] Use `x-callback:` URLs where possible
+
 
 <!--- JavaScript links -->
 [OpenIn1Password]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0' "OpenIn1Password"
 [OpenInBlogsy]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0' "OpenInBlogsy"
 [OpenInGoodReader]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0' "OpenInGoodReader"
-[OpenInGoogleMaps]: javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0' "OpenInGoogleMaps"
+[OpenInGoogleMaps]: javascript:function%20a()%7Bif('maps.google.com'==location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "OpenInGoogleMaps"
 [OpenIniOctocat]: javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0' "OpenIniOctocat"
 [SearchIn1Password]: javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0' "SearchIn1Password"
 <!--- Setup links -->
 [Setup OpenIn1Password]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0' "Setup OpenIn1Password"
 [Setup OpenInBlogsy]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0' "Setup OpenInBlogsy"
 [Setup OpenInGoodReader]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0' "Setup OpenInGoodReader"
-[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&&location.search&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0' "Setup OpenInGoogleMaps"
+[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'==location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "Setup OpenInGoogleMaps"
 [Setup OpenIniOctocat]: http://mmind.me/_?javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0' "Setup OpenIniOctocat"
 [Setup SearchIn1Password]: http://mmind.me/_?javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0' "Setup SearchIn1Password"
 <!-- Reference links -->
