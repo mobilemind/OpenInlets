@@ -80,6 +80,8 @@ MIT License - <http://www.opensource.org/licenses/mit-license.php>
 
 ## Source Code Notes
 
+The `src/` directory has human readable JavaScript, written in a way to facilitate testing. The `web\`
+directory has "uglified" code that has a `javascript:` URL protocol prefix and should be shorter.
 The `void'x.y.z'` at the end the bookmarklet URL code serves two purposes.
 
 1. It prevents the browser from navigating to another page when the bookmark is used.
@@ -96,8 +98,8 @@ grunt
 ```
 
 Note that [nodejs] and [npm] are required. The lines above will install [grunt], [js2uri], and other
-dependencies defined in `package.json`. Later you can update them using `npm update` at any time
-or just invoke `grunt` to re-build OpenInlets.
+dependencies defined in `package.json`. You can update dependencies using `npm update` at any time
+or just invoke `grunt` to re-build OpenInlets `web/` directory.
 
 ## URL Scheme Notes
 Each bookmarklet does some rudimentary check and then redirects to an app using a URL protocol
