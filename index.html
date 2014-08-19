@@ -10,13 +10,17 @@ described below.</p>
 Webview in 1Password 4.1.x. The 1Password Webview is handy for login/form completion, or to<br/>
 quickly add a new entry with login credentials.</p>
 
+<p><strong>OpenInBlogsy</strong> Use this bookmarklet to automatically open the current web page using the Webview<br/>
+in Blogsy on iOS. From there you can easily reblog or quote the page.</p>
+
 <p><strong>OpenInGoodReader</strong> Use this bookmarklet when viewing a PDF in Mobile Safari to automatically<br/>
 open the same PDF in GoodReader 4.</p>
 
 <p><strong>OpenInGoogleMaps</strong> Use this bookmarklet to automatically open the current web page in the<br/>
 Google Maps application on iOS. Handy when an app opens a Google Maps page in Mobile Safari,<br/>
 but you&rsquo;d prefer that the Google Maps <em>app</em> show the same info. Just select the bookmark, it does<br/>
-the rest&ndash; no need to select, copy, switch apps &amp; paste.</p>
+the rest&ndash; no need to select, copy, switch apps &amp; paste. If the current URL does NOT contain an<br/>
+address or location, the bookmarklet will trigger a Google Maps app search using the page title.</p>
 
 <p><strong>OpenIniOctocat</strong> Use this bookmarklet when viewing a Github repository URL in Mobile Safari to<br/>
 automatically open the same repository in the iOctocat iOS app.</p>
@@ -39,8 +43,9 @@ get the bookmarklet to iOS.</p>
 
 <ul>
 <li><a href="javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'" title="OpenIn1Password">OpenIn1Password</a> v1.1.0 <code>javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'</code></li>
+<li><a href="javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'" title="OpenInBlogsy">OpenInBlogsy</a> v1.0.0 <code>javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'</code></li>
 <li><a href="javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'" title="OpenInGoodReader">OpenInGoodReader</a> v1.1.0 <code>javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'</code></li>
-<li><a href="javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&amp;&amp;location.search&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0'" title="OpenInGoogleMaps">OpenInGoogleMaps</a> v1.7.0 <code>javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&amp;&amp;location.search&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0'</code></li>
+<li><a href="javascript:function%20a()%7Bif('maps.google.com'==location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'" title="OpenInGoogleMaps">OpenInGoogleMaps</a> v1.7.1 <code>javascript:function%20a()%7Bif('maps.google.com'==location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'</code></li>
 <li><a href="javascript:function%20a()%7Breturn'github.com'===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'" title="OpenIniOctocat">OpenIniOctocat</a> v1.1.0 <code>javascript:function%20a()%7Breturn'github.com'===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'</code></li>
 <li><a href="javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'" title="SearchIn1Password">SearchIn1Password</a> v1.0.0 <code>javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'</code></li>
 </ul>
@@ -56,8 +61,9 @@ followed bookmark into a JavaScript bookmarklet.</p>
 
 <ul>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'" title="Setup OpenIn1Password">Setup OpenIn1Password</a> v1.1.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'" title="Setup OpenInBlogsy">Setup OpenInBlogsy</a> v1.0.0</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'" title="Setup OpenInGoodReader">Setup OpenInGoodReader</a> v1.1.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Breturn'maps.google.com'==location.hostname&amp;&amp;location.search&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='comgooglemaps://'+location.search:void%200%7Da();void'1.7.0'" title="Setup OpenInGoogleMaps">Setup OpenInGoogleMaps</a> v1.7.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'==location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'" title="Setup OpenInGoogleMaps">Setup OpenInGoogleMaps</a> v1.7.1</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Breturn'github.com'===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'" title="Setup OpenIniOctocat">Setup OpenIniOctocat</a> v1.1.0</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'" title="Setup SearchIn1Password">Setup SearchIn1Password</a> v1.0.0</li>
 </ul>
@@ -120,6 +126,9 @@ scheme. Information for each bookmarklet and the URL scheme follows.</p>
 <li><strong>OpenIn1Password</strong> - Checks that the current browser UserAgent is for an iOS device (iPod/iPad/iPhone)<br/>
 and then redirects using the <code>ophttp://</code> or <code>ophttps://</code> URL protocol scheme for 1Password. See the<br/>
 subheading <a href="http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/" title="Agile Bits: 1Password URL Scheme">Open URLs externally&hellip;</a> for details.</li>
+<li><strong>OpenInBlogsy</strong> - Checks that the UserAgent corresponds to an iOS device and then redirects using the<br/>
+<code>blogsy:</code> URL protocol scheme for Blogsy.<br/>
+See <a href="http://www.goodreader.com/gr-man-howto.html#ghttp" title="GoodReader:How do I save a file from Safari to GoodReader?">GoodReader URL Scheme</a>.</li>
 <li><strong>OpenInGoodReader</strong> - Checks that the UserAgent corresponds to an iOS device and that the current URL<br/>
 contains <code>.pdf</code> before redirecting using the <code>grhttp://</code> or <code>grhttps://</code> URL protocol scheme for GoodReader.<br/>
 See <a href="http://www.goodreader.com/gr-man-howto.html#ghttp" title="GoodReader:How do I save a file from Safari to GoodReader?">GoodReader URL Scheme</a>.</li>
@@ -136,6 +145,10 @@ See the subheading <a href="http://blog.agilebits.com/2013/01/24/developers-here
 
 
 <h2 id="version-notes">Version Notes</h2>
+
+<p>0.0.7: August 18, 2014 - Enhance OpenInGoogleMaps; update version</p>
+
+<p>0.0.6: August 18, 2014 - Add OpenInBlogsy; update version</p>
 
 <p>0.0.5: August 12, 2014 - Refactor bookmarklet to use anonymous functions to facilitate testing; add SearchIn1Password; update version</p>
 
@@ -158,6 +171,7 @@ See the subheading <a href="http://blog.agilebits.com/2013/01/24/developers-here
 <li>[X] Make use of RegEx replacements or templates to streamline updating the README.md</li>
 <li>[ ] Use some sort of Markdown or HTML templating to automate making a gh-pages <code>index.html</code> file</li>
 <li>[ ] Add a &ldquo;References&rdquo; section to README.md with links to the underlying URL schemes used</li>
+<li>[ ] Use <code>x-callback:</code> URLs where possible</li>
 </ul>
 
 
