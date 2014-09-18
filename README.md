@@ -120,6 +120,8 @@ trigger a 1Password search. See the subheading [Open URLs externally...][1Passwo
 
 
 ## Version Notes
+0.0.9: September 1, 2014 - Update to uglify 0.6.0; specify uglify maxLineLen option; update version
+
 0.0.8: August 19, 2014 - Add OpenInGoogleChrome; update version
 
 0.0.7: August 18, 2014 - Enhance OpenInGoogleMaps; update version
