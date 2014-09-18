@@ -29,6 +29,7 @@ module.exports = function(grunt) {
     uglify: {
       options: {
         stats: true,
+        maxLineLen: 32766,
         mangle: {
           sort: true,
           toplevel: true
