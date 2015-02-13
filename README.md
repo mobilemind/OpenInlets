@@ -120,7 +120,11 @@ trigger a 1Password search. See the subheading [Open URLs externally...][1Passwo
 
 
 ## Version Notes
-0.0.9: September 1, 2014 - Update to uglify 0.6.0; specify uglify maxLineLen option; update version
+0.0.11: February 13, 2015 -  work with `node` engine 0.10.x - 0.12.x
+
+0.0.10: January 22, 2015 - update to `grunt-contrib-jshint` 0.11.x; add some stricter checks
+
+0.0.9: September 18, 2014 - Update to uglify 0.6.0; specify uglify maxLineLen option; update version
 
 0.0.8: August 19, 2014 - Add OpenInGoogleChrome; update version
 
