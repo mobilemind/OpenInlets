@@ -32,6 +32,8 @@ module.exports = function(grunt) {
       options: {
         stats: true,
         maxLineLen: 32766,
+        screwIE8: true,
+        mangleProperties: false,
         mangle: {
           sort: true,
           toplevel: true

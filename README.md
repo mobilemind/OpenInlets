@@ -120,6 +120,8 @@ trigger a 1Password search. See the subheading [Open URLs externally...][1Passwo
 
 
 ## Version Notes
+0.0.13: April 8, 2015 - use `grunt-contrib-uglify` 0.9.x with new options (i.e., `screwIE8: true`)
+
 0.0.12: April 4, 2015 -  work with `grunt-cli` > 0.1.0, use `grunt-contrib-uglify` 0.8.x
 
 0.0.11: February 13, 2015 -  work with `node` engine 0.10.x - 0.12.x
