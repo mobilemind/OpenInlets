@@ -100,26 +100,28 @@ Note that [nodejs] and [npm] are required. The lines above will install [grunt],
 dependencies defined in `package.json`. You can update dependencies using `npm update` at any time
 or just invoke `grunt` to re-build OpenInlets `web/` directory.
 
-## URL Scheme Notes
+## URL Scheme Notes (References)
 Each bookmarklet does some rudimentary check and then redirects to an app using a URL protocol
 scheme.
 
 * **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol scheme for 1Password.
 See the subheading [Open URLs externally...][1Password URL Scheme] for details.
-* **OpenInBlogsy** - Uses the `blogsy:` URL protocol scheme for Blogsy. See [Blogsy URL Scheme].
+* **OpenInBlogsy** - Uses the `blogsy:` URL protocol scheme for Blogsy. See [Blogsy URL Scheme][Blogsy URL Scheme].
 * **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol scheme for
-GoodReader. See [GoodReader URL Scheme].
+GoodReader. See [GoodReader URL Scheme][GoodReader URL Scheme].
 * **OpenInGoogleChrome** - Uses the `googlechrome://` or `googlechromes://` scheme for the
-Google Chrome app on iOS. See [Google Chrome URL Scheme] for details.
+Google Chrome app on iOS. See [Google Chrome URL Scheme][Google Chrome URL Scheme] for details.
 * **OpenInGoogleMaps** - Uses the `comgooglemaps://` protocol scheme for the Google Maps app
-on iOS. See [Google Maps URL Scheme] for details.
+on iOS. See [Google Maps URL Scheme][Google Maps URL Scheme] for details.
 * **OpenIniOctocat** - Uses the `ioc://` URL protocol scheme for iOctocat. See the subheading
-[How to open GitHub URLs in iOctocat?][iOctocat URL Scheme] for details.
+[How to open GitHub URLs in iOctocat][iOctocat URL Scheme] for details.
 * **SearchIn1Password** - Uses `onepassword4://search/` with the current domain appended to
 trigger a 1Password search. See the subheading [Open URLs externally...][1Password URL Scheme] for details.
 
 
 ## Version Notes
+0.0.14: May 15, 2015 - update license info in `package.json` to use new property and SPDX format
+
 0.0.13: April 8, 2015 - use `grunt-contrib-uglify` 0.9.x with new options (i.e., `screwIE8: true`)
 
 0.0.12: April 4, 2015 -  work with `grunt-cli` > 0.1.0, use `grunt-contrib-uglify` 0.8.x
@@ -154,8 +156,8 @@ trigger a 1Password search. See the subheading [Open URLs externally...][1Passwo
 - [X] Get bookmarklet to have individual version numbers
 - [X] Make use of RegEx replacements or templates to streamline updating the README.md
 - [ ] Use some sort of Markdown or HTML templating to automate making a gh-pages `index.html` file
-- [ ] Add a "References" section to README.md with links to the underlying URL schemes used
-- [ ] Use `x-callback:` URLs where possible
+- [X] Add a "References" section to README.md with links to the underlying URL schemes used
+- [ ] Use `x-callback:` URLs where possible and relevant
 
 
 <!--- JavaScript links -->
@@ -183,6 +185,6 @@ trigger a 1Password search. See the subheading [Open URLs externally...][1Passwo
 [1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
 [Blogsy URL Scheme]: http://blogsyapp.com/developers/ "Blogsy URL Scheme"
 [GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp "GoodReader:How do I save a file from Safari to GoodReader?"
-[Google Chrome URL Scheme]: https://developer.chrome.com/multidevice/ios/links/ "Opening links in Chrome for iOS"
+[Google Chrome URL Scheme]: https://developer.chrome.com/multidevice/ios/links "Opening links in Chrome for iOS"
 [Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
 [iOctocat URL Scheme]: http://ioctocat.com/faq/ "iOctocat FAQs - How to open GitHub URLs in iOctocat?"
