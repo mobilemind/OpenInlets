@@ -1,9 +1,9 @@
-# OpenInlets [![NPM version][npm-image]][npm-url] [![Build Status][build-image]][build-url]
+# OpenInlets
 
 OpenInlets is a collection of bookmarklets to open apps from a web page-- typically from iOS Mobile
 Safari to an iOS app.
 
-[![Built with Grunt][built-with-grunt-img]][built-with-grunt-url]
+[![Built with Grunt][built-with-grunt-img]][built-with-grunt-url] [![Build Status][build-image]][build-url]
 
 [![Dependency Status][dep-image]][dep-url]
 [![devDependency Status][devDep-image]][devDep-url]
@@ -122,6 +122,8 @@ trigger a 1Password search. See the subheading [Open URLs externally...][1Passwo
 
 
 ## Version Notes
+0.0.15: August 2, 2015 - update build dependencies and README, no functional changes
+
 0.0.14: May 15, 2015 - update license info in `package.json` to use new property and SPDX format
 
 0.0.13: April 8, 2015 - use `grunt-contrib-uglify` 0.9.x with new options (i.e., `screwIE8: true`)
@@ -183,8 +185,6 @@ trigger a 1Password search. See the subheading [Open URLs externally...][1Passwo
 [built-with-grunt-url]: http://gruntjs.com/
 [build-image]: https://secure.travis-ci.org/mobilemind/OpenInlets.svg?branch=master
 [build-url]: http://travis-ci.org/mobilemind/OpenInlets
-[npm-image]: https://img.shields.io/npm/v/OpenInlets.svg
-[npm-url]: https://www.npmjs.com/package/OpenInlets
 [dep-image]: https://david-dm.org/mobilemind/OpenInlets.svg
 [dep-url]: https://david-dm.org/mobilemind/OpenInlets
 [devDep-image]: https://img.shields.io/david/dev/mobilemind/OpenInlets.svg
