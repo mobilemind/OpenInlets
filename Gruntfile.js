@@ -116,6 +116,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('js2uri');
 
+  // version info
+  grunt.log.writeln('\n' + grunt.config('pkg.name') + ' ' + grunt.config('pkg.version'));
+
   // buildbookmarklet
   grunt.registerMultiTask('buildbookmarklet', 'build bookmarklet', function() {
     grunt.config.set('js2uri.options.customVersion', this.data.version);
