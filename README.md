@@ -1,10 +1,12 @@
-# OpenInlets
-
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
-[![Build Status](https://secure.travis-ci.org/mobilemind/OpenInlets.png?branch=master)](http://travis-ci.org/mobilemind/OpenInlets)
+# OpenInlets [![NPM version][npm-image]][npm-url] [![Build Status][build-image]][build-url]
 
 OpenInlets is a collection of bookmarklets to open apps from a web page-- typically from iOS Mobile
 Safari to an iOS app.
+
+[![Built with Grunt][built-with-grunt-img]][built-with-grunt-url]
+
+[![Dependency Status][dep-image]][dep-url]
+[![devDependency Status][devDep-image]][devDep-url]
 
 __OpenIn1Password__: Open the current web page with the Webview in 1Password 4.1.x. Handy for
 login/form completion, or to quickly add a new entry with login credentials.
@@ -176,6 +178,17 @@ trigger a 1Password search. See the subheading [Open URLs externally...][1Passwo
 [Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'==location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "Setup OpenInGoogleMaps"
 [Setup OpenIniOctocat]: http://mmind.me/_?javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0' "Setup OpenIniOctocat"
 [Setup SearchIn1Password]: http://mmind.me/_?javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0' "Setup SearchIn1Password"
+<!-- Badge links -->
+[built-with-grunt-img]: https://cdn.gruntjs.com/builtwith.png
+[built-with-grunt-url]: http://gruntjs.com/
+[build-image]: https://secure.travis-ci.org/mobilemind/OpenInlets.svg?branch=master
+[build-url]: http://travis-ci.org/mobilemind/OpenInlets
+[npm-image]: https://img.shields.io/npm/v/OpenInlets.svg
+[npm-url]: https://www.npmjs.com/package/OpenInlets
+[dep-image]: https://david-dm.org/mobilemind/OpenInlets.svg
+[dep-url]: https://david-dm.org/mobilemind/OpenInlets
+[devDep-image]: https://img.shields.io/david/dev/mobilemind/OpenInlets.svg
+[devDep-url]: https://david-dm.org/mobilemind/OpenInlets#info=devDependencies
 <!-- Reference links -->
 [nodejs]: http://nodejs.org/
 [npm]: https://npmjs.org/
