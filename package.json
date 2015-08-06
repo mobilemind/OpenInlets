@@ -18,9 +18,10 @@
   "license": "MIT",
   "main": "Gruntfile.js",
   "engines": {
-    "node": ">=0.10.0 <0.13.0"
+    "node": "0.12.x"
   },
   "devDependencies": {
+    "grunt-cli": "0.1.x",
     "grunt": "0.4.x",
     "grunt-contrib-jshint": "0.11.x",
     "grunt-contrib-uglify": "0.9.x",
@@ -30,7 +31,6 @@
   "dependencies": {
   },
   "scripts": {
-     "preinstall": "npm install -g grunt-cli",
     "test": "grunt --verbose"
   },
   "keywords": [ "bookmarklet", "iOS",
