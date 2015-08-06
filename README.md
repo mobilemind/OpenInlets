@@ -77,7 +77,7 @@ restrictions of those apps on `javascript:` URL bookmarks.
 2. SearchIn1Password _does_ work on Macintosh OS X Mavericks with Safari or Firefox.
 
 ## License
-MIT License - <http://www.opensource.org/licenses/mit-license.php>
+MIT License - <http://opensource.org/licenses/mit-license.php>
 
 ## Source Code Notes
 
