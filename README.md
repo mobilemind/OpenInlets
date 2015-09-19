@@ -68,7 +68,7 @@ bookmark bar or use the Bookmarks/Favorites menu). If installed the correspondin
 the same document or location.
 
 ## Requirements
-* Mobile Safari 7.x or higher
+* Mobile Safari 7.x or higher (v1.0.0 tested with iOS 9)
 * Corresponding iOS app
 
 #### Notes
@@ -122,6 +122,8 @@ trigger a 1Password search. See the subheading [Open URLs externally...][1Passwo
 
 
 ## Version Notes
+1.0.0: September 19, 2015 - update package.json to use `node: ">=0.12.0"`; baseline semver to 1.0.0
+
 0.0.15: August 2, 2015 - update build dependencies and README, no functional changes
 
 0.0.14: May 15, 2015 - update license info in `package.json` to use new property and SPDX format
