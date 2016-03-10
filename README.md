@@ -123,6 +123,8 @@ trigger a 1Password search. See the subheading [Open URLs externally...][1Passwo
 
 ## Version Notes
 
+1.0.1: March 9, 2016 - update .travis.yml and package.json to use `node_js` ">= 4.4.0"  and `grunt` ">=0.4.0"
+
 1.0.1: February 16, 2016 - update package.json to use `grunt-contrib-jshint: ">=0.11.0"` to support 1.0.0 and beyond
 
 1.0.0: September 19, 2015 - update package.json to use `node: ">=0.12.0"`; baseline semver to 1.0.0
