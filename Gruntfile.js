@@ -1,6 +1,5 @@
-/*global module:false*/
+/*global module:true*/
 module.exports = function(grunt) {
-  "use strict";
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -8,23 +7,25 @@ module.exports = function(grunt) {
       files: ['Gruntfile.js', 'src/*.js'],
       options: {
         bitwise: true,
+        // esversion: 5,
+        evil: true,
         freeze: true,
         latedef: true,
+        multistr: true,
         noarg: true,
         noempty: true,
-        strict: false,
+        singleGroups: true,
+        strict: "implied",
         trailing: true,
         undef: true,
-        singleGroups: true,
         unused: true,
+        // relax options
         boss: true,
-        browser: true,
         eqnull: true,
-        evil: true,
         lastsemic: true,
-        multistr: true,
         scripturl: true,
-        sub: true
+        // environments
+        browser: true
       }
     },
 
@@ -32,7 +33,9 @@ module.exports = function(grunt) {
       options: {
         stats: true,
         maxLineLen: 32766,
+        preserveComments: false,
         screwIE8: true,
+        quoteStyle: 1,
         mangleProperties: false,
         mangle: {
           sort: true,
@@ -56,19 +59,24 @@ module.exports = function(grunt) {
           if_return: true,
           join_vars: true,
           cascade: true,
+          collapse_vars: true,
           warnings: true,
           negate_iife: true,
+          keep_fargs: false,
           side_effects: true,
           global_defs: {}
         },
         codegen: {
+          beautify: false,
+          indent_level: 0,
           quote_keys: false,
           space_colon: false,
           max_line_len: 32766,
           ie_proof: false,
           bracketize: false,
           comments: false,
-          semicolons: true
+          semicolons: true,
+          quote_style: 1
         },
         report: 'min'
       },
