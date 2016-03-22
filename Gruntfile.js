@@ -6,26 +6,7 @@ module.exports = function(grunt) {
     jshint: {
       files: ['Gruntfile.js', 'src/*.js'],
       options: {
-        bitwise: true,
-        // esversion: 5,
-        evil: true,
-        freeze: true,
-        latedef: true,
-        multistr: true,
-        noarg: true,
-        noempty: true,
-        singleGroups: true,
-        strict: "implied",
-        trailing: true,
-        undef: true,
-        unused: true,
-        // relax options
-        boss: true,
-        eqnull: true,
-        lastsemic: true,
-        scripturl: true,
-        // environments
-        browser: true
+        jshintrc: '.jshintrc'
       }
     },
 
