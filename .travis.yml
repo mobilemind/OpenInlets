@@ -6,7 +6,7 @@ language: node_js
 node_js:
 - '5.9'
 before_script:
-- npm set progress=false && npm install -g grunt-cli
+- npm set progress=false ; npm install -g grunt-cli
 notifications:
   slack:
     secure: fNJJGzFujnrOb2yiAsbnGXkJcp3OfXFg8LifvX1TVVGEOm52S5WiupkwqaUOIZ5EuvJeKt19Vx5tsjtVigc8BZcw5s8IyX661nQ2uQuaeoH/oGwQYa+LITr98D8K+R6NaoJCEYb3pQN1YrvhB0wwn8bViMtyvKhpl+4cG7ZhwxY=

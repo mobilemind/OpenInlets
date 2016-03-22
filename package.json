@@ -30,7 +30,7 @@
   "dependencies": {
   },
   "scripts": {
-    "test": "grunt --verbose"
+    "test": "grunt"
   },
   "keywords": [ "bookmarklet", "iOS",
     "1Password",
