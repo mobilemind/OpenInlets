@@ -4,7 +4,7 @@ branches:
 sudo: false
 language: node_js
 node_js:
-- '5.9'
+- '6'
 before_script:
 - npm set progress=false ; npm install -g grunt-cli
 notifications:
