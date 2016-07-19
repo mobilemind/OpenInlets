@@ -1,7 +1,7 @@
 {
   "name": "OpenInlets",
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "https://github.com/mobilemind/OpenInlets",
   "author": {
     "name": "\"mobilemind\" Tom King",
@@ -18,12 +18,12 @@
   "license": "MIT",
   "main": "Gruntfile.js",
   "engines": {
-    "node": ">=5.9.0"
+    "node": ">6.0.0"
   },
   "devDependencies": {
-    "grunt": ">=0.4.5",
+    "grunt": ">1.0.0",
     "grunt-contrib-jshint": ">=1.0.0",
-    "grunt-contrib-uglify": ">=1.0.0",
+    "grunt-contrib-uglify": ">=2.0.0",
     "grunt-contrib-nodeunit": ">=1.0.0",
     "js2uri": "1.4.x"
   },
