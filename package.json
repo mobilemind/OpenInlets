@@ -25,7 +25,8 @@
     "grunt-contrib-jshint": ">=1.0.0",
     "grunt-contrib-uglify": ">=2.0.0",
     "grunt-contrib-nodeunit": ">=1.0.0",
-    "js2uri": "1.4.x"
+    "js2uri": "1.4.x",
+    "grunt-yamllint": ">=0.2.0"
   },
   "dependencies": {
   },
