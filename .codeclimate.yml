@@ -1,0 +1,17 @@
+engines:
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  markdownlint:
+    enabled: false
+ratings:
+  paths:
+  - "**.js"
+  - "**.jsx"
+  - "**.module"
+  - "**.md"
+exclude_paths:
+- test/
+- node_modules/
+- web/
