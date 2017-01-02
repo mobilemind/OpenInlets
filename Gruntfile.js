@@ -95,15 +95,22 @@ module.exports = function(grunt) {
 
     nodeunit: {
       files: ['test/*.js']
+    },
+
+		yamllint: {
+			files: { src: [ '*.yaml' ] }
     }
 
   });
 
-  // Load plugins: "jshint", "uglify", "nodeunit", "js2uri"
+  // Load plugins: "jshint", "uglify", "nodeunit", "js2uri", "yamllint"
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('js2uri');
+  grunt.loadNpmTasks('grunt-yamllint');
+
+
 
   // version info
   grunt.log.writeln('\n' + grunt.config('pkg.name') + ' ' + grunt.config('pkg.version'));
@@ -162,7 +169,7 @@ module.exports = function(grunt) {
   });
 
   // Default task
-  grunt.registerTask('default', [ "jshint:files", "uglify:sourceFiles", "buildbookmarklet" ] );
+  grunt.registerTask('default', [ "jshint:files", "uglify:sourceFiles", "buildbookmarklet", 'yamllint'] );
 
   // Deploy task
   grunt.registerTask('deploy', [ "default", "updatereadme" ] );
