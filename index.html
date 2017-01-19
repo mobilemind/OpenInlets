@@ -3,95 +3,95 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8">
 		<meta name="keywords" content="bookmarklet, javascript, iOS, 1Password, Blogsy, Google, Chrome, Maps, GoodReader, app, Safari, iPhone, iPad, iPod Touch">
-		<title>mobilemind/OpenInGoodReader @ GitHub</title>
+		<title>mobilemind/OpenInlets @ GitHub</title>
 	</head>
 
-<body>
-<h1 id="openinlets">OpenInlets</h1>
+	<body>
+		<h1 id="openinlets">OpenInlets</h1>
 
-<p><a href="http://gruntjs.com/"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt" /></a> <a href="http://travis-ci.org/mobilemind/OpenInlets"><img src="https://secure.travis-ci.org/mobilemind/OpenInlets.png?branch=master" alt="Build Status" /></a></p>
+		<p><a href="http://gruntjs.com/"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt" /></a> <a href="http://travis-ci.org/mobilemind/OpenInlets"><img src="https://secure.travis-ci.org/mobilemind/OpenInlets.png?branch=master" alt="Build Status" /></a></p>
 
-<p>OpenInlets is a collection of bookmarklets to open apps from a web page&ndash; typically from iOS Mobile Safari to an iOS app.</p>
+		<p>OpenInlets is a collection of bookmarklets to open apps from a web page&ndash; typically from iOS Mobile Safari to an iOS app.</p>
 
-<ul>
-<li><strong>OpenIn1Password</strong>: Open the current web page with the Webview in 1Password 4.1.x. Handy for login/form completion, or to quickly add a new entry with login credentials.</li>
+		<ul>
+			<li><strong>OpenIn1Password</strong>: Open the current web page with the Webview in 1Password 4.1.x. Handy for login/form completion, or to quickly add a new entry with login credentials.</li>
 
-<li><strong>OpenInBlogsy</strong>: Open the current web page using the Webview in Blogsy on iOS. Easily reblog or quote a page.</li>
+			<li><strong>OpenInBlogsy</strong>: Open the current web page using the Webview in Blogsy on iOS. Easily reblog or quote a page.</li>
 
-<li><strong>OpenInGoodReader</strong>: When viewing a PDF in Mobile Safari, open/download the same PDF in GoodReader 4.</li>
+			<li><strong>OpenInGoodReader</strong>: When viewing a PDF in Mobile Safari, open/download the same PDF in GoodReader 4.</li>
 
-<li><strong>OpenInGoogleChrome</strong>: Open the current web page in the Google Chrome app for iOS.</li>
+			<li><strong>OpenInGoogleChrome</strong>: Open the current web page in the Google Chrome app for iOS.</li>
 
-<li><strong>OpenInGoogleMaps</strong>: Open the current web page in the Google Maps application on iOS. Handy when an app opens a Google Maps page in Mobile Safari, but you prefer the Google Maps <em>app</em>. If the current URL does NOT contain an address or location, it will search in the Google Maps app using the page title.</li>
+			<li><strong>OpenInGoogleMaps</strong>: Open the current web page in the Google Maps application on iOS. Handy when an app opens a Google Maps page in Mobile Safari, but you prefer the Google Maps <em>app</em>. If the current URL does NOT contain an address or location, it will search in the Google Maps app using the page title.</li>
 
-<li><strong>OpenIniOctocat</strong>: When viewing a Github repository in Mobile Safari, open the same repository in the iOctocat iOS app.</li>
+			<li><strong>OpenIniOctocat</strong>: When viewing a Github repository in Mobile Safari, open the same repository in the iOctocat iOS app.</li>
 
-<li><strong>SearchIn1Password</strong>: Open 1Password and search for entries containing the domain of the current web page. <em>NOTE:</em> This also works with Safari and Firefox on Mac OS X Mavericks.</li>
-</ul>
+			<li><strong>SearchIn1Password</strong>: Open 1Password and search for entries containing the domain of the current web page. <em>NOTE:</em> This also works with Safari and Firefox on Mac OS X Mavericks.</li>
+		</ul>
 
-<h2 id="install">Install</h2>
+		<h2 id="install">Install</h2>
 
-<h3 id="desktop-browser">Desktop browser</h3>
+		<h3 id="desktop-browser">Desktop browser</h3>
 
-<p>Drag a <strong>JavaScript</strong> <strong>bookmark</strong> to the bookmark bar or select it and add bookmark/favorite. Optionally edit or rename the bookmark/favorite. iTunes or iCloud will sync the bookmarklet to iOS.</p>
+		<p>Drag a <strong>JavaScript</strong> <strong>bookmark</strong> to the bookmark bar or select it and add bookmark/favorite. Optionally edit or rename the bookmark/favorite. iTunes or iCloud will sync the bookmarklet to iOS.</p>
 
-<h4 id="javascript-bookmarks">JavaScript bookmarks</h4>
+		<h4 id="javascript-bookmarks">JavaScript bookmarks</h4>
 
-<ul>
-<li><a href="javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'" title="OpenIn1Password">OpenIn1Password</a> v1.1.0 <code>javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'</code></li>
-<li><a href="javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'" title="OpenInBlogsy">OpenInBlogsy</a> v1.0.0 <code>javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'</code></li>
-<li><a href="javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'" title="OpenInGoodReader">OpenInGoodReader</a> v1.1.0 <code>javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'</code></li>
-<li><a href="javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0'" title="OpenInGoogleChrome">OpenInGoogleChrome</a> v1.0.0 <code>javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0'</code></li>
-<li><a href="javascript:function%20a()%7Bif('maps.google.com'==location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'" title="OpenInGoogleMaps">OpenInGoogleMaps</a> v1.7.1 <code>javascript:function%20a()%7Bif('maps.google.com'==location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'</code></li>
-<li><a href="javascript:function%20a()%7Breturn'github.com'===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'" title="OpenIniOctocat">OpenIniOctocat</a> v1.1.0 <code>javascript:function%20a()%7Breturn'github.com'===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'</code></li>
-<li><a href="javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'" title="SearchIn1Password">SearchIn1Password</a> v1.0.0 <code>javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'</code></li>
-</ul>
-
-
-<p><em>NOTE:</em> The <code>javascript:</code> bookmarks above will <strong>not</strong> work from the Github repository page, due to Github security precautions.</p>
-
-<h3 id="mobile-browser">Mobile browser</h3>
-
-<p>Click or tap a link below. Follow the instructions on the resulting page to turn the followed bookmark into a JavaScript bookmarklet.</p>
-
-<ul>
-<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'" title="Setup OpenIn1Password">Setup OpenIn1Password</a> v1.1.0</li>
-<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'" title="Setup OpenInBlogsy">Setup OpenInBlogsy</a> v1.0.0</li>
-<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'" title="Setup OpenInGoodReader">Setup OpenInGoodReader</a> v1.1.0</li>
-<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0'" title="Setup OpenInGoogleChrome">Setup OpenInGoogleChrome</a> v1.0.0</li>
-<li><a href="http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'==location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'" title="Setup OpenInGoogleMaps">Setup OpenInGoogleMaps</a> v1.7.1</li>
-<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn'github.com'===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'" title="Setup OpenIniOctocat">Setup OpenIniOctocat</a> v1.1.0</li>
-<li><a href="http://mmind.me/_?javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'" title="Setup SearchIn1Password">Setup SearchIn1Password</a> v1.0.0</li>
-</ul>
+		<ul>
+			<li><a href="javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'" title="OpenIn1Password">OpenIn1Password</a> v1.1.0 <code>javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'</code></li>
+			<li><a href="javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'" title="OpenInBlogsy">OpenInBlogsy</a> v1.0.0 <code>javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'</code></li>
+			<li><a href="javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'" title="OpenInGoodReader">OpenInGoodReader</a> v1.1.0 <code>javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'</code></li>
+			<li><a href="javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0'" title="OpenInGoogleChrome">OpenInGoogleChrome</a> v1.0.0 <code>javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0'</code></li>
+			<li><a href="javascript:function%20a()%7Bif('maps.google.com'==location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'" title="OpenInGoogleMaps">OpenInGoogleMaps</a> v1.7.1 <code>javascript:function%20a()%7Bif('maps.google.com'==location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'</code></li>
+			<li><a href="javascript:function%20a()%7Breturn'github.com'===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'" title="OpenIniOctocat">OpenIniOctocat</a> v1.1.0 <code>javascript:function%20a()%7Breturn'github.com'===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'</code></li>
+			<li><a href="javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'" title="SearchIn1Password">SearchIn1Password</a> v1.0.0 <code>javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'</code></li>
+		</ul>
 
 
-<h2 id="use">Use</h2>
+		<p><em>NOTE:</em> The <code>javascript:</code> bookmarks above will <strong>not</strong> work from the Github repository page, due to Github security precautions.</p>
 
-<p>While viewing web page in Mobile Safari, activate the corresponding bookmarklet (tap it on the bookmark bar or use the Bookmarks/Favorites menu). If installed the corresponding iOS app will open to the same document or location.</p>
+		<h3 id="mobile-browser">Mobile browser</h3>
 
-<h2 id="requirements">Requirements</h2>
+		<p>Click or tap a link below. Follow the instructions on the resulting page to turn the followed bookmark into a JavaScript bookmarklet.</p>
 
-<ul>
-<li>Safari 7.x or higher</li>
-<li>Corresponding iOS app (and/or OS X app in the case of SearchIn1Password)</li>
-</ul>
-
-
-<h4 id="notes">Notes</h4>
-
-<ol>
-<li>Bookmarklets do <em>not</em> work in Google Chrome, Ghostery and DuckDuckGo iOS apps due to restrictions of those apps on <code>javascript:</code> URL bookmarks.</li>
-<li>SearchIn1Password <em>does</em> work on macOS Sierra or Macintosh OS X Mavericks with Safari or Firefox.</li>
-</ol>
+		<ul>
+			<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'" title="Setup OpenIn1Password">Setup OpenIn1Password</a> v1.1.0</li>
+			<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'" title="Setup OpenInBlogsy">Setup OpenInBlogsy</a> v1.0.0</li>
+			<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'" title="Setup OpenInGoodReader">Setup OpenInGoodReader</a> v1.1.0</li>
+			<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0'" title="Setup OpenInGoogleChrome">Setup OpenInGoogleChrome</a> v1.0.0</li>
+			<li><a href="http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'==location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'" title="Setup OpenInGoogleMaps">Setup OpenInGoogleMaps</a> v1.7.1</li>
+			<li><a href="http://mmind.me/_?javascript:function%20a()%7Breturn'github.com'===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'" title="Setup OpenIniOctocat">Setup OpenIniOctocat</a> v1.1.0</li>
+			<li><a href="http://mmind.me/_?javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'" title="Setup SearchIn1Password">Setup SearchIn1Password</a> v1.0.0</li>
+		</ul>
 
 
-<h2 id="license">License</h2>
+		<h2 id="use">Use</h2>
 
-<p>MIT License - <a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a></p>
+		<p>While viewing web page in Mobile Safari, activate the corresponding bookmarklet (tap it on the bookmark bar or use the Bookmarks/Favorites menu). If installed the corresponding iOS app will open to the same document or location.</p>
 
-<h2 id="more-information">More Information</h2>
+		<h2 id="requirements">Requirements</h2>
 
-<p>For more information see the <a href="https://github.com/mobilemind/OpenInlets" title="Github: mobilemind/OpenInlets">OpenInlets Github repository.</a></p>
+		<ul>
+			<li>Safari 7.x or higher</li>
+			<li>Corresponding iOS app (and/or OS X app in the case of SearchIn1Password)</li>
+		</ul>
 
-</body>
+
+		<h4 id="notes">Notes</h4>
+
+		<ol>
+			<li>Bookmarklets do <em>not</em> work in Google Chrome, Ghostery and DuckDuckGo iOS apps due to restrictions of those apps on <code>javascript:</code> URL bookmarks.</li>
+			<li>SearchIn1Password <em>does</em> work on macOS Sierra or Macintosh OS X Mavericks with Safari or Firefox.</li>
+		</ol>
+
+
+		<h2 id="license">License</h2>
+
+		<p>MIT License - <a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a></p>
+
+		<h2 id="more-information">More Information</h2>
+
+		<p>For more information see the <a href="https://github.com/mobilemind/OpenInlets" title="Github: mobilemind/OpenInlets">OpenInlets Github repository.</a></p>
+
+	</body>
 </html>
