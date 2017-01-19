@@ -30,7 +30,7 @@ same repository in the iOctocat iOS app.
 
 __SearchIn1Password__: Open 1Password and search for entries containing the domain
 of the current web page. _NOTE:_ This also works with Safari and Firefox on Mac
-OS X Mavericks (and _might_ work on macOS Sierra).
+OS X Mavericks (and macOS Sierra).
 
 ## Install
 
