@@ -3,11 +3,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    jshint: {
-      files: ['Gruntfile.js', 'src/*.js'],
-      options: {
-        jshintrc: '.jshintrc'
-      }
+    eslint: {
+        target: ['Gruntfile.js', 'src/*.js']
     },
 
     uglify: {
@@ -103,13 +100,12 @@ module.exports = function(grunt) {
 
   });
 
-  // Load plugins: "jshint", "uglify", "nodeunit", "js2uri", "yamllint"
-  grunt.loadNpmTasks('grunt-contrib-jshint');
+  // Load plugins: "uglify", "nodeunit", "eslint", "js2uri", "yamllint"
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
+	grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('js2uri');
   grunt.loadNpmTasks('grunt-yamllint');
-
 
 
   // version info
@@ -169,7 +165,7 @@ module.exports = function(grunt) {
   });
 
   // Default task
-  grunt.registerTask('default', [ "jshint:files", "uglify:sourceFiles", "buildbookmarklet", 'yamllint'] );
+  grunt.registerTask('default', ['yamllint', "eslint", "uglify:sourceFiles", "buildbookmarklet"] );
 
   // Deploy task
   grunt.registerTask('deploy', [ "default", "updatereadme" ] );
