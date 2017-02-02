@@ -81,7 +81,8 @@ the corresponding iOS app will open to the same document or location.
 
 ### Notes
 
-1. Bookmarklets do _not_ work in Google Chrome, Ghostery and DuckDuckGo iOS apps due to restrictions of those apps on `javascript:` URL bookmarks.
+1. Bookmarklets do _not_ work in Google Chrome, Ghostery and DuckDuckGo iOS apps
+due to restrictions of those apps on `javascript:` URL bookmarks.
 2. SearchIn1Password _does_ work on Macintosh OS X Mavericks with Safari or Firefox.
 
 ## License
@@ -95,8 +96,10 @@ testing. The `web\` directory has "uglified" code that has a `javascript:` URL
 protocol prefix and should be shorter. The `void'x.y.z'` at the end the bookmarklet
 URL code serves two purposes.
 
-1. It prevents the browser from navigating to another page when the bookmark is used.
-2. It is a convenient place to embed a string indicating the `semver` version of the bookmark.
+1. It prevents the browser from navigating to another page when the bookmark is
+used.
+2. It is a convenient place to embed a string indicating the `semver` version
+of the bookmark.
 
 ## Build
 
@@ -129,8 +132,8 @@ a URL protocol scheme.
 + **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol scheme
  for GoodReader. See [GoodReader URL Scheme][GoodReader URL Scheme].
 + **OpenInGoogleChrome** - Uses the `googlechrome://` or `googlechromes://` scheme
- for the Google Chrome app on iOS. See
- [Google Chrome URL Scheme][Google Chrome URL Scheme] for details.
+ for the Google Chrome app on iOS. Formerly documented at
+ `https://developer.chrome.com/multidevice/ios/links`.
 + **OpenInGoogleMaps** - Uses the `comgooglemaps://` protocol scheme for the
  Google Maps app on iOS. See [Google Maps URL Scheme][Google Maps URL Scheme]
  for details.
@@ -142,6 +145,10 @@ a URL protocol scheme.
  [Open URLs externally...][1Password URL Scheme] for details.
 
 ## Version Notes
+
+1.1.3: use eslint instead of jshint
+
+1.1.2: editorial updates to text files; add CodeClimate support files
 
 1.1.1: update package.json to use- node: >6.0, grunt: >1.0,
 grunt-contrib-uglify >=2.0 (reduces size of output); bump semver
@@ -200,18 +207,6 @@ package.json keywords; add OpenIniOctocat
 0.0.0: July 22, 2014 - Initial commit, smushing together multiple bookmarklet
 repos I have; doesn't build yet
 
-## Plans/"To Do"
-
-+ [X] Get this working with 2-3 existing bookmarklets (Gmapplet, OpenIn1Password, OpenInGoodReader)
-- [X] Get Travis CI integrated
-- [X] Get bookmarklet to have individual version numbers
-- [X] Make use of RegEx replacements or templates to streamline updating the README.md
-- [ ] Use some sort of Markdown or HTML templating to automate making a gh-pages
-`index.html` file
-+ [X] Add a "References" section to README.md with links to the underlying URL
-schemes used
-+ [ ] Use `x-callback:` URLs where possible and relevant
-
 <!--- JavaScript links -->
 [OpenIn1Password]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0' "OpenIn1Password"
 [OpenInBlogsy]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0' "OpenInBlogsy"
@@ -246,6 +241,5 @@ schemes used
 [1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
 [Blogsy URL Scheme]: http://blogsyapp.com/developers/ "Blogsy URL Scheme"
 [GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp "GoodReader:How do I save a file from Safari to GoodReader?"
-[Google Chrome URL Scheme]: https://developer.chrome.com/multidevice/ios/links "Opening links in Chrome for iOS"
 [Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
 [iOctocat URL Scheme]: http://ioctocat.com/faq/ "iOctocat FAQs - How to open GitHub URLs in iOctocat?"
