@@ -58,7 +58,7 @@ module.exports = function(grunt) {
         },
         report: 'min'
       },
-      sourceFiles: { files: [{
+      sourceFiles: {files: [{
         expand: true,
         cwd: 'src',
         src: '*.js',
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
       }]}
     },
 
-    js2uri:  {
+    js2uri: {
       options: {
         protocol: 'javascript:',
         useNewlineEOL: true,
@@ -81,21 +81,21 @@ module.exports = function(grunt) {
     },
 
     buildbookmarklet: {
-      OpenIn1Password: { version: "1.1.0", file: "openin1password.js" },
-      OpenInBlogsy: { version: "1.0.0", file: "openinblogsy.js" },
-      OpenInGoodReader: { version: "1.1.0", file: "openingoodreader.js" },
-      OpenInGoogleChrome: { version: "1.0.0", file: "openingooglechrome.js" },
-      OpenInGoogleMaps: { version: "1.7.1", file: "openingooglemaps.js" },
-      OpenIniOctocat: { version: "1.1.0", file: "openinioctocat.js" },
-      SearchIn1Password: { version: "1.0.0", file: "searchin1password.js" }
+      OpenIn1Password: {version: "1.1.0", file: "openin1password.js"},
+      OpenInBlogsy: {version: "1.0.0", file: "openinblogsy.js"},
+      OpenInGoodReader: {version: "1.1.0", file: "openingoodreader.js"},
+      OpenInGoogleChrome: {version: "1.0.0", file: "openingooglechrome.js"},
+      OpenInGoogleMaps: {version: "1.7.1", file: "openingooglemaps.js"},
+      OpenIniOctocat: {version: "1.1.0", file: "openinioctocat.js"},
+      SearchIn1Password: {version: "1.1.0", file: "searchin1password.js"}
     },
 
     nodeunit: {
       files: ['test/*.js']
     },
 
-		yamllint: {
-			files: { src: [ '*.yaml' ] }
+    yamllint: {
+      files: {src: [ '*.yaml' ]}
     }
 
   });
@@ -103,7 +103,7 @@ module.exports = function(grunt) {
   // Load plugins: "uglify", "nodeunit", "eslint", "js2uri", "yamllint"
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
-	grunt.loadNpmTasks('grunt-eslint');
+  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('js2uri');
   grunt.loadNpmTasks('grunt-yamllint');
 
@@ -114,60 +114,78 @@ module.exports = function(grunt) {
   // buildbookmarklet
   grunt.registerMultiTask('buildbookmarklet', 'build bookmarklet', function() {
     grunt.config.set('js2uri.options.customVersion', this.data.version);
-    grunt.config.set('js2uri.files.src', [ 'web/' + this.data.file ]);
-    grunt.config.set('js2uri.files.dest', 'web/' + this.data.file );
-    if (!grunt.task.run([ "js2uri" ])) grunt.fail.fatal("Failed to js2uri() " + this.target);
-    else return true;
+    grunt.config.set('js2uri.files.src', ['web/' + this.data.file]);
+    grunt.config.set('js2uri.files.dest', 'web/' + this.data.file);
+    if (grunt.task.run([ "js2uri" ])) {
+      return true;
+    }
+    grunt.fail.fatal("Failed to js2uri() " + this.target);
   });
 
-  // updatereadme
+  // set updatereadme targets & define replaceinreadme()
   grunt.config.set('updatereadme', grunt.config('buildbookmarklet'));
+  const updatereadme = function(oldStrRegEx, newStr, readMeString, targetKind, targetName) {
+    if (readMeString.match(oldStrRegEx)) {
+      return readMeString.replace(oldStrRegEx, newStr);
+    }
+    grunt.fail.fatal("Can't find " + targetKind + " references for " + targetName);
+  };
+
   grunt.registerMultiTask('updatereadme', 'update reference links in README.md', function() {
     // read external files
-    var readMeString = grunt.file.read('README.md');
-    if (!readMeString || 0 === readMeString.length) grunt.fail.fatal("Can't read from README.md");
-    var bookmarkletString = grunt.file.read('web/' + this.data.file);
-    if (!bookmarkletString || 0 === bookmarkletString.length) grunt.fail.fatal("Can't read from web/" + this.data.file);
+    let readMeString = grunt.file.read('README.md');
+    if (!readMeString || 0 === readMeString.length) {
+      grunt.fail.fatal("Can't read from README.md");
+    }
+    let bookmarkletString = grunt.file.read('web/' + this.data.file);
+    if (!bookmarkletString || 0 === bookmarkletString.length) {
+      grunt.fail.fatal("Can't read from web/" + this.data.file);
+    }
 
     // update `javascript:...` code blocks
-    var matchStr = '(\\[' + this.target + '\\] v\\d+\\.\\d+\\.\\d+ )`javascript:[^`].+`';
-    var oldStrRegEx = new RegExp(matchStr,'g');
-    var newStr = '$1`' + bookmarkletString + '`';
-    if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
-    else grunt.fail.fatal("Can't find `javascript:...` references for " + this.target);
+    readMeString = updatereadme(
+        new RegExp('(\\[' + this.target + '\\] v\\d+\\.\\d+\\.\\d+ )`javascript:[^`].+`','g'),
+        '$1`' + bookmarkletString + '`',
+        readMeString,
+        '`javascript:...`',
+    this.target);
 
     // use regex to update bookmarklet javascript URL link
     // 1st entity encode "&"
     bookmarkletString = bookmarkletString.replace('\\&', '&amp;');
-    matchStr = '(\\[' + this.target + '\\]: )javascript.*( \\"' + this.target + '\\")';
-    oldStrRegEx = new RegExp(matchStr,'g');
-    newStr = '$1' + bookmarkletString + '$2';
-    if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
-    else return grunt.fail.fatal("Can't find javascript: URL for " + this.target);
+    readMeString = updatereadme(
+        new RegExp('(\\[' + this.target + '\\]: )javascript.*( \\"' + this.target + '\\")','g'),
+        '$1' + bookmarkletString + '$2',
+        readMeString,
+        'javascript: URL',
+    this.target);
 
     // use regex to update reference link bookmarklet URL
-    matchStr = '(\\[Setup ' + this.target + '\\]: )http.*( \\"Setup ' + this.target + '\\")';
-    oldStrRegEx = new RegExp(matchStr,'g');
-    newStr = '$1' + 'http://mmind.me/_?' + bookmarkletString + '$2';
-    if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
-    else return grunt.fail.fatal("Can't find reference link for " + this.target);
+    readMeString = updatereadme(
+        new RegExp('(\\[Setup ' + this.target + '\\]: )http.*( \\"Setup ' + this.target + '\\")','g'),
+        '$1http://mmind.me/_?' + bookmarkletString + '$2',
+        readMeString,
+        'reference link',
+    this.target);
 
     // use regex to update version references
-    matchStr = '(' + this.target + '\\] v)\\d+\\.\\d+\\.\\d+';
-    oldStrRegEx = new RegExp(matchStr,'g');
-    newStr = '$1' + this.data.version ;
-    if (readMeString.match(oldStrRegEx)) readMeString = readMeString.replace(oldStrRegEx, newStr);
-    else grunt.fail.fatal("Can't find version references for " + this.target);
+    readMeString = updatereadme(new RegExp('(' + this.target + '\\] v)\\d+\\.\\d+\\.\\d+','g'),
+        '$1' + this.data.version,
+        readMeString,
+        'version references',
+    this.target);
 
     // update README.md file
-    if (grunt.file.write('README.md', readMeString)) return grunt.log.writeln('README.md updated to ' + this.target + ' ' + this.data.version);
-    else grunt.fail.fatal("Can't write to README.md. Recommended action: `git checkout -- README.md`");
+    if (grunt.file.write('README.md', readMeString)) {
+      return grunt.log.writeln('README.md updated to ' + this.target + ' ' + this.data.version);
+    }
+    grunt.fail.fatal("Can't write to README.md. Recommended action: `git checkout -- README.md`");
   });
 
   // Default task
-  grunt.registerTask('default', ['yamllint', "eslint", "uglify:sourceFiles", "buildbookmarklet"] );
+  grunt.registerTask('default', ['yamllint', "eslint", "uglify:sourceFiles", "buildbookmarklet"]);
 
   // Deploy task
-  grunt.registerTask('deploy', [ "default", "updatereadme" ] );
+  grunt.registerTask('deploy', [ "default", "updatereadme" ]);
 
 };
