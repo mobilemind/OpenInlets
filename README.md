@@ -44,13 +44,13 @@ iCloud will sync the bookmarklet to iOS.
 
 #### JavaScript bookmarks
 
-+ [OpenIn1Password] v1.1.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0'`
-+ [OpenInBlogsy] v1.0.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0'`
-+ [OpenInGoodReader] v1.1.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0'`
-+ [OpenInGoogleChrome] v1.0.0 `javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0'`
-+ [OpenInGoogleMaps] v1.7.1 `javascript:function%20a()%7Bif('maps.google.com'==location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'`
-+ [OpenIniOctocat] v1.1.0 `javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0'`
-+ [SearchIn1Password] v1.0.0 `javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0'`
++ [OpenIn1Password] v1.1.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0'`
++ [OpenInBlogsy] v1.0.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0'`
++ [OpenInGoodReader] v1.1.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0'`
++ [OpenInGoogleChrome] v1.0.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Da();void'1.0.0'`
++ [OpenInGoogleMaps] v1.7.1 `javascript:function%20a()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'`
++ [OpenIniOctocat] v1.1.0 `javascript:function%20a()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7Da();void'1.1.0'`
++ [SearchIn1Password] v1.1.0 `javascript:function%20a()%7Bconst%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.1.0'`
 
 _NOTE:_ The `javascript:` bookmarks above will __not__ work from the Github repository
 page, due to Github security precautions.
@@ -66,7 +66,7 @@ resulting page to turn the followed bookmark into a JavaScript bookmarklet.
 + **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.7.1
 + **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.1.0
-+ **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.0.0
++ **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.1.0
 
 ## Use
 
@@ -146,6 +146,8 @@ a URL protocol scheme.
 
 ## Version Notes
 
+1.2.0: overall package # bumped due to significant ES6/eslint driven changes
+
 1.1.3: use eslint instead of jshint
 
 1.1.2: editorial updates to text files; add CodeClimate support files
@@ -208,21 +210,21 @@ package.json keywords; add OpenIniOctocat
 repos I have; doesn't build yet
 
 <!--- JavaScript links -->
-[OpenIn1Password]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0' "OpenIn1Password"
-[OpenInBlogsy]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0' "OpenInBlogsy"
-[OpenInGoodReader]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0' "OpenInGoodReader"
-[OpenInGoogleChrome]: javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0' "OpenInGoogleChrome"
-[OpenInGoogleMaps]: javascript:function%20a()%7Bif('maps.google.com'==location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "OpenInGoogleMaps"
-[OpenIniOctocat]: javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0' "OpenIniOctocat"
-[SearchIn1Password]: javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0' "SearchIn1Password"
+[OpenIn1Password]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0' "OpenIn1Password"
+[OpenInBlogsy]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0' "OpenInBlogsy"
+[OpenInGoodReader]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0' "OpenInGoodReader"
+[OpenInGoogleChrome]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Da();void'1.0.0' "OpenInGoogleChrome"
+[OpenInGoogleMaps]: javascript:function%20a()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "OpenInGoogleMaps"
+[OpenIniOctocat]: javascript:function%20a()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7Da();void'1.1.0' "OpenIniOctocat"
+[SearchIn1Password]: javascript:function%20a()%7Bconst%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.1.0' "SearchIn1Password"
 <!--- Setup links -->
-[Setup OpenIn1Password]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='op'+location.href:void%200%7Da();void'1.1.0' "Setup OpenIn1Password"
-[Setup OpenInBlogsy]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href='blogsy:'+location.href:void%200%7Da();void'1.0.0' "Setup OpenInBlogsy"
-[Setup OpenInGoodReader]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href)?location.href='gr'+location.href:void%200%7Da();void'1.1.0' "Setup OpenInGoodReader"
-[Setup OpenInGoogleChrome]: http://mmind.me/_?javascript:function%20a()%7Breturn/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace(/%5Ehttp/,'googlechrome'):void%200%7Da();void'1.0.0' "Setup OpenInGoogleChrome"
-[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'==location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "Setup OpenInGoogleMaps"
-[Setup OpenIniOctocat]: http://mmind.me/_?javascript:function%20a()%7Breturn'github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent)?location.href=location.href.replace('https:','ioc:'):void%200%7Da();void'1.1.0' "Setup OpenIniOctocat"
-[Setup SearchIn1Password]: http://mmind.me/_?javascript:function%20a()%7Bvar%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.0.0' "Setup SearchIn1Password"
+[Setup OpenIn1Password]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0' "Setup OpenIn1Password"
+[Setup OpenInBlogsy]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0' "Setup OpenInBlogsy"
+[Setup OpenInGoodReader]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0' "Setup OpenInGoodReader"
+[Setup OpenInGoogleChrome]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Da();void'1.0.0' "Setup OpenInGoogleChrome"
+[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "Setup OpenInGoogleMaps"
+[Setup OpenIniOctocat]: http://mmind.me/_?javascript:function%20a()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7Da();void'1.1.0' "Setup OpenIniOctocat"
+[Setup SearchIn1Password]: http://mmind.me/_?javascript:function%20a()%7Bconst%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.1.0' "Setup SearchIn1Password"
 <!-- Badge links -->
 [built-with-grunt-img]: https://cdn.gruntjs.com/builtwith.png
 [built-with-grunt-url]: http://gruntjs.com/
