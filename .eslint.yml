@@ -5,7 +5,9 @@ ecmaFeatures:
   jsx: false
 
 env:
-  amd: true
+  amd: false
+  browser: true
+  node: true
   shared-node-browser: true
   es6: true
   jquery: false
@@ -52,8 +54,8 @@ rules:
   block-scoped-var: 2
   class-methods-use-this: 2
   complexity: [2, 12]
-  consistent-return: 2
-  curly: 2
+  consistent-return: 0
+  curly: 0
   default-case: 2
   dot-location: 0
   dot-notation: 2
@@ -82,7 +84,7 @@ rules:
   no-labels: 2
   no-lone-blocks: 2
   no-loop-func: 2
-  no-magic-numbers: 2
+  no-magic-numbers: 0
   no-multi-spaces: 2
   no-multi-str: 2
   no-new-func: 2
