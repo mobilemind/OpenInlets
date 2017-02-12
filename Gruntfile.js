@@ -148,9 +148,7 @@ module.exports = function(grunt) {
     // update `javascript:...` code blocks
     readMeString = updatereadme(
         new RegExp('(\\[' + this.target + '\\] v\\d+\\.\\d+\\.\\d+ )`javascript:[^`].+`','g'),
-        '$1`' + bookmarkletString + '`',
-        readMeString,
-        '`javascript:...`',
+        '$1`' + bookmarkletString + '`', readMeString, '`javascript:...`',
     this.target);
 
     // use regex to update bookmarklet javascript URL link
@@ -158,24 +156,18 @@ module.exports = function(grunt) {
     bookmarkletString = bookmarkletString.replace('\\&', '&amp;');
     readMeString = updatereadme(
         new RegExp('(\\[' + this.target + '\\]: )javascript.*( \\"' + this.target + '\\")','g'),
-        '$1' + bookmarkletString + '$2',
-        readMeString,
-        'javascript: URL',
+        '$1' + bookmarkletString + '$2', readMeString, 'javascript: URL',
     this.target);
 
     // use regex to update reference link bookmarklet URL
     readMeString = updatereadme(
         new RegExp('(\\[Setup ' + this.target + '\\]: )http.*( \\"Setup ' + this.target + '\\")','g'),
-        '$1http://mmind.me/_?' + bookmarkletString + '$2',
-        readMeString,
-        'reference link',
+        '$1http://mmind.me/_?' + bookmarkletString + '$2', readMeString, 'reference link',
     this.target);
 
     // use regex to update version references
     readMeString = updatereadme(new RegExp('(' + this.target + '\\] v)\\d+\\.\\d+\\.\\d+','g'),
-        '$1' + this.data.version,
-        readMeString,
-        'version references',
+        '$1' + this.data.version, readMeString, 'version references',
     this.target);
 
     // update README.md file
