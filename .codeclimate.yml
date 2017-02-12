@@ -1,6 +1,9 @@
 engines:
   eslint:
     enabled: true
+    channel: "eslint-3"
+    config:
+      config: .eslint.yml
   fixme:
     enabled: true
   markdownlint:
