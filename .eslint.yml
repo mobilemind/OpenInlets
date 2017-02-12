@@ -15,7 +15,7 @@ env:
 # http://eslint.org/docs/rules/
 rules:
   # Possible Errors
-  no-await-in-loop: 2
+  ## no-await-in-loop: 2 // not supported by Code Climate, Feb 2017
   no-cond-assign: 2
   no-console: 0
   no-constant-condition: 2
@@ -113,7 +113,7 @@ rules:
   no-void: 2
   no-warning-comments: 2
   no-with: 2
-  prefer-promise-reject-errors: 2
+  ## prefer-promise-reject-errors: 2 // not supported by Code Climate, Feb 2017
   radix: 2
   require-await: 2
   vars-on-top: 2
