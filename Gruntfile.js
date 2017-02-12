@@ -98,7 +98,7 @@ module.exports = function(grunt) {
     },
 
     yamllint: {
-      files: {src: [ '*.yaml' ]}
+      files: {src: ['.*.yml', '*.yml', '*.yaml']}
     }
 
   });
