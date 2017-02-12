@@ -4,7 +4,10 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     eslint: {
-        target: ['Gruntfile.js', 'src/*.js']
+      options: {
+        configFile: '.eslint.yml'
+      },
+      target: ['Gruntfile.js', 'src/*.js']
     },
 
     uglify: {
