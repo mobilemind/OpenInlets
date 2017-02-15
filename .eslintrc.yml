@@ -12,6 +12,9 @@ env:
   es6: true
   jquery: false
 
+plugins:
+- security
+
 # http://eslint.org/docs/rules/
 rules:
   # Possible Errors
@@ -265,3 +268,17 @@ rules:
   symbol-description: 0
   template-curly-spacing: 0
   yoeld-star-spacing: 0
+
+  # security
+  security/detect-unsafe-regex: 2
+  security/detect-buffer-noassert: 2
+  security/detect-child-process: 2
+  security/detect-disable-mustache-escape: 2
+  security/detect-eval-with-expression: 2
+  security/detect-no-csrf-before-method-override: 2
+  security/detect-non-literal-fs-filename: 2
+  security/detect-non-literal-regexp: 0
+  security/detect-non-literal-require: 2
+  security/detect-object-injection: 2
+  security/detect-possible-timing-attacks: 2
+  security/detect-pseudoRandomBytes: 2
