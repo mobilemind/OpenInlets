@@ -20,6 +20,7 @@ extends: eslint:recommended
 rules:
   # Possible Errors
   ## no-await-in-loop: 2 // not supported by Code Climate, Feb 2017
+  no-compare-neg-zero: 2
   no-console: 0
   no-extra-parens: 2
   no-inner-declarations: [2, functions]
@@ -177,6 +178,7 @@ rules:
   no-underscore-dangle: 2
   no-unneeded-ternary: 2
   no-whitespace-before-property: 2
+  nonblock-statement-body-position: 2
   object-curly-newline: 0
   object-curly-spacing: 2
   object-property-newline: 0
