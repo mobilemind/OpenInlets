@@ -140,6 +140,7 @@ module.exports = function(grunt) {
       return true;
     }
     grunt.fail.fatal("Failed to js2uri() " + this.target);
+    return false;
   });
 
   // set updatereadme targets & define replaceinreadme()
@@ -149,7 +150,8 @@ module.exports = function(grunt) {
       return readMeString.replace(oldStrRegEx, newStr);
     }
     grunt.fail.fatal("Can't find " + targetKind + " references for " + targetName);
-  };
+    return null;
+    };
 
   grunt.registerMultiTask("updatereadme", "update reference links in README.md", function() {
     // read external files
@@ -192,6 +194,7 @@ module.exports = function(grunt) {
       return grunt.log.writeln("README.md updated to " + this.target + " " + this.data.version);
     }
     grunt.fail.fatal("Can't write to README.md. Recommended action: `git checkout -- README.md`");
+    return null;
   });
 
   // Default task
