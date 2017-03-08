@@ -6,5 +6,6 @@ function openingooglemaps() {
     if (location.search) return location.href = 'comgooglemaps://' + location.search;
     else if (/ - Google Maps/.test(document.title)) return location.href = 'comgooglemaps://?q=' + encodeURI(document.title.replace(' - Google Maps', '').replace(/ /g, '+'));
   }
+  return void 0;
 }
 openingooglemaps();
