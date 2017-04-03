@@ -170,7 +170,7 @@ module.exports = function(grunt) {
 
     // update `javascript:...` code blocks
     readMeString = updatereadme(
-        new RegExp("(\\[" + this.target + "\\] v\\d+\\.\\d+\\.\\d+ )`javascript:[^`].+`", " "),
+        new RegExp("(\\[" + this.target + "\\] v\\d+\\.\\d+\\.\\d+ )`javascript:[^`].+`", "g"),
         "$1`" + bookmarkletString + "`", readMeString, "`javascript:...`",
     this.target);
 
