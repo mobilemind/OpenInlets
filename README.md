@@ -10,6 +10,8 @@ from iOS Mobile Safari to an iOS app.
 
 [![Codacy Badge][Codacy-image]][Codacy-dash]
 
+__IsItAws__: Check the current page hostname to determine if runs on AWS.
+
 __OpenIn1Password__: Open the current web page with the Webview in 1Password 4.1.x.
 Handy for login/form completion, or to quickly add a new entry with login credentials.
 
@@ -46,6 +48,7 @@ iCloud will sync the bookmarklet to iOS.
 
 #### JavaScript bookmarks
 
++ [IsItAws] v1.0.0 `javascript:function%20a()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7Da();void'1.0.0'`
 + [OpenIn1Password] v1.1.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0'`
 + [OpenInBlogsy] v1.0.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0'`
 + [OpenInGoodReader] v1.1.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0'`
@@ -62,6 +65,7 @@ page, due to Github security precautions.
 Visit the [OpenInlets page] and tap a link below. Follow the instructions on the
 resulting page to turn the followed bookmark into a JavaScript bookmarklet.
 
++ **Mobile Safari setup link** -- [Setup IsItAws] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenInBlogsy] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.1.0
@@ -78,8 +82,8 @@ the corresponding iOS app will open to the same document or location.
 
 ## Requirements
 
-+ Mobile Safari 7.x or higher (v1.0.0 tested with iOS 9)
-+ Corresponding iOS app
++ Mobile Safari 7.x or higher (v1.3.0 tested with iOS 10)
++ Corresponding iOS app (_except_ for "IsItAws" bookmarklet)
 
 ### Notes
 
@@ -126,6 +130,9 @@ directory.
 Each bookmarklet does some rudimentary check and then redirects to an app using
 a URL protocol scheme.
 
++ **IsItAws** - Does _not_ use a URL protocol scheme. Rather it uses the lambda
+[IsItOnAWS.com] functions created by Tim Bray. For details, see
+[Is it on AWS? Domain Identification Using AWS Lambda][IsItOnAWS Blog Post].
 + **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol scheme
  for 1Password. See the subheading [Open URLs externally...][1Password URL Scheme]
  for details.
@@ -147,6 +154,8 @@ a URL protocol scheme.
  [Open URLs externally...][1Password URL Scheme] for details.
 
 ## Version Notes
+
+1.3.0: Added IsItAws and bumped overall version as this is significant change
 
 1.2.0: overall package # bumped due to significant ES6/eslint driven changes
 
@@ -212,6 +221,7 @@ package.json keywords; add OpenIniOctocat
 repos I have; doesn't build yet
 
 <!--- JavaScript links -->
+[IsItAws]: javascript:function%20a()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7Da();void'1.0.0' "IsItAws"
 [OpenIn1Password]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0' "OpenIn1Password"
 [OpenInBlogsy]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0' "OpenInBlogsy"
 [OpenInGoodReader]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0' "OpenInGoodReader"
@@ -220,6 +230,7 @@ repos I have; doesn't build yet
 [OpenIniOctocat]: javascript:function%20a()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7Da();void'1.1.0' "OpenIniOctocat"
 [SearchIn1Password]: javascript:function%20a()%7Bconst%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.1.0' "SearchIn1Password"
 <!--- Setup links -->
+[Setup IsItAws]: http://mmind.me/_?javascript:function%20a()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7Da();void'1.0.0' "Setup IsItAws"
 [Setup OpenIn1Password]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0' "Setup OpenIn1Password"
 [Setup OpenInBlogsy]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0' "Setup OpenInBlogsy"
 [Setup OpenInGoodReader]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0' "Setup OpenInGoodReader"
@@ -244,6 +255,8 @@ repos I have; doesn't build yet
 [npm]: https://npmjs.org/
 [grunt]: http://gruntjs.com/
 [js2uri]: https://npmjs.org/package/js2uri
+[IsItOnAWS.com]: https://isitonaws.com/
+[IsItOnAWS Blog Post]: https://aws.amazon.com/blogs/aws/is-it-on-aws-domain-identification-using-aws-lambda/
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
 [1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
 [Blogsy URL Scheme]: http://blogsyapp.com/developers/ "Blogsy URL Scheme"
