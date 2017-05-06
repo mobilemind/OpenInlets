@@ -233,9 +233,9 @@ rules:
   no-storage/no-browser-storage: 2
 
   # no-unsanitized
-  # no-unsanitized/method: 2
-  # no-unsanitized/property: 2
-  no-unsafe-innerhtml/no-unsafe-innerhtml: 2
+  no-unsanitized/method: ["error"]
+  no-unsanitized/property: ["error"]
+  # no-unsafe-innerhtml/no-unsafe-innerhtml: 2
 
   # scanjs-rules
   # scanjs-rules/accidental_assignment: 2
