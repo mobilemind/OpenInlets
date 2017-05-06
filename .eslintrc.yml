@@ -231,11 +231,12 @@ rules:
 
   # no-storage
   no-storage/no-browser-storage: 2
-  
+
   # no-unsanitized
   # no-unsanitized/method: 2
   # no-unsanitized/property: 2
-  
+  no-unsafe-innerhtml/no-unsafe-innerhtml: 2
+
   # scanjs-rules
   # scanjs-rules/accidental_assignment: 2
   # scanjs-rules/assign_to_hostname: 2
