@@ -3,8 +3,11 @@
 // else if document title looks like a place then swap in URL protocol for a query to Google Maps iOS app
 function openingooglemaps() {
   if ('maps.google.com' === location.hostname && /iP(.d|hone)/.test(navigator.userAgent)) {
-    if (location.search) return location.href = 'comgooglemaps://' + location.search;
-    else if (/ - Google Maps/.test(document.title)) return location.href = 'comgooglemaps://?q=' + encodeURI(document.title.replace(' - Google Maps', '').replace(/ /g, '+'));
+    if (location.search) {
+      return location.href = 'comgooglemaps://' + location.search;
+    } else if (/ - Google Maps/.test(document.title)) {
+      return location.href = 'comgooglemaps://?q=' + encodeURI(document.title.replace(' - Google Maps', '').replace(/ /g, '+'));
+    }
   }
   return void 0;
 }
