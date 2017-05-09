@@ -15,6 +15,7 @@ env:
   node: true
 
 plugins:
+- markdown
 - no-storage
 - security
 - xss
@@ -40,7 +41,7 @@ rules:
   class-methods-use-this: 2
   complexity: [2, 12]
   consistent-return: 2
-  curly: 0
+  curly: 2
   default-case: 2
   guard-for-in: 2
   no-alert: 2
@@ -191,7 +192,7 @@ rules:
   require-jsdoc: 0
   semi-spacing: 2
   semi: 2
-  sort-keys: 0
+  sort-keys: 2
   sort-vars: 2
   space-before-blocks: 2
   space-before-function-paren: 0
