@@ -18,6 +18,8 @@ Handy for login/form completion, or to quickly add a new entry with login creden
 __OpenInBlogsy__: Open the current web page using the Webview in Blogsy on iOS.
 Easily reblog or quote a page.
 
+__OpenInFirefox__: Open the current web page in the Firefox app for iOS.
+
 __OpenInGoodReader__: When viewing a PDF in Mobile Safari, open/download the same
 PDF in GoodReader 4.
 
@@ -51,6 +53,7 @@ iCloud will sync the bookmarklet to iOS.
 + [IsItAws] v1.0.0 `javascript:function%20a()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7Da();void'1.0.0'`
 + [OpenIn1Password] v1.1.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0'`
 + [OpenInBlogsy] v1.0.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0'`
++ [OpenInFirefox] v1.0.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7Da();void'1.0.0'`
 + [OpenInGoodReader] v1.1.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0'`
 + [OpenInGoogleChrome] v1.0.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Da();void'1.0.0'`
 + [OpenInGoogleMaps] v1.7.1 `javascript:function%20a()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'`
@@ -68,6 +71,7 @@ resulting page to turn the followed bookmark into a JavaScript bookmarklet.
 + **Mobile Safari setup link** -- [Setup IsItAws] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenInBlogsy] v1.0.0
++ **Mobile Safari setup link** -- [Setup OpenInFirefox] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.7.1
@@ -138,6 +142,8 @@ a URL protocol scheme.
  for details.
 + **OpenInBlogsy** - Uses the `blogsy:` URL protocol scheme for Blogsy. See
  [Blogsy URL Scheme][Blogsy URL Scheme].
++ **OpenInFirefox** - Uses the `firefox://open-url?url=` scheme for the Firefox
+ app on iOS.
 + **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol scheme
  for GoodReader. See [GoodReader URL Scheme][GoodReader URL Scheme].
 + **OpenInGoogleChrome** - Uses the `googlechrome://` or `googlechromes://` scheme
@@ -154,6 +160,8 @@ a URL protocol scheme.
  [Open URLs externally...][1Password URL Scheme] for details.
 
 ## Version Notes
+
+1.3.1: Added OpenInFirefox and bumped version
 
 1.3.0: Added IsItAws and bumped overall version as this is significant change
 
@@ -224,6 +232,7 @@ repos I have; doesn't build yet
 [IsItAws]: javascript:function%20a()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7Da();void'1.0.0' "IsItAws"
 [OpenIn1Password]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0' "OpenIn1Password"
 [OpenInBlogsy]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0' "OpenInBlogsy"
+[OpenInFirefox]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7Da();void'1.0.0' "OpenInFirefox"
 [OpenInGoodReader]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0' "OpenInGoodReader"
 [OpenInGoogleChrome]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Da();void'1.0.0' "OpenInGoogleChrome"
 [OpenInGoogleMaps]: javascript:function%20a()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "OpenInGoogleMaps"
@@ -233,6 +242,7 @@ repos I have; doesn't build yet
 [Setup IsItAws]: http://mmind.me/_?javascript:function%20a()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7Da();void'1.0.0' "Setup IsItAws"
 [Setup OpenIn1Password]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0' "Setup OpenIn1Password"
 [Setup OpenInBlogsy]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0' "Setup OpenInBlogsy"
+[Setup OpenInFirefox]: http://mmind.me/_javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7Da();void'1.0.0' "Setup OpenInFirefox"
 [Setup OpenInGoodReader]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0' "Setup OpenInGoodReader"
 [Setup OpenInGoogleChrome]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Da();void'1.0.0' "Setup OpenInGoogleChrome"
 [Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "Setup OpenInGoogleMaps"

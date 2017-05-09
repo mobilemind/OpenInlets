@@ -96,6 +96,10 @@ module.exports = function(grunt) {
         "version": "1.0.0",
         "file": "openinblogsy.js"
       },
+      "OpenInFirefox": {
+        "version": "1.0.0",
+        "file": "openinfirefox.js"
+      },
       "OpenInGoodReader": {
         "version": "1.1.0",
         "file": "openingoodreader.js"
