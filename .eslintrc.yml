@@ -15,7 +15,6 @@ env:
   node: true
 
 plugins:
-- markdown
 - no-storage
 - security
 - xss
