@@ -1,0 +1,1 @@
+javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7Da();void'1.0.0'
