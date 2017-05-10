@@ -41,7 +41,7 @@ module.exports = function(grunt) {
         },
         "eslint": {
           "options": {"configFile": ".eslintrc.yml"},
-          "target": ["Gruntfile.js", "src/*.js", "README.md"]
+          "target": ["Gruntfile.js", "src/*.js"]
         },
         "js2uri": {
             "options": {
