@@ -50,15 +50,15 @@ iCloud will sync the bookmarklet to iOS.
 
 #### JavaScript bookmarks
 
-+ [IsItAws] v1.0.0 `javascript:function%20a()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7Da();void'1.0.0'`
-+ [OpenIn1Password] v1.1.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0'`
-+ [OpenInBlogsy] v1.0.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0'`
-+ [OpenInFirefox] v1.0.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7Da();void'1.0.0'`
-+ [OpenInGoodReader] v1.1.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0'`
-+ [OpenInGoogleChrome] v1.0.0 `javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Da();void'1.0.0'`
-+ [OpenInGoogleMaps] v1.7.1 `javascript:function%20a()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1'`
-+ [OpenIniOctocat] v1.1.0 `javascript:function%20a()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7Da();void'1.1.0'`
-+ [SearchIn1Password] v1.1.0 `javascript:function%20a()%7Bconst%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.1.0'`
++ [IsItAws] v1.1.0 `javascript:(function()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7D)();void'1.1.0'`
++ [OpenIn1Password] v1.2.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7D)();void'1.2.0'`
++ [OpenInBlogsy] v1.1.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7D)();void'1.1.0'`
++ [OpenInFirefox] v1.1.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7D)();void'1.1.0'`
++ [OpenInGoodReader] v1.2.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7D)();void'1.2.0'`
++ [OpenInGoogleChrome] v1.1.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0'`
++ [OpenInGoogleMaps] v1.8.0 `javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0'`
++ [OpenIniOctocat] v1.2.0 `javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0'`
++ [SearchIn1Password] v1.2.0 `javascript:(function()%7Bconst%20n=location.hostname.split('.');return%20location.href='onepassword4://search/'+n.slice(n.length-2).join('.')%7D)();void'1.2.0'`
 
 _NOTE:_ The `javascript:` bookmarks above will __not__ work from the Github repository
 page, due to Github security precautions.
@@ -68,15 +68,15 @@ page, due to Github security precautions.
 Visit the [OpenInlets page] and tap a link below. Follow the instructions on the
 resulting page to turn the followed bookmark into a JavaScript bookmarklet.
 
-+ **Mobile Safari setup link** -- [Setup IsItAws] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.1.0
-+ **Mobile Safari setup link** -- [Setup OpenInBlogsy] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInFirefox] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.1.0
-+ **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.7.1
-+ **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.1.0
-+ **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.1.0
++ **Mobile Safari setup link** -- [Setup IsItAws] v1.1.0
++ **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.2.0
++ **Mobile Safari setup link** -- [Setup OpenInBlogsy] v1.1.0
++ **Mobile Safari setup link** -- [Setup OpenInFirefox] v1.1.0
++ **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.2.0
++ **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.1.0
++ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.8.0
++ **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.2.0
++ **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.2.0
 
 ## Use
 
@@ -229,25 +229,25 @@ package.json keywords; add OpenIniOctocat
 repos I have; doesn't build yet
 
 <!--- JavaScript links -->
-[IsItAws]: javascript:function%20a()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7Da();void'1.0.0' "IsItAws"
-[OpenIn1Password]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0' "OpenIn1Password"
-[OpenInBlogsy]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0' "OpenInBlogsy"
-[OpenInFirefox]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7Da();void'1.0.0' "OpenInFirefox"
-[OpenInGoodReader]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0' "OpenInGoodReader"
-[OpenInGoogleChrome]: javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Da();void'1.0.0' "OpenInGoogleChrome"
-[OpenInGoogleMaps]: javascript:function%20a()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "OpenInGoogleMaps"
-[OpenIniOctocat]: javascript:function%20a()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7Da();void'1.1.0' "OpenIniOctocat"
-[SearchIn1Password]: javascript:function%20a()%7Bconst%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.1.0' "SearchIn1Password"
+[IsItAws]: javascript:(function()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7D)();void'1.1.0' "IsItAws"
+[OpenIn1Password]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7D)();void'1.2.0' "OpenIn1Password"
+[OpenInBlogsy]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7D)();void'1.1.0' "OpenInBlogsy"
+[OpenInFirefox]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7D)();void'1.1.0' "OpenInFirefox"
+[OpenInGoodReader]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7D)();void'1.2.0' "OpenInGoodReader"
+[OpenInGoogleChrome]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0' "OpenInGoogleChrome"
+[OpenInGoogleMaps]: javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0' "OpenInGoogleMaps"
+[OpenIniOctocat]: javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0' "OpenIniOctocat"
+[SearchIn1Password]: javascript:(function()%7Bconst%20n=location.hostname.split('.');return%20location.href='onepassword4://search/'+n.slice(n.length-2).join('.')%7D)();void'1.2.0' "SearchIn1Password"
 <!--- Setup links -->
-[Setup IsItAws]: http://mmind.me/_?javascript:function%20a()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7Da();void'1.0.0' "Setup IsItAws"
-[Setup OpenIn1Password]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7Da();void'1.1.0' "Setup OpenIn1Password"
-[Setup OpenInBlogsy]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7Da();void'1.0.0' "Setup OpenInBlogsy"
-[Setup OpenInFirefox]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7Da();void'1.0.0' "Setup OpenInFirefox"
-[Setup OpenInGoodReader]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7Da();void'1.1.0' "Setup OpenInGoodReader"
-[Setup OpenInGoogleChrome]: http://mmind.me/_?javascript:function%20a()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Da();void'1.0.0' "Setup OpenInGoogleChrome"
-[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:function%20a()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Da();void'1.7.1' "Setup OpenInGoogleMaps"
-[Setup OpenIniOctocat]: http://mmind.me/_?javascript:function%20a()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7Da();void'1.1.0' "Setup OpenIniOctocat"
-[Setup SearchIn1Password]: http://mmind.me/_?javascript:function%20a()%7Bconst%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.1.0' "Setup SearchIn1Password"
+[Setup IsItAws]: http://mmind.me/_?javascript:(function()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7D)();void'1.1.0' "Setup IsItAws"
+[Setup OpenIn1Password]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7D)();void'1.2.0' "Setup OpenIn1Password"
+[Setup OpenInBlogsy]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7D)();void'1.1.0' "Setup OpenInBlogsy"
+[Setup OpenInFirefox]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7D)();void'1.1.0' "Setup OpenInFirefox"
+[Setup OpenInGoodReader]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7D)();void'1.2.0' "Setup OpenInGoodReader"
+[Setup OpenInGoogleChrome]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0' "Setup OpenInGoogleChrome"
+[Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0' "Setup OpenInGoogleMaps"
+[Setup OpenIniOctocat]: http://mmind.me/_?javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0' "Setup OpenIniOctocat"
+[Setup SearchIn1Password]: http://mmind.me/_?javascript:(function()%7Bconst%20n=location.hostname.split('.');return%20location.href='onepassword4://search/'+n.slice(n.length-2).join('.')%7D)();void'1.2.0' "Setup SearchIn1Password"
 <!-- Badge links -->
 [built-with-grunt-img]: https://cdn.gruntjs.com/builtwith.png
 [built-with-grunt-url]: http://gruntjs.com/
