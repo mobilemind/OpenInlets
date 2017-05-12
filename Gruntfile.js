@@ -4,39 +4,39 @@ module.exports = function(grunt) {
         "buildbookmarklet": {
             "IsItAws": {
                 "file": "isitaws.js",
-                "version": "1.0.0"
+                "version": "1.1.0"
             },
             "OpenIn1Password": {
                 "file": "openin1password.js",
-                "version": "1.1.0"
+                "version": "1.2.0"
             },
             "OpenInBlogsy": {
                 "file": "openinblogsy.js",
-                "version": "1.0.0"
+                "version": "1.1.0"
             },
             "OpenInFirefox": {
                 "file": "openinfirefox.js",
-                "version": "1.0.0"
+                "version": "1.1.0"
             },
             "OpenInGoodReader": {
                 "file": "openingoodreader.js",
-                "version": "1.1.0"
+                "version": "1.2.0"
             },
             "OpenInGoogleChrome": {
                 "file": "openingooglechrome.js",
-                "version": "1.0.0"
+                "version": "1.1.0"
             },
             "OpenInGoogleMaps": {
                 "file": "openingooglemaps.js",
-                "version": "1.7.1"
+                "version": "1.8.0"
             },
             "OpenIniOctocat": {
                 "file": "openinioctocat.js",
-                "version": "1.1.0"
+                "version": "1.2.0"
             },
             "SearchIn1Password": {
                 "file": "searchin1password.js",
-                "version": "1.1.0"
+                "version": "1.2.0"
             }
         },
         "eslint": {
