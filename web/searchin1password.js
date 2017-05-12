@@ -1,1 +1,1 @@
-javascript:function%20a()%7Bconst%20a=location.hostname.split('.');return%20location.href='onepassword4://search/'+a.slice(a.length-2).join('.')%7Da();void'1.1.0'
+javascript:(function()%7Bconst%20n=location.hostname.split('.');return%20location.href='onepassword4://search/'+n.slice(n.length-2).join('.')%7D)();void'1.2.0'

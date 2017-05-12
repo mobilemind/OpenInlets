@@ -1,1 +1,1 @@
-javascript:function%20a()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7Da();void'1.0.0'
+javascript:(function()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7D)();void'1.1.0'
