@@ -1,0 +1,1 @@
+javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href+'.git'%7D)();void'1.0.0'
