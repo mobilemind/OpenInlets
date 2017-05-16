@@ -1,7 +1,7 @@
 # OpenInlets
 
-OpenInlets is a collection of bookmarklets to open apps from a web page-- typically
-from iOS Mobile Safari to an iOS app.
+OpenInlets is a collection of bookmarklets to open apps from a web page--
+typically from iOS Mobile Safari to an iOS app.
 
 [![Built with Grunt][built-with-grunt-img]][built-with-grunt-url] [![Build Status][build-image]][build-url]
 
@@ -12,31 +12,36 @@ from iOS Mobile Safari to an iOS app.
 
 __IsItAws__: Check the current page hostname to determine if runs on AWS.
 
-__OpenIn1Password__: Open the current web page with the Webview in 1Password 4.1.x.
-Handy for login/form completion, or to quickly add a new entry with login credentials.
+__OpenIn1Password__: Open the current web page with the Webview in 1Password
+4.1+. Handy for login/form completion, or to quickly add a new entry with
+login credentials.
 
-__OpenInBlogsy__: Open the current web page using the Webview in Blogsy on iOS.
-Easily reblog or quote a page.
+__OpenInBlogsy__: Open the current web page using the Webview in Blogsy on
+iOS. Easily reblog or quote a page.
 
 __OpenInFirefox__: Open the current web page in the Firefox app for iOS.
 
-__OpenInGoodReader__: When viewing a PDF in Mobile Safari, open/download the same
-PDF in GoodReader 4.
+__OpenInGoodReader__: When viewing a PDF in Mobile Safari, open/download the
+same PDF in GoodReader 4.
 
 __OpenInGoogleChrome__: Open the current web page in the Google Chrome app for
 iOS.
 
 __OpenInGoogleMaps__: Open the current web page in the Google Maps application
 on iOS. Handy when an app opens a Google Maps page in Mobile Safari, but you'd
-prefer the Google Maps _app_. If the current URL does NOT contain an address or
-location, it will search in the Google Maps app using the page title.
+prefer the Google Maps _app_. If the current URL does NOT contain an address
+or location, it will search in the Google Maps app using the page title.
 
-__OpenIniOctocat__: When viewing a Github repository in Mobile Safari, open the
-same repository in the iOctocat iOS app.
+__OpenIniOctocat__: When viewing a Github repository in Mobile Safari, open
+the same repository in the iOctocat iOS app.
 
-__SearchIn1Password__: Open 1Password and search for entries containing the domain
-of the current web page. _NOTE:_ This also works with Safari and Firefox on Mac
-OS X Mavericks (and macOS Sierra).
+__OpenInWorkingCopy__: When viewing a BitBucket _or_ Github repository in
+Mobile Safari, show the same repo in the Working Copy iOS app (cloning the
+repo locally if necessary).
+
+__SearchIn1Password__: Open 1Password and search for entries containing the
+domain of the current web page. _NOTE:_ This also works with Safari and
+Firefox on Mac OS X Mavericks (and macOS Sierra).
 
 ## Install
 
@@ -58,15 +63,17 @@ iCloud will sync the bookmarklet to iOS.
 + [OpenInGoogleChrome] v1.1.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0'`
 + [OpenInGoogleMaps] v1.8.0 `javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0'`
 + [OpenIniOctocat] v1.2.0 `javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0'`
-+ [SearchIn1Password] v1.2.0 `javascript:(function()%7Bconst%20n=location.hostname.split('.');return%20location.href='onepassword4://search/'+n.slice(n.length-2).join('.')%7D)();void'1.2.0'`
++ [OpenInWorkingCopy] v1.0.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href+'.git'%7D)();void'1.0.0'`
++ [SearchIn1Password] v1.2.1 `javascript:(function()%7Breturn%20location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%7D)();void'1.2.1'`
 
-_NOTE:_ The `javascript:` bookmarks above will __not__ work from the Github repository
-page, due to Github security precautions.
+_NOTE:_ The `javascript:` bookmarks above will __not__ work from the Github
+repository page, due to Github security precautions.
 
 ### Mobile browser
 
-Visit the [OpenInlets page] and tap a link below. Follow the instructions on the
-resulting page to turn the followed bookmark into a JavaScript bookmarklet.
+Visit the [OpenInlets page] and tap a link below. Follow the instructions on
+the resulting page to turn the followed bookmark into a JavaScript
+bookmarklet.
 
 + **Mobile Safari setup link** -- [Setup IsItAws] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.2.0
@@ -76,13 +83,15 @@ resulting page to turn the followed bookmark into a JavaScript bookmarklet.
 + **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.8.0
 + **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.2.0
-+ **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.2.0
++ **Mobile Safari setup link** -- [Setup OpenInWorkingCopy] v1.0.0
++ **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.2.1
 
 ## Use
 
-While viewing web page in Mobile Safari, activate the corresponding bookmarklet
-(tap it on the bookmark bar or use the Bookmarks/Favorites menu). If installed
-the corresponding iOS app will open to the same document or location.
+While viewing web page in Mobile Safari, activate the corresponding
+bookmarklet (tap it on the bookmark bar or use the Bookmarks/Favorites menu).
+If installed the corresponding iOS app will open to the same document or
+location.
 
 ## Requirements
 
@@ -91,9 +100,10 @@ the corresponding iOS app will open to the same document or location.
 
 ### Notes
 
-1. Bookmarklets do _not_ work in Google Chrome, Ghostery and DuckDuckGo iOS apps
-due to restrictions of those apps on `javascript:` URL bookmarks.
-2. SearchIn1Password _does_ work on Macintosh OS X Mavericks with Safari or Firefox.
+1. Bookmarklets do _not_ work in Google Chrome, Ghostery and DuckDuckGo iOS
+   apps due to restrictions of those apps on `javascript:` URL bookmarks.
+2. SearchIn1Password _does_ work on Macintosh OS X Mavericks with Safari or
+   Firefox.
 
 ## License
 
@@ -101,21 +111,21 @@ MIT License - <http://opensource.org/licenses/mit-license.php>
 
 ## Source Code Notes
 
-The `src/` directory has human readable JavaScript, written in a way to facilitate
-testing. The `web\` directory has "uglified" code that has a `javascript:` URL
-protocol prefix and should be shorter. The `void'x.y.z'` at the end the bookmarklet
-URL code serves two purposes.
+The `src/` directory has human readable JavaScript, written in a way to
+facilitate testing. The `web\` directory has "uglified" code that has a
+`javascript:` URL protocol prefix and should be shorter. The `void'x.y.z'` at
+the end the bookmarklet URL code serves two purposes.
 
-1. It prevents the browser from navigating to another page when the bookmark is
-used.
+1. It prevents the browser from navigating to another page when the bookmark
+   is used.
 2. It is a convenient place to embed a string indicating the `semver` version
-of the bookmark.
+   of the bookmark.
 
 ## Build
 
-Clone the repository. If `node` is not installed go get it from [nodejs.org][nodejs].
-Finally change to the `OpenInlets` directory and install the dependencies into
-the project before invoking `grunt`.
+Clone the repository. If `node` is not installed go get it from
+[nodejs.org][nodejs]. Finally change to the `OpenInlets` directory and install
+the dependencies into the project before invoking `grunt`.
 
 ```bash
 git clone https://github.com/mobilemind/OpenInlets.git
@@ -124,42 +134,47 @@ npm install
 grunt
 ```
 
-Note that [nodejs] and [npm] are required. The lines above will install [grunt],
-[js2uri], and other dependencies defined in `package.json`. You can update dependencies
-using `npm update` at any time or just invoke `grunt` to re-build OpenInlets `web/`
-directory.
+Note that [nodejs] and [npm] are required. The lines above will install
+[grunt], [js2uri], and other dependencies defined in `package.json`. You can
+update dependencies using `npm update` at any time or just invoke `grunt` to
+re-build OpenInlets `web/` directory.
 
 ## URL Scheme Notes (References)
 
-Each bookmarklet does some rudimentary check and then redirects to an app using
-a URL protocol scheme.
+Each bookmarklet does some rudimentary check and then redirects to an app
+using a URL protocol scheme.
 
-+ **IsItAws** - Does _not_ use a URL protocol scheme. Rather it uses the lambda
-[IsItOnAWS.com] functions created by Tim Bray. For details, see
-[Is it on AWS? Domain Identification Using AWS Lambda][IsItOnAWS Blog Post].
-+ **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol scheme
- for 1Password. See the subheading [Open URLs externally...][1Password URL Scheme]
- for details.
++ **IsItAws** - Does _not_ use a URL protocol scheme. Rather it uses the
+  lambda [IsItOnAWS.com] functions created by Tim Bray. For details, see
+  [Is it on AWS? Domain Identification Using AWS Lambda][IsItOnAWS Blog Post].
++ **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol
+  scheme for 1Password. See the subheading
+  [Open URLs externally...][1Password URL Scheme] for details.
 + **OpenInBlogsy** - Uses the `blogsy:` URL protocol scheme for Blogsy. See
- [Blogsy URL Scheme][Blogsy URL Scheme].
-+ **OpenInFirefox** - Uses the `firefox://open-url?url=` scheme for the Firefox
- app on iOS.
-+ **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol scheme
- for GoodReader. See [GoodReader URL Scheme][GoodReader URL Scheme].
-+ **OpenInGoogleChrome** - Uses the `googlechrome://` or `googlechromes://` scheme
- for the Google Chrome app on iOS. Formerly documented at
- `https://developer.chrome.com/multidevice/ios/links`.
+  [Blogsy URL Scheme][Blogsy URL Scheme].
++ **OpenInFirefox** - Uses the `firefox://open-url?url=` scheme for the
+  Firefox app on iOS.
++ **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol
+  scheme for GoodReader. See [GoodReader URL Scheme][GoodReader URL Scheme].
++ **OpenInGoogleChrome** - Uses the `googlechrome://` or `googlechromes://`
+  scheme for the Google Chrome app on iOS. Formerly documented at
+  `https://developer.chrome.com/multidevice/ios/links`.
 + **OpenInGoogleMaps** - Uses the `comgooglemaps://` protocol scheme for the
- Google Maps app on iOS. See [Google Maps URL Scheme][Google Maps URL Scheme]
- for details.
+  Google Maps app on iOS. See [Google Maps URL Scheme][Google Maps URL Scheme]
+  for details.
 + **OpenIniOctocat** - Uses the `ioc://` URL protocol scheme for iOctocat. See
- the subheading [How to open GitHub URLs in iOctocat][iOctocat URL Scheme] for
- details.
-+ **SearchIn1Password** - Uses `onepassword4://search/` with the current domain
- appended to trigger a 1Password search. See the subheading
- [Open URLs externally...][1Password URL Scheme] for details.
+  the subheading [How to open GitHub URLs in iOctocat][iOctocat URL Scheme]
+  for details.
++ **OpenInWorkingCopy** - Uses the `working-copy://show?remote=/` ("show")
+  URL protocol scheme for Working Copy. See the subheading
+  [URL Schemes in Working Copy][Working Copy URL Scheme] for details.
++ **SearchIn1Password** - Uses `onepassword4://search/` with the current
+  domain appended to trigger a 1Password search. See the subheading
+  [Open URLs externally...][1Password URL Scheme] for details.
 
 ## Version Notes
+
+1.4.1  Added OpenInWorkingCopy and bumped version
 
 1.3.1: Added OpenInFirefox and bumped version
 
@@ -174,8 +189,8 @@ a URL protocol scheme.
 1.1.1: update package.json to use- node: >6.0, grunt: >1.0,
 grunt-contrib-uglify >=2.0 (reduces size of output); bump semver
 
-1.1.0: update to LTS versions of `node`; use `grunt-contrib-...` >= 1.0.0; bump
-semver
+1.1.0: update to LTS versions of `node`; use `grunt-contrib-...` >= 1.0.0;
+bump semver
 
 1.0.1: March 9, 2016 - update .travis.yml and package.json to use `node_js`
 ">= 4.4.0"  and `grunt` ">=0.4.0"
@@ -183,24 +198,25 @@ semver
 1.0.1: February 16, 2016 - update package.json to use `grunt-contrib-jshint:
 ">=0.11.0"` to support 1.0.0 and beyond
 
-1.0.0: September 19, 2015 - update package.json to use `node: ">=0.12.0"`; baseline
-semver to 1.0.0
+1.0.0: September 19, 2015 - update package.json to use `node: ">=0.12.0"`;
+baseline semver to 1.0.0
 
-0.0.15: August 2, 2015 - update build dependencies and README, no functional changes
+0.0.15: August 2, 2015 - update build dependencies and README, no functional
+changes
 
-0.0.14: May 15, 2015 - update license info in `package.json` to use new property
-and SPDX format
+0.0.14: May 15, 2015 - update license info in `package.json` to use new
+property and SPDX format
 
-0.0.13: April 8, 2015 - use `grunt-contrib-uglify` 0.9.x with new options (i.e.,
-`screwIE8: true`)
+0.0.13: April 8, 2015 - use `grunt-contrib-uglify` 0.9.x with new options
+(i.e., `screwIE8: true`)
 
-0.0.12: April 4, 2015 -  work with `grunt-cli` > 0.1.0, use `grunt-contrib-uglify`
-0.8.x
+0.0.12: April 4, 2015 -  work with `grunt-cli` > 0.1.0, use
+`grunt-contrib-uglify` 0.8.x
 
 0.0.11: February 13, 2015 -  work with `node` engine 0.10.x - 0.12.x
 
-0.0.10: January 22, 2015 - update to `grunt-contrib-jshint` 0.11.x; add some stricter
-checks
+0.0.10: January 22, 2015 - update to `grunt-contrib-jshint` 0.11.x; add some
+stricter checks
 
 0.0.9: September 18, 2014 - Update to uglify 0.6.0; specify uglify maxLineLen
 option; update version
@@ -211,8 +227,8 @@ option; update version
 
 0.0.6: August 18, 2014 - Add OpenInBlogsy; update version
 
-0.0.5: August 12, 2014 - Refactor bookmarklet to use anonymous functions to facilitate
-testing; add SearchIn1Password; update version
+0.0.5: August 12, 2014 - Refactor bookmarklet to use anonymous functions to
+facilitate testing; add SearchIn1Password; update version
 
 0.0.4: August 11, 2014 - Remove unneeded http/https checks & add iOS checks in
 bookmarklets; Add URL Scheme Notes to README; update version
@@ -220,7 +236,8 @@ bookmarklets; Add URL Scheme Notes to README; update version
 0.0.3: August 10, 2014 - Refactor Gruntfile.js for efficiency & 'DRY'; add
 package.json keywords; add OpenIniOctocat
 
-0.0.2: August 8, 2014 - Bookmarklets have individual version numbers that update
+0.0.2: August 8, 2014 - Bookmarklets have individual version numbers that
+update
 
 0.0.1: July 28, 2014 - Bookmarklets build via `grunt`, `grunt deploy` updates
 `README.md`, version numbers not updating
@@ -237,7 +254,8 @@ repos I have; doesn't build yet
 [OpenInGoogleChrome]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0' "OpenInGoogleChrome"
 [OpenInGoogleMaps]: javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0' "OpenInGoogleMaps"
 [OpenIniOctocat]: javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0' "OpenIniOctocat"
-[SearchIn1Password]: javascript:(function()%7Bconst%20n=location.hostname.split('.');return%20location.href='onepassword4://search/'+n.slice(n.length-2).join('.')%7D)();void'1.2.0' "SearchIn1Password"
+[OpenInWorkingCopy]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href+'.git'%7D)();void'1.0.0' "OpenInWorkingCopy"
+[SearchIn1Password]: javascript:(function()%7Breturn%20location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%7D)();void'1.2.1' "SearchIn1Password"
 <!--- Setup links -->
 [Setup IsItAws]: http://mmind.me/_?javascript:(function()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7D)();void'1.1.0' "Setup IsItAws"
 [Setup OpenIn1Password]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7D)();void'1.2.0' "Setup OpenIn1Password"
@@ -247,7 +265,8 @@ repos I have; doesn't build yet
 [Setup OpenInGoogleChrome]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0' "Setup OpenInGoogleChrome"
 [Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0' "Setup OpenInGoogleMaps"
 [Setup OpenIniOctocat]: http://mmind.me/_?javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0' "Setup OpenIniOctocat"
-[Setup SearchIn1Password]: http://mmind.me/_?javascript:(function()%7Bconst%20n=location.hostname.split('.');return%20location.href='onepassword4://search/'+n.slice(n.length-2).join('.')%7D)();void'1.2.0' "Setup SearchIn1Password"
+[Setup OpenInWorkingCopy]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href+'.git'%7D)();void'1.0.0' "Setup OpenInWorkingCopy"
+[Setup SearchIn1Password]: http://mmind.me/_?javascript:(function()%7Breturn%20location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%7D)();void'1.2.1' "Setup SearchIn1Password"
 <!-- Badge links -->
 [built-with-grunt-img]: https://cdn.gruntjs.com/builtwith.png
 [built-with-grunt-url]: http://gruntjs.com/
@@ -273,3 +292,4 @@ repos I have; doesn't build yet
 [GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp "GoodReader:How do I save a file from Safari to GoodReader?"
 [Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
 [iOctocat URL Scheme]: http://ioctocat.com/faq/ "iOctocat FAQs - How to open GitHub URLs in iOctocat?"
+[Working Copy URL Scheme]: https://workingcopyapp.com/url-schemes.html "URL Schemes in Working Copy"
