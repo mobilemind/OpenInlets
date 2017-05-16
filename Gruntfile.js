@@ -36,7 +36,7 @@ module.exports = function(grunt) {
       },
       "SearchIn1Password": {
         "file": "searchin1password.js",
-        "version": "1.2.0"
+        "version": "1.2.1"
       }
     },
     "eslint": {
