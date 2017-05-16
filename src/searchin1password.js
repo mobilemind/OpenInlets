@@ -2,9 +2,9 @@
 function searchin1password() {
   // use only last 2 segments of hostname (eg, the "domain")
   return location.href = 'onepassword4://search/' +
-    location.hostname.
+    location.host.
       split('.').
-      slice(location.hostname.
+      slice(location.host.
         split('.').length - 2).
       join('.');
 }
