@@ -1,9 +1,10 @@
 // verify host is 'github.com' & on an iOS device
-// then swap in URL protocol for iOctocat iOS app
-function openinioctocat() {
-  if (location.host === 'github.com' && /iP(.d|hone)/.test(navigator.userAgent)) {
-    return location.href = location.href.replace('https:', 'ioc:');
+// then swap in URL protocol for Working Copu call to show (clone if necessary)
+function openinworkingcopy() {
+  if (/iP(.d|hone)/.test(navigator.userAgent) &&
+    (location.host === 'bitbucket.org' || location.host === 'github.com')) {
+    return location.href = "working-copy://show?remote=" + location.href + ".git";
   }
   return void 0;
 }
-openinioctocat();
+openinworkingcopy();
