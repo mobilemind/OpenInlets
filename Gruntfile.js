@@ -30,6 +30,10 @@ module.exports = function(grunt) {
         "file": "openingooglemaps.js",
         "version": "1.8.0"
       },
+      "OpenInWorkingCopy": {
+        "file": "openinworkingcopy.js",
+        "version": "1.0.0"
+      },
       "OpenIniOctocat": {
         "file": "openinioctocat.js",
         "version": "1.2.0"
