@@ -44,7 +44,7 @@ module.exports = function(grunt) {
       },
       "OpenIniOctocat": {
         "file": "openinioctocat.js",
-        "version": "1.2.0"
+        "version": "1.3.0"
       },
       "SearchIn1Password": {
         "file": "searchin1password.js",
@@ -119,8 +119,7 @@ module.exports = function(grunt) {
           "max_line_len": 32766,
           "quote_keys": false,
           "quote_style": 1,
-          "semicolons": true,
-          "space_colon": false
+          "semicolons": true
         },
         "preserveComments": false,
         "properties": false,
