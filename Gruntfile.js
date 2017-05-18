@@ -14,6 +14,14 @@ module.exports = function(grunt) {
         "file": "openinblogsy.js",
         "version": "1.1.0"
       },
+      "OpenInCodeBucket": {
+        "file": "openincodebucket.js",
+        "version": "1.0.0"
+      },
+      "OpenInCodeHub": {
+        "file": "openincodehub.js",
+        "version": "1.0.0"
+      },
       "OpenInFirefox": {
         "file": "openinfirefox.js",
         "version": "1.1.0"
@@ -32,7 +40,7 @@ module.exports = function(grunt) {
       },
       "OpenInWorkingCopy": {
         "file": "openinworkingcopy.js",
-        "version": "1.0.0"
+        "version": "1.1.0"
       },
       "OpenIniOctocat": {
         "file": "openinioctocat.js",
