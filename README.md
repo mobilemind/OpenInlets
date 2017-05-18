@@ -64,7 +64,7 @@ iCloud will sync the bookmarklet to iOS.
 + [OpenInGoodReader] v1.2.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7D)();void'1.2.0'`
 + [OpenInGoogleChrome] v1.1.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0'`
 + [OpenInGoogleMaps] v1.8.0 `javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0'`
-+ [OpenIniOctocat] v1.2.0 `javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0'`
++ [OpenIniOctocat] v1.3.0 `javascript:(function()%7Bif(/(gist%5C.)?github%5C.com/.test(location.host)&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.3.0'`
 + [OpenInWorkingCopy] v1.1.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href.split('/').slice(0,5).join('/')+'.git'%7D)();void'1.1.0'`
 + [SearchIn1Password] v1.2.1 `javascript:(function()%7Breturn%20location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%7D)();void'1.2.1'`
 
@@ -86,7 +86,7 @@ bookmarklet.
 + **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.2.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.8.0
-+ **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.2.0
++ **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.3.0
 + **Mobile Safari setup link** -- [Setup OpenInWorkingCopy] v1.1.0
 + **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.2.1
 
@@ -182,6 +182,9 @@ and `codehub://` URL protocol schemes, respectively. See
 
 ## Version Notes
 
+1.5.1  Update OpenIniOctcat to work with Github gists; cleanup eslint warnings
+and uglify-js option
+
 1.5.0  Add OpenInCodeBucket & OpenInCodeHub; bump version of OpenInWorkingCopy
 and overall version
 
@@ -266,7 +269,7 @@ repos I have; doesn't build yet
 [OpenInGoodReader]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7D)();void'1.2.0' "OpenInGoodReader"
 [OpenInGoogleChrome]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0' "OpenInGoogleChrome"
 [OpenInGoogleMaps]: javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0' "OpenInGoogleMaps"
-[OpenIniOctocat]: javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0' "OpenIniOctocat"
+[OpenIniOctocat]: javascript:(function()%7Bif(/(gist%5C.)?github%5C.com/.test(location.host)&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.3.0' "OpenIniOctocat"
 [OpenInWorkingCopy]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href.split('/').slice(0,5).join('/')+'.git'%7D)();void'1.1.0' "OpenInWorkingCopy"
 [SearchIn1Password]: javascript:(function()%7Breturn%20location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%7D)();void'1.2.1' "SearchIn1Password"
 <!--- Setup links -->
@@ -279,7 +282,7 @@ repos I have; doesn't build yet
 [Setup OpenInGoodReader]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7D)();void'1.2.0' "Setup OpenInGoodReader"
 [Setup OpenInGoogleChrome]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0' "Setup OpenInGoogleChrome"
 [Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0' "Setup OpenInGoogleMaps"
-[Setup OpenIniOctocat]: http://mmind.me/_?javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0' "Setup OpenIniOctocat"
+[Setup OpenIniOctocat]: http://mmind.me/_?javascript:(function()%7Bif(/(gist%5C.)?github%5C.com/.test(location.host)&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.3.0' "Setup OpenIniOctocat"
 [Setup OpenInWorkingCopy]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href.split('/').slice(0,5).join('/')+'.git'%7D)();void'1.1.0' "Setup OpenInWorkingCopy"
 [Setup SearchIn1Password]: http://mmind.me/_?javascript:(function()%7Breturn%20location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%7D)();void'1.2.1' "Setup SearchIn1Password"
 <!-- Badge links -->
