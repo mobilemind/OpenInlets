@@ -3,10 +3,8 @@
 function openincodehub() {
   if (/iP(.d|hone)/.test(navigator.userAgent) &&
     location.host === 'github.com') {
-    return location.href = 'codehub://' + location.href.
-      split('/').
-      slice(2,5).
-      join('/');
+    return location.href = 'codehub://' +
+     location.href.split('/').slice(2,5).join('/');
   }
   return void 0;
 }
