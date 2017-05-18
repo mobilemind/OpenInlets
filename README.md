@@ -58,12 +58,14 @@ iCloud will sync the bookmarklet to iOS.
 + [IsItAws] v1.1.0 `javascript:(function()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7D)();void'1.1.0'`
 + [OpenIn1Password] v1.2.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7D)();void'1.2.0'`
 + [OpenInBlogsy] v1.1.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7D)();void'1.1.0'`
++ [OpenInCodeBucket] v1.0.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&'bitbucket.org'===location.host)return%20location.href='codebucket://'+location.href.split('/').slice(2,5).join('/')%7D)();void'1.0.0'`
++ [OpenInCodeHub] v1.0.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&'github.com'===location.host)return%20location.href='codehub://'+location.href.split('/').slice(2,5).join('/')%7D)();void'1.0.0'`
 + [OpenInFirefox] v1.1.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7D)();void'1.1.0'`
 + [OpenInGoodReader] v1.2.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7D)();void'1.2.0'`
 + [OpenInGoogleChrome] v1.1.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0'`
 + [OpenInGoogleMaps] v1.8.0 `javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0'`
 + [OpenIniOctocat] v1.2.0 `javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0'`
-+ [OpenInWorkingCopy] v1.0.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href+'.git'%7D)();void'1.0.0'`
++ [OpenInWorkingCopy] v1.1.0 `javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href.split('/').slice(0,5).join('/')+'.git'%7D)();void'1.1.0'`
 + [SearchIn1Password] v1.2.1 `javascript:(function()%7Breturn%20location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%7D)();void'1.2.1'`
 
 _NOTE:_ The `javascript:` bookmarks above will __not__ work from the Github
@@ -78,12 +80,14 @@ bookmarklet.
 + **Mobile Safari setup link** -- [Setup IsItAws] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.2.0
 + **Mobile Safari setup link** -- [Setup OpenInBlogsy] v1.1.0
++ **Mobile Safari setup link** -- [Setup OpenInCodeBucket] v1.0.0
++ **Mobile Safari setup link** -- [Setup OpenInCodeHub] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInFirefox] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.2.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.1.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v1.8.0
 + **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.2.0
-+ **Mobile Safari setup link** -- [Setup OpenInWorkingCopy] v1.0.0
++ **Mobile Safari setup link** -- [Setup OpenInWorkingCopy] v1.1.0
 + **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.2.1
 
 ## Use
@@ -152,6 +156,10 @@ using a URL protocol scheme.
   [Open URLs externally...][1Password URL Scheme] for details.
 + **OpenInBlogsy** - Uses the `blogsy:` URL protocol scheme for Blogsy. See
   [Blogsy URL Scheme][Blogsy URL Scheme].
++ **OpenInCodeBucket** _and_ **OpenInCodeBucket**- Uses the `codebucket://`
+and `codehub://` URL protocol schemes, respectively. See
+  [CodeHub URL Scheme][CodeHub URL Scheme]. Note that the source code seems to
+  be the only documentation for the scheme; look for `codehub://`.
 + **OpenInFirefox** - Uses the `firefox://open-url?url=` scheme for the
   Firefox app on iOS.
 + **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol
@@ -174,7 +182,10 @@ using a URL protocol scheme.
 
 ## Version Notes
 
-1.4.1  Added OpenInWorkingCopy and bumped version
+1.5.0  Add OpenInCodeBucket & OpenInCodeHub; bump version of OpenInWorkingCopy
+and overall version
+
+1.4.1  Added OpenInWorkingCopy and bumped overall version
 
 1.3.1: Added OpenInFirefox and bumped version
 
@@ -249,23 +260,27 @@ repos I have; doesn't build yet
 [IsItAws]: javascript:(function()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7D)();void'1.1.0' "IsItAws"
 [OpenIn1Password]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7D)();void'1.2.0' "OpenIn1Password"
 [OpenInBlogsy]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7D)();void'1.1.0' "OpenInBlogsy"
+[OpenInCodeBucket]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&'bitbucket.org'===location.host)return%20location.href='codebucket://'+location.href.split('/').slice(2,5).join('/')%7D)();void'1.0.0' "OpenInCodeBucket"
+[OpenInCodeHub]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&'github.com'===location.host)return%20location.href='codehub://'+location.href.split('/').slice(2,5).join('/')%7D)();void'1.0.0' "OpenInCodeHub"
 [OpenInFirefox]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7D)();void'1.1.0' "OpenInFirefox"
 [OpenInGoodReader]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7D)();void'1.2.0' "OpenInGoodReader"
 [OpenInGoogleChrome]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0' "OpenInGoogleChrome"
 [OpenInGoogleMaps]: javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0' "OpenInGoogleMaps"
 [OpenIniOctocat]: javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0' "OpenIniOctocat"
-[OpenInWorkingCopy]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href+'.git'%7D)();void'1.0.0' "OpenInWorkingCopy"
+[OpenInWorkingCopy]: javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href.split('/').slice(0,5).join('/')+'.git'%7D)();void'1.1.0' "OpenInWorkingCopy"
 [SearchIn1Password]: javascript:(function()%7Breturn%20location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%7D)();void'1.2.1' "SearchIn1Password"
 <!--- Setup links -->
 [Setup IsItAws]: http://mmind.me/_?javascript:(function()%7Breturn%20location.href='https://isitonaws.com/discover?name='+location.hostname%7D)();void'1.1.0' "Setup IsItAws"
 [Setup OpenIn1Password]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7D)();void'1.2.0' "Setup OpenIn1Password"
 [Setup OpenInBlogsy]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='blogsy:'+location.href%7D)();void'1.1.0' "Setup OpenInBlogsy"
+[Setup OpenInCodeBucket]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&'bitbucket.org'===location.host)return%20location.href='codebucket://'+location.href.split('/').slice(2,5).join('/')%7D)();void'1.0.0' "Setup OpenInCodeBucket"
+[Setup OpenInCodeHub]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&'github.com'===location.host)return%20location.href='codehub://'+location.href.split('/').slice(2,5).join('/')%7D)();void'1.0.0' "Setup OpenInCodeHub"
 [Setup OpenInFirefox]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7D)();void'1.1.0' "Setup OpenInFirefox"
 [Setup OpenInGoodReader]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))return%20location.href='gr'+location.href%7D)();void'1.2.0' "Setup OpenInGoodReader"
 [Setup OpenInGoogleChrome]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0' "Setup OpenInGoogleChrome"
 [Setup OpenInGoogleMaps]: http://mmind.me/_?javascript:(function()%7Bif('maps.google.com'===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps://'+location.search;if(/%20-%20Google%20Maps/.test(document.title))return%20location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7D)();void'1.8.0' "Setup OpenInGoogleMaps"
 [Setup OpenIniOctocat]: http://mmind.me/_?javascript:(function()%7Bif('github.com'===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.2.0' "Setup OpenIniOctocat"
-[Setup OpenInWorkingCopy]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href+'.git'%7D)();void'1.0.0' "Setup OpenInWorkingCopy"
+[Setup OpenInWorkingCopy]: http://mmind.me/_?javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&('bitbucket.org'===location.host%7C%7C'github.com'===location.host))return%20location.href='working-copy://show?remote='+location.href.split('/').slice(0,5).join('/')+'.git'%7D)();void'1.1.0' "Setup OpenInWorkingCopy"
 [Setup SearchIn1Password]: http://mmind.me/_?javascript:(function()%7Breturn%20location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%7D)();void'1.2.1' "Setup SearchIn1Password"
 <!-- Badge links -->
 [built-with-grunt-img]: https://cdn.gruntjs.com/builtwith.png
@@ -289,6 +304,7 @@ repos I have; doesn't build yet
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
 [1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
 [Blogsy URL Scheme]: http://blogsyapp.com/developers/ "Blogsy URL Scheme"
+[CodeHub URL Scheme]: https://github.com/thedillonb/CodeHub/blob/master/CodeHub.iOS/AppDelegate.cs#L258-L280 "CodeHub URL Scheme"
 [GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp "GoodReader:How do I save a file from Safari to GoodReader?"
 [Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
 [iOctocat URL Scheme]: http://ioctocat.com/faq/ "iOctocat FAQs - How to open GitHub URLs in iOctocat?"
