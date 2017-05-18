@@ -1,5 +1,5 @@
-// verify host is 'bitbucket.org' & on an iOS device
-// then swap in URL protocol for CodeBucket
+// verify host is 'bitbucket.org' & iOS UserAgent
+// then swap in URL protocol of CodeBucket iOS app
 function openincodebucket() {
   if (/iP(.d|hone)/.test(navigator.userAgent) &&
     location.host === 'bitbucket.org') {

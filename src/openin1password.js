@@ -1,4 +1,4 @@
-// verify UserAgent is iOS & then swap in URL protocol for 1Password iOS app
+// verify iOS UserAgent & then prefix URL to protocol of 1Password iOS app
 function openin1password() {
   if (/iP(.d|hone)/.test(navigator.userAgent)) {
     return location.href = 'op' + location.href;
