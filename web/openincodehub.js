@@ -1,0 +1,1 @@
+javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&'github.com'===location.host)return%20location.href='codehub://'+location.href.split('/').slice(2,5).join('/')%7D)();void'1.0.0'
