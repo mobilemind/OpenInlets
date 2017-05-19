@@ -116,7 +116,7 @@ MIT License - <http://opensource.org/licenses/mit-license.php>
 ## Source Code Notes
 
 The `src/` directory has human readable JavaScript, written in a way to
-facilitate testing. The `web\` directory has "uglified" code that has a
+facilitate testing. The `web/` directory has "uglified" code that has a
 `javascript:` URL protocol prefix and should be shorter. The `void'x.y.z'` at
 the end the bookmarklet URL code serves two purposes.
 

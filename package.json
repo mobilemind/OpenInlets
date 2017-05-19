@@ -20,10 +20,11 @@
     "grunt-yamllint": ">=0.3.0",
     "js2uri": ">=1.4.4"
   },
+  "directories": {},
   "engines": {
     "node": ">7.7.0"
   },
-  "homepage": "https://github.com/mobilemind/OpenInlets",
+  "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
     "1Password",
     "AWS",
@@ -39,6 +40,7 @@
   "license": "MIT",
   "main": "Gruntfile.js",
   "name": "OpenInlets",
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/mobilemind/OpenInlets.git"
