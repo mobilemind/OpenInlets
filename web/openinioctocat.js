@@ -1,1 +1,1 @@
-javascript:(function()%7Bif(/(gist%5C.)?github%5C.com/.test(location.host)&&/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.3.0'
+javascript:(function()%7Bif(/(gist%5C.)?github%5C.com/.test(location.host)&&/iP(%5Bao%5Dd%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace('https:','ioc:')%7D)();void'1.4.0'

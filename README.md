@@ -182,6 +182,8 @@ and `codehub://` URL protocol schemes, respectively. See
 
 ## Version Notes
 
+1.5.2  Update RegEx that checks for iPad/iPod/iPhone; bump versions
+
 1.5.1  Update OpenIniOctcat to work with Github gists; cleanup eslint warnings
 and uglify-js option
 

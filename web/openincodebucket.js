@@ -1,1 +1,1 @@
-javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent)&&'bitbucket.org'===location.host)return%20location.href='codebucket://'+location.href.split('/').slice(2,5).join('/')%7D)();void'1.0.0'
+javascript:(function()%7Bif(/iP(%5Bao%5Dd%7Chone)/.test(navigator.userAgent)&&'bitbucket.org'===location.host)return%20location.href='codebucket://'+location.href.split('/').slice(2,5).join('/')%7D)();void'1.1.0'

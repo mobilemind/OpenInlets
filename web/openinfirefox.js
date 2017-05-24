@@ -1,1 +1,1 @@
-javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7D)();void'1.1.0'
+javascript:(function()%7Bif(/iP(%5Bao%5Dd%7Chone)/.test(navigator.userAgent))return%20location.href='firefox://open-url?url='+location.href%7D)();void'1.2.0'
