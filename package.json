@@ -15,14 +15,14 @@
     "eslint-plugin-xss": ">=0.1.8",
     "grunt": ">1.0.0",
     "grunt-contrib-nodeunit": ">=1.0.0",
-    "grunt-contrib-uglify": ">=3.0.0",
+    "grunt-contrib-uglify": ">3.0.0",
     "grunt-eslint": ">=19.0.0",
     "grunt-yamllint": ">=0.3.0",
     "js2uri": ">=1.4.4"
   },
   "directories": {},
   "engines": {
-    "node": ">7.7.0"
+    "node": ">=8.0.0"
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [

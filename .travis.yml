@@ -7,9 +7,8 @@ cache:
   directories:
   - node_modules
 node_js:
-- '7'
 - '8'
-before_script:
+before_install:
 - npm set progress=false ; npm install -g grunt-cli
 notifications:
   slack:
