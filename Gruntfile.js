@@ -180,9 +180,8 @@ module.exports = function(grunt) {
 
   // helper function for updatereadme MultiTask
   function readOrFail(fileSpec) {
-    let text = grunt.file.read(fileSpec) || grunt.fail.fatal(`1-Can't read from ${fileSpec}`);
-    if (!text || "string" != typeof text || 0 === text.length) {
-      text = null;
+    const text = grunt.file.read(fileSpec);
+    if (!text || text.length < 1) {
       grunt.fail.fatal(`Can't read from ${fileSpec}`);
     }
     return text;
