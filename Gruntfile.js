@@ -178,16 +178,20 @@ module.exports = function(grunt) {
     return null;
   };
 
+  // helper function for updatereadme MultiTask
+  function readOrFail(fileSpec) {
+    let text = grunt.file.read(fileSpec) || grunt.fail.fatal(`1-Can't read from ${fileSpec}`);
+    if (!text || "string" != typeof text || 0 === text.length) {
+      text = null;
+      grunt.fail.fatal(`Can't read from ${fileSpec}`);
+    }
+    return text;
+  }
+
   grunt.registerMultiTask("updatereadme", "update links in README.md", function() {
     // read external files
-    let readMeString = grunt.file.read("README.md");
-    if (!readMeString || 0 === readMeString.length) {
-      grunt.fail.fatal("Can't read from README.md");
-    }
-    let bookmarkletString = grunt.file.read(`web/${this.data.file}`);
-    if (!bookmarkletString || 0 === bookmarkletString.length) {
-      grunt.fail.fatal(`Can't read from web/${this.data.file}`);
-    }
+    let readMeString = readOrFail("README.md");
+    let bookmarkletString = readOrFail(`web/${this.data.file}`);
 
     // update `javascript:...` code blocks
     readMeString = updatereadme(
