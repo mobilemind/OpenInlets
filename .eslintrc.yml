@@ -1,18 +1,18 @@
 root: true
 
-ecmaVersion: 6
-sourceType: script
-
-ecmaFeatures:
-  globalReturn: false
-  jsx: false
-  modules: false
-
 env:
   browser: true
   es6: true
   jquery: false
   node: true
+
+parserOptions:
+  ecmaFeatures:
+    globalReturn: false
+    jsx: false
+    modules: false
+  ecmaVersion: 6
+  sourceType: script
 
 plugins:
 - no-storage
