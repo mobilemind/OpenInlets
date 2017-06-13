@@ -7,11 +7,12 @@ env:
   node: true
 
 parserOptions:
-  ecmaVersion: 6
   ecmaFeatures:
     globalReturn: false
+    impliedStrict: true
     jsx: false
     modules: false
+  ecmaVersion: 6
   sourceType: script
 
 plugins:
@@ -55,9 +56,9 @@ rules:
   no-extra-label: 2
   no-floating-decimal: 2
   no-implicit-coercion: 2
-  no-implicit-globals: 2
+  no-implicit-globals: 0
   no-implied-eval: 2
-  no-invalid-this: 2
+  no-invalid-this: 0
   no-iterator: 2
   no-labels: 2
   no-lone-blocks: 2
@@ -141,7 +142,7 @@ rules:
   padding-line-between-statements: 0
   max-depth: 2
   max-len: ["warn", {"code": 80, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
-  max-lines: ["error", {"max": 230, "skipBlankLines": true, "skipComments": true}]
+  max-lines: ["error", {"max": 210, "skipBlankLines": true, "skipComments": true}]
   max-nested-callbacks: 2
   max-params: [2, 5]
   max-statements-per-line: 2
