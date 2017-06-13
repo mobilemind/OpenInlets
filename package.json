@@ -16,13 +16,13 @@
     "grunt": ">1.0.0",
     "grunt-contrib-nodeunit": ">=1.0.0",
     "grunt-contrib-uglify": ">3.0.0",
-    "grunt-eslint": ">=19.0.0",
+    "grunt-eslint": ">=20.0.0",
     "grunt-yamllint": ">=0.3.0",
-    "js2uri": ">=1.4.4"
+    "js2uri": ">1.4.5"
   },
   "directories": {},
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">8.0.0"
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
