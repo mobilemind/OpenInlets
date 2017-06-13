@@ -137,7 +137,10 @@ module.exports = function(grunt) {
         }]
       }
     },
-    "yamllint": {"files": {"src": [".*.yml", "*.yml", "*.yaml"]}}
+    "yamllint": {
+      "files": {"src": [".*.yml", "*.yml", "*.yaml"]},
+      "options": {"schema": "FAILSAFE_SCHEMA"}
+    }
   });
 
   // Load plugins: "uglify", "nodeunit", "eslint", "js2uri", "yamllint"
