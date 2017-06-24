@@ -182,6 +182,8 @@ and `codehub://` URL protocol schemes, respectively. See
 
 ## Version Notes
 
+1.5.3  Bump version so `git tag` & `package.json` match
+
 1.5.2  Add more eslint security rules; republish w/more aggressive uglify-js
 v3.0.19 that heavily optimizes `IsItAws` and `SearchIn1Password`
 
