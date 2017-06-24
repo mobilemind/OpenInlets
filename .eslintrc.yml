@@ -17,6 +17,7 @@ parserOptions:
 
 plugins:
 - no-storage
+- no-unsanitized
 - security
 - xss
 
@@ -221,6 +222,10 @@ rules:
 
   # no-storage
   no-storage/no-browser-storage: 2
+
+  #  no-unsanitized (by Mozilla)
+  no-unsanitized/method: 2
+  no-unsanitized/property: 2
 
   # security
   security/detect-unsafe-regex: 2
