@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     "buildbookmarklet": {
       "IsItAws": {
         "file": "isitaws.js",
-        "version": "1.1.0"
+        "version": "1.2.0"
       },
       "OpenIn1Password": {
         "file": "openin1password.js",
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
       },
       "SearchIn1Password": {
         "file": "searchin1password.js",
-        "version": "1.2.1"
+        "version": "1.3.0"
       }
     },
     "eslint": {
