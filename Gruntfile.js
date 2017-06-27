@@ -6,6 +6,10 @@ module.exports = function(grunt) {
         "file": "isitaws.js",
         "version": "1.2.0"
       },
+      "KillStickyHeaders": {
+        "file": "killStickyHeaders.js",
+        "version": "1.0.0"
+      },
       "OpenIn1Password": {
         "file": "openin1password.js",
         "version": "1.2.0"
