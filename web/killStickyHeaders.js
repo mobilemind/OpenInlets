@@ -1,0 +1,1 @@
+javascript:(function()%7Bvar%20e=document.querySelectorAll('body%20*'),o=0;for(o=0;e.length%3Eo;o++)'fixed'===getComputedStyle(e%5Bo%5D).position&&e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D)();void'1.0.0'
