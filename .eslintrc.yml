@@ -16,6 +16,7 @@ parserOptions:
   sourceType: script
 
 plugins:
+- compat
 - no-storage
 - no-unsanitized
 - security
@@ -219,6 +220,9 @@ rules:
   symbol-description: 2
   template-curly-spacing: 2
   yield-star-spacing: 2
+
+  # compat
+  compat/compat: 2
 
   # no-storage
   no-storage/no-browser-storage: 2

@@ -10,6 +10,7 @@
   "dependencies": {},
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
+    "eslint-plugin-compat": ">1.0.3",
     "eslint-plugin-no-storage": ">1.0.1",
     "eslint-plugin-no-unsanitized": ">2.0.0",
     "eslint-plugin-security": ">=1.4.0",
