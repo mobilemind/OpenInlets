@@ -1,1 +1,1 @@
-javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href=location.href.replace(/%5Ehttp/,'googlechrome')%7D)();void'1.1.0'
+javascript:if(/iP(.d|hone)/.test(navigator.userAgent))location.href=location.href.replace(/^http/,'googlechrome');void'1.2.0'

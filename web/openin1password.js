@@ -1,1 +1,1 @@
-javascript:(function()%7Bif(/iP(.d%7Chone)/.test(navigator.userAgent))return%20location.href='op'+location.href%7D)();void'1.2.0'
+javascript:if(/iP(.d|hone)/.test(navigator.userAgent))location.href=`op${location.href}`;void'1.3.0'
