@@ -74,100 +74,36 @@ module.exports = function(grunt) {
     },
     "nodeunit": {"files": ["test/*.js"]},
     "pkg": grunt.file.readJSON("package.json"),
-    "uglify": {
-      "options": {
-        "beautify": false,
-        "compress": {
-          "booleans": true,
-          "cascade": true,
-          "collapse_vars": true,
-          "comparisons": true,
-          "conditionals": true,
-          "dead_code": true,
-          "drop_console": true,
-          "drop_debugger": true,
-          "evaluate": true,
-          "expression": true,
-          "global_defs": {},
-          "hoist_funs": false,
-          "hoist_vars": false,
-          "if_return": true,
-          "join_vars": true,
-          "keep_fargs": false,
-          "loops": true,
-          "negate_iife": true,
-          "passes": 2,
-          "properties": true,
-          "pure_funcs": [],
-          "pure_getters": true,
-          "reduce_vars": true,
-          "sequences": true,
-          "side_effects": false,
-          "top_retain": [],
-          "toplevel": true,
-          "unsafe": true,
-          "unsafe_comps": true,
-          "unsafe_math": true,
-          "unsafe_proto": true,
-          "unused": true,
-          "warnings": true
-        },
-        "ie8": false,
-        "mangle": {"toplevel": true},
-        "maxLineLen": 32766,
-        "output": {
-          "ascii_only": true,
-          "bracketize": false,
-          "comments": false,
-          "indent_level": 0,
-          "max_line_len": 32766,
-          "quote_keys": false,
-          "quote_style": 1,
-          "semicolons": true
-        },
-        "preserveComments": false,
-        "properties": false,
-        "quoteStyle": 1,
-        "report": "min",
-        "stats": true,
-        "wrap": false
-      },
-      "sourceFiles": {
-        "files": [{
-          "cwd": "src",
-          "dest": "web",
-          "expand": true,
-          "src": "*.js"
-        }]
-      }
-    },
+    "shell": {"uglify_es": {"command": "for OJS in src/*.js; do uglifyjs --config-file .uglifyjs3.json --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}},
     "yamllint": {
       "files": {"src": [".*.yml", "*.yml", "*.yaml"]},
       "options": {"schema": "FAILSAFE_SCHEMA"}
     }
   });
 
-  // Load plugins: "uglify", "nodeunit", "eslint", "js2uri", "yamllint"
-  grunt.loadNpmTasks("grunt-contrib-uglify");
+  // Load plugins
   grunt.loadNpmTasks("grunt-contrib-nodeunit");
   grunt.loadNpmTasks("grunt-eslint");
   grunt.loadNpmTasks("js2uri");
+  grunt.loadNpmTasks("grunt-shell");
   grunt.loadNpmTasks("grunt-yamllint");
 
   // version info
   grunt.log.writeln(`\n${grunt.config("pkg.name")} ${grunt.config("pkg.version")}`);
 
   // buildbookmarklet
-  grunt.registerMultiTask("buildbookmarklet", "build bookmarklet", function() {
-    grunt.config.set("js2uri.options.customVersion", this.data.version);
-    grunt.config.set("js2uri.files.src", [`web/${this.data.file}`]);
-    grunt.config.set("js2uri.files.dest", `web/${this.data.file}`);
-    if (grunt.task.run(["js2uri"])) {
-      return true;
+  grunt.registerMultiTask("buildbookmarklet", "make a simple javascript url",
+    function() {
+      const origFile = `src/${this.data.file}`,
+        thisFile = `web/${this.data.file}`;
+      let theCode = grunt.file.read(thisFile);
+      theCode = `javascript:${theCode.replace(/\+/g,"%2B")}`;
+      theCode += `void'${this.data.version}'`;
+      grunt.file.write(thisFile, theCode);
+      grunt.log.writeln(`${origFile}: ${grunt.file.read(origFile).length} bytes`);
+      grunt.log.writeln(`${thisFile}: ${theCode.length} bytes`);
     }
-    grunt.fail.fatal(`Failed to js2uri() ${this.target}`);
-    return false;
-  });
+  );
 
   // set updatereadme targets & define replaceinreadme()
   grunt.config.set("updatereadme", grunt.config("buildbookmarklet"));
@@ -233,7 +169,7 @@ module.exports = function(grunt) {
   });
 
   // Default task
-  grunt.registerTask("default", ["yamllint", "eslint", "uglify:sourceFiles",
+  grunt.registerTask("default", ["yamllint", "eslint", "shell:uglify_es",
     "buildbookmarklet"]);
 
   // Deploy task
