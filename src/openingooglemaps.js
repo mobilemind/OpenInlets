@@ -5,9 +5,9 @@
 (() => {
   if ('maps.google.com' === location.hostname && /iP(.d|hone)/.test(navigator.userAgent)) {
     if (location.search) {
-      location.href = 'comgooglemaps://' + location.search;
+      location.href = `comgooglemaps://${location.search}`;
     } else if (/ - Google Maps/.test(document.title)) {
-      location.href = 'comgooglemaps://?q=' + encodeURI(document.title.replace(' - Google Maps', '').replace(/ /g, '+'));
+      location.href = `comgooglemaps://?q=${encodeURI(document.title.replace(' - Google Maps', '').replace(/ /g, '+'))}`;
     }
   }
 })();
