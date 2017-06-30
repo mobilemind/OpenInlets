@@ -1,5 +1,5 @@
 // use querySelectorAll() to find & delete all fixed position elements of body
-function killstickyheaders() {
+(() => {
   /* eslint no-plusplus: 0, no-var: 0, security/detect-object-injection: 0 */
   var elements = document.querySelectorAll('body *'),
     i = 0;
@@ -8,6 +8,4 @@ function killstickyheaders() {
       elements[i].parentNode.removeChild(elements[i]);
     }
   }
-  return void 0;
-}
-killstickyheaders();
+})();
