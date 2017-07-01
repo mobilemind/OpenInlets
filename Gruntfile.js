@@ -59,20 +59,6 @@ module.exports = function(grunt) {
       "options": {"configFile": ".eslintrc.yml"},
       "target": ["Gruntfile.js", "src/*.js"]
     },
-    "js2uri": {
-      "options": {
-        "appendVersion": true,
-        "appendVoid": true,
-        "customVersion": "",
-        "entityEncode": false,
-        "forceLastSemicolon": false,
-        "noLastSemicolon": true,
-        "protocol": "javascript:",
-        "useNewlineEOL": true,
-        "useSingleQuote": true
-      }
-    },
-    "nodeunit": {"files": ["test/*.js"]},
     "pkg": grunt.file.readJSON("package.json"),
     "shell": {"uglify_es": {"command": "for OJS in src/*.js; do uglifyjs --config-file .uglifyjs3.json --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}},
     "yamllint": {
@@ -84,23 +70,38 @@ module.exports = function(grunt) {
   // Load plugins
   grunt.loadNpmTasks("grunt-contrib-nodeunit");
   grunt.loadNpmTasks("grunt-eslint");
-  grunt.loadNpmTasks("js2uri");
   grunt.loadNpmTasks("grunt-shell");
   grunt.loadNpmTasks("grunt-yamllint");
 
   // version info
   grunt.log.writeln(`\n${grunt.config("pkg.name")} ${grunt.config("pkg.version")}`);
 
+  // helper function for reading files
+  function readOrFail(fileSpec) {
+    /* eslint security/detect-non-literal-fs-filename: 0 */
+    if (grunt.file.exists(fileSpec)) {
+      const text = grunt.file.read(fileSpec);
+      if (text.length > 0) {
+        return text;
+      }
+    }
+    return grunt.fail.fatal(`Can't read from ${fileSpec}`);
+  }
+
   // buildbookmarklet
   grunt.registerMultiTask("buildbookmarklet", "make a simple javascript url",
     function() {
       const origFile = `src/${this.data.file}`,
         thisFile = `web/${this.data.file}`;
-      let theCode = grunt.file.read(thisFile);
-      theCode = `javascript:${theCode.replace(/\+/g,"%2B")}`;
-      theCode += `void'${this.data.version}'`;
+      let theCode = readOrFail(thisFile);
+      // minimal URL encoding
+      theCode = theCode.replace(/\+/g,"%2B");
+      // prepend + append; write results
+      theCode = `javascript:${theCode}void'${this.data.version}'`;
       grunt.file.write(thisFile, theCode);
-      grunt.log.writeln(`${origFile}: ${grunt.file.read(origFile).length} bytes`);
+      // output some stats
+      grunt.log.writeln(`${this.target} v${this.data.version}`);
+      grunt.log.writeln(`${origFile}: ${readOrFail(origFile).length} bytes`);
       grunt.log.writeln(`${thisFile}: ${theCode.length} bytes`);
     }
   );
@@ -120,15 +121,6 @@ module.exports = function(grunt) {
     grunt.fail.fatal(`Can't find  ${targetKind} references for ${targetName}`);
     return null;
   };
-
-  // helper function for updatereadme MultiTask
-  function readOrFail(fileSpec) {
-    const text = grunt.file.read(fileSpec);
-    if (!text || text.length < 1) {
-      grunt.fail.fatal(`Can't read from ${fileSpec}`);
-    }
-    return text;
-  }
 
   grunt.registerMultiTask("updatereadme", "update links in README.md", function() {
     // read external files
