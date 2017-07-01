@@ -16,14 +16,13 @@
     "eslint-plugin-security": ">=1.4.0",
     "eslint-plugin-xss": ">=0.1.8",
     "grunt": ">=1.0.1",
-    "grunt-contrib-nodeunit": ">=1.0.0",
     "grunt-eslint": ">=20.0.0",
     "grunt-shell": ">=2.1.0",
     "grunt-yamllint": ">=0.3.0"
   },
   "directories": {},
   "engines": {
-    "node": ">8.0.0"
+    "node": ">8.1.0"
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
