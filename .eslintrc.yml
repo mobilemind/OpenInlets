@@ -42,7 +42,7 @@ rules:
   class-methods-use-this: 2
   complexity: [2, 12]
   consistent-return: 2
-  curly: 2
+  curly: 0
   default-case: 2
   guard-for-in: 2
   no-alert: 2
