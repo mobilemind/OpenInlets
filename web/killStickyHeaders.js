@@ -1,1 +1,1 @@
-javascript:(()=>{var e=document.querySelectorAll('body *'),o=0;for(o=0;o<e.length;o%2B%2B)'fixed'===getComputedStyle(e[o]).position&&e[o].parentNode.removeChild(e[o])})();void'1.0.1'
+javascript:(()=>{var e=document.querySelectorAll("body *"),o=0;for(o=0;o<e.length;o%2B%2B)if("fixed"===getComputedStyle(e[o]).position)e[o].parentNode.removeChild(e[o])})();void'1.1.0'

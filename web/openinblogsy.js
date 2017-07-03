@@ -1,1 +1,1 @@
-javascript:if(/iP(.d|hone)/.test(navigator.userAgent))location.href=`blogsy:${location.href}`;void'1.2.0'
+javascript:if(/iP(.d|hone)/.test(navigator.userAgent))location.href=`blogsy:${location.href}`;void'1.3.0'
