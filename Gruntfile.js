@@ -68,7 +68,6 @@ module.exports = function(grunt) {
   });
 
   // Load plugins
-  grunt.loadNpmTasks("grunt-contrib-nodeunit");
   grunt.loadNpmTasks("grunt-eslint");
   grunt.loadNpmTasks("grunt-shell");
   grunt.loadNpmTasks("grunt-yamllint");
@@ -160,9 +159,11 @@ module.exports = function(grunt) {
     return null;
   });
 
+  // preflight task
+  grunt.registerTask("preflight", ["yamllint", "eslint"]);
+
   // Default task
-  grunt.registerTask("default", ["yamllint", "eslint", "shell:uglify_es",
-    "buildbookmarklet"]);
+  grunt.registerTask("default", ["preflight", "shell:uglify_es", "buildbookmarklet"]);
 
   // Deploy task
   grunt.registerTask("deploy", ["default", "updatereadme"]);
