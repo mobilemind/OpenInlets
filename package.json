@@ -49,5 +49,5 @@
     "install": "npm install -g uglify-es@latest",
     "test": "grunt"
   },
-  "version": "1.7.0"
+  "version": "1.8.0"
 }
