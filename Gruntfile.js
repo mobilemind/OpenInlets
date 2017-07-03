@@ -60,7 +60,7 @@ module.exports = function(grunt) {
       "target": ["Gruntfile.js", "src/*.js"]
     },
     "pkg": grunt.file.readJSON("package.json"),
-    "shell": {"uglify_es": {"command": "for OJS in src/*.js; do uglifyjs --config-file .uglifyjs3.json --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}},
+    "shell": {"uglify_es": {"command": "for OJS in src/*.js; do uglifyjs -m --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}},
     "yamllint": {
       "files": {"src": [".*.yml", "*.yml", "*.yaml"]},
       "options": {"schema": "FAILSAFE_SCHEMA"}
