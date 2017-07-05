@@ -4,55 +4,55 @@ module.exports = function(grunt) {
     "buildbookmarklet": {
       "IsItAws": {
         "file": "isitaws.js",
-        "version": "1.3.0"
+        "version": "1.3.1"
       },
       "KillStickyHeaders": {
         "file": "killStickyHeaders.js",
-        "version": "1.1.0"
+        "version": "1.2.0"
       },
       "OpenIn1Password": {
         "file": "openin1password.js",
-        "version": "1.4.0"
+        "version": "1.5.0"
       },
       "OpenInBlogsy": {
         "file": "openinblogsy.js",
-        "version": "1.3.0"
+        "version": "1.4.0"
       },
       "OpenInCodeBucket": {
         "file": "openincodebucket.js",
-        "version": "1.2.0"
+        "version": "1.3.0"
       },
       "OpenInCodeHub": {
         "file": "openincodehub.js",
-        "version": "1.2.0"
+        "version": "1.3.0"
       },
       "OpenInFirefox": {
         "file": "openinfirefox.js",
-        "version": "1.3.0"
+        "version": "1.4.0"
       },
       "OpenInGoodReader": {
         "file": "openingoodreader.js",
-        "version": "1.4.0"
+        "version": "1.5.0"
       },
       "OpenInGoogleChrome": {
         "file": "openingooglechrome.js",
-        "version": "1.3.0"
+        "version": "1.4.0"
       },
       "OpenInGoogleMaps": {
         "file": "openingooglemaps.js",
-        "version": "2.0.0"
+        "version": "2.1.0"
       },
       "OpenInWorkingCopy": {
         "file": "openinworkingcopy.js",
-        "version": "1.3.0"
+        "version": "1.4.0"
       },
       "OpenIniOctocat": {
         "file": "openinioctocat.js",
-        "version": "1.5.0"
+        "version": "1.6.0"
       },
       "SearchIn1Password": {
         "file": "searchin1password.js",
-        "version": "1.4.0"
+        "version": "1.4.1"
       }
     },
     "eslint": {
@@ -93,10 +93,8 @@ module.exports = function(grunt) {
       const origFile = `src/${this.data.file}`,
         thisFile = `web/${this.data.file}`;
       let theCode = readOrFail(thisFile);
-      // minimal URL encoding
-      theCode = theCode.replace(/\+/g,"%2B");
-      // prepend + append; write results
-      theCode = `javascript:${theCode}void'${this.data.version}'`;
+      // minimal URL encoding for javascript: URL protocol
+      theCode = `javascript:${encodeURI(theCode)}void'${this.data.version}'`;
       grunt.file.write(thisFile, theCode);
       // output some stats
       grunt.log.writeln(`${this.target} v${this.data.version}`);
@@ -124,27 +122,26 @@ module.exports = function(grunt) {
   grunt.registerMultiTask("updatereadme", "update links in README.md", function() {
     // read external files
     let readMeString = readOrFail("README.md");
-    let bookmarkletString = readOrFail(`web/${this.data.file}`);
+    const bookmarkletString = readOrFail(`web/${this.data.file}`);
 
-    // update `javascript:...` code blocks
+    // update ``javascript:...`` blocks (double tick allows ES6 templates)
     readMeString = updatereadme(
-      new RegExp("(\\[" + this.target + "\\] v\\d+\\.\\d+\\.\\d+ )`javascript:[^`].+`", "g"),
-      "$1`" + bookmarkletString + "`", readMeString, "`javascript:...`",
+      new RegExp("(\\[" + this.target + "\\] v\\d+\\.\\d+\\.\\d+ )``javascript:[^`].+`", "g"),
+      "$1``" + bookmarkletString + "``", readMeString, "``javascript:...``",
       this.target);
 
-    // use regex to update bookmarklet javascript URL link
-    // 1st entity encode "&"
-    bookmarkletString = bookmarkletString.replace("\\&", "&amp;");
+    // update bookmarklet javascript URL link (w/entity encoded "&")
     readMeString = updatereadme(
       new RegExp("(\\[" + this.target + '\\]: )javascript.*( \\"' + this.target + '\\")', "g"),
-      "$1" + bookmarkletString + "$2", readMeString, "javascript: URL",
-      this.target);
+      "$1" + bookmarkletString.replace(/&/g, "&amp;") + "$2",
+      readMeString, "javascript: URL", this.target);
 
-    // use regex to update reference link bookmarklet URL
+    // update reference link bookmarklet URL (de-encode & re-encode needed)
     readMeString = updatereadme(
       new RegExp("(\\[Setup " + this.target + '\\]: )http.*( \\"Setup ' + this.target + '\\")', "g"),
-      "$1http://mmind.me/_?" + bookmarkletString + "$2", readMeString, "reference link",
-      this.target);
+      "$1http://mmind.me/_?javascript:" +
+      encodeURIComponent(decodeURI(bookmarkletString.replace("javascript:",""))) +
+      "$2", readMeString, "reference link", this.target);
 
     // use regex to update version references
     readMeString = updatereadme(new RegExp("(" + this.target + "\\] v)\\d+\\.\\d+\\.\\d+", "g"),
