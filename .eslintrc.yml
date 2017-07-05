@@ -142,7 +142,7 @@ rules:
   padding-line-between-statements: 0
   max-depth: 2
   max-len: ["warn", {"code": 80, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
-  max-lines: ["error", {"max": 175, "skipBlankLines": true, "skipComments": true}]
+  max-lines: ["error", {"max": 170, "skipBlankLines": true, "skipComments": true}]
   max-nested-callbacks: 2
   max-params: [2, 5]
   max-statements-per-line: 2
