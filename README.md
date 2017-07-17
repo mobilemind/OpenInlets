@@ -340,8 +340,7 @@ repos I have; doesn't build yet
 [npm]: https://npmjs.org/
 [grunt]: http://gruntjs.com/
 [js2uri]: https://npmjs.org/package/js2uri
-[kiding-gist 589242021df49eb17be3]: https://gist.github.com/kiding/589242021df49eb17be3/
-"safari-utm-stripper Bookmarklet"
+[kiding-gist 589242021df49eb17be3]: https://gist.github.com/kiding/589242021df49eb17be3/ "safari-utm-stripper Bookmarklet"
 [IsItOnAWS.com]: https://isitonaws.com/
 [IsItOnAWS Blog Post]: https://aws.amazon.com/blogs/aws/is-it-on-aws-domain-identification-using-aws-lambda/
 [Kill sticky headers]: https://alisdair.mcdiarmid.org/kill-sticky-headers/
