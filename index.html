@@ -18,7 +18,7 @@ html,body,#wrapper{font-size:10pt!important}
 
 <style>#wrapper { max-width:900px; margin:0 auto }</style>
 </head>
-<body class="normal nocodebreak">
+<body class="normal firstload nocodebreak">
   <div id="wrapper">
       <h1>OpenInlets</h1>
 
@@ -32,7 +32,8 @@ typically from iOS Mobile Safari to an iOS app.</p>
 
 <p><a href="https://www.codacy.com/app/mobilemind/OpenInlets"><img src="https://api.codacy.com/project/badge/Grade/1db800475a4744c68fe643a84a4454f4" alt="Codacy Badge" /></a></p>
 
-<p><strong>IsItAws</strong>: Check the current page hostname to determine if runs on AWS.</p>
+<p><strong>IsItAws</strong>: Check the current page hostname to determine if runs on AWS.
+ <em>NOTE:</em> This also works with Safari and Firefox on macOS.</p>
 
 <p><strong>KillStickyHeaders</strong>: Find &amp; delete all fixed position elements of body</p>
 
@@ -67,6 +68,10 @@ repo locally if necessary).</p>
 domain of the current web page. <em>NOTE:</em> This also works with Safari and
 Firefox on Mac OS X Mavericks (and macOS Sierra).</p>
 
+<p><strong>UtmStrip</strong>: Strips off the UTM query string elements of the current URL to
+remove common &ldquo;urchin&rdquo; tracking information from youtube, etc. <em>NOTE:</em> This
+also works with Safari and Firefox on macOS.</p>
+
 <h2>Install</h2>
 
 <h3>Desktop browser</h3>
@@ -93,6 +98,7 @@ iCloud will sync the bookmarklet to iOS.</p>
 <li><a href="javascript:if(/(gist%5C.)?github%5C.com/.test(location.host)&amp;amp;&amp;amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(%22https:%22,%22ioc:%22)%7Dvoid'1.6.0'" title="OpenIniOctocat">OpenIniOctocat</a> v1.6.0 <code>javascript:if(/(gist%5C.)?github%5C.com/.test(location.host)&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(%22https:%22,%22ioc:%22)%7Dvoid'1.6.0'</code></li>
 <li><a href="javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;amp;&amp;amp;(location.host===%22bitbucket.org%22%7C%7Clocation.host===%22github.com%22))%7Blocation.href=%60working-copy://show?remote=$%7Blocation.href.split(%22/%22).slice(0,5).join(%22/%22)%7D.git%60%7Dvoid'1.4.0'" title="OpenInWorkingCopy">OpenInWorkingCopy</a> v1.4.0 <code>javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;(location.host===%22bitbucket.org%22%7C%7Clocation.host===%22github.com%22))%7Blocation.href=%60working-copy://show?remote=$%7Blocation.href.split(%22/%22).slice(0,5).join(%22/%22)%7D.git%60%7Dvoid'1.4.0'</code></li>
 <li><a href="javascript:location.href=%60onepassword4://search/$%7Blocation.host.split(%22.%22).slice(location.host.split(%22.%22).length-2).join(%22.%22)%7D%60;void'1.4.1'" title="SearchIn1Password">SearchIn1Password</a> v1.4.1 <code>javascript:location.href=%60onepassword4://search/$%7Blocation.host.split(%22.%22).slice(location.host.split(%22.%22).length-2).join(%22.%22)%7D%60;void'1.4.1'</code></li>
+<li><a href="javascript:(()=%3E%7Bconst%20t=window.location.href,e=t.indexOf(%22?%22);if(t.indexOf(%22utm_%22)%3Ee)%7Blet%20i=t.replace(/(%5B?&amp;amp;%5Dutm_(source%7Cmedium%7Cterm%7Ccampaign%7Ccontent)=%5B%5E&amp;amp;#%5D+)/gi,%22%22);if(i.charAt(e)===%22&amp;amp;%22)%7Bi=i.substr(0,e)+%22?%22+i.substr(e+1)%7Dif(i!==t)%7Bhistory.replaceState(null,null,i)%7D%7D%7D)();void'1.0.0'" title="UtmStrip">UtmStrip</a> v1.0.0 <code>javascript:(()=%3E%7Bconst%20t=window.location.href,e=t.indexOf(%22?%22);if(t.indexOf(%22utm_%22)%3Ee)%7Blet%20i=t.replace(/(%5B?&amp;%5Dutm_(source%7Cmedium%7Cterm%7Ccampaign%7Ccontent)=%5B%5E&amp;#%5D+)/gi,%22%22);if(i.charAt(e)===%22&amp;%22)%7Bi=i.substr(0,e)+%22?%22+i.substr(e+1)%7Dif(i!==t)%7Bhistory.replaceState(null,null,i)%7D%7D%7D)();void'1.0.0'</code></li>
 </ul>
 
 
@@ -106,19 +112,20 @@ the resulting page to turn the followed bookmark into a JavaScript
 bookmarklet.</p>
 
 <ul>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:location.href%3D%60https%3A%2F%2Fisitonaws.com%2Fdiscover%3Fname%3D%24%7Blocation.hostname%7D%60%3Bvoid'1.3.1'" title="Setup IsItAws">Setup IsItAws</a> v1.3.1</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:(()%3D%3E%7Blet%20e%3Ddocument.querySelectorAll(%22body%20*%22)%2Co%3D0%3Bfor(o%3D0%3Bo%3Ce.length%3Bo%2B%2B)%7Bif(%22fixed%22%3D%3D%3DgetComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)()%3Bvoid'1.2.0'" title="Setup KillStickyHeaders">Setup KillStickyHeaders</a> v1.2.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60op%24%7Blocation.href%7D%60%7Dvoid'1.5.0'" title="Setup OpenIn1Password">Setup OpenIn1Password</a> v1.5.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60blogsy%3A%24%7Blocation.href%7D%60%7Dvoid'1.4.0'" title="Setup OpenInBlogsy">Setup OpenInBlogsy</a> v1.4.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D%22bitbucket.org%22)%7Blocation.href%3D%60codebucket%3A%2F%2F%24%7Blocation.href.split(%22%2F%22).slice(2%2C5).join(%22%2F%22)%7D%60%7Dvoid'1.3.0'" title="Setup OpenInCodeBucket">Setup OpenInCodeBucket</a> v1.3.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D%22github.com%22)%7Blocation.href%3D%60codehub%3A%2F%2F%24%7Blocation.href.split(%22%2F%22).slice(2%2C5).join(%22%2F%22)%7D%60%7Dvoid'1.3.0'" title="Setup OpenInCodeHub">Setup OpenInCodeHub</a> v1.3.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60firefox%3A%2F%2Fopen-url%3Furl%3D%24%7Blocation.href%7D%60%7Dvoid'1.4.0'" title="Setup OpenInFirefox">Setup OpenInFirefox</a> v1.4.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))%7Blocation.href%3D%60gr%24%7Blocation.href%7D%60%7Dvoid'1.5.0'" title="Setup OpenInGoodReader">Setup OpenInGoodReader</a> v1.5.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%2F%5Ehttp%2F%2C%22googlechrome%22)%7Dvoid'1.4.0'" title="Setup OpenInGoogleChrome">Setup OpenInGoogleChrome</a> v1.4.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:if(%22maps.google.com%22%3D%3D%3Dlocation.hostname%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href%3D%60comgooglemaps%3A%2F%2F%24%7Blocation.search%7D%60%7Delse%20if(%2F%20-%20Google%20Maps%2F.test(document.title))%7Blocation.href%3D%60comgooglemaps%3A%2F%2F%3Fq%3D%24%7BencodeURI(document.title.replace(%22%20-%20Google%20Maps%22%2C%22%22).replace(%2F%20%2Fg%2C%22%2B%22))%7D%60%7D%7Dvoid'2.1.0'" title="Setup OpenInGoogleMaps">Setup OpenInGoogleMaps</a> v2.1.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:if(%2F(gist%5C.)%3Fgithub%5C.com%2F.test(location.host)%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%22https%3A%22%2C%22ioc%3A%22)%7Dvoid'1.6.0'" title="Setup OpenIniOctocat">Setup OpenIniOctocat</a> v1.6.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26(location.host%3D%3D%3D%22bitbucket.org%22%7C%7Clocation.host%3D%3D%3D%22github.com%22))%7Blocation.href%3D%60working-copy%3A%2F%2Fshow%3Fremote%3D%24%7Blocation.href.split(%22%2F%22).slice(0%2C5).join(%22%2F%22)%7D.git%60%7Dvoid'1.4.0'" title="Setup OpenInWorkingCopy">Setup OpenInWorkingCopy</a> v1.4.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_?javascript:location.href%3D%60onepassword4%3A%2F%2Fsearch%2F%24%7Blocation.host.split(%22.%22).slice(location.host.split(%22.%22).length-2).join(%22.%22)%7D%60%3Bvoid'1.4.1'" title="Setup SearchIn1Password">Setup SearchIn1Password</a> v1.4.1</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:location.href%3D%60https%3A%2F%2Fisitonaws.com%2Fdiscover%3Fname%3D%24%7Blocation.hostname%7D%60%3Bvoid'1.3.1'" title="Setup IsItAws">Setup IsItAws</a> v1.3.1</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:(()%3D%3E%7Blet%20e%3Ddocument.querySelectorAll(%22body%20*%22)%2Co%3D0%3Bfor(o%3D0%3Bo%3Ce.length%3Bo%2B%2B)%7Bif(%22fixed%22%3D%3D%3DgetComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)()%3Bvoid'1.2.0'" title="Setup KillStickyHeaders">Setup KillStickyHeaders</a> v1.2.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60op%24%7Blocation.href%7D%60%7Dvoid'1.5.0'" title="Setup OpenIn1Password">Setup OpenIn1Password</a> v1.5.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60blogsy%3A%24%7Blocation.href%7D%60%7Dvoid'1.4.0'" title="Setup OpenInBlogsy">Setup OpenInBlogsy</a> v1.4.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D%22bitbucket.org%22)%7Blocation.href%3D%60codebucket%3A%2F%2F%24%7Blocation.href.split(%22%2F%22).slice(2%2C5).join(%22%2F%22)%7D%60%7Dvoid'1.3.0'" title="Setup OpenInCodeBucket">Setup OpenInCodeBucket</a> v1.3.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D%22github.com%22)%7Blocation.href%3D%60codehub%3A%2F%2F%24%7Blocation.href.split(%22%2F%22).slice(2%2C5).join(%22%2F%22)%7D%60%7Dvoid'1.3.0'" title="Setup OpenInCodeHub">Setup OpenInCodeHub</a> v1.3.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60firefox%3A%2F%2Fopen-url%3Furl%3D%24%7Blocation.href%7D%60%7Dvoid'1.4.0'" title="Setup OpenInFirefox">Setup OpenInFirefox</a> v1.4.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))%7Blocation.href%3D%60gr%24%7Blocation.href%7D%60%7Dvoid'1.5.0'" title="Setup OpenInGoodReader">Setup OpenInGoodReader</a> v1.5.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%2F%5Ehttp%2F%2C%22googlechrome%22)%7Dvoid'1.4.0'" title="Setup OpenInGoogleChrome">Setup OpenInGoogleChrome</a> v1.4.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:if(%22maps.google.com%22%3D%3D%3Dlocation.hostname%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href%3D%60comgooglemaps%3A%2F%2F%24%7Blocation.search%7D%60%7Delse%20if(%2F%20-%20Google%20Maps%2F.test(document.title))%7Blocation.href%3D%60comgooglemaps%3A%2F%2F%3Fq%3D%24%7BencodeURI(document.title.replace(%22%20-%20Google%20Maps%22%2C%22%22).replace(%2F%20%2Fg%2C%22%2B%22))%7D%60%7D%7Dvoid'2.1.0'" title="Setup OpenInGoogleMaps">Setup OpenInGoogleMaps</a> v2.1.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:if(%2F(gist%5C.)%3Fgithub%5C.com%2F.test(location.host)%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%22https%3A%22%2C%22ioc%3A%22)%7Dvoid'1.6.0'" title="Setup OpenIniOctocat">Setup OpenIniOctocat</a> v1.6.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26(location.host%3D%3D%3D%22bitbucket.org%22%7C%7Clocation.host%3D%3D%3D%22github.com%22))%7Blocation.href%3D%60working-copy%3A%2F%2Fshow%3Fremote%3D%24%7Blocation.href.split(%22%2F%22).slice(0%2C5).join(%22%2F%22)%7D.git%60%7Dvoid'1.4.0'" title="Setup OpenInWorkingCopy">Setup OpenInWorkingCopy</a> v1.4.0</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:location.href%3D%60onepassword4%3A%2F%2Fsearch%2F%24%7Blocation.host.split(%22.%22).slice(location.host.split(%22.%22).length-2).join(%22.%22)%7D%60%3Bvoid'1.4.1'" title="Setup SearchIn1Password">Setup SearchIn1Password</a> v1.4.1</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="http://mmind.me/_#javascript:(()%3D%3E%7Bconst%20t%3Dwindow.location.href%2Ce%3Dt.indexOf(%22%3F%22)%3Bif(t.indexOf(%22utm_%22)%3Ee)%7Blet%20i%3Dt.replace(%2F(%5B%3F%26%5Dutm_(source%7Cmedium%7Cterm%7Ccampaign%7Ccontent)%3D%5B%5E%26%23%5D%2B)%2Fgi%2C%22%22)%3Bif(i.charAt(e)%3D%3D%3D%22%26%22)%7Bi%3Di.substr(0%2Ce)%2B%22%3F%22%2Bi.substr(e%2B1)%7Dif(i!%3D%3Dt)%7Bhistory.replaceState(null%2Cnull%2Ci)%7D%7D%7D)()%3Bvoid'1.0.0'" title="Setup UtmStrip">Setup UtmStrip</a> v1.0.0</li>
 </ul>
 
 
@@ -172,7 +179,7 @@ of the bookmark.</li>
 <a href="http://nodejs.org/">nodejs.org</a>. Finally change to the <code>OpenInlets</code> directory and install
 the dependencies into the project before invoking <code>grunt</code>.</p>
 
-<pre><code>git clone https://github.com/mobilemind/OpenInlets.git
+<pre><code class="bash">git clone https://github.com/mobilemind/OpenInlets.git
 cd OpenInlets
 npm install
 grunt</code></pre>
@@ -223,10 +230,14 @@ URL protocol scheme for Working Copy. See the subheading
 <li><strong>SearchIn1Password</strong> - Uses <code>onepassword4://search/</code> with the current
 domain appended to trigger a 1Password search. See the subheading
 <a href="http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/" title="Agile Bits: 1Password URL Scheme">Open URLs externally&hellip;</a> for details.</li>
+<li><strong>UtmStrip</strong> -  Strips off the UTM query string elements of the current URL.
+Based on <a href="https://gist.github.com/kiding/589242021df49eb17be3/">safari-utm-stripper Bookmarklet</a></li>
 </ul>
 
 
 <h2>Version Notes</h2>
+
+<p>1.9.0  Add UtmStrip as new bookmarklet; Bump version</p>
 
 <p>1.8.1  restore curly brackets in bookmarklet source; improve URI encoding;
 automate updates to <code>README.md</code> links/bookmarks; Bump version</p>
