@@ -34,8 +34,11 @@
     "GoodReader",
     "Google Chrome",
     "Google Maps",
+    "IsItAWS",
     "iOctocat",
-    "iOS"
+    "iOS",
+    "UTM",
+    "UTM-Stripper"
   ],
   "license": "MIT",
   "main": "Gruntfile.js",
@@ -49,5 +52,5 @@
     "install": "npm install -g uglify-es@latest",
     "test": "grunt"
   },
-  "version": "1.8.1"
+  "version": "1.9.0"
 }
