@@ -53,6 +53,10 @@ module.exports = function(grunt) {
       "SearchIn1Password": {
         "file": "searchin1password.js",
         "version": "1.4.1"
+      },
+      "UtmStrip": {
+        "file": "utmstrip.js",
+        "version": "0.9.0"
       }
     },
     "eslint": {
@@ -139,7 +143,7 @@ module.exports = function(grunt) {
     // update reference link bookmarklet URL (de-encode & re-encode needed)
     readMeString = updatereadme(
       new RegExp("(\\[Setup " + this.target + '\\]: )http.*( \\"Setup ' + this.target + '\\")', "g"),
-      "$1http://mmind.me/_?javascript:" +
+      "$1http://mmind.me/_#javascript:" +
       encodeURIComponent(decodeURI(bookmarkletString.replace("javascript:",""))) +
       "$2", readMeString, "reference link", this.target);
 
