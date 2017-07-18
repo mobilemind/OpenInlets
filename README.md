@@ -10,7 +10,7 @@ typically from iOS Mobile Safari to an iOS app.
 
 [![Codacy Badge][Codacy-image]][Codacy-dash]
 
-__IsItAws__: Check the current page hostname to determine if runs on AWS.
+__IsItAws__: Check the current page host to determine if runs on AWS.
  _NOTE:_ This also works with Safari and Firefox on macOS.
 
 __KillStickyHeaders__: Find & delete all fixed position elements of body
@@ -62,7 +62,7 @@ iCloud will sync the bookmarklet to iOS.
 
 #### JavaScript bookmarks
 
-+ [IsItAws] v1.3.1 ``javascript:location.href=%60https://isitonaws.com/discover?name=$%7Blocation.hostname%7D%60;void'1.3.1'``
++ [IsItAws] v1.3.2 ``javascript:location.href=%22https://isitonaws.com/discover?name=%22+location.host;void'1.3.2'``
 + [KillStickyHeaders] v1.2.0 ``javascript:(()=%3E%7Blet%20e=document.querySelectorAll(%22body%20*%22),o=0;for(o=0;o%3Ce.length;o++)%7Bif(%22fixed%22===getComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)();void'1.2.0'``
 + [OpenIn1Password] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60op$%7Blocation.href%7D%60%7Dvoid'1.5.0'``
 + [OpenInBlogsy] v1.4.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60blogsy:$%7Blocation.href%7D%60%7Dvoid'1.4.0'``
@@ -71,7 +71,7 @@ iCloud will sync the bookmarklet to iOS.
 + [OpenInFirefox] v1.4.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60firefox://open-url?url=$%7Blocation.href%7D%60%7Dvoid'1.4.0'``
 + [OpenInGoodReader] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))%7Blocation.href=%60gr$%7Blocation.href%7D%60%7Dvoid'1.5.0'``
 + [OpenInGoogleChrome] v1.4.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttp/,%22googlechrome%22)%7Dvoid'1.4.0'``
-+ [OpenInGoogleMaps] v2.1.0 ``javascript:if(%22maps.google.com%22===location.hostname&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href=%60comgooglemaps://$%7Blocation.search%7D%60%7Delse%20if(/%20-%20Google%20Maps/.test(document.title))%7Blocation.href=%60comgooglemaps://?q=$%7BencodeURI(document.title.replace(%22%20-%20Google%20Maps%22,%22%22).replace(/%20/g,%22+%22))%7D%60%7D%7Dvoid'2.1.0'``
++ [OpenInGoogleMaps] v2.1.1 ``javascript:if(%22maps.google.com%22===location.host&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href=%60comgooglemaps://$%7Blocation.search%7D%60%7Delse%20if(/%20-%20Google%20Maps/.test(document.title))%7Blocation.href=%60comgooglemaps://?q=$%7BencodeURI(document.title.replace(%22%20-%20Google%20Maps%22,%22%22).replace(/%20/g,%22+%22))%7D%60%7D%7Dvoid'2.1.1'``
 + [OpenIniOctocat] v1.6.0 ``javascript:if(/(gist%5C.)?github%5C.com/.test(location.host)&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(%22https:%22,%22ioc:%22)%7Dvoid'1.6.0'``
 + [OpenInWorkingCopy] v1.4.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.host===%22bitbucket.org%22%7C%7Clocation.host===%22github.com%22))%7Blocation.href=%60working-copy://show?remote=$%7Blocation.href.split(%22/%22).slice(0,5).join(%22/%22)%7D.git%60%7Dvoid'1.4.0'``
 + [SearchIn1Password] v1.4.1 ``javascript:location.href=%60onepassword4://search/$%7Blocation.host.split(%22.%22).slice(location.host.split(%22.%22).length-2).join(%22.%22)%7D%60;void'1.4.1'``
@@ -86,7 +86,7 @@ Visit the [OpenInlets page] and tap a link below. Follow the instructions on
 the resulting page to turn the followed bookmark into a JavaScript
 bookmarklet.
 
-+ **Mobile Safari setup link** -- [Setup IsItAws] v1.3.1
++ **Mobile Safari setup link** -- [Setup IsItAws] v1.3.2
 + **Mobile Safari setup link** -- [Setup KillStickyHeaders] v1.2.0
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.5.0
 + **Mobile Safari setup link** -- [Setup OpenInBlogsy] v1.4.0
@@ -95,7 +95,7 @@ bookmarklet.
 + **Mobile Safari setup link** -- [Setup OpenInFirefox] v1.4.0
 + **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.5.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.4.0
-+ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v2.1.0
++ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v2.1.1
 + **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.6.0
 + **Mobile Safari setup link** -- [Setup OpenInWorkingCopy] v1.4.0
 + **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.4.1
@@ -294,7 +294,7 @@ update
 repos I have; doesn't build yet
 
 <!--- JavaScript links -->
-[IsItAws]: javascript:location.href=%60https://isitonaws.com/discover?name=$%7Blocation.hostname%7D%60;void'1.3.1' "IsItAws"
+[IsItAws]: javascript:location.href=%22https://isitonaws.com/discover?name=%22+location.host;void'1.3.2' "IsItAws"
 [KillStickyHeaders]: javascript:(()=%3E%7Blet%20e=document.querySelectorAll(%22body%20*%22),o=0;for(o=0;o%3Ce.length;o++)%7Bif(%22fixed%22===getComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)();void'1.2.0' "KillStickyHeaders"
 [OpenIn1Password]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60op$%7Blocation.href%7D%60%7Dvoid'1.5.0' "OpenIn1Password"
 [OpenInBlogsy]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60blogsy:$%7Blocation.href%7D%60%7Dvoid'1.4.0' "OpenInBlogsy"
@@ -303,13 +303,13 @@ repos I have; doesn't build yet
 [OpenInFirefox]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60firefox://open-url?url=$%7Blocation.href%7D%60%7Dvoid'1.4.0' "OpenInFirefox"
 [OpenInGoodReader]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href))%7Blocation.href=%60gr$%7Blocation.href%7D%60%7Dvoid'1.5.0' "OpenInGoodReader"
 [OpenInGoogleChrome]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttp/,%22googlechrome%22)%7Dvoid'1.4.0' "OpenInGoogleChrome"
-[OpenInGoogleMaps]: javascript:if(%22maps.google.com%22===location.hostname&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href=%60comgooglemaps://$%7Blocation.search%7D%60%7Delse%20if(/%20-%20Google%20Maps/.test(document.title))%7Blocation.href=%60comgooglemaps://?q=$%7BencodeURI(document.title.replace(%22%20-%20Google%20Maps%22,%22%22).replace(/%20/g,%22+%22))%7D%60%7D%7Dvoid'2.1.0' "OpenInGoogleMaps"
+[OpenInGoogleMaps]: javascript:if(%22maps.google.com%22===location.host&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href=%60comgooglemaps://$%7Blocation.search%7D%60%7Delse%20if(/%20-%20Google%20Maps/.test(document.title))%7Blocation.href=%60comgooglemaps://?q=$%7BencodeURI(document.title.replace(%22%20-%20Google%20Maps%22,%22%22).replace(/%20/g,%22+%22))%7D%60%7D%7Dvoid'2.1.1' "OpenInGoogleMaps"
 [OpenIniOctocat]: javascript:if(/(gist%5C.)?github%5C.com/.test(location.host)&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(%22https:%22,%22ioc:%22)%7Dvoid'1.6.0' "OpenIniOctocat"
 [OpenInWorkingCopy]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;(location.host===%22bitbucket.org%22%7C%7Clocation.host===%22github.com%22))%7Blocation.href=%60working-copy://show?remote=$%7Blocation.href.split(%22/%22).slice(0,5).join(%22/%22)%7D.git%60%7Dvoid'1.4.0' "OpenInWorkingCopy"
 [SearchIn1Password]: javascript:location.href=%60onepassword4://search/$%7Blocation.host.split(%22.%22).slice(location.host.split(%22.%22).length-2).join(%22.%22)%7D%60;void'1.4.1' "SearchIn1Password"
 [UtmStrip]: javascript:(()=%3E%7Bconst%20t=window.location.href,e=t.indexOf(%22?%22);if(t.indexOf(%22utm_%22)%3Ee)%7Blet%20i=t.replace(/(%5B?&amp;%5Dutm_(source%7Cmedium%7Cterm%7Ccampaign%7Ccontent)=%5B%5E&amp;#%5D+)/gi,%22%22);if(i.charAt(e)===%22&amp;%22)%7Bi=i.substr(0,e)+%22?%22+i.substr(e+1)%7Dif(i!==t)%7Bhistory.replaceState(null,null,i)%7D%7D%7D)();void'1.0.0' "UtmStrip"
 <!--- Setup links -->
-[Setup IsItAws]: http://mmind.me/_#javascript:location.href%3D%60https%3A%2F%2Fisitonaws.com%2Fdiscover%3Fname%3D%24%7Blocation.hostname%7D%60%3Bvoid'1.3.1' "Setup IsItAws"
+[Setup IsItAws]: http://mmind.me/_#javascript:location.href%3D%22https%3A%2F%2Fisitonaws.com%2Fdiscover%3Fname%3D%22%2Blocation.host%3Bvoid'1.3.2' "Setup IsItAws"
 [Setup KillStickyHeaders]: http://mmind.me/_#javascript:(()%3D%3E%7Blet%20e%3Ddocument.querySelectorAll(%22body%20*%22)%2Co%3D0%3Bfor(o%3D0%3Bo%3Ce.length%3Bo%2B%2B)%7Bif(%22fixed%22%3D%3D%3DgetComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)()%3Bvoid'1.2.0' "Setup KillStickyHeaders"
 [Setup OpenIn1Password]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60op%24%7Blocation.href%7D%60%7Dvoid'1.5.0' "Setup OpenIn1Password"
 [Setup OpenInBlogsy]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60blogsy%3A%24%7Blocation.href%7D%60%7Dvoid'1.4.0' "Setup OpenInBlogsy"
@@ -318,7 +318,7 @@ repos I have; doesn't build yet
 [Setup OpenInFirefox]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60firefox%3A%2F%2Fopen-url%3Furl%3D%24%7Blocation.href%7D%60%7Dvoid'1.4.0' "Setup OpenInFirefox"
 [Setup OpenInGoodReader]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))%7Blocation.href%3D%60gr%24%7Blocation.href%7D%60%7Dvoid'1.5.0' "Setup OpenInGoodReader"
 [Setup OpenInGoogleChrome]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%2F%5Ehttp%2F%2C%22googlechrome%22)%7Dvoid'1.4.0' "Setup OpenInGoogleChrome"
-[Setup OpenInGoogleMaps]: http://mmind.me/_#javascript:if(%22maps.google.com%22%3D%3D%3Dlocation.hostname%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href%3D%60comgooglemaps%3A%2F%2F%24%7Blocation.search%7D%60%7Delse%20if(%2F%20-%20Google%20Maps%2F.test(document.title))%7Blocation.href%3D%60comgooglemaps%3A%2F%2F%3Fq%3D%24%7BencodeURI(document.title.replace(%22%20-%20Google%20Maps%22%2C%22%22).replace(%2F%20%2Fg%2C%22%2B%22))%7D%60%7D%7Dvoid'2.1.0' "Setup OpenInGoogleMaps"
+[Setup OpenInGoogleMaps]: http://mmind.me/_#javascript:if(%22maps.google.com%22%3D%3D%3Dlocation.host%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href%3D%60comgooglemaps%3A%2F%2F%24%7Blocation.search%7D%60%7Delse%20if(%2F%20-%20Google%20Maps%2F.test(document.title))%7Blocation.href%3D%60comgooglemaps%3A%2F%2F%3Fq%3D%24%7BencodeURI(document.title.replace(%22%20-%20Google%20Maps%22%2C%22%22).replace(%2F%20%2Fg%2C%22%2B%22))%7D%60%7D%7Dvoid'2.1.1' "Setup OpenInGoogleMaps"
 [Setup OpenIniOctocat]: http://mmind.me/_#javascript:if(%2F(gist%5C.)%3Fgithub%5C.com%2F.test(location.host)%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%22https%3A%22%2C%22ioc%3A%22)%7Dvoid'1.6.0' "Setup OpenIniOctocat"
 [Setup OpenInWorkingCopy]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26(location.host%3D%3D%3D%22bitbucket.org%22%7C%7Clocation.host%3D%3D%3D%22github.com%22))%7Blocation.href%3D%60working-copy%3A%2F%2Fshow%3Fremote%3D%24%7Blocation.href.split(%22%2F%22).slice(0%2C5).join(%22%2F%22)%7D.git%60%7Dvoid'1.4.0' "Setup OpenInWorkingCopy"
 [Setup SearchIn1Password]: http://mmind.me/_#javascript:location.href%3D%60onepassword4%3A%2F%2Fsearch%2F%24%7Blocation.host.split(%22.%22).slice(location.host.split(%22.%22).length-2).join(%22.%22)%7D%60%3Bvoid'1.4.1' "Setup SearchIn1Password"
