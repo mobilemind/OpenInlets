@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     "buildbookmarklet": {
       "IsItAws": {
         "file": "isitaws.js",
-        "version": "1.3.1"
+        "version": "1.3.2"
       },
       "KillStickyHeaders": {
         "file": "killStickyHeaders.js",
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
       },
       "OpenInGoogleMaps": {
         "file": "openingooglemaps.js",
-        "version": "2.1.0"
+        "version": "2.1.1"
       },
       "OpenInWorkingCopy": {
         "file": "openinworkingcopy.js",
@@ -98,7 +98,8 @@ module.exports = function(grunt) {
         thisFile = `web/${this.data.file}`;
       let theCode = readOrFail(thisFile);
       // minimal URL encoding for javascript: URL protocol
-      theCode = `javascript:${encodeURI(theCode)}void'${this.data.version}'`;
+      theCode = `${theCode}void'${this.data.version}'`;
+      theCode = `javascript:${encodeURI(theCode)}`;
       grunt.file.write(thisFile, theCode);
       // output some stats
       grunt.log.writeln(`${this.target} v${this.data.version}`);
