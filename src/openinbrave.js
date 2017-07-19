@@ -1,4 +1,4 @@
-// verify iOS UserAgent & then swap in the URL protocol for the Brave iOS app
+// verify iOS UserAgent & then prefix URL with protocol of Brave iOS app
 if (/iP(.d|hone)/.test(navigator.userAgent)) {
-  location.href = location.href.replace(/^https?/, 'brave');
+  location.href = 'brave://open-url?url=' + encodeURIComponent(location.href);
 }
