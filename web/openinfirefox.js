@@ -1,1 +1,1 @@
-javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60firefox://open-url?url=$%7Blocation.href%7D%60%7Dvoid'1.4.0'
+javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%22firefox://open-url?url=%22+location.href%7Dvoid'1.4.1'
