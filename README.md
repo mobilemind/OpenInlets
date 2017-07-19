@@ -19,9 +19,6 @@ __OpenIn1Password__: Open the current web page with the Webview in 1Password
 4.1+. Handy for login/form completion, or to quickly add a new entry with
 login credentials.
 
-__OpenInBlogsy__: Open the current web page using the Webview in Blogsy on
-iOS. Easily reblog or quote a page.
-
 __OpenInFirefox__: Open the current web page in the Firefox app for iOS.
 
 __OpenInGoodReader__: When viewing a PDF in Mobile Safari, open/download the
@@ -65,7 +62,6 @@ iCloud will sync the bookmarklet to iOS.
 + [IsItAws] v1.3.2 ``javascript:location.href=%22https://isitonaws.com/discover?name=%22+location.host;void'1.3.2'``
 + [KillStickyHeaders] v1.2.0 ``javascript:(()=%3E%7Blet%20e=document.querySelectorAll(%22body%20*%22),o=0;for(o=0;o%3Ce.length;o++)%7Bif(%22fixed%22===getComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)();void'1.2.0'``
 + [OpenIn1Password] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60op$%7Blocation.href%7D%60%7Dvoid'1.5.0'``
-+ [OpenInBlogsy] v1.4.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60blogsy:$%7Blocation.href%7D%60%7Dvoid'1.4.0'``
 + [OpenInCodeBucket] v1.3.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&location.host===%22bitbucket.org%22)%7Blocation.href=%60codebucket://$%7Blocation.href.split(%22/%22).slice(2,5).join(%22/%22)%7D%60%7Dvoid'1.3.0'``
 + [OpenInCodeHub] v1.3.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&location.host===%22github.com%22)%7Blocation.href=%60codehub://$%7Blocation.href.split(%22/%22).slice(2,5).join(%22/%22)%7D%60%7Dvoid'1.3.0'``
 + [OpenInFirefox] v1.4.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60firefox://open-url?url=$%7Blocation.href%7D%60%7Dvoid'1.4.0'``
@@ -89,7 +85,6 @@ bookmarklet.
 + **Mobile Safari setup link** -- [Setup IsItAws] v1.3.2
 + **Mobile Safari setup link** -- [Setup KillStickyHeaders] v1.2.0
 + **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.5.0
-+ **Mobile Safari setup link** -- [Setup OpenInBlogsy] v1.4.0
 + **Mobile Safari setup link** -- [Setup OpenInCodeBucket] v1.3.0
 + **Mobile Safari setup link** -- [Setup OpenInCodeHub] v1.3.0
 + **Mobile Safari setup link** -- [Setup OpenInFirefox] v1.4.0
@@ -168,8 +163,6 @@ child elements of `<body>` that have a fixed position. See
 + **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol
   scheme for 1Password. See the subheading
   [Open URLs externally...][1Password URL Scheme] for details.
-+ **OpenInBlogsy** - Uses the `blogsy:` URL protocol scheme for Blogsy. See
-  [Blogsy URL Scheme][Blogsy URL Scheme].
 + **OpenInCodeBucket** _and_ **OpenInCodeBucket**- Uses the `codebucket://`
 and `codehub://` URL protocol schemes, respectively. See
   [CodeHub URL Scheme][CodeHub URL Scheme]. Note that the source code seems to
@@ -297,7 +290,6 @@ repos I have; doesn't build yet
 [IsItAws]: javascript:location.href=%22https://isitonaws.com/discover?name=%22+location.host;void'1.3.2' "IsItAws"
 [KillStickyHeaders]: javascript:(()=%3E%7Blet%20e=document.querySelectorAll(%22body%20*%22),o=0;for(o=0;o%3Ce.length;o++)%7Bif(%22fixed%22===getComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)();void'1.2.0' "KillStickyHeaders"
 [OpenIn1Password]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60op$%7Blocation.href%7D%60%7Dvoid'1.5.0' "OpenIn1Password"
-[OpenInBlogsy]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60blogsy:$%7Blocation.href%7D%60%7Dvoid'1.4.0' "OpenInBlogsy"
 [OpenInCodeBucket]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;location.host===%22bitbucket.org%22)%7Blocation.href=%60codebucket://$%7Blocation.href.split(%22/%22).slice(2,5).join(%22/%22)%7D%60%7Dvoid'1.3.0' "OpenInCodeBucket"
 [OpenInCodeHub]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;location.host===%22github.com%22)%7Blocation.href=%60codehub://$%7Blocation.href.split(%22/%22).slice(2,5).join(%22/%22)%7D%60%7Dvoid'1.3.0' "OpenInCodeHub"
 [OpenInFirefox]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60firefox://open-url?url=$%7Blocation.href%7D%60%7Dvoid'1.4.0' "OpenInFirefox"
@@ -312,7 +304,6 @@ repos I have; doesn't build yet
 [Setup IsItAws]: http://mmind.me/_#javascript:location.href%3D%22https%3A%2F%2Fisitonaws.com%2Fdiscover%3Fname%3D%22%2Blocation.host%3Bvoid'1.3.2' "Setup IsItAws"
 [Setup KillStickyHeaders]: http://mmind.me/_#javascript:(()%3D%3E%7Blet%20e%3Ddocument.querySelectorAll(%22body%20*%22)%2Co%3D0%3Bfor(o%3D0%3Bo%3Ce.length%3Bo%2B%2B)%7Bif(%22fixed%22%3D%3D%3DgetComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)()%3Bvoid'1.2.0' "Setup KillStickyHeaders"
 [Setup OpenIn1Password]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60op%24%7Blocation.href%7D%60%7Dvoid'1.5.0' "Setup OpenIn1Password"
-[Setup OpenInBlogsy]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60blogsy%3A%24%7Blocation.href%7D%60%7Dvoid'1.4.0' "Setup OpenInBlogsy"
 [Setup OpenInCodeBucket]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D%22bitbucket.org%22)%7Blocation.href%3D%60codebucket%3A%2F%2F%24%7Blocation.href.split(%22%2F%22).slice(2%2C5).join(%22%2F%22)%7D%60%7Dvoid'1.3.0' "Setup OpenInCodeBucket"
 [Setup OpenInCodeHub]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D%22github.com%22)%7Blocation.href%3D%60codehub%3A%2F%2F%24%7Blocation.href.split(%22%2F%22).slice(2%2C5).join(%22%2F%22)%7D%60%7Dvoid'1.3.0' "Setup OpenInCodeHub"
 [Setup OpenInFirefox]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%60firefox%3A%2F%2Fopen-url%3Furl%3D%24%7Blocation.href%7D%60%7Dvoid'1.4.0' "Setup OpenInFirefox"
@@ -346,7 +337,6 @@ repos I have; doesn't build yet
 [Kill sticky headers]: https://alisdair.mcdiarmid.org/kill-sticky-headers/
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
 [1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
-[Blogsy URL Scheme]: http://blogsyapp.com/developers/ "Blogsy URL Scheme"
 [CodeHub URL Scheme]: https://github.com/thedillonb/CodeHub/blob/master/CodeHub.iOS/AppDelegate.cs#L258-L280 "CodeHub URL Scheme"
 [GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp "GoodReader:How do I save a file from Safari to GoodReader?"
 [Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
