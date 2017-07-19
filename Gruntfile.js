@@ -14,10 +14,6 @@ module.exports = function(grunt) {
         "file": "openin1password.js",
         "version": "1.5.0"
       },
-      "OpenInBlogsy": {
-        "file": "openinblogsy.js",
-        "version": "1.4.0"
-      },
       "OpenInCodeBucket": {
         "file": "openincodebucket.js",
         "version": "1.3.0"
