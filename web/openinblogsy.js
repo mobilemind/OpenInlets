@@ -1,1 +1,0 @@
-javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%60blogsy:$%7Blocation.href%7D%60%7Dvoid'1.4.0'
