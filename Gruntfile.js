@@ -14,6 +14,10 @@ module.exports = function(grunt) {
         "file": "openin1password.js",
         "version": "1.5.1"
       },
+      "OpenInBrave": {
+        "file": "openinbrave.js",
+        "version": "1.0.0"
+      },
       "OpenInCodeBucket": {
         "file": "openincodebucket.js",
         "version": "1.3.1"
@@ -22,9 +26,13 @@ module.exports = function(grunt) {
         "file": "openincodehub.js",
         "version": "1.3.1"
       },
+      "OpenInDolphin": {
+        "file": "openindolphin.js",
+        "version": "1.0.0"
+      },
       "OpenInFirefox": {
         "file": "openinfirefox.js",
-        "version": "1.4.1"
+        "version": "1.5.0"
       },
       "OpenInGoodReader": {
         "file": "openingoodreader.js",
@@ -38,9 +46,17 @@ module.exports = function(grunt) {
         "file": "openingooglemaps.js",
         "version": "2.2.0"
       },
+      "OpenInOpera": {
+        "file": "openinopera.js",
+        "version": "1.0.0"
+      },
+      "OpenInTextastic": {
+        "file": "openintextastic.js",
+        "version": "1.0.0"
+      },
       "OpenInWorkingCopy": {
         "file": "openinworkingcopy.js",
-        "version": "1.4.1"
+        "version": "1.5.0"
       },
       "OpenIniOctocat": {
         "file": "openinioctocat.js",
