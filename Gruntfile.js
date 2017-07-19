@@ -16,7 +16,7 @@ module.exports = function(grunt) {
       },
       "OpenInBrave": {
         "file": "openinbrave.js",
-        "version": "1.0.0"
+        "version": "1.0.1"
       },
       "OpenInCodeBucket": {
         "file": "openincodebucket.js",
