@@ -25,6 +25,10 @@ __OpenInDolphin__: Open the current web page in the Dolphin app for iOS.
 
 __OpenInFirefox__: Open the current web page in the Firefox app for iOS.
 
+__OpenInFirefox-Focus__: Open the current web page in the Firefox Focus app for iOS.
+
+__OpenInFirefox-Private__: Open the current web page in private mode of the Firefox app for iOS.
+
 __OpenInGoodReader__: When viewing a PDF in Mobile Safari, open/download the
 same PDF in GoodReader 4.
 
@@ -78,6 +82,8 @@ iCloud will sync the bookmarklet to iOS.
 + [OpenInCodeHub] v1.3.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&location.host===%22github.com%22)%7Blocation.href=%22codehub://%22+location.href.split(%22/%22).slice(2,5).join(%22/%22)%7Dvoid'1.3.1'``
 + [OpenInDolphin] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttps?/,%22dolphin%22)%7Dvoid'1.0.0'``
 + [OpenInFirefox] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%22firefox://open-url?url=%22+encodeURIComponent(location.href)%7Dvoid'1.5.0'``
++ [OpenInFirefox-Focus] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%22firefox://open-url?url=%22+encodeURIComponent(location.href)%7Dvoid'0.9.0'``
++ [OpenInFirefox-Private] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%22firefox://open-url?url=%22+encodeURIComponent(location.href)%7Dvoid'0.9.0'``
 + [OpenInGoodReader] v1.5.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))%7Blocation.href=%22gr%22+location.href%7Dvoid'1.5.1'``
 + [OpenInGoogleChrome] v1.4.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttp/,%22googlechrome%22)%7Dvoid'1.4.0'``
 + [OpenInGoogleMaps] v2.2.0 ``javascript:if(/%5C.google%5C.com/.test(location.host)&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href=%22comgooglemaps://%22+location.search%7Delse%20if(/%20-%20Google%20Maps/.test(document.title))%7Blocation.href=%22comgooglemaps://?q=%22+encodeURI(document.title.replace(%22%20-%20Google%20Maps%22,%22%22).replace(/%20/g,%22+%22))%7D%7Dvoid'2.2.0'``
@@ -105,6 +111,8 @@ bookmarklet.
 + **Mobile Safari setup link** -- [Setup OpenInCodeHub] v1.3.1
 + **Mobile Safari setup link** -- [Setup OpenInDolphin] v1.0.0
 + **Mobile Safari setup link** -- [Setup OpenInFirefox] v1.5.0
++ **Mobile Safari setup link** -- [Setup OpenInFirefox-Focus] v0.9.0
++ **Mobile Safari setup link** -- [Setup OpenInFirefox-Private] v0.9.0
 + **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.5.1
 + **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.4.0
 + **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v2.2.0
@@ -189,8 +197,12 @@ using a URL protocol scheme.
   [CodeHub URL Scheme][CodeHub URL Scheme]. Note that the source code seems to
   be the only documentation for the scheme; look for `codehub://`.
 + **OpenInDolphin* - Uses the `dolphin://` scheme for the Dolphin app on iOS.
-+ **OpenInFirefox** - Uses the `firefox://open-url?url=` scheme for the
-  Firefox app on iOS.
++ **OpenInFirefox** _and_ **OpenInFirefox-Private** - Uses the
+  `firefox://open-url?url=` scheme for the Firefox app on iOS. The "Private"
+  version appends `&private=true` after the target url for private browsing.
++ **OpenInFirefox-Focus** - Uses the `firefox-focus://open-url?url=` scheme
+  for the Firefox Focus app on iOS, with `&private=true` appended to the
+  target url for private browsing.
 + **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol
   scheme for GoodReader. See [GoodReader URL Scheme][GoodReader URL Scheme].
 + **OpenInGoogleChrome** - Uses the `googlechrome://` or `googlechromes://`
@@ -217,6 +229,9 @@ using a URL protocol scheme.
   Based on [safari-utm-stripper Bookmarklet][kiding-gist 589242021df49eb17be3]
 
 ## Version Notes
+
+2.1.5  Adds "OpenIn.." for Firefox in Private mode and for the Firefox Focus
+iOS app.
 
 2.1.0  Adds "OpenIn.." for Brave, Dolphin, Opera, and Textastic. Use
 encodeURIComponent for parameters to Firefox, Opera and WorkingCopy URLs.
@@ -328,6 +343,8 @@ repos I have; doesn't build yet
 [OpenInCodeHub]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;location.host===%22github.com%22)%7Blocation.href=%22codehub://%22+location.href.split(%22/%22).slice(2,5).join(%22/%22)%7Dvoid'1.3.1' "OpenInCodeHub"
 [OpenInDolphin]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttps?/,%22dolphin%22)%7Dvoid'1.0.0' "OpenInDolphin"
 [OpenInFirefox]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%22firefox://open-url?url=%22+encodeURIComponent(location.href)%7Dvoid'1.5.0' "OpenInFirefox"
+[OpenInFirefox-Focus]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%22firefox://open-url?url=%22+encodeURIComponent(location.href)%7Dvoid'0.9.0' "OpenInFirefox-Focus"
+[OpenInFirefox-Private]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%22firefox://open-url?url=%22+encodeURIComponent(location.href)%7Dvoid'0.9.0' "OpenInFirefox-Private"
 [OpenInGoodReader]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href))%7Blocation.href=%22gr%22+location.href%7Dvoid'1.5.1' "OpenInGoodReader"
 [OpenInGoogleChrome]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttp/,%22googlechrome%22)%7Dvoid'1.4.0' "OpenInGoogleChrome"
 [OpenInGoogleMaps]: javascript:if(/%5C.google%5C.com/.test(location.host)&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href=%22comgooglemaps://%22+location.search%7Delse%20if(/%20-%20Google%20Maps/.test(document.title))%7Blocation.href=%22comgooglemaps://?q=%22+encodeURI(document.title.replace(%22%20-%20Google%20Maps%22,%22%22).replace(/%20/g,%22+%22))%7D%7Dvoid'2.2.0' "OpenInGoogleMaps"
@@ -346,6 +363,8 @@ repos I have; doesn't build yet
 [Setup OpenInCodeHub]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D%22github.com%22)%7Blocation.href%3D%22codehub%3A%2F%2F%22%2Blocation.href.split(%22%2F%22).slice(2%2C5).join(%22%2F%22)%7Dvoid'1.3.1' "Setup OpenInCodeHub"
 [Setup OpenInDolphin]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%2F%5Ehttps%3F%2F%2C%22dolphin%22)%7Dvoid'1.0.0' "Setup OpenInDolphin"
 [Setup OpenInFirefox]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%22firefox%3A%2F%2Fopen-url%3Furl%3D%22%2BencodeURIComponent(location.href)%7Dvoid'1.5.0' "Setup OpenInFirefox"
+[Setup OpenInFirefox-Focus]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%22firefox%3A%2F%2Fopen-url%3Furl%3D%22%2BencodeURIComponent(location.href)%7Dvoid'0.9.0' "Setup OpenInFirefox-Focus"
+[Setup OpenInFirefox-Private]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%22firefox%3A%2F%2Fopen-url%3Furl%3D%22%2BencodeURIComponent(location.href)%7Dvoid'0.9.0' "Setup OpenInFirefox-Private"
 [Setup OpenInGoodReader]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))%7Blocation.href%3D%22gr%22%2Blocation.href%7Dvoid'1.5.1' "Setup OpenInGoodReader"
 [Setup OpenInGoogleChrome]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%2F%5Ehttp%2F%2C%22googlechrome%22)%7Dvoid'1.4.0' "Setup OpenInGoogleChrome"
 [Setup OpenInGoogleMaps]: http://mmind.me/_#javascript:if(%2F%5C.google%5C.com%2F.test(location.host)%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href%3D%22comgooglemaps%3A%2F%2F%22%2Blocation.search%7Delse%20if(%2F%20-%20Google%20Maps%2F.test(document.title))%7Blocation.href%3D%22comgooglemaps%3A%2F%2F%3Fq%3D%22%2BencodeURI(document.title.replace(%22%20-%20Google%20Maps%22%2C%22%22).replace(%2F%20%2Fg%2C%22%2B%22))%7D%7Dvoid'2.2.0' "Setup OpenInGoogleMaps"

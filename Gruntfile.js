@@ -34,6 +34,14 @@ module.exports = function(grunt) {
         "file": "openinfirefox.js",
         "version": "1.5.0"
       },
+      "OpenInFirefox-Focus": {
+        "file": "openinfirefox-focus.js",
+        "version": "0.9.0"
+      },
+      "OpenInFirefox-Private": {
+        "file": "openinfirefox-private.js",
+        "version": "0.9.0"
+      },
       "OpenInGoodReader": {
         "file": "openingoodreader.js",
         "version": "1.5.1"
