@@ -1,0 +1,1 @@
+javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%22firefox-focus://open-url?url=%22+encodeURIComponent(location.href)+%22&private=true%22%7Dvoid'0.9.0'
