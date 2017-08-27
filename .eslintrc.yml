@@ -133,7 +133,7 @@ rules:
   func-name-matching: 2
   id-blacklist: 2
   id-match: 2
-  indent: ["error", 2]
+  indent: ["error", 4]
   jsx-quotes: 2
   key-spacing: 2
   keyword-spacing: 2
