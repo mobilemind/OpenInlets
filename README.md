@@ -95,7 +95,7 @@ iCloud will sync the bookmarklet to iOS.
 + [UtmStrip] v1.0.0 ``javascript:(()=%3E%7Bconst%20t=window.location.href,e=t.indexOf(%22?%22);if(t.indexOf(%22utm_%22)%3Ee)%7Blet%20i=t.replace(/(%5B?&%5Dutm_(source%7Cmedium%7Cterm%7Ccampaign%7Ccontent)=%5B%5E&#%5D+)/gi,%22%22);if(i.charAt(e)===%22&%22)%7Bi=i.substr(0,e)+%22?%22+i.substr(e+1)%7Dif(i!==t)%7Bhistory.replaceState(null,null,i)%7D%7D%7D)();void'1.0.0'``
 
 <!-- not embedded
-[LoginESA] v1.0.0 ``javascript:if(%22login.innflux.com%22===document.location.host)%7Bif(document.getElementById(%22sRoom%22))%7Bdocument.getElementById(%22sLastName%22).value=%22Name%22;document.getElementById(%22sRoom%22).value=%22000%22;document.getElementById(%22connect%22).click()%7Delse%20if(document.getElementById(%221%22))%7Bdocument.getElementById(%221%22).checked=true;document.getElementsByName(%22TOS%22)%5B0%5D.checked=true;document.getElementsByName(%22iStep%22)%5B0%5D.click();document.getElementsByTagName(%22form%22)%5B0%5D.submit()%7D%7Delse%7Bdocument.location.href=%22https://login.innflux.com/index.php%22%7Dvoid'1.0.0'``
+[LoginESA] v1.0.1 ``javascript:if(%22login.innflux.com%22===window.location.host)%7Bif(document.getElementById(%22sRoom%22))%7Bdocument.getElementById(%22sLastName%22).value=%22Name%22;document.getElementById(%22sRoom%22).value=%22000%22;document.getElementById(%22connect%22).click()%7Delse%20if(document.getElementById(%221%22))%7Bdocument.getElementById(%221%22).checked=true;document.getElementsByName(%22TOS%22)%5B0%5D.checked=true;document.getElementsByName(%22iStep%22)%5B0%5D.click();document.getElementsByTagName(%22form%22)%5B0%5D.submit()%7D%7Delse%7Bwindow.location.href=%22https://login.innflux.com/%22%7Dvoid'1.0.1'``
 -->
 
 _NOTE:_ The `javascript:` bookmarks above will __not__ work from the Github
@@ -128,7 +128,7 @@ bookmarklet.
 + **Mobile Safari setup link** -- [Setup UtmStrip] v1.0.0
 
 <!-- not embedded
-+ **Mobile Safari setup link** -- [Setup LoginESA] v1.0.0
++ **Mobile Safari setup link** -- [Setup LoginESA] v1.0.1
 -->
 
 
@@ -351,7 +351,7 @@ repos I have; doesn't build yet
 [IsItAws]: javascript:location.href=%22https://isitonaws.com/discover?name=%22+location.host;void'1.3.2' "IsItAws"
 [KillStickyHeaders]: javascript:(()=%3E%7Blet%20e=document.querySelectorAll(%22body%20*%22),o=0;for(o=0;o%3Ce.length;o++)%7Bif(%22fixed%22===getComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)();void'1.2.0' "KillStickyHeaders"
 <!--
-[LoginESA]: javascript:if(%22login.innflux.com%22===document.location.host)%7Bif(document.getElementById(%22sRoom%22))%7Bdocument.getElementById(%22sLastName%22).value=%22Name%22;document.getElementById(%22sRoom%22).value=%22000%22;document.getElementById(%22connect%22).click()%7Delse%20if(document.getElementById(%221%22))%7Bdocument.getElementById(%221%22).checked=true;document.getElementsByName(%22TOS%22)%5B0%5D.checked=true;document.getElementsByName(%22iStep%22)%5B0%5D.click();document.getElementsByTagName(%22form%22)%5B0%5D.submit()%7D%7Delse%7Bdocument.location.href=%22https://login.innflux.com/index.php%22%7Dvoid'1.0.0' "LoginESA"
+[LoginESA]: javascript:if(%22login.innflux.com%22===window.location.host)%7Bif(document.getElementById(%22sRoom%22))%7Bdocument.getElementById(%22sLastName%22).value=%22Name%22;document.getElementById(%22sRoom%22).value=%22000%22;document.getElementById(%22connect%22).click()%7Delse%20if(document.getElementById(%221%22))%7Bdocument.getElementById(%221%22).checked=true;document.getElementsByName(%22TOS%22)%5B0%5D.checked=true;document.getElementsByName(%22iStep%22)%5B0%5D.click();document.getElementsByTagName(%22form%22)%5B0%5D.submit()%7D%7Delse%7Bwindow.location.href=%22https://login.innflux.com/%22%7Dvoid'1.0.1' "LoginESA"
 -->
 [OpenIn1Password]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%22op%22+location.href%7Dvoid'1.5.1' "OpenIn1Password"
 [OpenInBrave]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=%22brave://open-url?url=%22+encodeURIComponent(location.href)%7Dvoid'1.0.1' "OpenInBrave"
@@ -374,7 +374,7 @@ repos I have; doesn't build yet
 [Setup IsItAws]: http://mmind.me/_#javascript:location.href%3D%22https%3A%2F%2Fisitonaws.com%2Fdiscover%3Fname%3D%22%2Blocation.host%3Bvoid'1.3.2' "Setup IsItAws"
 [Setup KillStickyHeaders]: http://mmind.me/_#javascript:(()%3D%3E%7Blet%20e%3Ddocument.querySelectorAll(%22body%20*%22)%2Co%3D0%3Bfor(o%3D0%3Bo%3Ce.length%3Bo%2B%2B)%7Bif(%22fixed%22%3D%3D%3DgetComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)()%3Bvoid'1.2.0' "Setup KillStickyHeaders"
 <!--
-[Setup LoginESA]: http://mmind.me/_#javascript:if(%22login.innflux.com%22%3D%3D%3Ddocument.location.host)%7Bif(document.getElementById(%22sRoom%22))%7Bdocument.getElementById(%22sLastName%22).value%3D%22Name%22%3Bdocument.getElementById(%22sRoom%22).value%3D%22000%22%3Bdocument.getElementById(%22connect%22).click()%7Delse%20if(document.getElementById(%221%22))%7Bdocument.getElementById(%221%22).checked%3Dtrue%3Bdocument.getElementsByName(%22TOS%22)%5B0%5D.checked%3Dtrue%3Bdocument.getElementsByName(%22iStep%22)%5B0%5D.click()%3Bdocument.getElementsByTagName(%22form%22)%5B0%5D.submit()%7D%7Delse%7Bdocument.location.href%3D%22https%3A%2F%2Flogin.innflux.com%2Findex.php%22%7Dvoid'1.0.0' "Setup LoginESA"
+[Setup LoginESA]: http://mmind.me/_#javascript:if(%22login.innflux.com%22%3D%3D%3Dwindow.location.host)%7Bif(document.getElementById(%22sRoom%22))%7Bdocument.getElementById(%22sLastName%22).value%3D%22Name%22%3Bdocument.getElementById(%22sRoom%22).value%3D%22000%22%3Bdocument.getElementById(%22connect%22).click()%7Delse%20if(document.getElementById(%221%22))%7Bdocument.getElementById(%221%22).checked%3Dtrue%3Bdocument.getElementsByName(%22TOS%22)%5B0%5D.checked%3Dtrue%3Bdocument.getElementsByName(%22iStep%22)%5B0%5D.click()%3Bdocument.getElementsByTagName(%22form%22)%5B0%5D.submit()%7D%7Delse%7Bwindow.location.href%3D%22https%3A%2F%2Flogin.innflux.com%2F%22%7Dvoid'1.0.1' "Setup LoginESA"
 -->
 [Setup OpenIn1Password]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%22op%22%2Blocation.href%7Dvoid'1.5.1' "Setup OpenIn1Password"
 [Setup OpenInBrave]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D%22brave%3A%2F%2Fopen-url%3Furl%3D%22%2BencodeURIComponent(location.href)%7Dvoid'1.0.1' "Setup OpenInBrave"

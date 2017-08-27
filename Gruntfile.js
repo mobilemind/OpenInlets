@@ -12,7 +12,7 @@ module.exports = function(grunt) {
             },
             "LoginESA": {
                 "file": "loginesa.js",
-                "version": "1.0.0"
+                "version": "1.0.1"
             },
             "OpenIn1Password": {
                 "file": "openin1password.js",
@@ -144,7 +144,7 @@ module.exports = function(grunt) {
         if (readMeString.match(oldStrRegEx)) {
             return readMeString.replace(oldStrRegEx, newStr);
         }
-        grunt.fail.fatal(`Can't find    ${targetKind} references for ${targetName}`);
+        grunt.fail.fatal(`Can't find ${targetKind} references for ${targetName}`);
         return null;
     };
 

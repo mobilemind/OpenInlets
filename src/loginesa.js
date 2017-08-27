@@ -1,4 +1,4 @@
-if ('login.innflux.com' === document.location.host) {
+if ('login.innflux.com' === window.location.host) {
     if (document.getElementById('sRoom')) {
         document.getElementById('sLastName').value = 'Name';
         document.getElementById('sRoom').value = '000';
@@ -10,5 +10,5 @@ if ('login.innflux.com' === document.location.host) {
         document.getElementsByTagName('form')[0].submit();
     }
 } else {
-    document.location.href = 'https://login.innflux.com/index.php';
+    window.location.href = 'https://login.innflux.com/';
 }
