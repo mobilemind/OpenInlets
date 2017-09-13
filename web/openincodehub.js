@@ -1,1 +1,1 @@
-javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&'github.com'===location.host)location.href='codehub://'+location.href.split('/').slice(2,5).join('/');void'1.3.1'
+javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&'github.com'==location.host)location.href='codehub://'+location.href.split('/').slice(2,5).join('/');void'1.3.1'
