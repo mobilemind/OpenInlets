@@ -1,1 +1,1 @@
-javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&location.host===%22bitbucket.org%22)%7Blocation.href=%22codebucket://%22+location.href.split(%22/%22).slice(2,5).join(%22/%22)%7Dvoid'1.3.1'
+javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&'bitbucket.org'===location.host)location.href='codebucket://'+location.href.split('/').slice(2,5).join('/');void'1.3.1'
