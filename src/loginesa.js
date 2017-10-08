@@ -1,4 +1,4 @@
-if ('login.innflux.com' === window.location.host) {
+if ('login.innflux.com' == window.location.host) {
     document.getElementById('iAcceptedTerms').checked = true;
     document.getElementById('button-connect').click();
 } else {
