@@ -1,1 +1,1 @@
-javascript:(()=%3E%7Blet%20e=document.querySelectorAll('body%20*'),o=0;for(o=0;o%3Ce.length;o++)'fixed'==getComputedStyle(e%5Bo%5D).position&&e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D)();void'1.2.0'
+javascript:(()=%3E%7Blet%20e=document.querySelectorAll('body%20*'),o=0;for(o=0;o%3Ce.length;o++)'fixed'===getComputedStyle(e%5Bo%5D).position&&e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D)();void'1.2.0'
