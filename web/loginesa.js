@@ -1,1 +1,1 @@
-javascript:'login.innflux.com'===window.location.host?(document.getElementById('iAcceptedTerms').checked=!0,document.getElementById('button-connect').click()):window.location.href='https://login.innflux.com/';void'1.0.1'
+javascript:'login.innflux.com'==window.location.host?(document.getElementById('iAcceptedTerms').checked=!0,document.getElementById('button-connect').click()):window.location.href='https://login.innflux.com/';void'1.1.0'
