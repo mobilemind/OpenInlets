@@ -95,7 +95,7 @@ iCloud will sync the bookmarklet to iOS.
 + [UtmStrip] v1.0.0 ``javascript:(()=%3E%7Bconst%20t=window.location.href,e=t.indexOf('?');if(t.indexOf('utm_')%3Ee)%7Blet%20n=t.replace(/(%5B?&%5Dutm_(source%7Cmedium%7Cterm%7Ccampaign%7Ccontent)=%5B%5E&#%5D+)/gi,'');'&'===n.charAt(e)&&(n=n.substr(0,e)+'?'+n.substr(e+1)),n!==t&&history.replaceState(null,null,n)%7D%7D)();void'1.0.0'``
 
 <!-- not embedded
-[LoginESA] v1.1.1 ``javascript:'login.innflux.com'==window.location.host?(document.getElementById('iAcceptedTerms').checked=!0,document.getElementById('button-connect').click()):window.location.href='https://login.innflux.com/';void'1.1.1'``
+[LoginESA] v1.2.0 ``javascript:'login.innflux.com'==window.location.host?(document.getElementsByName('iAcceptedTerms')%5B0%5D.checked=!0,document.getElementsByName('iAcceptedTerms')%5B1%5D.checked=!0,document.getElementById('button-connect').click()):window.location.href='https://login.innflux.com/';void'1.2.0'``
 -->
 
 _NOTE:_ The `javascript:` bookmarks above will __not__ work from the Github
@@ -128,7 +128,7 @@ bookmarklet.
 + **Mobile Safari setup link** -- [Setup UtmStrip] v1.0.0
 
 <!-- not embedded
-+ **Mobile Safari setup link** -- [Setup LoginESA] v1.1.1
++ **Mobile Safari setup link** -- [Setup LoginESA] v1.2.0
 -->
 
 
@@ -351,7 +351,7 @@ repos I have; doesn't build yet
 [IsItAws]: javascript:location.href='https://isitonaws.com/discover?name='+location.host;void'1.3.2' "IsItAws"
 [KillStickyHeaders]: javascript:(()=%3E%7Blet%20e=document.querySelectorAll('body%20*'),o=0;for(o=0;o%3Ce.length;o++)'fixed'===getComputedStyle(e%5Bo%5D).position&amp;&amp;e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D)();void'1.2.0' "KillStickyHeaders"
 <!--
-[LoginESA]: javascript:'login.innflux.com'==window.location.host?(document.getElementById('iAcceptedTerms').checked=!0,document.getElementById('button-connect').click()):window.location.href='https://login.innflux.com/';void'1.1.1' "LoginESA"
+[LoginESA]: javascript:'login.innflux.com'==window.location.host?(document.getElementsByName('iAcceptedTerms')%5B0%5D.checked=!0,document.getElementsByName('iAcceptedTerms')%5B1%5D.checked=!0,document.getElementById('button-connect').click()):window.location.href='https://login.innflux.com/';void'1.2.0' "LoginESA"
 -->
 [OpenIn1Password]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'+location.href;void'1.5.1' "OpenIn1Password"
 [OpenInBrave]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='brave://open-url?url='+encodeURIComponent(location.href);void'1.0.1' "OpenInBrave"
@@ -374,7 +374,7 @@ repos I have; doesn't build yet
 [Setup IsItAws]: http://mmind.me/_#javascript:location.href%3D'https%3A%2F%2Fisitonaws.com%2Fdiscover%3Fname%3D'%2Blocation.host%3Bvoid'1.3.2' "Setup IsItAws"
 [Setup KillStickyHeaders]: http://mmind.me/_#javascript:(()%3D%3E%7Blet%20e%3Ddocument.querySelectorAll('body%20*')%2Co%3D0%3Bfor(o%3D0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'%3D%3D%3DgetComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D)()%3Bvoid'1.2.0' "Setup KillStickyHeaders"
 <!--
-[Setup LoginESA]: http://mmind.me/_#javascript:'login.innflux.com'%3D%3Dwindow.location.host%3F(document.getElementById('iAcceptedTerms').checked%3D!0%2Cdocument.getElementById('button-connect').click())%3Awindow.location.href%3D'https%3A%2F%2Flogin.innflux.com%2F'%3Bvoid'1.1.1' "Setup LoginESA"
+[Setup LoginESA]: http://mmind.me/_#javascript:'login.innflux.com'%3D%3Dwindow.location.host%3F(document.getElementsByName('iAcceptedTerms')%5B0%5D.checked%3D!0%2Cdocument.getElementsByName('iAcceptedTerms')%5B1%5D.checked%3D!0%2Cdocument.getElementById('button-connect').click())%3Awindow.location.href%3D'https%3A%2F%2Flogin.innflux.com%2F'%3Bvoid'1.2.0' "Setup LoginESA"
 -->
 [Setup OpenIn1Password]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href%3D'op'%2Blocation.href%3Bvoid'1.5.1' "Setup OpenIn1Password"
 [Setup OpenInBrave]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href%3D'brave%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%3Bvoid'1.0.1' "Setup OpenInBrave"
