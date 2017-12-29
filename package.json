@@ -14,7 +14,7 @@
     "eslint-plugin-no-storage": ">=1.0.2",
     "eslint-plugin-no-unsanitized": ">=2.0.2",
     "eslint-plugin-security": ">=1.4.0",
-    "eslint-plugin-xss": ">=0.1.8",
+    "eslint-plugin-xss": ">=0.1.9",
     "grunt": ">=1.0.1",
     "grunt-eslint": ">=20.1.0",
     "grunt-shell": ">=2.1.0",
@@ -22,7 +22,7 @@
   },
   "directories": {},
   "engines": {
-    "node": ">8.1.0"
+    "node": ">9.2.0"
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
