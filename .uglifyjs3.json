@@ -1,17 +1,5 @@
 {
-    "compress": {
-        "drop_console": true,
-        "ecma": 6,
-        "expression": true,
-        "hoist_funs": true,
-        "passes": 2,
-        "toplevel": true,
-        "unsafe": true,
-        "unsafe_comps": true,
-        "unsafe_math": true,
-        "unsafe_proto": true,
-        "warnings": true
-    },
+    "compress": false,
     "ie8": false,
     "mangle": {
         "ie8": false,
