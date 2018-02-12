@@ -1,1 +1,1 @@
-javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))location.href='gr'+location.href;void'1.5.1'
+javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))%7Blocation.href='gr'+location.href%7Dvoid'1.5.1'

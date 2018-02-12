@@ -1,1 +1,1 @@
-javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttp/,'googlechrome');void'1.4.0'
+javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Dvoid'1.4.0'
