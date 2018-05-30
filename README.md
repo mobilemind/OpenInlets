@@ -141,7 +141,7 @@ location.
 
 ## Requirements
 
-+ Mobile Safari 7.x or higher (v1.3.0 tested with iOS 10)
++ Mobile Safari 7.x or higher (v2.2.0 tested with iOS 11)
 + Corresponding iOS app (_except_ for "IsItAws" bookmarklet)
 
 ### Notes
