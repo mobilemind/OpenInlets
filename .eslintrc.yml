@@ -23,7 +23,7 @@ plugins:
 - xss
 
 # http://eslint.org/docs/rules/
-extends: [eslint:recommended, plugin:compat/recommended, plugin:security/recommended]
+extends: [eslint:recommended, plugin:security/recommended]
 rules:
   # Possible Errors
   for-direction: 2
