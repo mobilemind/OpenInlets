@@ -23,7 +23,7 @@ plugins:
 - xss
 
 # http://eslint.org/docs/rules/
-extends: [eslint:recommended, plugin:security/recommended]
+extends: [eslint:recommended, plugin:compat/recommended, plugin:security/recommended]
 rules:
   # Possible Errors
   for-direction: 2
@@ -221,8 +221,7 @@ rules:
   template-curly-spacing: 2
   yield-star-spacing: 2
 
-  # compat
-  compat/compat: 2
+  # compat (uses recommended)
 
   # no-storage
   no-storage/no-browser-storage: 2
