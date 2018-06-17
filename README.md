@@ -241,6 +241,8 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+2.2.5  unify/merge changes from different local repos & bump version 
+
 2.2.4  Update semver of devDependencies; use eslint-plugin-compat recommended
 
 2.2.0  Adds "LoginESA" for WiFi login; Updates source indent to 4 spaces.
