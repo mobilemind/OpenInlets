@@ -1,13 +1,35 @@
 (() => {
-    const e = window.location.href,
+    var e = window.location.href,
         t = e.indexOf("?");
+    // Google Analytics
     if (e.indexOf("utm_") > t) {
-        let n = e.replace(/([?&]utm_(source|medium|term|campaign|content)=[^&#]+)/ig, "");
-        if (n.charAt(t) === "&") {
-            n = n.substr(0, t) + "?" + n.substr(t + 1);
+        e = e.replace(/([?&]utm_(campaign|content|medium|reader|source|term)=[^&#]+)/ig, "");
+        if (e.charAt(t) === "&") {
+            e  = e.substr(0, t) + "?" + e.substr(t + 1);
+            t = e.indexOf("?"); 
         }
-        if (n !== e) {
-            history.replaceState(null, null, n);
+    }
+    // Google YouTube        
+    if (e.indexOf("www.youtube.com/watch") > 0) {
+        e = e.replace(/([\?\&](ac|annotation_id|app|feature|src_vid)=[^&#]*)/ig, '');
+        if (e.charAt(t) === "&") {
+            e  = e.substr(0, t) + "?" + e.substr(t + 1);
+            t = e.indexOf("?"); 
         }
+    }
+    // HubSpot
+    if ((e.indexOf('_hsenc') > t) || (e.indexOf('_hsmi') > t)) {
+        e = e.replace(/([\?\&](_hsenc|_hsmi)=[^&#]+)/ig, '');
+        if (e.charAt(t) === "&") {
+            e  = e.substr(0, t) + "?" + e.substr(t + 1);
+            t = e.indexOf("?");
+        }
+    }
+    // MailChimp
+    if ((e.indexOf('mc_cid') > t) || (e.indexOf('mc_eid') > t)) {
+        e = e.replace(/([\?\&](mc_cid|mc_eid)=[^&#]+)/ig, '');
+    }
+    if (window.location.href !== e) {
+        history.replaceState(null, null, e);
     }
 })();
