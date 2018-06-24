@@ -80,7 +80,7 @@ module.exports = function(grunt) {
             },
             "UtmStrip": {
                 "file": "utmstrip.js",
-                "version": "1.0.0"
+                "version": "1.1.0"
             }
         },
         "eslint": {
