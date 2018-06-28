@@ -1,35 +1,35 @@
 (() => {
-    let e = window.location.href,
-        t = e.indexOf("?");
-    // Google Analytics
-    if (e.indexOf("utm_") > t) {
-        e = e.replace(/([?&]utm_(campaign|content|medium|reader|source|term)=[^&#]+)/ig, "");
-        if (e.charAt(t) === "&") {
-            e = e.substr(0, t) + "?" + e.substr(t + 1);
-            t = e.indexOf("?");
+    if (window.location.search) {
+        let s = window.location.search;
+        // Amazon referrals
+        if (location.hostname.indexOf("amazon.com") > -1) {
+            s = s.replace(/([?&](_encoding|ie|tag)=[^&#]+)/ig, "");
         }
-    }
-    // Google YouTube
-    if (e.indexOf("www.youtube.com/watch") > 0) {
-        e = e.replace(/([?&](ac|annotation_id|app|feature|src_vid)=[^&#]*)/ig, '');
-        if (e.charAt(t) === "&") {
-            e = e.substr(0, t) + "?" + e.substr(t + 1);
-            t = e.indexOf("?");
+        // Google Analytics
+        if (s.indexOf("utm_") > -1) {
+            s = s.replace(/([?&]utm_(campaign|content|medium|reader|source|term)=[^&#]+)/ig, "");
         }
-    }
-    // HubSpot
-    if (e.indexOf('_hsenc') > t || e.indexOf('_hsmi') > t) {
-        e = e.replace(/([?&](_hsenc|_hsmi)=[^&#]+)/ig, '');
-        if (e.charAt(t) === "&") {
-            e = e.substr(0, t) + "?" + e.substr(t + 1);
-            t = e.indexOf("?");
+        // Google YouTube
+        if (location.hostname.indexOf("youtube.com") > -1) {
+            s = s.replace(/([?&]utm_(campaign|content|medium|reader|source|term)=[^&#]+)/ig, "");
         }
-    }
-    // MailChimp
-    if (e.indexOf('mc_cid') > t || e.indexOf('mc_eid') > t) {
-        e = e.replace(/([?&](mc_cid|mc_eid)=[^&#]+)/ig, '');
-    }
-    if (window.location.href !== e) {
-        history.replaceState(null, null, e);
+        // HubSpot
+        if (s.indexOf('_hsenc') > -1 || s.indexOf('_hsmi') > -1) {
+            s = s.replace(/([?&](_hsenc|_hsmi)=[^&#]+)/ig, '');
+        }
+        // MailChimp
+        if (s.indexOf('mc_cid') > -1 || s.indexOf('mc_eid') > -1) {
+            s = s.replace(/([?&](mc_cid|mc_eid)=[^&#]+)/ig, '');
+        }
+        // clean-up
+        if (window.location.search !== s) {
+            if ('&' === s.charAt(0)) {
+                s = s.substring(1);
+            }
+            if ('?' === s || '??' === s) {
+                s = '';
+            }
+            history.replaceState(null, null, window.location.origin + s);
+        }
     }
 })();
