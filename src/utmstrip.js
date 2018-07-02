@@ -11,7 +11,7 @@
         }
         // Google YouTube
         if (location.hostname.indexOf("youtube.com") > -1) {
-            s = s.replace(/([?&]utm_(campaign|content|medium|reader|source|term)=[^&#]+)/ig, "");
+            s = s.replace(/([?&](ac|annotation_id|app|feature|src_vid)=[^&#]+)/ig, "");
         }
         // HubSpot
         if (s.indexOf('_hsenc') > -1 || s.indexOf('_hsmi') > -1) {
