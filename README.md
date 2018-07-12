@@ -25,9 +25,11 @@ __OpenInDolphin__: Open the current web page in the Dolphin app for iOS.
 
 __OpenInFirefox__: Open the current web page in the Firefox app for iOS.
 
-__OpenInFirefox-Focus__: Open the current web page in the Firefox Focus app for iOS.
+__OpenInFirefox-Focus__: Open the current web page in the Firefox Focus app
+for iOS.
 
-__OpenInFirefox-Private__: Open the current web page in private mode of the Firefox app for iOS.
+__OpenInFirefox-Private__: Open the current web page in private mode of the
+Firefox app for iOS.
 
 __OpenInGoodReader__: When viewing a PDF in Mobile Safari, open/download the
 same PDF in GoodReader 4.
@@ -94,10 +96,6 @@ iCloud will sync the bookmarklet to iOS.
 + [SearchIn1Password] v1.4.2 ``javascript:location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.');void'1.4.2'``
 + [UtmStrip] v1.3.0 ``javascript:(()=%3E%7Bif(window.location.search)%7Blet%20i=window.location.search;if(location.hostname.indexOf('amazon.com')%3E-1)%7Bi=i.replace(/(%5B?&%5D(_encoding%7Cie%7Ctag)=%5B%5E&#%5D+)/gi,'')%7Dif(i.indexOf('utm_')%3E-1)%7Bi=i.replace(/(%5B?&%5Dutm_(campaign%7Ccontent%7Cmedium%7Creader%7Csource%7Cterm)=%5B%5E&#%5D+)/gi,'')%7Dif(location.hostname.indexOf('youtube.com')%3E-1)%7Bi=i.replace(/(%5B?&%5D(ac%7Cannotation_id%7Capp%7Cfeature%7Csrc_vid)=%5B%5E&#%5D+)/gi,'')%7Dif(i.indexOf('_hsenc')%3E-1%7C%7Ci.indexOf('_hsmi')%3E-1)%7Bi=i.replace(/(%5B?&%5D(_hsenc%7C_hsmi)=%5B%5E&#%5D+)/gi,'')%7Dif(i.indexOf('mc_cid')%3E-1%7C%7Ci.indexOf('mc_eid')%3E-1)%7Bi=i.replace(/(%5B?&%5D(mc_cid%7Cmc_eid)=%5B%5E&#%5D+)/gi,'')%7Dif(window.location.search!==i)%7Bif('&'===i.charAt(0))%7Bi=i.substring(1)%7Dif('?'===i%7C%7C'??'===i)%7Bi=''%7Dhistory.replaceState(null,null,window.location.origin+i)%7D%7D%7D)();void'1.3.0'``
 
-<!-- not embedded
-[LoginESA] v1.2.0 ``javascript:if('login.innflux.com'==window.location.host)%7Bdocument.getElementsByName('iAcceptedTerms')%5B0%5D.checked=true;document.getElementsByName('iAcceptedTerms')%5B1%5D.checked=true;document.getElementById('button-connect').click()%7Delse%7Bwindow.location.href='https://login.innflux.com/'%7Dvoid'1.2.0'``
--->
-
 _NOTE:_ The `javascript:` bookmarks above will __not__ work from the Github
 repository page, due to Github security precautions.
 
@@ -126,11 +124,6 @@ bookmarklet.
 + **Mobile Safari setup link** -- [Setup OpenInWorkingCopy] v1.5.0
 + **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.4.2
 + **Mobile Safari setup link** -- [Setup UtmStrip] v1.3.0
-
-<!-- not embedded
-+ **Mobile Safari setup link** -- [Setup LoginESA] v1.2.0
--->
-
 
 ## Use
 
@@ -196,8 +189,6 @@ using a URL protocol scheme.
 + **KillStickyHeaders** - Does _not_ use a URL protocol scheme. Removes HTML
   child elements of `<body>` that have a fixed position. See
   [Kill sticky headers][Kill sticky headers].
-+ **LoginESA** - Does _not_ use a URL protocol scheme. Bookmarklet to expedite
-  (re)logging in to ExtendedStay America WiFi.
 + **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol
   scheme for 1Password. See the subheading
   [Open URLs externally...][1Password URL Scheme] for details.
@@ -241,9 +232,11 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+2.3.1 drops "LoginESA"
+
 2.3.0  significant updates to utmstrip; update utmstrip & overall version
 
-2.2.5  unify/merge changes from different local repos & bump version 
+2.2.5  unify/merge changes from different local repos & bump version
 
 2.2.4  Update semver of devDependencies; use eslint-plugin-compat recommended
 
@@ -356,9 +349,6 @@ repos I have; doesn't build yet
 <!--- JavaScript links -->
 [IsItAws]: javascript:location.href='https://isitonaws.com/discover?name='+location.host;void'1.3.2' "IsItAws"
 [KillStickyHeaders]: javascript:(()=%3E%7Blet%20e=document.querySelectorAll('body%20*'),o=0;for(o=0;o%3Ce.length;o++)%7Bif('fixed'===getComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)();void'1.2.0' "KillStickyHeaders"
-<!--
-[LoginESA]: javascript:if('login.innflux.com'==window.location.host)%7Bdocument.getElementsByName('iAcceptedTerms')%5B0%5D.checked=true;document.getElementsByName('iAcceptedTerms')%5B1%5D.checked=true;document.getElementById('button-connect').click()%7Delse%7Bwindow.location.href='https://login.innflux.com/'%7Dvoid'1.2.0' "LoginESA"
--->
 [OpenIn1Password]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='op'+location.href%7Dvoid'1.5.1' "OpenIn1Password"
 [OpenInBrave]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='brave://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.0.1' "OpenInBrave"
 [OpenInCodeBucket]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;location.host==='bitbucket.org')%7Blocation.href='codebucket://'+location.href.split('/').slice(2,5).join('/')%7Dvoid'1.3.1' "OpenInCodeBucket"
@@ -379,9 +369,6 @@ repos I have; doesn't build yet
 <!--- Setup links -->
 [Setup IsItAws]: http://mmind.me/_#javascript:location.href%3D'https%3A%2F%2Fisitonaws.com%2Fdiscover%3Fname%3D'%2Blocation.host%3Bvoid'1.3.2' "Setup IsItAws"
 [Setup KillStickyHeaders]: http://mmind.me/_#javascript:(()%3D%3E%7Blet%20e%3Ddocument.querySelectorAll('body%20*')%2Co%3D0%3Bfor(o%3D0%3Bo%3Ce.length%3Bo%2B%2B)%7Bif('fixed'%3D%3D%3DgetComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)()%3Bvoid'1.2.0' "Setup KillStickyHeaders"
-<!--
-[Setup LoginESA]: http://mmind.me/_#javascript:if('login.innflux.com'%3D%3Dwindow.location.host)%7Bdocument.getElementsByName('iAcceptedTerms')%5B0%5D.checked%3Dtrue%3Bdocument.getElementsByName('iAcceptedTerms')%5B1%5D.checked%3Dtrue%3Bdocument.getElementById('button-connect').click()%7Delse%7Bwindow.location.href%3D'https%3A%2F%2Flogin.innflux.com%2F'%7Dvoid'1.2.0' "Setup LoginESA"
--->
 [Setup OpenIn1Password]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'op'%2Blocation.href%7Dvoid'1.5.1' "Setup OpenIn1Password"
 [Setup OpenInBrave]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'brave%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%7Dvoid'1.0.1' "Setup OpenInBrave"
 [Setup OpenInCodeBucket]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D'bitbucket.org')%7Blocation.href%3D'codebucket%3A%2F%2F'%2Blocation.href.split('%2F').slice(2%2C5).join('%2F')%7Dvoid'1.3.1' "Setup OpenInCodeBucket"
