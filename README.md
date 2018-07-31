@@ -191,7 +191,7 @@ using a URL protocol scheme.
   [Kill sticky headers][Kill sticky headers].
 + **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol
   scheme for 1Password. See the subheading
-  [Open URLs externally...][1Password URL Scheme] for details.
+  [Open URLs externally][1Password URL Scheme] for details.
 + **OpenInBrave** - Uses the `brave://open-url?url=` scheme for the Brave app
   on iOS.
 + **OpenInCodeBucket** _and_ **OpenInCodeBucket**- Uses the `codebucket://`
@@ -226,7 +226,7 @@ using a URL protocol scheme.
   [URL Schemes in Working Copy][Working Copy URL Scheme] for details.
 + **SearchIn1Password** - Uses `onepassword4://search/` with the current
   domain appended to trigger a 1Password search. See the subheading
-  [Open URLs externally...][1Password URL Scheme] for details.
+  [Open URLs externally][1Password URL Scheme] for details.
 + **UtmStrip** -  Strips off the UTM query string elements of the current URL.
   Based on [safari-utm-stripper Bookmarklet][kiding-gist 589242021df49eb17be3]
 
