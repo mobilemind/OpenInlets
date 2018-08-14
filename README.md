@@ -347,45 +347,81 @@ update
 repos I have; doesn't build yet
 
 <!--- JavaScript links -->
-[IsItAws]: javascript:location.href='https://isitonaws.com/discover?name='+location.host;void'1.3.2' "IsItAws"
-[KillStickyHeaders]: javascript:(()=%3E%7Blet%20e=document.querySelectorAll('body%20*'),o=0;for(o=0;o%3Ce.length;o++)%7Bif('fixed'===getComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)();void'1.2.0' "KillStickyHeaders"
+[IsItAws]: javascript:location.href='https://isitonaws.com/discover?name='+location.host;void'1.3.2'
+"IsItAws"
+[KillStickyHeaders]: javascript:(()=%3E%7Blet%20e=document.querySelectorAll('body%20*'),o=0;for(o=0;o%3Ce.length;o++)%7Bif('fixed'===getComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)();void'1.2.0'
+"KillStickyHeaders"
 [OpenIn1Password]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='op'+location.href%7Dvoid'1.5.1' "OpenIn1Password"
-[OpenInBrave]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='brave://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.0.1' "OpenInBrave"
-[OpenInCodeBucket]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;location.host==='bitbucket.org')%7Blocation.href='codebucket://'+location.href.split('/').slice(2,5).join('/')%7Dvoid'1.3.1' "OpenInCodeBucket"
-[OpenInCodeHub]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;location.host==='github.com')%7Blocation.href='codehub://'+location.href.split('/').slice(2,5).join('/')%7Dvoid'1.3.1' "OpenInCodeHub"
-[OpenInDolphin]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttps?/,'dolphin')%7Dvoid'1.0.0' "OpenInDolphin"
-[OpenInFirefox]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.5.0' "OpenInFirefox"
-[OpenInFirefox-Focus]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'&amp;private=true'%7Dvoid'1.0.0' "OpenInFirefox-Focus"
-[OpenInFirefox-Private]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox://open-url?url='+encodeURIComponent(location.href)+'&amp;private=true'%7Dvoid'1.0.0' "OpenInFirefox-Private"
-[OpenInGoodReader]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href))%7Blocation.href='gr'+location.href%7Dvoid'1.5.1' "OpenInGoodReader"
-[OpenInGoogleChrome]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Dvoid'1.4.0' "OpenInGoogleChrome"
-[OpenInGoogleMaps]: javascript:if(/%5C.google%5C.com/.test(location.host)&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href='comgooglemaps://'+location.search%7Delse%20if(/%20-%20Google%20Maps/.test(document.title))%7Blocation.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Dvoid'2.2.0' "OpenInGoogleMaps"
-[OpenInOpera]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='opera://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.0.0' "OpenInOpera"
-[OpenInTextastic]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttps?/,'textastic')%7Dvoid'1.0.0' "OpenInTextastic"
-[OpenIniOctocat]: javascript:if(/(gist%5C.)?github%5C.com/.test(location.host)&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace('https:','ioc:')%7Dvoid'1.6.0' "OpenIniOctocat"
+[OpenInBrave]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='brave://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.0.1'
+"OpenInBrave"
+[OpenInCodeBucket]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;location.host==='bitbucket.org')%7Blocation.href='codebucket://'+location.href.split('/').slice(2,5).join('/')%7Dvoid'1.3.1'
+"OpenInCodeBucket"
+[OpenInCodeHub]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;location.host==='github.com')%7Blocation.href='codehub://'+location.href.split('/').slice(2,5).join('/')%7Dvoid'1.3.1'
+"OpenInCodeHub"
+[OpenInDolphin]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttps?/,'dolphin')%7Dvoid'1.0.0'
+"OpenInDolphin"
+[OpenInFirefox]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.5.0'
+"OpenInFirefox"
+[OpenInFirefox-Focus]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'&amp;private=true'%7Dvoid'1.0.0'
+"OpenInFirefox-Focus"
+[OpenInFirefox-Private]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox://open-url?url='+encodeURIComponent(location.href)+'&amp;private=true'%7Dvoid'1.0.0'
+"OpenInFirefox-Private"
+[OpenInGoodReader]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;/%5C.pdf($%7C%5C?)/.test(location.href))%7Blocation.href='gr'+location.href%7Dvoid'1.5.1'
+"OpenInGoodReader"
+[OpenInGoogleChrome]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Dvoid'1.4.0'
+"OpenInGoogleChrome"
+[OpenInGoogleMaps]: javascript:if(/%5C.google%5C.com/.test(location.host)&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href='comgooglemaps://'+location.search%7Delse%20if(/%20-%20Google%20Maps/.test(document.title))%7Blocation.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Dvoid'2.2.0'
+"OpenInGoogleMaps"
+[OpenInOpera]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='opera://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.0.0'
+"OpenInOpera"
+[OpenInTextastic]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttps?/,'textastic')%7Dvoid'1.0.0'
+"OpenInTextastic"
+[OpenIniOctocat]: javascript:if(/(gist%5C.)?github%5C.com/.test(location.host)&amp;&amp;/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace('https:','ioc:')%7Dvoid'1.6.0'
+"OpenIniOctocat"
 [OpenInWorkingCopy]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&amp;&amp;(location.host==='bitbucket.org'%7C%7Clocation.host==='github.com'))%7Blocation.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0,5).join('/'))+'.git'%7Dvoid'1.5.0' "OpenInWorkingCopy"
-[SearchIn1Password]: javascript:location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.');void'1.4.2' "SearchIn1Password"
-[UtmStrip]: javascript:(()=%3E%7Bif(window.location.search)%7Blet%20i=window.location.search;if(location.hostname.indexOf('amazon.com')%3E-1)%7Bi=i.replace(/(%5B?&amp;%5D(_encoding%7Cie%7Ctag)=%5B%5E&amp;#%5D+)/gi,'')%7Dif(i.indexOf('utm_')%3E-1)%7Bi=i.replace(/(%5B?&amp;%5Dutm_(campaign%7Ccontent%7Cmedium%7Creader%7Csource%7Cterm)=%5B%5E&amp;#%5D+)/gi,'')%7Dif(location.hostname.indexOf('youtube.com')%3E-1)%7Bi=i.replace(/(%5B?&amp;%5D(ac%7Cannotation_id%7Capp%7Cfeature%7Csrc_vid)=%5B%5E&amp;#%5D+)/gi,'')%7Dif(i.indexOf('_hsenc')%3E-1%7C%7Ci.indexOf('_hsmi')%3E-1)%7Bi=i.replace(/(%5B?&amp;%5D(_hsenc%7C_hsmi)=%5B%5E&amp;#%5D+)/gi,'')%7Dif(i.indexOf('mc_cid')%3E-1%7C%7Ci.indexOf('mc_eid')%3E-1)%7Bi=i.replace(/(%5B?&amp;%5D(mc_cid%7Cmc_eid)=%5B%5E&amp;#%5D+)/gi,'')%7Dif(window.location.search!==i)%7Bif('&amp;'===i.charAt(0))%7Bi=i.substring(1)%7Dif('?'===i%7C%7C'??'===i)%7Bi=''%7Dhistory.replaceState(null,null,window.location.origin+i)%7D%7D%7D)();void'1.3.0' "UtmStrip"
+[SearchIn1Password]: javascript:location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.');void'1.4.2'
+"SearchIn1Password"
+[UtmStrip]: javascript:(()=%3E%7Bif(window.location.search)%7Blet%20i=window.location.search;if(location.hostname.indexOf('amazon.com')%3E-1)%7Bi=i.replace(/(%5B?&amp;%5D(_encoding%7Cie%7Ctag)=%5B%5E&amp;#%5D+)/gi,'')%7Dif(i.indexOf('utm_')%3E-1)%7Bi=i.replace(/(%5B?&amp;%5Dutm_(campaign%7Ccontent%7Cmedium%7Creader%7Csource%7Cterm)=%5B%5E&amp;#%5D+)/gi,'')%7Dif(location.hostname.indexOf('youtube.com')%3E-1)%7Bi=i.replace(/(%5B?&amp;%5D(ac%7Cannotation_id%7Capp%7Cfeature%7Csrc_vid)=%5B%5E&amp;#%5D+)/gi,'')%7Dif(i.indexOf('_hsenc')%3E-1%7C%7Ci.indexOf('_hsmi')%3E-1)%7Bi=i.replace(/(%5B?&amp;%5D(_hsenc%7C_hsmi)=%5B%5E&amp;#%5D+)/gi,'')%7Dif(i.indexOf('mc_cid')%3E-1%7C%7Ci.indexOf('mc_eid')%3E-1)%7Bi=i.replace(/(%5B?&amp;%5D(mc_cid%7Cmc_eid)=%5B%5E&amp;#%5D+)/gi,'')%7Dif(window.location.search!==i)%7Bif('&amp;'===i.charAt(0))%7Bi=i.substring(1)%7Dif('?'===i%7C%7C'??'===i)%7Bi=''%7Dhistory.replaceState(null,null,window.location.origin+i)%7D%7D%7D)();void'1.3.0'
+"UtmStrip"
 <!--- Setup links -->
-[Setup IsItAws]: http://mmind.me/_#javascript:location.href%3D'https%3A%2F%2Fisitonaws.com%2Fdiscover%3Fname%3D'%2Blocation.host%3Bvoid'1.3.2' "Setup IsItAws"
-[Setup KillStickyHeaders]: http://mmind.me/_#javascript:(()%3D%3E%7Blet%20e%3Ddocument.querySelectorAll('body%20*')%2Co%3D0%3Bfor(o%3D0%3Bo%3Ce.length%3Bo%2B%2B)%7Bif('fixed'%3D%3D%3DgetComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)()%3Bvoid'1.2.0' "Setup KillStickyHeaders"
-[Setup OpenIn1Password]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'op'%2Blocation.href%7Dvoid'1.5.1' "Setup OpenIn1Password"
-[Setup OpenInBrave]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'brave%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%7Dvoid'1.0.1' "Setup OpenInBrave"
-[Setup OpenInCodeBucket]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D'bitbucket.org')%7Blocation.href%3D'codebucket%3A%2F%2F'%2Blocation.href.split('%2F').slice(2%2C5).join('%2F')%7Dvoid'1.3.1' "Setup OpenInCodeBucket"
-[Setup OpenInCodeHub]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D'github.com')%7Blocation.href%3D'codehub%3A%2F%2F'%2Blocation.href.split('%2F').slice(2%2C5).join('%2F')%7Dvoid'1.3.1' "Setup OpenInCodeHub"
-[Setup OpenInDolphin]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%2F%5Ehttps%3F%2F%2C'dolphin')%7Dvoid'1.0.0' "Setup OpenInDolphin"
-[Setup OpenInFirefox]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'firefox%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%7Dvoid'1.5.0' "Setup OpenInFirefox"
-[Setup OpenInFirefox-Focus]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'firefox-focus%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%2B'%26private%3Dtrue'%7Dvoid'1.0.0' "Setup OpenInFirefox-Focus"
-[Setup OpenInFirefox-Private]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'firefox%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%2B'%26private%3Dtrue'%7Dvoid'1.0.0' "Setup OpenInFirefox-Private"
-[Setup OpenInGoodReader]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))%7Blocation.href%3D'gr'%2Blocation.href%7Dvoid'1.5.1' "Setup OpenInGoodReader"
-[Setup OpenInGoogleChrome]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%2F%5Ehttp%2F%2C'googlechrome')%7Dvoid'1.4.0' "Setup OpenInGoogleChrome"
-[Setup OpenInGoogleMaps]: http://mmind.me/_#javascript:if(%2F%5C.google%5C.com%2F.test(location.host)%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href%3D'comgooglemaps%3A%2F%2F'%2Blocation.search%7Delse%20if(%2F%20-%20Google%20Maps%2F.test(document.title))%7Blocation.href%3D'comgooglemaps%3A%2F%2F%3Fq%3D'%2BencodeURI(document.title.replace('%20-%20Google%20Maps'%2C'').replace(%2F%20%2Fg%2C'%2B'))%7D%7Dvoid'2.2.0' "Setup OpenInGoogleMaps"
-[Setup OpenInOpera]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'opera%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%7Dvoid'1.0.0' "Setup OpenInOpera"
-[Setup OpenInTextastic]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%2F%5Ehttps%3F%2F%2C'textastic')%7Dvoid'1.0.0' "Setup OpenInTextastic"
-[Setup OpenIniOctocat]: http://mmind.me/_#javascript:if(%2F(gist%5C.)%3Fgithub%5C.com%2F.test(location.host)%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace('https%3A'%2C'ioc%3A')%7Dvoid'1.6.0' "Setup OpenIniOctocat"
-[Setup OpenInWorkingCopy]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26(location.host%3D%3D%3D'bitbucket.org'%7C%7Clocation.host%3D%3D%3D'github.com'))%7Blocation.href%3D'working-copy%3A%2F%2Fshow%3Fremote%3D'%2BencodeURIComponent(location.href.split('%2F').slice(0%2C5).join('%2F'))%2B'.git'%7Dvoid'1.5.0' "Setup OpenInWorkingCopy"
-[Setup SearchIn1Password]: http://mmind.me/_#javascript:location.href%3D'onepassword4%3A%2F%2Fsearch%2F'%2Blocation.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.4.2' "Setup SearchIn1Password"
-[Setup UtmStrip]: http://mmind.me/_#javascript:(()%3D%3E%7Bif(window.location.search)%7Blet%20i%3Dwindow.location.search%3Bif(location.hostname.indexOf('amazon.com')%3E-1)%7Bi%3Di.replace(%2F(%5B%3F%26%5D(_encoding%7Cie%7Ctag)%3D%5B%5E%26%23%5D%2B)%2Fgi%2C'')%7Dif(i.indexOf('utm_')%3E-1)%7Bi%3Di.replace(%2F(%5B%3F%26%5Dutm_(campaign%7Ccontent%7Cmedium%7Creader%7Csource%7Cterm)%3D%5B%5E%26%23%5D%2B)%2Fgi%2C'')%7Dif(location.hostname.indexOf('youtube.com')%3E-1)%7Bi%3Di.replace(%2F(%5B%3F%26%5D(ac%7Cannotation_id%7Capp%7Cfeature%7Csrc_vid)%3D%5B%5E%26%23%5D%2B)%2Fgi%2C'')%7Dif(i.indexOf('_hsenc')%3E-1%7C%7Ci.indexOf('_hsmi')%3E-1)%7Bi%3Di.replace(%2F(%5B%3F%26%5D(_hsenc%7C_hsmi)%3D%5B%5E%26%23%5D%2B)%2Fgi%2C'')%7Dif(i.indexOf('mc_cid')%3E-1%7C%7Ci.indexOf('mc_eid')%3E-1)%7Bi%3Di.replace(%2F(%5B%3F%26%5D(mc_cid%7Cmc_eid)%3D%5B%5E%26%23%5D%2B)%2Fgi%2C'')%7Dif(window.location.search!%3D%3Di)%7Bif('%26'%3D%3D%3Di.charAt(0))%7Bi%3Di.substring(1)%7Dif('%3F'%3D%3D%3Di%7C%7C'%3F%3F'%3D%3D%3Di)%7Bi%3D''%7Dhistory.replaceState(null%2Cnull%2Cwindow.location.origin%2Bi)%7D%7D%7D)()%3Bvoid'1.3.0' "Setup UtmStrip"
+[Setup IsItAws]: http://mmind.me/_#javascript:location.href%3D'https%3A%2F%2Fisitonaws.com%2Fdiscover%3Fname%3D'%2Blocation.host%3Bvoid'1.3.2'
+"Setup IsItAws"
+[Setup KillStickyHeaders]: http://mmind.me/_#javascript:(()%3D%3E%7Blet%20e%3Ddocument.querySelectorAll('body%20*')%2Co%3D0%3Bfor(o%3D0%3Bo%3Ce.length%3Bo%2B%2B)%7Bif('fixed'%3D%3D%3DgetComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)()%3Bvoid'1.2.0'
+"Setup KillStickyHeaders"
+[Setup OpenIn1Password]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'op'%2Blocation.href%7Dvoid'1.5.1'
+"Setup OpenIn1Password"
+[Setup OpenInBrave]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'brave%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%7Dvoid'1.0.1'
+"Setup OpenInBrave"
+[Setup OpenInCodeBucket]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D'bitbucket.org')%7Blocation.href%3D'codebucket%3A%2F%2F'%2Blocation.href.split('%2F').slice(2%2C5).join('%2F')%7Dvoid'1.3.1'
+"Setup OpenInCodeBucket"
+[Setup OpenInCodeHub]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26location.host%3D%3D%3D'github.com')%7Blocation.href%3D'codehub%3A%2F%2F'%2Blocation.href.split('%2F').slice(2%2C5).join('%2F')%7Dvoid'1.3.1'
+"Setup OpenInCodeHub"
+[Setup OpenInDolphin]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%2F%5Ehttps%3F%2F%2C'dolphin')%7Dvoid'1.0.0'
+"Setup OpenInDolphin"
+[Setup OpenInFirefox]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'firefox%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%7Dvoid'1.5.0'
+"Setup OpenInFirefox"
+[Setup OpenInFirefox-Focus]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'firefox-focus%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%2B'%26private%3Dtrue'%7Dvoid'1.0.0'
+"Setup OpenInFirefox-Focus"
+[Setup OpenInFirefox-Private]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'firefox%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%2B'%26private%3Dtrue'%7Dvoid'1.0.0'
+"Setup OpenInFirefox-Private"
+[Setup OpenInGoodReader]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))%7Blocation.href%3D'gr'%2Blocation.href%7Dvoid'1.5.1'
+"Setup OpenInGoodReader"
+[Setup OpenInGoogleChrome]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%2F%5Ehttp%2F%2C'googlechrome')%7Dvoid'1.4.0'
+"Setup OpenInGoogleChrome"
+[Setup OpenInGoogleMaps]: http://mmind.me/_#javascript:if(%2F%5C.google%5C.com%2F.test(location.host)%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href%3D'comgooglemaps%3A%2F%2F'%2Blocation.search%7Delse%20if(%2F%20-%20Google%20Maps%2F.test(document.title))%7Blocation.href%3D'comgooglemaps%3A%2F%2F%3Fq%3D'%2BencodeURI(document.title.replace('%20-%20Google%20Maps'%2C'').replace(%2F%20%2Fg%2C'%2B'))%7D%7Dvoid'2.2.0'
+"Setup OpenInGoogleMaps"
+[Setup OpenInOpera]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3D'opera%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%7Dvoid'1.0.0'
+"Setup OpenInOpera"
+[Setup OpenInTextastic]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace(%2F%5Ehttps%3F%2F%2C'textastic')%7Dvoid'1.0.0'
+"Setup OpenInTextastic"
+[Setup OpenIniOctocat]: http://mmind.me/_#javascript:if(%2F(gist%5C.)%3Fgithub%5C.com%2F.test(location.host)%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Blocation.href%3Dlocation.href.replace('https%3A'%2C'ioc%3A')%7Dvoid'1.6.0'
+"Setup OpenIniOctocat"
+[Setup OpenInWorkingCopy]: http://mmind.me/_#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26(location.host%3D%3D%3D'bitbucket.org'%7C%7Clocation.host%3D%3D%3D'github.com'))%7Blocation.href%3D'working-copy%3A%2F%2Fshow%3Fremote%3D'%2BencodeURIComponent(location.href.split('%2F').slice(0%2C5).join('%2F'))%2B'.git'%7Dvoid'1.5.0'
+"Setup OpenInWorkingCopy"
+[Setup SearchIn1Password]: http://mmind.me/_#javascript:location.href%3D'onepassword4%3A%2F%2Fsearch%2F'%2Blocation.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.4.2'
+"Setup SearchIn1Password"
+[Setup UtmStrip]: http://mmind.me/_#javascript:(()%3D%3E%7Bif(window.location.search)%7Blet%20i%3Dwindow.location.search%3Bif(location.hostname.indexOf('amazon.com')%3E-1)%7Bi%3Di.replace(%2F(%5B%3F%26%5D(_encoding%7Cie%7Ctag)%3D%5B%5E%26%23%5D%2B)%2Fgi%2C'')%7Dif(i.indexOf('utm_')%3E-1)%7Bi%3Di.replace(%2F(%5B%3F%26%5Dutm_(campaign%7Ccontent%7Cmedium%7Creader%7Csource%7Cterm)%3D%5B%5E%26%23%5D%2B)%2Fgi%2C'')%7Dif(location.hostname.indexOf('youtube.com')%3E-1)%7Bi%3Di.replace(%2F(%5B%3F%26%5D(ac%7Cannotation_id%7Capp%7Cfeature%7Csrc_vid)%3D%5B%5E%26%23%5D%2B)%2Fgi%2C'')%7Dif(i.indexOf('_hsenc')%3E-1%7C%7Ci.indexOf('_hsmi')%3E-1)%7Bi%3Di.replace(%2F(%5B%3F%26%5D(_hsenc%7C_hsmi)%3D%5B%5E%26%23%5D%2B)%2Fgi%2C'')%7Dif(i.indexOf('mc_cid')%3E-1%7C%7Ci.indexOf('mc_eid')%3E-1)%7Bi%3Di.replace(%2F(%5B%3F%26%5D(mc_cid%7Cmc_eid)%3D%5B%5E%26%23%5D%2B)%2Fgi%2C'')%7Dif(window.location.search!%3D%3Di)%7Bif('%26'%3D%3D%3Di.charAt(0))%7Bi%3Di.substring(1)%7Dif('%3F'%3D%3D%3Di%7C%7C'%3F%3F'%3D%3D%3Di)%7Bi%3D''%7Dhistory.replaceState(null%2Cnull%2Cwindow.location.origin%2Bi)%7D%7D%7D)()%3Bvoid'1.3.0'
+"Setup UtmStrip"
 <!-- Badge links -->
 [built-with-grunt-img]: https://cdn.gruntjs.com/builtwith.png
 [built-with-grunt-url]: http://gruntjs.com/
@@ -403,15 +439,23 @@ repos I have; doesn't build yet
 [npm]: https://npmjs.org/
 [grunt]: http://gruntjs.com/
 [js2uri]: https://npmjs.org/package/js2uri
-[kiding-gist 589242021df49eb17be3]: https://gist.github.com/kiding/589242021df49eb17be3/ "safari-utm-stripper Bookmarklet"
+[kiding-gist 589242021df49eb17be3]: https://gist.github.com/kiding/589242021df49eb17be3/
+"safari-utm-stripper Bookmarklet"
 [IsItOnAWS.com]: https://isitonaws.com/
 [IsItOnAWS Blog Post]: https://aws.amazon.com/blogs/aws/is-it-on-aws-domain-identification-using-aws-lambda/
 [Kill sticky headers]: https://alisdair.mcdiarmid.org/kill-sticky-headers/
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
-[1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/ "Agile Bits: 1Password URL Scheme"
-[CodeHub URL Scheme]: https://github.com/thedillonb/CodeHub/blob/master/CodeHub.iOS/AppDelegate.cs#L258-L280 "CodeHub URL Scheme"
-[GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp "GoodReader:How do I save a file from Safari to GoodReader?"
-[Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme "Google Developers:Google Maps URL Scheme"
-[iOctocat URL Scheme]: http://ioctocat.com/faq/ "iOctocat FAQs - How to open GitHub URLs in iOctocat?"
-[Textastic x-callback-url API]: https://www.textasticapp.com/v4/manual/x-callback-url.html#downloadusingthetextastic:scheme "Download using the textastic:// scheme"
-[Working Copy URL Scheme]: https://workingcopyapp.com/url-schemes.html "URL Schemes in Working Copy"
+[1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/
+"Agile Bits: 1Password URL Scheme"
+[CodeHub URL Scheme]: https://github.com/thedillonb/CodeHub/blob/master/CodeHub.iOS/AppDelegate.cs#L258-L280
+"CodeHub URL Scheme"
+[GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp
+"GoodReader:How do I save a file from Safari to GoodReader?"
+[Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme
+"Google Developers:Google Maps URL Scheme"
+[iOctocat URL Scheme]: http://ioctocat.com/faq/
+"iOctocat FAQs - How to open GitHub URLs in iOctocat?"
+[Textastic x-callback-url API]: https://www.textasticapp.com/v4/manual/x-callback-url.html#downloadusingthetextastic:scheme
+"Download using the textastic:// scheme"
+[Working Copy URL Scheme]: https://workingcopyapp.com/url-schemes.html
+"URL Schemes in Working Copy"
