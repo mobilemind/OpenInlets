@@ -1,0 +1,1 @@
+javascript:const%20o=location.search.search('url=');if(o%3E-1)%7Blet%20c=location.search.substr(4+o);const%20e=c.indexOf('&');if(e%3E-1)%7Bc=c.substr(0,e)%7Dif(5%3Cc.length)%7Blocation.replace(decodeURIComponent(c))%7D%7Dvoid'1.0.0'
