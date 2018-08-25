@@ -70,6 +70,10 @@ module.exports = function(grunt) {
                 "file": "openinioctocat.js",
                 "version": "1.6.0"
             },
+            "OpenURLParam": {
+                "file": "openurlparam.js",
+                "version": "1.0.0"
+            },
             "SearchIn1Password": {
                 "file": "searchin1password.js",
                 "version": "1.4.2"
@@ -166,7 +170,7 @@ module.exports = function(grunt) {
             new RegExp("(\\[Setup " + this.target + '\\]: )http.*( \\"Setup ' + this.target + '\\")', "g"),
             "$1http://mmind.me/_#javascript:" +
             encodeURIComponent(decodeURI(bookmarkletString.replace("javascript:",""))) +
-            "$2", readMeString, "reference link", this.target);
+            "$2", readMeString, "Setup link", this.target);
 
         // use regex to update version references
         readMeString = updatereadme(new RegExp("(" + this.target + "\\] v)\\d+\\.\\d+\\.\\d+", "g"),
