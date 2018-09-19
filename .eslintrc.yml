@@ -221,18 +221,18 @@ rules:
   template-curly-spacing: 2
   yield-star-spacing: 2
 
-  # compat (uses recommended)
+  # compat - w/recommended: https://github.com/amilajack/eslint-plugin-compat
 
-  # no-storage
+  # no-storage - https://github.com/Implisit/eslint-plugin-no-storage
   no-storage/no-browser-storage: 2
 
-  #  no-unsanitized (by Mozilla)
+  # no-unsanitized - https://github.com/mozilla/eslint-plugin-no-unsanitized
   no-unsanitized/method: 2
   no-unsanitized/property: 2
 
-  # security
+  # security w/recommended: https://github.com/nodesecurity/eslint-plugin-security
   security/detect-non-literal-regexp: 0
 
-  # xss
+  # xss - https://github.com/Rantanen/eslint-plugin-xss
   xss/no-location-href-assign: 0
   xss/no-mixed-html: 2
