@@ -1,57 +1,71 @@
 (() => {
     if (window.location.search) {
         let s = window.location.search;
+        if (s.length < 2) {
+            return;
+        }
         // Amazon referrals
         if (location.hostname.indexOf("amazon.com") > -1) {
-            s = s.replace(/[?&](_encoding|ie|psc|ref_|tag)=[^&#]+/ig, "");
-            s = s.replace(/[?&]p[df]_rd_.*?=[^&#]+/ig, "");
+            s = s.replace(/([?&])(_encoding|ie|psc|ref_|tag)=[^&#]+&?/ig, "$1");
+            s = s.replace(/([?&])p[df]_rd_.*?=[^&#]+&?/ig, "$1");
         }
         // Facebook
         if (s.indexOf("fb_") > -1) {
-            s = s.replace(/[&?]fb_(?:action_ids|action_types|ref|source)=[^#&]+/ig, "");
+            s = s.replace(/([?&])fb_(action_ids|action_types|ref|source)=[^#&]+&?/ig, "$1");
         }
         if (s.indexOf("action_") > -1) {
-            s = s.replace(/[&?]action_(?:object|ref|type)_map=[^#&]+/ig, "");
+            s = s.replace(/([?&])action_(object|ref|type)_map=[^#&]+&?/ig, "$1");
         }
         // generic
-        if (s.indexOf("Id=") > -1) {
-            s = s.replace(/[&?](?:asset|campaign|elqTrack|recipient|site)Id=[^#&]+/ig, "");
+        if (s.indexOf("aff_") > -1) {
+            s = s.replace(/([?&])aff_(platform|trace_key)=[^#&]+&?/ig, "$1");
         }
+        if (s.indexOf("Id=") > -1) {
+            s = s.replace(/([?&])(asset|campaign|recipient|site)Id=[^#&]+&?/ig, "$1");
+        }
+        s = s.replace(/([?&])(assetType|elqTrack|originalReferer|terminal_id|trk|trkInfo)=[^#&]+&?/ig, "$1");
         // Google Analytics
         if (s.indexOf("utm_") > -1) {
-            s = s.replace(/[&?]utm_(?:campaign|cid|content|design|medium|name|pubreferrer|reader|source|swu|term|viz_id)=[^#&]+/ig, "");
+            s = s.replace(/([?&])utm_(campaign|cid|content|design|medium|name|pubreferrer|reader|source|swu|term|viz_id)=[^#&]+&?/ig, "$1");
         }
         if (s.indexOf("ga_") > -1) {
-            s = s.replace(/[&?]ga_(?:campaign|cid|content|medium|name|place|pubreferrer|source|swu|term|userid|viz_id)=[^#&]+/ig, "");
+            s = s.replace(/([?&])ga_(campaign|cid|content|medium|name|place|pubreferrer|source|swu|term|userid|viz_id)=[^#&]+&?/ig, "$1");
         }
-        // Google YouTube # verify w/Patterns
+        // Google YouTube
         if (location.hostname.indexOf("youtube.com") > -1) {
-            s = s.replace(/[?&](ac|annotation_id|app|feature|gclid|kw|src_vid)=[^&#]+/ig, "");
+            s = s.replace(/([?&])(ac|annotation_id|app|feature|gclid|kw|src_vid)=[^&#]+&?/ig, "$1");
         }
         // HubSpot
-        if (s.indexOf('_hsenc') > -1 || s.indexOf('_hsmi') > -1) {
-            s = s.replace(/[?&](_hsenc|_hsmi)=[^&#]+/ig, '');
+        if (s.indexOf("_hsenc") > -1 || s.indexOf("_hsmi") > -1) {
+            s = s.replace(/([?&])(_hsenc|_hsmi)=[^&#]+&?/ig, "$1");
         }
-        if (s.indexOf('hmb_') > -1) {
-            s = s.replace(/[&?]hmb_(?:campaign|medium|source)=[^#&]+/ig, "");
+        if (s.indexOf("hmb_") > -1) {
+            s = s.replace(/([?&])hmb_(campaign|medium|source)=[^#&]+&?/ig, "$1");
         }
         // MailChimp
-        if (s.indexOf('mc_cid') > -1 || s.indexOf('mc_eid') > -1) {
-            s = s.replace(/[?&]mc_[ce]id=[^#&]+/ig, '');
+        if (s.indexOf("mc_cid") > -1 || s.indexOf("mc_eid") > -1) {
+            s = s.replace(/([?&])mc_[ce]id=[^#&]+&?/ig, "$1");
         }
         // Marketo
-        if (s.indexOf('iesrc') > -1 || s.indexOf('mkt_tok') > -1) {
-            s = s.replace(/[?&](iesrc|mkt_tok)=[^&#]+/ig, '');
+        if (s.indexOf("iesrc") > -1 || s.indexOf("mkt_tok") > -1) {
+            s = s.replace(/([?&])(iesrc|mkt_tok)=[^&#]+&?/ig, "$1");
         }
-        // clean-up
+        // restore leading '?' if necessary
+        if ("?" === window.location.search.charAt(0) && "?" !== s.charAt(0)) {
+            s = "?" + s;
+        }
+        // clean-up trailing &
+        if ("&" === s.charAt(s.length - 1)) {
+            s = s.substring(0, s.length - 1);
+        }
+        // simplify if no params and no anchor left (e.g. "?" or "?&" or "?#")
+        if (s.length < 3) {
+            s = "";
+        }
+        // if changed replace location with stripped version
         if (window.location.search !== s) {
-            if ('&' === s.charAt(0)) {
-                s = s.substring(1);
-            }
-            if ('?' === s || '??' === s) {
-                s = '';
-            }
-            history.replaceState(null, null, window.location.origin + s);
+            history.replaceState(null, null, window.location.origin + window.location.pathname + s);
         }
+
     }
 })();
