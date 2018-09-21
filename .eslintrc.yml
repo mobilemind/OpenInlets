@@ -40,7 +40,7 @@ rules:
   array-callback-return: 2
   block-scoped-var: 2
   class-methods-use-this: 2
-  complexity: [2, 22]
+  complexity: [2, 24]
   consistent-return: 2
   curly: 2
   default-case: 2
@@ -141,12 +141,12 @@ rules:
   linebreak-style: 2
   padding-line-between-statements: 0
   max-depth: 2
-  max-len: ["warn", {"code": 80, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
+  max-len: ["warn", {"code": 110, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
   max-lines: ["error", {"max": 170, "skipBlankLines": true, "skipComments": true}]
   max-nested-callbacks: 2
   max-params: [2, 5]
   max-statements-per-line: 2
-  max-statements: [2, 34]
+  max-statements: [2, 40]
   multiline-ternary: 2
   new-cap: 2
   new-parens: 2
