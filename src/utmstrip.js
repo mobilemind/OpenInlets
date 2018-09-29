@@ -4,8 +4,9 @@
         if (s.length < 2) {
             return;
         }
+        let h = location.hostname;
         // Amazon referrals
-        if (location.hostname.indexOf("amazon.com") > -1) {
+        if (h.indexOf("amazon.com") > -1) {
             s = s.replace(/([?&])(_encoding|ie|psc|ref_|tag)=[^&#]+&?/ig, "$1");
             s = s.replace(/([?&])p[df]_rd_.*?=[^&#]+&?/ig, "$1");
         }
@@ -20,19 +21,19 @@
         if (s.indexOf("aff_") > -1) {
             s = s.replace(/([?&])aff_(platform|trace_key)=[^#&]+&?/ig, "$1");
         }
-        if (s.indexOf("Id=") > -1) {
-            s = s.replace(/([?&])(asset|campaign|recipient|site)Id=[^#&]+&?/ig, "$1");
+        if (s.toLowerCase().indexOf("id=") > -1) {
+            s = s.replace(/([?&])(an|asset|campaign|gcl|recipient|site)id=[^#&]+&?/ig, "$1");
         }
-        s = s.replace(/([?&])(assetType|elqTrack|originalReferer|terminal_id|trk|trkInfo)=[^#&]+&?/ig, "$1");
+        s = s.replace(/([?&])(assetType|elqTrack|originalReferer|referrer|terminal_id|trk|trkInfo)=[^#&]+&?/ig, "$1");
         // Google Analytics
-        if (s.indexOf("utm_") > -1) {
-            s = s.replace(/([?&])utm_(campaign|cid|content|design|medium|name|pubreferrer|reader|source|swu|term|viz_id)=[^#&]+&?/ig, "$1");
-        }
         if (s.indexOf("ga_") > -1) {
             s = s.replace(/([?&])ga_(campaign|cid|content|medium|name|place|pubreferrer|source|swu|term|userid|viz_id)=[^#&]+&?/ig, "$1");
         }
+        if (s.indexOf("utm_") > -1) {
+            s = s.replace(/([?&])utm_(campaign|cid|content|design|medium|name|pubreferrer|reader|source|swu|term|viz_id)=[^#&]+&?/ig, "$1");
+        }
         // Google YouTube
-        if (location.hostname.indexOf("youtube.com") > -1) {
+        if (h.indexOf("youtube.com") > -1) {
             s = s.replace(/([?&])(ac|annotation_id|app|feature|gclid|kw|src_vid)=[^&#]+&?/ig, "$1");
         }
         // HubSpot
