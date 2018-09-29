@@ -4,7 +4,7 @@
         if (s.length < 2) {
             return;
         }
-        let h = location.hostname;
+        const h = location.hostname;
         // Amazon referrals
         if (h.indexOf("amazon.com") > -1) {
             s = s.replace(/([?&])(_encoding|ie|psc|ref_|tag)=[^&#]+&?/ig, "$1");
@@ -38,7 +38,7 @@
         }
         // HubSpot
         if (s.indexOf("_hsenc") > -1 || s.indexOf("_hsmi") > -1) {
-            s = s.replace(/([?&])(_hsenc|_hsmi)=[^&#]+&?/ig, "$1");
+            s = s.replace(/([?&])_hs(enc|mi)=[^&#]+&?/ig, "$1");
         }
         if (s.indexOf("hmb_") > -1) {
             s = s.replace(/([?&])hmb_(campaign|medium|source)=[^#&]+&?/ig, "$1");
