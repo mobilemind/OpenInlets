@@ -43,6 +43,11 @@
         if (s.indexOf("hmb_") > -1) {
             s = s.replace(/([?&])hmb_(campaign|medium|source)=[^#&]+&?/ig, "$1");
         }
+        // IBM Digital Analytics (Coremetrics)
+        if (s.indexOf("cm_") > -1) {
+            s = s.replace(/([?&])cm_(mmc|mmca\d+|re|sp)=[^#&]+&?/ig, "$1");
+            s = s.replace(/([?&])manual_cm_mmc=[^#&]+&?/ig, "$1");
+        }
         // MailChimp
         if (s.indexOf("mc_cid") > -1 || s.indexOf("mc_eid") > -1) {
             s = s.replace(/([?&])mc_[ce]id=[^#&]+&?/ig, "$1");
