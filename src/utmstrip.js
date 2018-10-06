@@ -26,14 +26,11 @@
         }
         s = s.replace(/([?&])(assetType|elqTrack|originalReferer|referrer|terminal_id|trk|trkInfo)=[^#&]+&?/ig, "$1");
         // Google Analytics
-        if (s.indexOf("ga_") > -1) {
-            s = s.replace(/([?&])ga_(campaign|cid|content|medium|name|place|pubreferrer|source|swu|term|userid|viz_id)=[^#&]+&?/ig, "$1");
+        if (s.indexOf("ga_") > -1 || s.indexOf("utm_") > -1) {
+            s = s.replace(/([?&])(ga|utm)_(campaign|cid|content|design|medium|name|place|pubreferrer|reader|source|swu|term|userid|viz_id)=[^#&]+&?/ig, "$1");
         }
-        if (s.indexOf("utm_") > -1) {
-            s = s.replace(/([?&])utm_(campaign|cid|content|design|medium|name|pubreferrer|reader|source|swu|term|viz_id)=[^#&]+&?/ig, "$1");
-        }
-        // Google YouTube
-        if (h.indexOf("youtube.com") > -1) {
+        // Google YouTube (handles youtube.com, youtu.be, etc.)
+        if (h.indexOf("youtu") > -1 || h.indexOf("googlevideo.com") > -1) {
             s = s.replace(/([?&])(ac|annotation_id|app|feature|gclid|kw|src_vid)=[^&#]+&?/ig, "$1");
         }
         // HubSpot
@@ -55,6 +52,10 @@
         // Marketo
         if (s.indexOf("iesrc") > -1 || s.indexOf("mkt_tok") > -1) {
             s = s.replace(/([?&])(iesrc|mkt_tok)=[^&#]+&?/ig, "$1");
+        }
+        // Matomo
+        if (s.indexOf("pk_") > -1) {
+            s = s.replace(/([?&])pk_(campaign|content|kwd|medium|source)=[^&#]+&?/ig, "$1");
         }
         // restore leading '?' if necessary
         if ("?" === window.location.search.charAt(0) && "?" !== s.charAt(0)) {
