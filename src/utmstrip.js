@@ -22,7 +22,7 @@
             s = s.replace(/([?&])aff_(platform|trace_key)=[^#&]+&?/ig, "$1");
         }
         if (s.toLowerCase().indexOf("id=") > -1) {
-            s = s.replace(/([?&])(an|asset|campaign|gcl|recipient|site)id=[^#&]+&?/ig, "$1");
+            s = s.replace(/([?&])(an|asset|campaign|e|gcl|recipient|site)id=[^#&]+&?/ig, "$1");
         }
         s = s.replace(/([?&])(assetType|elqTrack|originalReferer|referrer|terminal_id|trk|trkInfo)=[^#&]+&?/ig, "$1");
         // Google Analytics
@@ -73,6 +73,5 @@
         if (window.location.search !== s) {
             history.replaceState(null, null, window.location.origin + window.location.pathname + s);
         }
-
     }
 })();
