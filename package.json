@@ -7,7 +7,9 @@
   "bugs": {
     "url": "https://github.com/mobilemind/OpenInlets/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "enabled": false
+  },
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
     "eslint-plugin-compat": ">=2.6.2",
@@ -52,5 +54,5 @@
     "install": "npm install -g uglify-es@latest",
     "test": "grunt"
   },
-  "version": "2.4.1"
+  "version": "2.4.2"
 }
