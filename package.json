@@ -8,7 +8,6 @@
     "url": "https://github.com/mobilemind/OpenInlets/issues"
   },
   "dependencies": {
-    "enabled": false
   },
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
