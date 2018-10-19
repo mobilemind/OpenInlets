@@ -83,22 +83,12 @@ module.exports = function(grunt) {
                 "version": "1.5.1"
             }
         },
-        "eslint": {
-            "options": {"configFile": ".eslintrc.yml"},
-            "target": ["Gruntfile.js", "src/*.js"]
-        },
         "pkg": grunt.file.readJSON("package.json"),
-        "shell": {"uglify_es": {"command": "for OJS in src/*.js; do uglifyjs --config-file .uglifyjs3.json --ecma 6 --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}},
-        "yamllint": {
-            "files": {"src": [".*.yml", "*.yml", "*.yaml"]},
-            "options": {"schema": "FAILSAFE_SCHEMA"}
-        }
+        "shell": {"uglify_es": {"command": "for OJS in src/*.js; do uglifyjs --config-file .uglifyjs3.json --ecma 6 --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}}
     });
 
     // Load plugins
-    grunt.loadNpmTasks("grunt-eslint");
     grunt.loadNpmTasks("grunt-shell");
-    grunt.loadNpmTasks("grunt-yamllint");
 
     // version info
     grunt.log.writeln(`\n${grunt.config("pkg.name")} ${grunt.config("pkg.version")}`);
@@ -185,11 +175,8 @@ module.exports = function(grunt) {
         return null;
     });
 
-    // preflight task
-    grunt.registerTask("preflight", ["yamllint", "eslint"]);
-
     // Default task
-    grunt.registerTask("default", ["preflight", "shell:uglify_es", "buildbookmarklet"]);
+    grunt.registerTask("default", ["shell:uglify_es", "buildbookmarklet"]);
 
     // Deploy task
     grunt.registerTask("deploy", ["default", "updatereadme"]);

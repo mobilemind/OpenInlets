@@ -240,6 +240,8 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+2.4.3 Create `preflight` script for build & move static checks there; bump version
+
 2.4.2 UtmStrip updated to remove common email hash (eid) parameter
 
 2.4.1 UtmStrip streamlined for Google Analytics & Youtube; added Matomo
