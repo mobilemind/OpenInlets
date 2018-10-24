@@ -3,6 +3,10 @@ branches:
   - gh-pages
 sudo: false
 dist: trusty
+git:
+  depth: 24
+  quiet: true
+  submodules: false
 language: node_js
 node_js:
 - '10'
