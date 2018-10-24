@@ -158,7 +158,7 @@ module.exports = function(grunt) {
         // update reference link bookmarklet URL (de-encode & re-encode needed)
         readMeString = updatereadme(
             new RegExp("(\\[Setup " + this.target + '\\]: )http.*( \\"Setup ' + this.target + '\\")', "g"),
-            "$1http://mmind.me/_#javascript:" +
+            "$1http://mmind.me/x/#javascript:" +
             encodeURIComponent(decodeURI(bookmarkletString.replace("javascript:",""))) +
             "$2", readMeString, "Setup link", this.target);
 
