@@ -134,7 +134,7 @@ module.exports = function(grunt) {
         if (readMeString.match(oldStrRegEx)) {
             return readMeString.replace(oldStrRegEx, newStr);
         }
-        grunt.fail.fatal(`Can't find ${targetKind} references for ${targetName}`);
+        grunt.fail.fatal(`Can't find ${targetKind} references for ${targetName} using /${oldStrRegEx}/`);
         return null;
     };
 
