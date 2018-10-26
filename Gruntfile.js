@@ -131,11 +131,21 @@ module.exports = function(grunt) {
         targetKind,
         targetName
     ) {
-        if (readMeString.match(oldStrRegEx)) {
-            return readMeString.replace(oldStrRegEx, newStr);
+        let retVal = null;
+        // fail early if there's no match
+        if (!readMeString.match(oldStrRegEx)) {
+            grunt.fail.fatal(`Can't find ${targetKind} references for ${targetName} using /${oldStrRegEx}/`);
+        } else if ("UtmStrip" === targetName && "``javascript:...``" === targetKind) {
+            retVal = readMeString.replace(oldStrRegEx, `[${targetName}] v${grunt.config.getRaw('buildbookmarklet.UtmStrip.version')} -PLACEHOLDER-`);
+            retVal = retVal.replace("-PLACEHOLDER-", newStr.substr(2));
+        } else if ("UtmStrip" === targetName && "javascript: URL" === targetKind) {
+            retVal = readMeString.replace(oldStrRegEx, `[${targetName}]: -PLACEHOLDER-`);
+            retVal = retVal.replace("-PLACEHOLDER-", newStr.substring(2, newStr.length - 2));
+        } else {
+            // 'normal' case; bookmarklet doesn't have internal RegEx symbols
+            retVal = readMeString.replace(oldStrRegEx, newStr);
         }
-        grunt.fail.fatal(`Can't find ${targetKind} references for ${targetName} using /${oldStrRegEx}/`);
-        return null;
+        return retVal;
     };
 
     grunt.registerMultiTask("updatereadme", "update links in README.md", function() {
