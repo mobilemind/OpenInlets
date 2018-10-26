@@ -140,7 +140,8 @@ module.exports = function(grunt) {
             retVal = retVal.replace("-PLACEHOLDER-", newStr.substr(2));
         } else if ("UtmStrip" === targetName && "javascript: URL" === targetKind) {
             retVal = readMeString.replace(oldStrRegEx, `[${targetName}]: -PLACEHOLDER-`);
-            retVal = retVal.replace("-PLACEHOLDER-", newStr.substring(2, newStr.length - 2));
+            retVal = retVal.replace("-PLACEHOLDER-", newStr.substring(2, newStr.length - 2) +
+                ` "${targetName}"`);
         } else {
             // 'normal' case; bookmarklet doesn't have internal RegEx symbols
             retVal = readMeString.replace(oldStrRegEx, newStr);
