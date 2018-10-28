@@ -130,7 +130,7 @@ fi
 echo
 
 ## check JavaScript
-echo "  checking JavaScript files"
+echo "  checking JavaScript files (w/ eslint, see .eslintrc.yml)"
 if hash eslint >/dev/null 2>&1 ; then
 	if eslint "*.js" "src/*.js" ; then
 		echo "    *.js src/*.js: JavaScript OK"
