@@ -76,26 +76,26 @@ iCloud will sync the bookmarklet to iOS.
 
 #### JavaScript bookmarks
 
-+ [IsItAws] v1.3.2 ``javascript:location.href='https://isitonaws.com/discover?name='+location.host;void'1.3.2'``
-+ [KillStickyHeaders] v1.2.0 ``javascript:(()=%3E%7Blet%20e=document.querySelectorAll('body%20*'),o=0;for(o=0;o%3Ce.length;o++)%7Bif('fixed'===getComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)();void'1.2.0'``
-+ [OpenIn1Password] v1.5.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='op'+location.href%7Dvoid'1.5.1'``
-+ [OpenInBrave] v1.0.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='brave://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.0.1'``
-+ [OpenInCodeBucket] v1.3.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&location.host==='bitbucket.org')%7Blocation.href='codebucket://'+location.href.split('/').slice(2,5).join('/')%7Dvoid'1.3.1'``
-+ [OpenInCodeHub] v1.3.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&location.host==='github.com')%7Blocation.href='codehub://'+location.href.split('/').slice(2,5).join('/')%7Dvoid'1.3.1'``
-+ [OpenInDolphin] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttps?/,'dolphin')%7Dvoid'1.0.0'``
-+ [OpenInFirefox] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.5.0'``
-+ [OpenInFirefox-Focus] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'&private=true'%7Dvoid'1.0.0'``
-+ [OpenInFirefox-Private] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox://open-url?url='+encodeURIComponent(location.href)+'&private=true'%7Dvoid'1.0.0'``
-+ [OpenInGoodReader] v1.5.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))%7Blocation.href='gr'+location.href%7Dvoid'1.5.1'``
-+ [OpenInGoogleChrome] v1.4.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Dvoid'1.4.0'``
-+ [OpenInGoogleMaps] v2.2.0 ``javascript:if(/%5C.google%5C.com/.test(location.host)&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href='comgooglemaps://'+location.search%7Delse%20if(/%20-%20Google%20Maps/.test(document.title))%7Blocation.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Dvoid'2.2.0'``
-+ [OpenInOpera] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='opera://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.0.0'``
-+ [OpenInTextastic] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttps?/,'textastic')%7Dvoid'1.0.0'``
-+ [OpenIniOctocat] v1.6.0 ``javascript:if(/(gist%5C.)?github%5C.com/.test(location.host)&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace('https:','ioc:')%7Dvoid'1.6.0'``
-+ [OpenInWorkingCopy] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.host==='bitbucket.org'%7C%7Clocation.host==='github.com'))%7Blocation.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0,5).join('/'))+'.git'%7Dvoid'1.5.0'``
-+ [OpenURLParam] v1.0.0 ``javascript:const%20e=location.search.search('url=');if(e%3E-1)%7Blet%20o=location.search.substr(4+e);const%20c=o.indexOf('&');if(c%3E-1)%7Bo=o.substr(0,c)%7Dif(5%3Co.length)%7Blocation.replace(decodeURIComponent(o))%7D%7Dvoid'1.0.0'``
-+ [SearchIn1Password] v1.4.2 ``javascript:location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.');void'1.4.2'``
-+ [UtmStrip] v1.5.1 ``javascript:(()=%3E%7Bif(window.location.search)%7Blet%20e=window.location.search;if(e.length%3C2)%7Breturn%7Dconst%20i=location.hostname;if(i.indexOf('amazon.com')%3E-1)%7Be=e.replace(/(%5B?&%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E&#%5D+&?/gi,'$1');e=e.replace(/(%5B?&%5D)p%5Bdf%5D_rd_.*?=%5B%5E&#%5D+&?/gi,'$1')%7Dif(e.indexOf('fb_')%3E-1)%7Be=e.replace(/(%5B?&%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.indexOf('action_')%3E-1)%7Be=e.replace(/(%5B?&%5D)action_(object%7Cref%7Ctype)_map=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.indexOf('aff_')%3E-1)%7Be=e.replace(/(%5B?&%5D)aff_(platform%7Ctrace_key)=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.toLowerCase().indexOf('id=')%3E-1)%7Be=e.replace(/(%5B?&%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E#&%5D+&?/gi,'$1')%7De=e.replace(/(%5B?&%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E#&%5D+&?/gi,'$1');if(e.indexOf('ga_')%3E-1%7C%7Ce.indexOf('utm_')%3E-1)%7Be=e.replace(/(%5B?&%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E#&%5D+&?/gi,'$1')%7Dif(i.indexOf('youtu')%3E-1%7C%7Ci.indexOf('googlevideo.com')%3E-1)%7Be=e.replace(/(%5B?&%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E&#%5D+&?/gi,'$1')%7Dif(e.indexOf('_hsenc')%3E-1%7C%7Ce.indexOf('_hsmi')%3E-1)%7Be=e.replace(/(%5B?&%5D)_hs(enc%7Cmi)=%5B%5E&#%5D+&?/gi,'$1')%7Dif(e.indexOf('hmb_')%3E-1)%7Be=e.replace(/(%5B?&%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.indexOf('cm_')%3E-1)%7Be=e.replace(/(%5B?&%5D)cm_(mmc%7Cmmca%5Cd+%7Cre%7Csp)=%5B%5E#&%5D+&?/gi,'$1');e=e.replace(/(%5B?&%5D)manual_cm_mmc=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.indexOf('mc_cid')%3E-1%7C%7Ce.indexOf('mc_eid')%3E-1)%7Be=e.replace(/(%5B?&%5D)mc_%5Bce%5Did=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.indexOf('iesrc')%3E-1%7C%7Ce.indexOf('mkt_tok')%3E-1)%7Be=e.replace(/(%5B?&%5D)(iesrc%7Cmkt_tok)=%5B%5E&#%5D+&?/gi,'$1')%7Dif(e.indexOf('pk_')%3E-1)%7Be=e.replace(/(%5B?&%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E&#%5D+&?/gi,'$1')%7Dif('?'===window.location.search.charAt(0)&&'?'!==e.charAt(0))%7Be='?'+e%7Dif('&'===e.charAt(e.length-1))%7Be=e.substring(0,e.length-1)%7Dif(e.length%3C3)%7Be=''%7Dif(window.location.search!==e)%7Bhistory.replaceState(null,null,window.location.origin+window.location.pathname+e)%7D%7D%7D)();void'1.5.1'``
++  [IsItAws] v1.3.2 ``javascript:location.href='https://isitonaws.com/discover?name='+location.host;void'1.3.2'``
++  [KillStickyHeaders] v1.2.0 ``javascript:(()=%3E%7Blet%20e=document.querySelectorAll('body%20*'),o=0;for(o=0;o%3Ce.length;o++)%7Bif('fixed'===getComputedStyle(e%5Bo%5D).position)%7Be%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%7D%7D%7D)();void'1.2.0'``
++  [OpenIn1Password] v1.5.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='op'+location.href%7Dvoid'1.5.1'``
++  [OpenInBrave] v1.0.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='brave://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.0.1'``
++  [OpenInCodeBucket] v1.3.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&location.host==='bitbucket.org')%7Blocation.href='codebucket://'+location.href.split('/').slice(2,5).join('/')%7Dvoid'1.3.1'``
++  [OpenInCodeHub] v1.3.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&location.host==='github.com')%7Blocation.href='codehub://'+location.href.split('/').slice(2,5).join('/')%7Dvoid'1.3.1'``
++  [OpenInDolphin] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttps?/,'dolphin')%7Dvoid'1.0.0'``
++  [OpenInFirefox] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.5.0'``
++  [OpenInFirefox-Focus] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'&private=true'%7Dvoid'1.0.0'``
++  [OpenInFirefox-Private] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='firefox://open-url?url='+encodeURIComponent(location.href)+'&private=true'%7Dvoid'1.0.0'``
++  [OpenInGoodReader] v1.5.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&/%5C.pdf($%7C%5C?)/.test(location.href))%7Blocation.href='gr'+location.href%7Dvoid'1.5.1'``
++  [OpenInGoogleChrome] v1.4.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttp/,'googlechrome')%7Dvoid'1.4.0'``
++  [OpenInGoogleMaps] v2.2.0 ``javascript:if(/%5C.google%5C.com/.test(location.host)&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Bif(location.search)%7Blocation.href='comgooglemaps://'+location.search%7Delse%20if(/%20-%20Google%20Maps/.test(document.title))%7Blocation.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps','').replace(/%20/g,'+'))%7D%7Dvoid'2.2.0'``
++  [OpenInOpera] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href='opera://open-url?url='+encodeURIComponent(location.href)%7Dvoid'1.0.0'``
++  [OpenInTextastic] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttps?/,'textastic')%7Dvoid'1.0.0'``
++  [OpenIniOctocat] v1.6.0 ``javascript:if(/(gist%5C.)?github%5C.com/.test(location.host)&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace('https:','ioc:')%7Dvoid'1.6.0'``
++  [OpenInWorkingCopy] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)&&(location.host==='bitbucket.org'%7C%7Clocation.host==='github.com'))%7Blocation.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0,5).join('/'))+'.git'%7Dvoid'1.5.0'``
++  [OpenURLParam] v1.0.0 ``javascript:const%20e=location.search.search('url=');if(e%3E-1)%7Blet%20o=location.search.substr(4+e);const%20c=o.indexOf('&');if(c%3E-1)%7Bo=o.substr(0,c)%7Dif(5%3Co.length)%7Blocation.replace(decodeURIComponent(o))%7D%7Dvoid'1.0.0'``
++  [SearchIn1Password] v1.4.2 ``javascript:location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.');void'1.4.2'``
++  [UtmStrip] v1.5.1 ``javascript:(()=%3E%7Bif(window.location.search)%7Blet%20e=window.location.search;if(e.length%3C2)%7Breturn%7Dconst%20i=location.hostname;if(i.indexOf('amazon.com')%3E-1)%7Be=e.replace(/(%5B?&%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E&#%5D+&?/gi,'$1');e=e.replace(/(%5B?&%5D)p%5Bdf%5D_rd_.*?=%5B%5E&#%5D+&?/gi,'$1')%7Dif(e.indexOf('fb_')%3E-1)%7Be=e.replace(/(%5B?&%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.indexOf('action_')%3E-1)%7Be=e.replace(/(%5B?&%5D)action_(object%7Cref%7Ctype)_map=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.indexOf('aff_')%3E-1)%7Be=e.replace(/(%5B?&%5D)aff_(platform%7Ctrace_key)=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.toLowerCase().indexOf('id=')%3E-1)%7Be=e.replace(/(%5B?&%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E#&%5D+&?/gi,'$1')%7De=e.replace(/(%5B?&%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E#&%5D+&?/gi,'$1');if(e.indexOf('ga_')%3E-1%7C%7Ce.indexOf('utm_')%3E-1)%7Be=e.replace(/(%5B?&%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E#&%5D+&?/gi,'$1')%7Dif(i.indexOf('youtu')%3E-1%7C%7Ci.indexOf('googlevideo.com')%3E-1)%7Be=e.replace(/(%5B?&%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E&#%5D+&?/gi,'$1')%7Dif(e.indexOf('_hsenc')%3E-1%7C%7Ce.indexOf('_hsmi')%3E-1)%7Be=e.replace(/(%5B?&%5D)_hs(enc%7Cmi)=%5B%5E&#%5D+&?/gi,'$1')%7Dif(e.indexOf('hmb_')%3E-1)%7Be=e.replace(/(%5B?&%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.indexOf('cm_')%3E-1)%7Be=e.replace(/(%5B?&%5D)cm_(mmc%7Cmmca%5Cd+%7Cre%7Csp)=%5B%5E#&%5D+&?/gi,'$1');e=e.replace(/(%5B?&%5D)manual_cm_mmc=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.indexOf('mc_cid')%3E-1%7C%7Ce.indexOf('mc_eid')%3E-1)%7Be=e.replace(/(%5B?&%5D)mc_%5Bce%5Did=%5B%5E#&%5D+&?/gi,'$1')%7Dif(e.indexOf('iesrc')%3E-1%7C%7Ce.indexOf('mkt_tok')%3E-1)%7Be=e.replace(/(%5B?&%5D)(iesrc%7Cmkt_tok)=%5B%5E&#%5D+&?/gi,'$1')%7Dif(e.indexOf('pk_')%3E-1)%7Be=e.replace(/(%5B?&%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E&#%5D+&?/gi,'$1')%7Dif('?'===window.location.search.charAt(0)&&'?'!==e.charAt(0))%7Be='?'+e%7Dif('&'===e.charAt(e.length-1))%7Be=e.substring(0,e.length-1)%7Dif(e.length%3C3)%7Be=''%7Dif(window.location.search!==e)%7Bhistory.replaceState(null,null,window.location.origin+window.location.pathname+e)%7D%7D%7D)();void'1.5.1'``
 
 _NOTE:_ The `javascript:` bookmarks above will __not__ work from the Github
 repository page, due to Github security precautions.
@@ -106,26 +106,26 @@ Visit the [OpenInlets page] and tap a link below. Follow the instructions on
 the resulting page to turn the followed bookmark into a JavaScript
 bookmarklet.
 
-+ **Mobile Safari setup link** -- [Setup IsItAws] v1.3.2
-+ **Mobile Safari setup link** -- [Setup KillStickyHeaders] v1.2.0
-+ **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.5.1
-+ **Mobile Safari setup link** -- [Setup OpenInBrave] v1.0.1
-+ **Mobile Safari setup link** -- [Setup OpenInCodeBucket] v1.3.1
-+ **Mobile Safari setup link** -- [Setup OpenInCodeHub] v1.3.1
-+ **Mobile Safari setup link** -- [Setup OpenInDolphin] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInFirefox] v1.5.0
-+ **Mobile Safari setup link** -- [Setup OpenInFirefox-Focus] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInFirefox-Private] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.5.1
-+ **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.4.0
-+ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v2.2.0
-+ **Mobile Safari setup link** -- [Setup OpenInOpera] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInTextastic] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.6.0
-+ **Mobile Safari setup link** -- [Setup OpenInWorkingCopy] v1.5.0
-+ **Mobile Safari setup link** -- [Setup OpenURLParam] v1.0.0
-+ **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.4.2
-+ **Mobile Safari setup link** -- [Setup UtmStrip] v1.5.1
++  **Mobile Safari setup link** -- [Setup IsItAws] v1.3.2
++  **Mobile Safari setup link** -- [Setup KillStickyHeaders] v1.2.0
++  **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.5.1
++  **Mobile Safari setup link** -- [Setup OpenInBrave] v1.0.1
++  **Mobile Safari setup link** -- [Setup OpenInCodeBucket] v1.3.1
++  **Mobile Safari setup link** -- [Setup OpenInCodeHub] v1.3.1
++  **Mobile Safari setup link** -- [Setup OpenInDolphin] v1.0.0
++  **Mobile Safari setup link** -- [Setup OpenInFirefox] v1.5.0
++  **Mobile Safari setup link** -- [Setup OpenInFirefox-Focus] v1.0.0
++  **Mobile Safari setup link** -- [Setup OpenInFirefox-Private] v1.0.0
++  **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.5.1
++  **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.4.0
++  **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v2.2.0
++  **Mobile Safari setup link** -- [Setup OpenInOpera] v1.0.0
++  **Mobile Safari setup link** -- [Setup OpenInTextastic] v1.0.0
++  **Mobile Safari setup link** -- [Setup OpenIniOctocat] v1.6.0
++  **Mobile Safari setup link** -- [Setup OpenInWorkingCopy] v1.5.0
++  **Mobile Safari setup link** -- [Setup OpenURLParam] v1.0.0
++  **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.4.2
++  **Mobile Safari setup link** -- [Setup UtmStrip] v1.5.1
 
 ## Use
 
@@ -136,14 +136,14 @@ location.
 
 ## Requirements
 
-+ Mobile Safari 7.x or higher (v2.2.0 tested with iOS 11)
-+ Corresponding iOS app (_except_ for "IsItAws" bookmarklet)
++  Mobile Safari 7.x or higher (v2.2.0 tested with iOS 11)
++  Corresponding iOS app (_except_ for "IsItAws" bookmarklet)
 
 ### Notes
 
-1. Bookmarklets do _not_ work in Google Chrome, Ghostery and DuckDuckGo iOS
+1.  Bookmarklets do _not_ work in Google Chrome, Ghostery and DuckDuckGo iOS
    apps due to restrictions of those apps on `javascript:` URL bookmarks.
-2. SearchIn1Password _does_ work on Macintosh OS X Mavericks with Safari or
+2.  SearchIn1Password _does_ work on Macintosh OS X Mavericks with Safari or
    Firefox.
 
 ## License
@@ -157,9 +157,9 @@ facilitate testing. The `web/` directory has "uglified" code that has a
 `javascript:` URL protocol prefix and should be shorter. The `void'x.y.z'` at
 the end the bookmarklet URL code serves two purposes.
 
-1. It prevents the browser from navigating to another page when the bookmark
+1.  It prevents the browser from navigating to another page when the bookmark
    is used.
-2. It is a convenient place to embed a string indicating the `semver` version
+2.  It is a convenient place to embed a string indicating the `semver` version
    of the bookmark.
 
 ## Build
@@ -185,55 +185,55 @@ re-build OpenInlets `web/` directory.
 Each bookmarklet does some rudimentary check and then redirects to an app
 using a URL protocol scheme.
 
-+ **IsItAws** - Does _not_ use a URL protocol scheme. Rather it uses the
++  **IsItAws** - Does _not_ use a URL protocol scheme. Rather it uses the
   lambda [IsItOnAWS.com] functions created by Tim Bray. For details, see
   [Is it on AWS? Domain Identification Using AWS Lambda][IsItOnAWS Blog Post].
-+ **KillStickyHeaders** - Does _not_ use a URL protocol scheme. Removes HTML
++  **KillStickyHeaders** - Does _not_ use a URL protocol scheme. Removes HTML
   child elements of `<body>` that have a fixed position. See
   [Kill sticky headers][Kill sticky headers].
-+ **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol
++  **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol
   scheme for 1Password. See the subheading
   [Open URLs externally][1Password URL Scheme] for details.
-+ **OpenInBrave** - Uses the `brave://open-url?url=` scheme for the Brave app
++  **OpenInBrave** - Uses the `brave://open-url?url=` scheme for the Brave app
   on iOS.
-+ **OpenInCodeBucket** _and_ **OpenInCodeBucket**- Uses the `codebucket://`
++  **OpenInCodeBucket** _and_ **OpenInCodeBucket**- Uses the `codebucket://`
   and `codehub://` URL protocol schemes, respectively. See
   [CodeHub URL Scheme][CodeHub URL Scheme]. Note that the source code seems to
   be the only documentation for the scheme; look for `codehub://`.
-+ **OpenInDolphin* - Uses the `dolphin://` scheme for the Dolphin app on iOS.
-+ **OpenInFirefox** _and_ **OpenInFirefox-Private** - Uses the
++  **OpenInDolphin* - Uses the `dolphin://` scheme for the Dolphin app on iOS.
++  **OpenInFirefox** _and_ **OpenInFirefox-Private** - Uses the
   `firefox://open-url?url=` scheme for the Firefox app on iOS. The "Private"
   version appends `&private=true` after the target url for private browsing.
-+ **OpenInFirefox-Focus** - Uses the `firefox-focus://open-url?url=` scheme
++  **OpenInFirefox-Focus** - Uses the `firefox-focus://open-url?url=` scheme
   for the Firefox Focus app on iOS, with `&private=true` appended to the
   target url for private browsing.
-+ **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol
++  **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol
   scheme for GoodReader. See [GoodReader URL Scheme][GoodReader URL Scheme].
-+ **OpenInGoogleChrome** - Uses the `googlechrome://` or `googlechromes://`
++  **OpenInGoogleChrome** - Uses the `googlechrome://` or `googlechromes://`
   scheme for the Google Chrome app on iOS. Formerly documented at
   `https://developer.chrome.com/multidevice/ios/links`.
-+ **OpenInGoogleMaps** - Uses the `comgooglemaps://` protocol scheme for the
++  **OpenInGoogleMaps** - Uses the `comgooglemaps://` protocol scheme for the
   Google Maps app on iOS. See [Google Maps URL Scheme][Google Maps URL Scheme]
   for details.
-+ **OpenInOpera** - Uses the `opera://open-url?url=` scheme for the
++  **OpenInOpera** - Uses the `opera://open-url?url=` scheme for the
   Opera app on iOS.
-+ **OpenInTextastic** - Uses the `textastic://` protocol scheme of the
++  **OpenInTextastic** - Uses the `textastic://` protocol scheme of the
   Textastic app on iOS. For details, see
   [Textastic x-callback-url API][Textastic x-callback-url API].
-+ **OpenIniOctocat** - Uses the `ioc://` URL protocol scheme for iOctocat. See
++  **OpenIniOctocat** - Uses the `ioc://` URL protocol scheme for iOctocat. See
   the subheading [How to open GitHub URLs in iOctocat][iOctocat URL Scheme]
   for details.
-+ **OpenInWorkingCopy** - Uses the `working-copy://show?remote=/` ("show")
++  **OpenInWorkingCopy** - Uses the `working-copy://show?remote=/` ("show")
   URL protocol scheme for Working Copy. See the subheading
   [URL Schemes in Working Copy][Working Copy URL Scheme] for details.
-+ **OpenURLParam** - Work-around for blocked navigation from certain ad or
++  **OpenURLParam** - Work-around for blocked navigation from certain ad or
   tracking blockers. If the current URL contains a parameter in the form of
   `url=...` this bookmarklet will parse the `url` parameter and navigate to
   that URL.
-+ **SearchIn1Password** - Uses `onepassword4://search/` with the current
++  **SearchIn1Password** - Uses `onepassword4://search/` with the current
   domain appended to trigger a 1Password search. See the subheading
   [Open URLs externally][1Password URL Scheme] for details.
-+ **UtmStrip** -  Strips off the UTM query string elements of the current URL.
++  **UtmStrip** -  Strips off the UTM query string elements of the current URL.
   Based on [safari-utm-stripper Bookmarklet][kiding-gist 589242021df49eb17be3].
   NOTE: UtmStrip now borrows heavily from patterns provided by [Firefox
   Extension Neat URL][Neat URL]
