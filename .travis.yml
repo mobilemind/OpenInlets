@@ -1,13 +1,22 @@
 branches:
   only:
   - gh-pages
-sudo: required
+os: linux
 dist: trusty
+sudo: false
+git:
+  depth: 8
+  submodules: false
 language: node_js
 cache:
   directories:
   - node_modules
 node_js:
-- '8'
+- '11'
+matrix:
+  fast_finish: true
 before_install:
 - npm set progress=false ; npm install -g grunt-cli
+notifications:
+  slack:
+    secure: fJAcjsXeMDTBftgaxT7rfwAbN4fJBjqnuTh7lZNjhc3J81/lcmJpM03ZQ/CuzCD+EMeyl891mSG0SU8eM1cZHkldFEqN/3j+p56k6jiZCVI+XAU/IWZBYAwICRwN5sxGUnvedxrPcvqwtUCAklnVPLxWVgnK79aMJIrc/iq/tG+kQm1IcXPigyr1LKmTLLU9z057L7zRg+nqcIxddqsoJz4mIW/eZXu88Ecpr1GQ7HiOo/WbQtOtwCv6aWqfHIRcJQmz5ZKgAefLFnhF2gzqrsZhBjbLzLhpnTRsfVlXuDRbpAx1uhrft8EzaMvYbfZZDmKA/He2caq+deoD1NzfKSa0I3xB3QHqzOsHpy/dbEE7Sw4zQv+pv0YnadFEeYwJYXk9zUNrL5Jj15GOD8iMKcHfTQOhvrFL607AsYQ7fpdfIV3qjleBXmGmStjHJlAd3aIaOrMtrzJgbQsqQMjlqYHhWaIbXTggcVVYCdgzbVap5QgD9c+i3yfSGx6BEf+UcK06oudn24uM2KanFuUxFtKIQy/D3XvWaQoOM3oT5KQRav1CI/chgp+kMKXe1puNqOYWy0Jlug753fmpIyh7NhOrq/jGirnr0KhoOoex6GblpjQzuSdsqL1FaeiHekplcp3sP6vZJRhm76CSHTeZeGk9Pym9JiYLMYjI0S3vy4I=
