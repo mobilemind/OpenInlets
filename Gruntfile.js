@@ -113,7 +113,7 @@ module.exports = function(grunt) {
             let theCode = readOrFail(thisFile);
             // minimal URL encoding for javascript: URL (and '*' as %2A)
             theCode = `${theCode}void'${this.data.version}'`;
-            theCode = `javascript:${encodeURIComponent(theCode).replace("\*", "%2A")}`;
+            theCode = `javascript:${encodeURIComponent(theCode).replace("*", "%2A")}`;
             grunt.file.write(thisFile, theCode);
             // output some stats
             grunt.log.writeln(`${this.target} v${this.data.version}`);
@@ -169,7 +169,7 @@ module.exports = function(grunt) {
         // update reference link bookmarklet URL (de-encode & re-encode needed)
         readMeString = updatereadme(
             new RegExp("(\\[Setup " + this.target + '\\]: )http.*( \\"Setup ' + this.target + '\\")', "g"),
-            "$1http://mmind.me/x/#" + bookmarkletString.replace("\*", "%2A") +
+            "$1http://mmind.me/x/#" + bookmarkletString.replace("*", "%2A") +
             "$2", readMeString, "Setup link", this.target);
 
         // use regex to update version references
