@@ -1,16 +1,25 @@
 {
-    "compress": false,
+    "compress": {
+      "drop_console": true,
+      "expression": true,
+      "passes": 2,
+      "unsafe": true,
+      "unsafe_math": true,
+      "unsafe_proto": true,
+      "unsafe_undefined": true
+    },
     "ie8": false,
     "mangle": {
-        "ie8": false,
-        "toplevel": true,
-        "properties": false
+      "ie8": false,
+      "toplevel": true,
+      "properties": false
     },
     "output": {
-        "ecma": 6,
-        "ie8": false,
-        "indent_level": 0,
-        "quote_style": 1
+      "beautify": false,
+      "ecma": 6,
+      "ie8": false,
+      "indent_level": 0,
+      "quote_style": 1
     },
     "parse": {},
     "sourceMap": null,
