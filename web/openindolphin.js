@@ -1,1 +1,1 @@
-javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace(/%5Ehttps?/,'dolphin')%7Dvoid'1.0.0'
+javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href%3Dlocation.href.replace(%2F%5Ehttps%3F%2F%2C'dolphin')%3Bvoid'1.0.0'

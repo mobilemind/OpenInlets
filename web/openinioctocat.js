@@ -1,1 +1,1 @@
-javascript:if(/(gist%5C.)?github%5C.com/.test(location.host)&&/iP(.d%7Chone)/.test(navigator.userAgent))%7Blocation.href=location.href.replace('https:','ioc:')%7Dvoid'1.6.0'
+javascript:if(%2F(gist%5C.)%3Fgithub%5C.com%2F.test(location.host)%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href%3Dlocation.href.replace('https%3A'%2C'ioc%3A')%3Bvoid'1.6.0'
