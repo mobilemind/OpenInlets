@@ -53,14 +53,14 @@ if [[ -f renovate.json ]] ; then
 		if $JSONLINT -e=json-schema-draft-04 -V="$HOME/common/schema/json/renovate.json" renovate.json ; then
 			echo "    renovate.json: validates OK"
 		else
-			echo "    *** ERROR renoavte.json schema check failed."
+			echo "    *** ERROR renovate.json schema check failed."
 			exit 1
 		fi
 	else
 		echo "    --- jsonlint not installed: skipping renovate.json validation"
 	fi
 else
-	echo "   OK- no rnnovate.json"
+	echo "   OK- no renovate.json"
 fi
 echo
 
