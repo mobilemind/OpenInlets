@@ -5,7 +5,7 @@
     "remark-preset-lint-recommended",
     ["remark-lint-emphasis-marker", false],
     ["remark-lint-maximum-line-length", false],
-		["remark-lint-no-shortcut-reference-link", false],
+    ["remark-lint-no-shortcut-reference-link", false],
     ["remark-lint-unordered-list-marker-style", "+"],
     ["remark-lint-definition-case", false],
     ["remark-lint-final-definition", false],
