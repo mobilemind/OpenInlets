@@ -3,7 +3,6 @@ branches:
   - gh-pages
 os: linux
 dist: trusty
-sudo: false
 git:
   depth: 12
   submodules: false
