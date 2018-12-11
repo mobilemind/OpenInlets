@@ -2,6 +2,9 @@
   "extends": [
     "config:base"
   ],
+  "baseBranches": [
+    "master"
+  ],
   "node": {
     "supportPolicy": ["current"]
   },
