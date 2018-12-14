@@ -21,7 +21,7 @@ if hash shellcheck >/dev/null 2>&1 ; then
 		|| { echo "*** ERROR in preflight script- check failed." ; exit 1 ; }
 	echo "    preflight: bash script OK"
 else
-	echo "--- shellcheck not found: skipping check of preflight script."
+	echo "    --- shellcheck not found: skipping check of preflight script."
 fi
 echo
 
