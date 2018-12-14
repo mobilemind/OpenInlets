@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 ## pre-flight for OpenInlets
 # use directly (and/or call from a git hook).
@@ -27,7 +27,7 @@ echo
 
 ## check PACKAGE.JSON
 echo "  checking package.json against schema"
-if [[ -z "$JSONLINT" ]] ; then
+if [ -z "$JSONLINT" ] ; then
 	echo "    --- jsonlint not installed: skipping package.json validation"
 else
 	$JSONLINT -e=json-schema-draft-04 -V="$HOME/common/schema/json/package.json" package.json \
@@ -38,9 +38,9 @@ echo
 
 ## check RENOVATE.JSON
 echo "  checking renovate.json against schema"
-if [[ ! -f renovate.json ]] ; then
+if ! [ -f renovate.json ] ; then
 	echo "   OK- no renovate.json"
-elif [[ -z "$JSONLINT" ]] ; then
+elif [ -z "$JSONLINT" ] ; then
 	echo "    --- jsonlint not installed: skipping renovate.json validation"
 else
 	$JSONLINT -e=json-schema-draft-04 -V="$HOME/common/schema/json/renovate.json" renovate.json \
@@ -51,7 +51,7 @@ echo
 
 ## check .UGLIFYJS3.JSON
 echo "  checking .uglifyjs3.json is well-formed"
-if [[ -z "$JSONLINT" ]] ; then
+if [ -z "$JSONLINT" ] ; then
 	echo "    --- jsonlint not installed: skipping .uglifyjs3.json check"
 else
 	$JSONLINT .uglifyjs3.json \
@@ -62,7 +62,7 @@ echo
 
 ## check .MARKDOWNLINT.JSON
 echo "  checking .markdownlint.json is well-formed"
-if [[ -z "$JSONLINT" ]] ; then
+if [ -z "$JSONLINT" ] ; then
 	echo "    --- jsonlint not installed: skipping .markdownlint.json check"
 else
 	$JSONLINT .markdownlint.json \
@@ -73,7 +73,7 @@ echo
 
 ## check .ESLINTRC.YML
 echo "  checking .eslintrc.yml"
-if [[ -z "$YAMLLINT" ]] ; then
+if [ -z "$YAMLLINT" ] ; then
 	echo "    --- yamllint not installed: skipping .eslintrc.yml check"
 else
 	printf "    "
@@ -90,7 +90,7 @@ if hash travis >/dev/null 2>&1 ; then
 	travis lint .travis.yml \
 		|| { echo "*** ERROR travis.yml check failed." ; exit 1 ; }
   echo "    .travis.yml: OK"
-elif [[ -n "$YAMLLINT" ]] ; then
+elif [ -n "$YAMLLINT" ] ; then
 	$YAMLLINT .travis.yml \
 		|| { echo "    *** ERROR travis.yml check failed." ; exit 1 ; }
 	echo "    .travis.yml: .yml OK"
