@@ -2,7 +2,6 @@ branches:
   except:
   - gh-pages
 os: linux
-dist: trusty
 git:
   depth: 12
   submodules: false
