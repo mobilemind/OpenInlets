@@ -1,6 +1,7 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    ":maintainLockFilesWeekly"
   ],
   "automerge": true,
   "baseBranches": [
@@ -13,7 +14,9 @@
     "supportPolicy": ["current"]
   },
   "schedule": [
-    "before 5am on every weekday"
+        "after 4pm every Friday",
+        "before 7am every Saturday",
+        "before 7am every Sunday"
   ],
   "travis": {
     "enabled": true
