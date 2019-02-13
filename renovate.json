@@ -13,7 +13,7 @@
     "supportPolicy": ["current"]
   },
   "schedule": [
-    "after 11pm and before 5am on every weekday"
+    "before 5am on every weekday"
   ],
   "travis": {
     "enabled": true
