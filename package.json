@@ -10,7 +10,7 @@
   "dependencies": {},
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
-    "grunt": "1.0.3",
+    "grunt": "1.0.4",
     "grunt-shell": "3.0.1"
   },
   "directories": {},
