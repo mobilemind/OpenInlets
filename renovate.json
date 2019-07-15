@@ -14,9 +14,7 @@
     "supportPolicy": ["current"]
   },
   "schedule": [
-        "after 4pm on Friday",
-        "before 7am on Saturday",
-        "before 7am on Sunday"
+    "before 6am every weekend"
   ],
   "travis": {
     "enabled": true
