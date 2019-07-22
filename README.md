@@ -62,6 +62,11 @@ __UtmStrip__: Strips off the UTM query string elements of the current URL to
 remove common "urchin" tracking information from youtube, etc. _NOTE:_ This
 also works with Safari and Firefox on macOS.
 
+__OpenURLParam__: Work-around for blocked navigation from certain ad or
+tracking blockers. If the current URL contains a parameter in the form of
+`url=...` this bookmarklet will parse the `url` parameter and navigate to that
+URL.
+
 ## Install
 
 ### Desktop browser
