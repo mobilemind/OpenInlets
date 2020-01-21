@@ -80,7 +80,7 @@ module.exports = function(grunt) {
             },
             "UtmStrip": {
                 "file": "utmstrip.js",
-                "version": "1.6.0"
+                "version": "1.6.1"
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
