@@ -10,6 +10,7 @@
     if (hostStr.indexOf("amazon.com") > -1) {
         searchStr = searchStr.replace(/([?&])(_encoding|ie|psc|ref_|tag)=[^&]+/ig, "$1");
         searchStr = searchStr.replace(/([?&])p[df]_rd_.*?=[^&]+/ig, "$1");
+        searchStr = searchStr.replace(/([?&])ascsubtag=[^&]+/ig, "$1");
     }
     // Facebook
     if (searchStr.indexOf("fb_") > -1) {
