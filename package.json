@@ -10,7 +10,7 @@
   "dependencies": {},
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
-    "grunt": "1.0.4",
+    "grunt": "1.1.0",
     "grunt-shell": "3.0.1"
   },
   "directories": {},
@@ -45,5 +45,5 @@
     "install": "npm install -g uglify-es@latest",
     "test": "grunt"
   },
-  "version": "2.5.1"
+  "version": "2.5.2"
 }
