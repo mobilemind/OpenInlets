@@ -7,7 +7,9 @@
   "bugs": {
     "url": "https://github.com/mobilemind/OpenInlets/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "snyk": "^1.319.1"
+  },
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
     "grunt": "1.1.0",
@@ -43,7 +45,10 @@
   },
   "scripts": {
     "install": "npm install -g uglify-es@latest",
-    "test": "grunt"
+    "test": "grunt",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
-  "version": "2.5.2"
+  "version": "2.5.2",
+  "snyk": true
 }
