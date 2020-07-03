@@ -8,11 +8,11 @@
     "url": "https://github.com/mobilemind/OpenInlets/issues"
   },
   "dependencies": {
-    "snyk": "^1.336.0"
+    "snyk": "^1.360.0"
   },
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
-    "grunt": "1.1.0",
+    "grunt": "1.2.0",
     "grunt-shell": "3.0.1"
   },
   "directories": {},
