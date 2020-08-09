@@ -12,7 +12,7 @@
   "devDependencies": {
     "grunt": "1.2.1",
     "grunt-shell": "3.0.1",
-    "snyk": "1.370.0"
+    "snyk": "1.370.1"
   },
   "directories": {},
   "engines": {
