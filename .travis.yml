@@ -16,7 +16,7 @@ language: node_js
 matrix:
   fast_finish: true
 before_install:
-- npm set progress=false ; npm install -g grunt-cli
+- npm set progress=false ; npm install -g grunt-cli uglify-es@latest
 notifications:
   slack:
     secure: U1awsxwBz9eLq+RzTBpizvHiJ3OdOlTEpstZePhjjte2Qd1L5DuQqVrbyxwdDGzJ88EaevACa5zKAy4hI3xhDW7Mx269h7DxmVESdJEwhkb+5YMHM11WgZC9Vg3Yru2wUIbibboNrCFB2oEGW03yd4VQi+wjoxr5dhL6HAizL2k=
