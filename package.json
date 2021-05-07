@@ -11,11 +11,11 @@
   "devDependencies": {
     "grunt": "1.4.0",
     "grunt-shell": "3.0.1",
-    "snyk": "1.576.0"
+    "snyk": "1.584.0"
   },
   "directories": {},
   "engines": {
-    "node": ">14.0"
+    "node": ">16.0"
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
@@ -47,6 +47,6 @@
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
   },
-  "version": "2.5.2",
+  "version": "2.6.0",
   "snyk": true
 }
