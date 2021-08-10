@@ -84,7 +84,7 @@ module.exports = function(grunt) {
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
-        "shell": {"uglify_es": {"command": "for OJS in src/*.js; do uglifyjs --config-file .uglifyjs3.json --ecma 6 --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}}
+        "shell": {"uglify_es": {"command": "for OJS in src/*.js; do uglifyjs --config-file .uglifyjs3.json --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}}
     });
 
     // Load plugins

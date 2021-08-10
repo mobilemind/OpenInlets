@@ -5,24 +5,22 @@
       "passes": 2,
       "unsafe": true,
       "unsafe_math": true,
+      "unsafe_comps": true,
+      "unsafe_math": true,
       "unsafe_proto": true,
       "unsafe_undefined": true
     },
-    "ie8": false,
     "mangle": {
-      "ie8": false,
       "toplevel": true,
       "properties": false
     },
     "output": {
       "beautify": false,
-      "ecma": 6,
-      "ie8": false,
+      "ie": false,
       "indent_level": 0,
       "quote_style": 1
     },
     "parse": {},
-    "sourceMap": null,
     "toplevel": true,
     "warnings": true
 }
