@@ -243,6 +243,8 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+2.6.1 bump to node 16.7+
+
 2.6.0 switch to node 16
 
 2.5.1 `UtmStrip` now removes `ascsubtag` param from Amazon URLs; bump version
