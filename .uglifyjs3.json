@@ -4,7 +4,6 @@
       "expression": true,
       "passes": 2,
       "unsafe": true,
-      "unsafe_math": true,
       "unsafe_comps": true,
       "unsafe_math": true,
       "unsafe_proto": true,
