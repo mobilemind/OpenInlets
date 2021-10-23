@@ -45,7 +45,7 @@ rules:
   curly: 2
   default-case: 2
   guard-for-in: 2
-  no-alert: 2
+  no-alert: 0
   no-caller: 2
   no-div-regex: 2
   no-else-return: 2
@@ -84,6 +84,7 @@ rules:
   no-unused-expressions: 2
   no-useless-call: 2
   no-useless-concat: 2
+  no-useless-escape: 0
   no-useless-return: 2
   no-void: 0
   no-warning-comments: 2
@@ -142,7 +143,7 @@ rules:
   padding-line-between-statements: 0
   max-depth: 2
   max-len: ["warn", {"code": 110, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
-  max-lines: ["error", {"max": 165, "skipBlankLines": true, "skipComments": true}]
+  max-lines: ["error", {"max": 169, "skipBlankLines": true, "skipComments": true}]
   max-nested-callbacks: 2
   max-params: [2, 5]
   max-statements-per-line: 2
