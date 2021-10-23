@@ -1,15 +1,20 @@
-// modifyurl
+// modifysupporturl
 
 // wrap it all in anonymous function closure for isolation
 (() => {
     const url = document.location.href;
     const path = document.location.pathname;
     const lang = new RegExp('/' + navigator.language.toLowerCase() + '/', 'i');
-    const guide = new RegExp('(/guide/[a-z]+-?[a-z]*-?[a-z]*/)([a-z0-9\-]+)/');
+    const guide = (/(\/guide\/[-a-z]+\/)([-\da-z]+)\//);
     let matches = null;
     let result = url;
 
-    // handle support doc URLs
+    // for now, only work on support.apple.com
+    if ('support.apple.com' !== document.location.host) {
+        return;
+    }
+
+    // handle general support doc URLs
     if (path.match(lang)) {
         // replace language-locale with '/'
         result = url.replace(lang,'/');
@@ -26,14 +31,14 @@
         }
     // try to handle general guide case
     } else {
-        // check 'guide' is matched in path, and assign matches w/substrings
+        // check 'guide' is in path, and break into substrings via match
         matches = path.match(guide);
         // validate match w/substrings was found
         if (null !== matches && matches.length > 1) {
-            // split the 3rd matched substring (should be vanity portion + ID) on the dashes
-            const segments = matches[2].split('-');
-            // path with "vanity" part removed, use last segment after dash as ID
-            result = url.replace(path, matches[1] + segments[segments.length - 1] + '/');
+            // 3rd match is vanity & ID; split it into parts separated by '-'
+            const parts = matches[2].split('-');
+            // replace path: remove vanity parts, keep ID (part after last dash)
+            result = url.replace(path, matches[1] + parts[parts.length - 1] + '/');
         }
     }
 
