@@ -15,11 +15,11 @@
     }
 
     // handle general support doc URLs
-    if (path.match(lang)) {
+    if (lang.test(path)) {
         // replace language-locale with '/'
         result = url.replace(lang,'/');
     // handle guide special cases without a '-', like toc & welcome
-    } else if (path.indexOf('-') < 0 && path.match(guide)) {
+    } else if (!/-/.test(path) && guide.test(path)) {
         let i = url.indexOf('/toc/');
         if (i > 0) {
             result = url.substr(0, i + 5);
@@ -36,9 +36,9 @@
         // validate match w/substrings was found
         if (null !== matches && matches.length > 1) {
             // 3rd match is vanity & ID; split it into parts separated by '-'
-            const parts = matches[2].split('-');
+            let parts = matches[2].split('-');
             // replace path: remove vanity parts, keep ID (part after last dash)
-            result = url.replace(path, matches[1] + parts[parts.length - 1] + '/');
+            result = url.replace(path, matches[1] + parts.pop() + '/');
         }
     }
 
@@ -47,10 +47,10 @@
 
     if (url === result) {
         // results didn't change, show original URL
-        alert('Unable to simplify the current URL—\n' + url);
+        alert('Unable to simplify current URL-\n' + url);
     } else {
         // no clipboard access, so update address bar URL & show results
         history.replaceState(null, null, result);
-        alert('Original URL:\n' + url + '\n\nModified URL:\n' + result);
+        alert('Original URL-\n' + url + '\n\nModified URL-\n' + result);
     }
 })();
