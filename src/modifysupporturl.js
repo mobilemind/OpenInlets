@@ -38,8 +38,39 @@
             // 3rd match is vanity & ID; split it into parts separated by '-'
             let parts = matches[2].split('-');
             // replace path: remove vanity parts, keep ID (part after last dash)
-            result = url.replace(path, matches[1] + parts.pop() + '/');
+            // result = url.replace(path, matches[1] + parts.pop() + '/');
+            result = 'https://support.apple.com' + matches[1] + parts.pop() + '/';
         }
+    }
+
+    // setup to check for a selection & find an anchor id
+    let anchor = null;
+    let subid = '';
+    let heading = '';
+    const selected = window.getSelection();
+    let range = null;
+    let container = null;
+
+    // is there a selection range?
+    if ('None' !== selected.type && selected.rangeCount > 0) {
+        range = selected.getRangeAt(0);
+        // get DOM node at start of range & got up 1 level if text
+        if (range) {
+            container = range["startContainer"];
+            anchor = container.nodeType === 3
+                ? container.parentNode
+                : container;
+            if (anchor.parentNode) {
+                // parent node of a heading is the <div> w/ the anchor id
+                subid = anchor.parentNode.id;
+                heading = anchor.innerText;
+                // update result with id for selection
+                if ('' !== heading && '' !== subid) {
+                    result += '#' + subid;
+                }
+            }
+        }
+        selected.removeAllRanges();
     }
 
     // copy result to clipboard doesn't work on Safari  :-(
@@ -49,8 +80,8 @@
         // results didn't change, show original URL
         alert('Unable to simplify current URL-\n' + url);
     } else {
-        // no clipboard access, so update address bar URL & show results
-        history.replaceState(null, null, result);
-        alert('Original URL-\n' + url + '\n\nModified URL-\n' + result);
+        // history.replaceState(null, null, result);
+        // no clipboard access, so show results
+        alert('Original URL-\n' + url + '\n\nModified URL-\n' + result + ('' != heading && subid != '' ? '\n\nSelected Heading-\n' + heading : ''));
     }
 })();
