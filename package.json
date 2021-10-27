@@ -21,14 +21,12 @@
   "keywords": [
     "1Password",
     "AWS",
-    "Blogsy",
     "bookmarklet",
     "Firefox",
     "GoodReader",
     "Google Chrome",
     "Google Maps",
     "IsItAWS",
-    "iOctocat",
     "iOS",
     "UTM",
     "UTM-Stripper"
@@ -47,6 +45,6 @@
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
   },
-  "version": "2.6.1",
+  "version": "2.7.0",
   "snyk": true
 }

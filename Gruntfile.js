@@ -22,14 +22,6 @@ module.exports = function(grunt) {
                 "file": "openinbrave.js",
                 "version": "1.0.1"
             },
-            "OpenInCodeBucket": {
-                "file": "openincodebucket.js",
-                "version": "1.3.1"
-            },
-            "OpenInCodeHub": {
-                "file": "openincodehub.js",
-                "version": "1.3.1"
-            },
             "OpenInDolphin": {
                 "file": "openindolphin.js",
                 "version": "1.0.0"
@@ -69,10 +61,6 @@ module.exports = function(grunt) {
             "OpenInWorkingCopy": {
                 "file": "openinworkingcopy.js",
                 "version": "1.5.0"
-            },
-            "OpenIniOctocat": {
-                "file": "openinioctocat.js",
-                "version": "1.6.0"
             },
             "OpenURLParam": {
                 "file": "openurlparam.js",

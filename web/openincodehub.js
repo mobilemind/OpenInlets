@@ -1,1 +1,0 @@
-javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26'github.com'%3D%3D%3Dlocation.host)location.href%3D'codehub%3A%2F%2F'%2Blocation.href.split('%2F').slice(2%2C5).join('%2F')%3Bvoid'1.3.1'
