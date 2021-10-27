@@ -141,14 +141,14 @@ rules:
   line-comment-position: 2
   linebreak-style: 2
   padding-line-between-statements: 0
-  max-depth: 2
+  max-depth: 1
   max-len: ["warn", {"code": 110, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
   max-lines: ["error", {"max": 169, "skipBlankLines": true, "skipComments": true}]
   max-nested-callbacks: 2
   max-params: [2, 5]
   max-statements-per-line: 2
   max-statements: [2, 48]
-  multiline-ternary: 2
+  multiline-ternary: 1
   new-cap: 2
   new-parens: 2
   no-array-constructor: 2
@@ -164,7 +164,7 @@ rules:
   no-plusplus: 2
   no-restricted-syntax: 2
   no-tabs: 2
-  no-ternary: 2
+  no-ternary: 1
   no-trailing-spaces: 2
   no-underscore-dangle: 2
   no-unneeded-ternary: 2
@@ -210,7 +210,7 @@ rules:
   no-var: 2
   object-shorthand: 2
   prefer-arrow-callback: 2
-  prefer-const: 2
+  prefer-const: 1
   prefer-destructuring: 2
   prefer-numeric-literals: 2
   prefer-rest-params: 2
