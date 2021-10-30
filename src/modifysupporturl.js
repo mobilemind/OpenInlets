@@ -2,8 +2,9 @@
 
 // wrap it all in anonymous function closure for isolation
 (() => {
-    const url = document.location.href;
-    const path = document.location.pathname;
+    const docloc = document.location;
+    const url = docloc.href;
+    const path = docloc.pathname;
     const selected = window.getSelection();
     const lang = new RegExp('/' + navigator.language.toLowerCase() + '/', 'i');
     const guide = (/(\/guide\/[-a-z]+\/)([-\da-z]+)\//);
@@ -13,7 +14,7 @@
     let result = url;
 
     // for now, only work on support.apple.com
-    if ('support.apple.com' !== document.location.host) {
+    if ('support.apple.com' !== docloc.host) {
         return;
     }
 
