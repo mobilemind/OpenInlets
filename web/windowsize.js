@@ -1,0 +1,1 @@
+javascript:void%20window.alert('Window%20size%3A%20'%2Bwindow.outerWidth%2B'%2C'%2Bwindow.outerHeight%2B'%20%3B%20'%2Bwindow.innerWidth%2B'%2C'%2Bwindow.innerHeight)%3Bvoid'0.9.1'

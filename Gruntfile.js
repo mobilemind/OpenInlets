@@ -73,6 +73,14 @@ module.exports = function(grunt) {
             "UtmStrip": {
                 "file": "utmstrip.js",
                 "version": "1.6.1"
+            },
+            "WindowResize": {
+                "file": "windowresize.js",
+                "version": "0.9.2"
+            },
+            "WindowSize": {
+                "file": "windowsize.js",
+                "version": "0.9.1"
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
