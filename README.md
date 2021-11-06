@@ -4,8 +4,6 @@ OpenInlets is a collection of bookmarklets to open apps from a web page--
 typically from iOS Mobile Safari to an iOS app.
 
 [![Build Status][build-image]][build-url]
-[![Dependency Status][dep-image]][dep-url]
-[![devDependency Status][devDep-image]][devDep-url]
 [![Codacy Badge][Codacy-image]][Codacy-dash]
 
 __IsItAws__: Check the current page host to determine if runs on AWS.
@@ -403,10 +401,6 @@ repos I have; doesn't build yet
 <!-- Badge links -->
 [build-image]: https://travis-ci.com/mobilemind/OpenInlets.svg?branch=main
 [build-url]: http://travis-ci.com/mobilemind/OpenInlets
-[dep-image]: https://david-dm.org/mobilemind/OpenInlets.svg
-[dep-url]: https://david-dm.org/mobilemind/OpenInlets
-[devDep-image]: https://img.shields.io/david/dev/mobilemind/OpenInlets.svg
-[devDep-url]: https://david-dm.org/mobilemind/OpenInlets#info=devDependencies
 [Codacy-image]: https://api.codacy.com/project/badge/Grade/1db800475a4744c68fe643a84a4454f4
 [Codacy-dash]: https://www.codacy.com/app/mobilemind/OpenInlets
 
