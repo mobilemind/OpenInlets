@@ -7,7 +7,7 @@
     const path = docloc.pathname;
     const selected = window.getSelection();
     const lang = new RegExp('/' + navigator.language.toLowerCase() + '/', 'i');
-    const guide = (/(\/guide\/[-a-z]+\/)([-\da-z]+)\//);
+    const guide = (/(\/guide\/[-0-9a-z]+\/)([-0-9a-z]+)\//);
     let matches = null;
     let subid = '';
     let heading = '';
