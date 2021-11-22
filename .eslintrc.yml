@@ -155,6 +155,7 @@ rules:
   no-bitwise: 2
   no-continue: 2
   no-inline-comments: 2
+  no-inline-config: 0
   no-lonely-if: 2
   no-mixed-operators: 2
   no-multiple-empty-lines: 2
@@ -164,7 +165,7 @@ rules:
   no-plusplus: 2
   no-restricted-syntax: 2
   no-tabs: 2
-  no-ternary: 1
+  no-ternary: 2
   no-trailing-spaces: 2
   no-underscore-dangle: 2
   no-unneeded-ternary: 2
