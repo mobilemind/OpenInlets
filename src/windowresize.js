@@ -8,6 +8,7 @@
         const width = Math.abs(Number(dimensions[0]));
         const height = Math.abs(Number(dimensions[1]));
         if (width && height) {
+            /* eslint-disable-next-line security/detect-non-literal-fs-filename */
             let myWindow = window.open(document.location.href, '', 'width=' + w.outerWidth + ', height=' + w.outerHeight);
             myWindow.resizeTo(width, height);
             myWindow.moveBy(-2, -25);

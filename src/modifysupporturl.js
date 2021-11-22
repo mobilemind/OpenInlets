@@ -56,9 +56,8 @@
             // get DOM node at start of range & got up 1 level if text
             if (range) {
                 container = range["startContainer"];
-                anchor = container.nodeType === 3
-                    ? container.parentNode
-                    : container;
+                /* eslint-disable-next-line no-ternary, multiline-ternary */
+                anchor = container.nodeType === 3 ? container.parentNode : container;
                 if (anchor.parentNode) {
                     // parent node of a heading is the <div> w/ the anchor id
                     subid = anchor.parentNode.id;
@@ -73,15 +72,11 @@
         }
     }
 
-    // copy result to clipboard doesn't work on Safari  :-(
-    // navigator.clipboard.writeText(result);
-
     if (url === result) {
         // results didn't change, show original URL
         alert('Unable to simplify current URL-\n' + url);
     } else {
-        // history.replaceState(null, null, result);
-        // no clipboard access, so show results
+        /* eslint-disable-next-line no-ternary, multiline-ternary */
         alert(`Original URL-\n${url}\n\nModified URL-\n${result}${'' != heading && subid != '' ? '\n\nSelected Heading-\n' + heading : ''}`);
     }
 })();
