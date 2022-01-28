@@ -76,37 +76,11 @@
         // results didn't change, show original URL
         alert('Unable to simplify current URL-\n' + url);
     } else {
-        // get linktext for Markdown, & then try to title case it
+        // get linktext for Markdown from either selected heading or page title
         let linktext = '';
         /* eslint-disable-next-line no-ternary, multiline-ternary */
         linktext = '' != heading && subid != '' ? heading : document.title.replace(/ - Apple Support$/,'');
-        linktext = linktext.split(' ').map((word) => {
-            switch (word) {
-            case 'a':
-            case 'an':
-            case 'and':
-            case 'from':
-            case 'iMac':
-            case 'iOS':
-            case 'iPad':
-            case 'iPadOS':
-            case 'iPhone':
-            case 'iPod':
-            case 'in':
-            case 'macOS':
-            case 'of':
-            case 'or':
-            case 'the':
-            case 'to':
-            case 'tvOS':
-            case 'watchOS':
-            case 'with':
-                return word;
-            default:
-                return word.replace(word[0], word[0].toUpperCase());
-            }
-        }).join(' ');
         /* eslint-disable-next-line no-ternary, multiline-ternary */
-        alert(`Original URL-\n${url}\n\nModified URL-\n${result}${'' != heading && subid != '' ? '\n\nSelected Heading-\n' + heading + '\n\nMarkdown link:\n[' + linktext + '](' + result + ')' : '\n\nMarkdown link:\n[' + linktext + '](' + result + ')'}`);
+        alert(`Original URL-\n${url}\n\nModified URL-\n${result}${'' != heading && subid != '' ? '\n\nSelected Heading-\n' + heading : ''}\n\nMarkdown link:\n[${linktext}](${result})`);
     }
 })();
