@@ -66,7 +66,7 @@
                     }
                 }
             }
-            selected.removeAllRanges();
+            selected.empty();
         }
     }
 
