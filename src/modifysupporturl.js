@@ -8,11 +8,10 @@
         path = docloc.pathname,
         selected = window.getSelection(),
         url = docloc.href;
-    let matches = null,
-        nullstr = '';
-    let heading = nullstr,
+    let heading = '',
+        matches = null,
         result = url,
-        subid = nullstr;
+        subid = '';
     // for now, only work on support.apple.com
     if ('support.apple.com' !== docloc.host) {
         return;
@@ -62,7 +61,7 @@
                     subid = anchor.parentNode.id;
                     heading = anchor.innerText;
                     // update result with id for selection
-                    if (heading !== nullstr && subid !== nullstr) {
+                    if (heading !== '' && subid !== '') {
                         result += '#' + subid;
                     }
                 }
@@ -76,10 +75,10 @@
         alert('Unable to simplify current URL-\n' + url);
     } else {
         // set linktext for Markdown to either selected heading or page title
-        let linktext = nullstr;
+        let linktext = '';
         /* eslint-disable-next-line no-ternary, multiline-ternary */
-        linktext = heading !== nullstr && subid !== nullstr ? heading : document.title.replace(/ - Apple Support$/, nullstr);
+        linktext = heading !== '' && subid !== '' ? heading : document.title.replace(/ - Apple Support$/, '');
         /* eslint-disable-next-line no-ternary, multiline-ternary */
-        alert(`Original URL-\n${url}\n\nModified URL-\n${result}${heading !== nullstr && subid !== nullstr ? '\n\nSelected Heading-\n' + heading : nullstr}\n\nMarkdown link:\n[${linktext}](${result})`);
+        alert(`Original URL-\n${url}\n\nModified URL-\n${result}${heading !== '' && subid !== '' ? '\n\nSelected Heading-\n' + heading : ''}\n\nMarkdown link-\n[${linktext}](${result})`);
     }
 })();
