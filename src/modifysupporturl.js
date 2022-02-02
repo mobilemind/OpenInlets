@@ -3,16 +3,16 @@
 // wrap it all in anonymous function closure for isolation
 (() => {
     const docloc = document.location;
-    const url = docloc.href;
-    const path = docloc.pathname;
-    const selected = window.getSelection();
-    const lang = new RegExp('/' + navigator.language.toLowerCase() + '/', 'i');
-    const guide = (/(\/guide\/[-0-9a-z]+\/)([-0-9a-z]+)\//);
-    let matches = null;
-    let subid = '';
-    let heading = '';
-    let result = url;
-
+    const guide = (/(\/guide\/[-0-9a-z]+\/)([-0-9a-z]+)\//),
+        lang = new RegExp('/' + navigator.language.toLowerCase() + '/', 'i'),
+        path = docloc.pathname,
+        selected = window.getSelection(),
+        url = docloc.href;
+    let matches = null,
+        nullstr = '';
+    let heading = nullstr,
+        result = url,
+        subid = nullstr;
     // for now, only work on support.apple.com
     if ('support.apple.com' !== docloc.host) {
         return;
@@ -21,7 +21,7 @@
     // handle general support doc URLs
     if (lang.test(path)) {
         // replace language-locale with '/'
-        result = url.replace(lang,'/');
+        result = url.replace(lang, '/');
     // handle guide special cases without a '-', like toc & welcome
     } else if (!/-/.test(path) && guide.test(path)) {
         let i = url.indexOf('/toc/');
@@ -41,21 +41,20 @@
         if (null !== matches && matches.length > 1) {
             // 3rd match is vanity & ID; split it into parts separated by '-'
             let parts = matches[2].split('-');
-            // replace path: remove vanity parts, keep ID (part after last dash)
-            // result = url.replace(path, matches[1] + parts.pop() + '/');
+            // remove vanity parts, keep ID (part after last dash)
             result = 'https://support.apple.com' + matches[1] + parts.pop() + '/';
         }
         // setup to check for a selection & find an anchor id
-        let anchor = null;
-        let range = null;
-        let container = null;
+        let anchor = null,
+            container = null,
+            range = null;
 
         // is there a selection range?
         if ('None' !== selected.type && selected.rangeCount > 0) {
             range = selected.getRangeAt(0);
-            // get DOM node at start of range & got up 1 level if text
+            // get DOM node at start of range & go up 1 level if text
             if (range) {
-                container = range["startContainer"];
+                container = range.startContainer;
                 /* eslint-disable-next-line no-ternary, multiline-ternary */
                 anchor = container.nodeType === 3 ? container.parentNode : container;
                 if (anchor.parentNode) {
@@ -63,7 +62,7 @@
                     subid = anchor.parentNode.id;
                     heading = anchor.innerText;
                     // update result with id for selection
-                    if ('' !== heading && '' !== subid) {
+                    if (heading !== nullstr && subid !== nullstr) {
                         result += '#' + subid;
                     }
                 }
@@ -76,11 +75,11 @@
         // results didn't change, show original URL
         alert('Unable to simplify current URL-\n' + url);
     } else {
-        // get linktext for Markdown from either selected heading or page title
-        let linktext = '';
+        // set linktext for Markdown to either selected heading or page title
+        let linktext = nullstr;
         /* eslint-disable-next-line no-ternary, multiline-ternary */
-        linktext = '' != heading && subid != '' ? heading : document.title.replace(/ - Apple Support$/,'');
+        linktext = heading !== nullstr && subid !== nullstr ? heading : document.title.replace(/ - Apple Support$/, nullstr);
         /* eslint-disable-next-line no-ternary, multiline-ternary */
-        alert(`Original URL-\n${url}\n\nModified URL-\n${result}${'' != heading && subid != '' ? '\n\nSelected Heading-\n' + heading : ''}\n\nMarkdown link:\n[${linktext}](${result})`);
+        alert(`Original URL-\n${url}\n\nModified URL-\n${result}${heading !== nullstr && subid !== nullstr ? '\n\nSelected Heading-\n' + heading : nullstr}\n\nMarkdown link:\n[${linktext}](${result})`);
     }
 })();
