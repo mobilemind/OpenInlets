@@ -4,7 +4,7 @@
     const oldsize = w.outerWidth + ',' + w.outerHeight;
     const newsize = w.prompt("Enter new size:", oldsize);
     if (oldsize !== newsize) {
-        const dimensions = newsize.split(',',2);
+        const dimensions = newsize.split(',', 2);
         const width = Math.abs(Number(dimensions[0]));
         const height = Math.abs(Number(dimensions[1]));
         if (width && height) {

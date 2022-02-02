@@ -6,7 +6,7 @@ if (u > -1) {
     const p = t.indexOf("&");
     // lop off trailing params
     if (p > -1) {
-        t = t.substr(0,p);
+        t = t.substr(0, p);
     }
     if (5 < t.length) {
         // decode URL and navigate to it
