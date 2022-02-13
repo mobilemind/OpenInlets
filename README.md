@@ -96,7 +96,7 @@ iCloud will sync the bookmarklet to iOS.
 + [SearchIn1Password] v1.4.2 ``javascript:location.href%3D'onepassword4%3A%2F%2Fsearch%2F'%2Blocation.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.4.2'``
 + [UtmStrip] v1.6.1 ``javascript:(()%3D%3E%7Bconst%20e%3Dlocation.search%3Bif(e.length%3C3)return%3Blet%20i%3De%3Bconst%20c%3Dlocation.host%3Bc.indexOf('amazon.com')%3E-1%26%26(i%3D(i%3D(i%3Di.replace(%2F(%5B%3F%26%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)%3D%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)p%5Bdf%5D_rd_.%2A%3F%3D%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)ascsubtag%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ci.indexOf('fb_')%3E-1%26%26(i%3Di.replace(%2F(%5B%3F%26%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ci.indexOf('action_')%3E-1%26%26(i%3Di.replace(%2F(%5B%3F%26%5D)action_(object%7Cref%7Ctype)_map%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(i%3Di.replace(%2F(%5B%3F%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)%3D%5B%5E%26%5D%2B%2Fgi%2C'%241')).indexOf('aff_')%3E-1%26%26(i%3Di.replace(%2F(%5B%3F%26%5D)aff_(platform%7Ctrace_key)%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ci.toLowerCase().indexOf('id%3D')%3E-1%26%26(i%3Di.replace(%2F(%5B%3F%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(i.indexOf('ga_')%3E-1%7C%7Ci.indexOf('utm_')%3E-1)%26%26(i%3Di.replace(%2F(%5B%3F%26%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(c.indexOf('youtu')%3E-1%7C%7Cc.indexOf('googlevideo.com')%3E-1)%26%26(i%3Di.replace(%2F(%5B%3F%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(i.indexOf('_hsenc')%3E-1%7C%7Ci.indexOf('_hsmi')%3E-1)%26%26(i%3Di.replace(%2F(%5B%3F%26%5D)_hs(enc%7Cmi)%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ci.indexOf('hmb_')%3E-1%26%26(i%3Di.replace(%2F(%5B%3F%26%5D)hmb_(campaign%7Cmedium%7Csource)%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ci.indexOf('cm_')%3E-1%26%26(i%3D(i%3Di.replace(%2F(%5B%3F%26%5D)cm_(mmc%7Cmmca%5Cd%2B%7Cre%7Csp)%3D%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)manual_cm_mmc%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(i.indexOf('mc_cid')%3E-1%7C%7Ci.indexOf('mc_eid')%3E-1)%26%26(i%3Di.replace(%2F(%5B%3F%26%5D)mc_%5Bce%5Did%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(i.indexOf('iesrc')%3E-1%7C%7Ci.indexOf('mkt_tok')%3E-1)%26%26(i%3Di.replace(%2F(%5B%3F%26%5D)(iesrc%7Cmkt_tok)%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ci.indexOf('pk_')%3E-1%26%26(i%3Di.replace(%2F(%5B%3F%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)%3D%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C'%26'%3D%3D%3D(i%3Di.replace(%2F%26%26%2B%2Fg%2C'%26')).charAt(i.length-1)%26%26(i%3Di.substr(0%2Ci.length-1))%2C'%3F'!%3D%3Di.charAt(0)%26%26(i%3D'%3F'%2Bi)%2C0%3D%3Di.indexOf('%3F%26')%26%26(i%3D'%3F'%2Bi.substr(2))%2Ci.length%3C3%26%26(i%3D'')%2Ce!%3D%3Di%26%26history.replaceState(null%2Cnull%2Clocation.origin%2Blocation.pathname%2Bi)%7D)()%3Bvoid'1.6.1'``
 
-_NOTE:_ The `javascript:` bookmarks above will __not__ work from the Github
+_NOTE:_ The `javascript:` bookmarks above will _not_ work from the Github
 repository page, due to Github security precautions.
 
 ### Mobile browser
@@ -105,23 +105,23 @@ Visit the [OpenInlets page] and tap a link below. Follow the instructions on
 the resulting page to turn the followed bookmark into a JavaScript
 bookmarklet.
 
-+ **Mobile Safari setup link** -- [Setup IsItAws] v1.3.2
-+ **Mobile Safari setup link** -- [Setup KillStickyHeaders] v1.2.0
-+ **Mobile Safari setup link** -- [Setup OpenIn1Password] v1.5.1
-+ **Mobile Safari setup link** -- [Setup OpenInBrave] v1.0.1
-+ **Mobile Safari setup link** -- [Setup OpenInDolphin] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInFirefox] v1.5.0
-+ **Mobile Safari setup link** -- [Setup OpenInFirefox-Focus] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInFirefox-Private] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInGoodReader] v1.5.1
-+ **Mobile Safari setup link** -- [Setup OpenInGoogleChrome] v1.4.0
-+ **Mobile Safari setup link** -- [Setup OpenInGoogleMaps] v2.2.0
-+ **Mobile Safari setup link** -- [Setup OpenInOpera] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInTextastic] v1.0.0
-+ **Mobile Safari setup link** -- [Setup OpenInWorkingCopy] v1.5.0
-+ **Mobile Safari setup link** -- [Setup OpenURLParam] v1.0.0
-+ **Mobile Safari setup link** -- [Setup SearchIn1Password] v1.4.2
-+ **Mobile Safari setup link** -- [Setup UtmStrip] v1.6.1
++ __Mobile Safari setup link__ -- [Setup IsItAws] v1.3.2
++ __Mobile Safari setup link__ -- [Setup KillStickyHeaders] v1.2.0
++ __Mobile Safari setup link__ -- [Setup OpenIn1Password] v1.5.1
++ __Mobile Safari setup link__ -- [Setup OpenInBrave] v1.0.1
++ __Mobile Safari setup link__ -- [Setup OpenInDolphin] v1.0.0
++ __Mobile Safari setup link__ -- [Setup OpenInFirefox] v1.5.0
++ __Mobile Safari setup link__ -- [Setup OpenInFirefox-Focus] v1.0.0
++ __Mobile Safari setup link__ -- [Setup OpenInFirefox-Private] v1.0.0
++ __Mobile Safari setup link__ -- [Setup OpenInGoodReader] v1.5.1
++ __Mobile Safari setup link__ -- [Setup OpenInGoogleChrome] v1.4.0
++ __Mobile Safari setup link__ -- [Setup OpenInGoogleMaps] v2.2.0
++ __Mobile Safari setup link__ -- [Setup OpenInOpera] v1.0.0
++ __Mobile Safari setup link__ -- [Setup OpenInTextastic] v1.0.0
++ __Mobile Safari setup link__ -- [Setup OpenInWorkingCopy] v1.5.0
++ __Mobile Safari setup link__ -- [Setup OpenURLParam] v1.0.0
++ __Mobile Safari setup link__ -- [Setup SearchIn1Password] v1.4.2
++ __Mobile Safari setup link__ -- [Setup UtmStrip] v1.6.1
 
 ## Use
 
@@ -181,48 +181,48 @@ re-build OpenInlets `web/` directory.
 Each bookmarklet does some rudimentary check and then redirects to an app
 using a URL protocol scheme.
 
-+ **IsItAws** - Does _not_ use a URL protocol scheme. Rather it uses the
++ __IsItAws__ - Does _not_ use a URL protocol scheme. Rather it uses the
   lambda [IsItOnAWS.com] functions created by Tim Bray. For details, see
   [Is it on AWS? Domain Identification Using AWS Lambda][IsItOnAWS Blog Post].
-+ **KillStickyHeaders** - Does _not_ use a URL protocol scheme. Removes HTML
++ __KillStickyHeaders__ - Does _not_ use a URL protocol scheme. Removes HTML
   child elements of `<body>` that have a fixed position. See
   [Kill sticky headers][Kill sticky headers].
-+ **OpenIn1Password** - Uses the `ophttp://` or `ophttps://` URL protocol
++ __OpenIn1Password__ - Uses the `ophttp://` or `ophttps://` URL protocol
   scheme for 1Password. See the subheading
   [Open URLs externally][1Password URL Scheme] for details.
-+ **OpenInBrave** - Uses the `brave://open-url?url=` scheme for the Brave app
++ __OpenInBrave__ - Uses the `brave://open-url?url=` scheme for the Brave app
   on iOS.
-+ **OpenInDolphin** - Uses the `dolphin://` scheme for the Dolphin app on iOS.
-+ **OpenInFirefox** _and_ **OpenInFirefox-Private** - Uses the
++ __OpenInDolphin__ - Uses the `dolphin://` scheme for the Dolphin app on iOS.
++ __OpenInFirefox__ _and_ __OpenInFirefox-Private__ - Uses the
   `firefox://open-url?url=` scheme for the Firefox app on iOS. The "Private"
   version appends `&private=true` after the target url for private browsing.
-+ **OpenInFirefox-Focus** - Uses the `firefox-focus://open-url?url=` scheme
++ __OpenInFirefox-Focus__ - Uses the `firefox-focus://open-url?url=` scheme
   for the Firefox Focus app on iOS, with `&private=true` appended to the
   target url for private browsing.
-+ **OpenInGoodReader** - Uses the `grhttp://` or `grhttps://` URL protocol
++ __OpenInGoodReader__ - Uses the `grhttp://` or `grhttps://` URL protocol
   scheme for GoodReader. See [GoodReader URL Scheme][GoodReader URL Scheme].
-+ **OpenInGoogleChrome** - Uses the `googlechrome://` or `googlechromes://`
++ __OpenInGoogleChrome__ - Uses the `googlechrome://` or `googlechromes://`
   scheme for the Google Chrome app on iOS. Formerly documented at
   `https://developer.chrome.com/multidevice/ios/links`.
-+ **OpenInGoogleMaps** - Uses the `comgooglemaps://` protocol scheme for the
++ __OpenInGoogleMaps__ - Uses the `comgooglemaps://` protocol scheme for the
   Google Maps app on iOS. See [Google Maps URL Scheme][Google Maps URL Scheme]
   for details.
-+ **OpenInOpera** - Uses the `opera://open-url?url=` scheme for the
++ __OpenInOpera__ - Uses the `opera://open-url?url=` scheme for the
   Opera app on iOS.
-+ **OpenInTextastic** - Uses the `textastic://` protocol scheme of the
++ __OpenInTextastic__ - Uses the `textastic://` protocol scheme of the
   Textastic app on iOS. For details, see
   [Textastic x-callback-url API][Textastic x-callback-url API].
-+ **OpenInWorkingCopy** - Uses the `working-copy://show?remote=/` ("show")
++ __OpenInWorkingCopy__ - Uses the `working-copy://show?remote=/` ("show")
   URL protocol scheme for Working Copy. See the subheading
   [URL Schemes in Working Copy][Working Copy URL Scheme] for details.
-+ **OpenURLParam** - Work-around for blocked navigation from certain ad or
++ __OpenURLParam__ - Work-around for blocked navigation from certain ad or
   tracking blockers. If the current URL contains a parameter in the form of
   `url=...` this bookmarklet will parse the `url` parameter and navigate to
   that URL.
-+ **SearchIn1Password** - Uses `onepassword4://search/` with the current
++ __SearchIn1Password__ - Uses `onepassword4://search/` with the current
   domain appended to trigger a 1Password search. See the subheading
   [Open URLs externally][1Password URL Scheme] for details.
-+ **UtmStrip** -  Strips off the UTM query string elements of the current URL.
++ __UtmStrip__ -  Strips off the UTM query string elements of the current URL.
   Based on [safari-utm-stripper Bookmarklet][kiding-gist 589242021df49eb17be3].
   NOTE: UtmStrip now borrows heavily from patterns provided by [Firefox
   Extension Neat URL][Neat URL]
