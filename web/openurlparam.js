@@ -1,1 +1,1 @@
-javascript:var%20o%3Dlocation.search.search('url%3D')%3Bif(-1%3Co)%7Blet%20e%3Dlocation.search.substr(4%2Bo)%3Bo%3De.indexOf('%26')%3Bif(-1%3Co%26%26(e%3De.substr(0%2Co))%2C5%3Ce.length)location.replace(decodeURIComponent(e))%7Dvoid'1.0.0'
+javascript:var%20o%3Dlocation.search.search('url%3D')%3Bif(-1%3Co)%7Blet%20e%3Dlocation.search.substr(4%2Bo)%3Bo%3De.indexOf('%26')%3Bif(5%3C(e%3D-1%3Co%3Fe.substr(0%2Co)%3Ae).length)location.replace(decodeURIComponent(e))%7Dvoid'1.0.0'
