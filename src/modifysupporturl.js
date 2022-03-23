@@ -43,19 +43,15 @@
             // remove vanity parts, keep ID (part after last dash)
             result = 'https://support.apple.com' + matches[1] + parts.pop() + '/';
         }
-        // setup to check for a selection & find an anchor id
-        let anchor = null,
-            container = null,
-            range = null;
 
         // is there a selection range?
         if ('None' !== selected.type && selected.rangeCount > 0) {
-            range = selected.getRangeAt(0);
+            const range = selected.getRangeAt(0);
             // get DOM node at start of range & go up 1 level if text
             if (range) {
-                container = range.startContainer;
+                const container = range.startContainer;
                 /* eslint-disable-next-line no-ternary, multiline-ternary */
-                anchor = container.nodeType === 3 ? container.parentNode : container;
+                const anchor = container.nodeType === 3 ? container.parentNode : container;
                 if (anchor.parentNode) {
                     // parent node of a heading is the <div> w/ the anchor id
                     subid = anchor.parentNode.id;
@@ -73,12 +69,11 @@
     if (url === result) {
         // results didn't change, show original URL
         alert('Unable to simplify current URL-\n' + url);
-    } else {
-        // set linktext for Markdown to either selected heading or page title
-        let linktext = '';
-        /* eslint-disable-next-line no-ternary, multiline-ternary */
-        linktext = heading !== '' && subid !== '' ? heading : document.title.replace(/ - Apple Support$/, '');
-        /* eslint-disable-next-line no-ternary, multiline-ternary */
-        alert(`Original URL-\n${url}\n\nModified URL-\n${result}${heading !== '' && subid !== '' ? '\n\nSelected Heading-\n' + heading : ''}\n\nMarkdown link-\n[${linktext}](${result})`);
     }
+    // set linktext for Markdown to either selected heading or page title
+    let linktext = '';
+    /* eslint-disable-next-line no-ternary, multiline-ternary */
+    linktext = heading !== '' && subid !== '' ? heading : document.title.replace(/ - Apple Support$/, '');
+    /* eslint-disable-next-line no-ternary, multiline-ternary */
+    alert(`Original URL-\n${url}\n\nModified URL-\n${result}${heading !== '' && subid !== '' ? '\n\nSelected Heading-\n' + heading : ''}\n\nMarkdown link-\n[${linktext}](${result})`);
 })();
