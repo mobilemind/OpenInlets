@@ -54,10 +54,6 @@ module.exports = function(grunt) {
                 "file": "openinopera.js",
                 "version": "1.0.0"
             },
-            "OpenInRadar": {
-                "file": "openinradar.js",
-                "version": "1.0.0"
-            },
             "OpenInTextastic": {
                 "file": "openintextastic.js",
                 "version": "1.0.0"

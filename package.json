@@ -11,11 +11,11 @@
   "devDependencies": {
     "grunt": "1.4.1",
     "grunt-shell": "4.0.0",
-    "snyk": "1.881.0"
+    "snyk": "1.890.0"
   },
   "directories": {},
   "engines": {
-    "node": ">17.0.0"
+    "node": ">16.14.1"
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
