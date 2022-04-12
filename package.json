@@ -9,9 +9,9 @@
   },
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
-    "grunt": "1.5.1",
+    "grunt": "~1.5.2",
     "grunt-shell": "4.0.0",
-    "snyk": "1.902.0"
+    "@snyk/protect": "^1.904.0"
   },
   "directories": {},
   "engines": {
@@ -42,7 +42,7 @@
   "scripts": {
     "install": "npm install -g uglify-js@latest",
     "test": "grunt",
-    "snyk-protect": "snyk protect",
+    "snyk-protect": "snyk-protect",
     "prepare": "npm run snyk-protect"
   },
   "version": "2.7.2",
