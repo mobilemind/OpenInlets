@@ -1,6 +1,7 @@
 .eslintignore
 .eslintrc.yml
 .gitattributes
+.github
 .gitignore
 .markdownlint.json
 .remarkrc
