@@ -1,0 +1,11 @@
+---
+extends: default
+
+rules:
+  # 88 chars should be enough, but don't fail if a line is longer
+  line-length:
+    max: 88
+    level: warning
+
+  # don't bother me with this rule
+  indentation: disable
