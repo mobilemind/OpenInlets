@@ -1,10 +1,6 @@
-.eslintignore
-.eslintrc.yml
-.gitattributes
+.git
 .github
 .gitignore
-.markdownlint.json
-.remarkrc
 .snyk
 .uglifyjs3.json
 node_modules
