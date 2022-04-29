@@ -1,0 +1,15 @@
+---
+ignore: |
+  /.github/workflows/*.yml
+  /node_modules/
+  /web/
+
+extends: default
+
+rules:
+  indentation: disable
+  line-length:
+    max: 88
+    level: warning
+  truthy:
+    level: warning

@@ -4,6 +4,7 @@ OpenInlets is a collection of bookmarklets to open apps from a web page--
 typically from iOS Mobile Safari to an iOS app.
 
 ![version](https://img.shields.io/github/package-json/v/mobilemind/OpenInlets.svg)
+[![GitHub Super-Linter](https://github.com/mobilemind/OpenInlets/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![CodeQL](https://github.com/mobilemind/OpenInlets/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/codeql-analysis.yml)
 [![Codacy Badge][Codacy-image]][Codacy-dash]
 
