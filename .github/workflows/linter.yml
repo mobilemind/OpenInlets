@@ -40,7 +40,6 @@ jobs:
           env:
           FILTER_REGEX_EXCLUDE: .*web/.*.js
           LOG_LEVEL: NOTICE
-          VALIDATE_BASH: false
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_JSON: true
