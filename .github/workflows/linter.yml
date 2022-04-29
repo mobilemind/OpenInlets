@@ -38,14 +38,11 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           env:
-          ACTIONS_RUNNER_DEBUG: false
           FILTER_REGEX_EXCLUDE: .*web/.*.js
-          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.yml
-          VALIDATE_BASH: true
+          LOG_LEVEL: NOTICE
+          VALIDATE_BASH: false
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_JSON: true
           VALIDATE_MARKDOWN: true
           VALIDATE_YAML: true
-          YAML_CONFIG_FILE: .yaml-lint.yml
-          YAML_ERROR_ON_WARNING: true
