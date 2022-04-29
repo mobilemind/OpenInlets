@@ -1,3 +1,4 @@
 **/*{.,-}min.js
-.github/workflows/**
-web/**
+/.github/workflows/**
+/node_modules/
+/web/

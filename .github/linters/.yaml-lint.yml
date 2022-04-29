@@ -1,4 +1,9 @@
 ---
+ignore: |
+  /.github/workflows/*.yml
+  /node_modules/
+  /web/
+
 extends: default
 
 rules:
