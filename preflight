@@ -45,17 +45,6 @@ else
 fi
 echo
 
-## check .MARKDOWNLINT.JSON
-echo "  checking .markdownlint.json is well-formed"
-if [ -z "$JSONLINT" ] ; then
-	echo "    --- jsonlint not installed: skipping .markdownlint.json check"
-else
-	$JSONLINT .github/linters/.markdownlint.json \
-		|| { echo "    *** ERROR .github/linters/.markdownlint.json NOT well-formed" ; exit 1 ; }
-	echo "    .github/linters/.markdownlint.json: well-formedness OK"
-fi
-echo
-
 ## check YAML
 echo "  checking YAML files (w/ eslint, see .eslintrc.yml)"
 if hash eslint >/dev/null 2>&1 ; then
@@ -70,7 +59,7 @@ echo
 ## check README.md
 echo "  checking README.md"
 if hash markdownlint >/dev/null 2>&1 ; then
-	markdownlint -c .github/linters/.markdownlint.json "*.md" \
+	markdownlint -c .github/linters/.markdown-lint.yml "*.md" \
 		|| { echo "    *** ERROR markdownlint *.md check failed." ; exit 1 ; }
 	echo "    *.md: Markdown OK"
 else
