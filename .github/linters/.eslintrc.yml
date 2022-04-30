@@ -1,5 +1,5 @@
 # eslint max-lines: [2, {"max": 255, "skipBlankLines": true, "skipComments": true}]
-# eslint max-len: ["warn", {"code": 109, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
+# eslint max-len: ["warn", {"code": 135, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
 ---
 root: true
 
@@ -20,13 +20,14 @@ parserOptions:
 
 plugins:
 - compat
+- json
 - no-storage
 - no-unsanitized
 - security
 - xss
 - yml
 
-extends: [eslint:recommended, plugin:compat/recommended, plugin:security/recommended, plugin:yml/recommended]
+extends: [eslint:recommended, plugin:compat/recommended, plugin:json/recommended, plugin:security/recommended, plugin:yml/recommended]
 
 # http://eslint.org/docs/rules/
 rules:
