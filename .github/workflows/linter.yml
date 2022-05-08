@@ -3,7 +3,7 @@ name: "Lint Code Base"
 
 on:
   push:
-    branches-ignore: [main]
+    # branches-ignore: [main]
     # Remove the line above to run when pushing to master
   pull_request:
     branches: [main]
@@ -23,7 +23,7 @@ jobs:
 
       # install plugins globally to avoid changing package-lock.json
       - name: Install ESLint Plugins
-        run: npm install -g eslint-plugin-compat@latest eslint-plugin-no-storage@latest eslint-plugin-no-unsanitized@latest eslint-plugin-security@latest eslint-plugin-xss@latest eslint-plugin-yml@latest
+        run: npm install eslint-plugin-compat eslint-plugin-no-storage eslint-plugin-no-unsanitized eslint-plugin-security eslint-plugin-xss eslint-plugin-yml --global
 
       # Run Linter against code base
       - name: Lint Code Base
