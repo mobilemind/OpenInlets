@@ -9,9 +9,9 @@
   },
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
-    "grunt": "~1.5.2",
+    "grunt": "~1.5.3",
     "grunt-shell": "4.0.0",
-    "@snyk/protect": "^1.922.0"
+    "@snyk/protect": "^1.931.0"
   },
   "directories": {},
   "engines": {
