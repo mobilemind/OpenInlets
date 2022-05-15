@@ -1,4 +1,5 @@
 # eslint max-lines: [2, {"max": 255, "skipBlankLines": true, "skipComments": true}]
+# yamllint disable-line rule:line-length
 # eslint max-len: ["warn", {"code": 135, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
 ---
 root: true
@@ -27,6 +28,7 @@ plugins:
 - xss
 - yml
 
+# yamllint disable-line rule:line-length
 extends: [eslint:recommended, plugin:compat/recommended, plugin:json/recommended, plugin:security/recommended, plugin:yml/recommended]
 
 # http://eslint.org/docs/rules/
@@ -149,6 +151,7 @@ rules:
   linebreak-style: 2
   padding-line-between-statements: 0
   max-depth: 1
+  # yamllint disable-line rule:line-length
   max-len: ["warn", {"code": 110, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
   max-lines: ["error", {"max": 172, "skipBlankLines": true, "skipComments": true}]
   max-nested-callbacks: 2
