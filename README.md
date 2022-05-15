@@ -6,6 +6,7 @@ typically from iOS Mobile Safari to an iOS app.
 ![version](https://img.shields.io/github/package-json/v/mobilemind/OpenInlets.svg)
 [![GitHub Super-Linter](https://github.com/mobilemind/OpenInlets/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![CodeQL](https://github.com/mobilemind/OpenInlets/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/codeql-analysis.yml)
+[![NodeJS with Grunt](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1db800475a4744c68fe643a84a4454f4)](https://www.codacy.com/app/mobilemind/OpenInlets)
 
 __IsItAws__: Check the current page host to determine if runs on AWS.
