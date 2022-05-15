@@ -1,15 +1,28 @@
 ---
 ignore: |
-  /.github/workflows/*.yml
+  codeql-analysis.yml
+  linter.yml
   /node_modules/
   /web/
+
+yaml-files:
+  - '.*.yml'
+  - '*.yaml'
+  - '*.yml'
 
 extends: default
 
 rules:
-  indentation: disable
+  brackets:
+    forbid: false
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+    min-spaces-inside-empty: 0
+    max-spaces-inside-empty: 1
+  indentation:
+    spaces: consistent
+    indent-sequences: consistent
+    check-multi-line-strings: false
   line-length:
-    max: 88
-    level: warning
-  truthy:
+    max: 92
     level: warning
