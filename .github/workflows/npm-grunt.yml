@@ -26,9 +26,10 @@ jobs:
     - name: Build
       run: |
         # remove lockfile to update it
-        rm -fv package-lock.json
+        # rm -fv package-lock.json
         npm install
         # grunt-shell uses uglify-js
         npm install uglify-js -g
         grunt
-        git commit -am 'GitHub Action: update lockfile & generated files'
+        # need to add identity info if you want to commit
+        # git commit -am 'GitHub Action: update lockfile & generated files'
