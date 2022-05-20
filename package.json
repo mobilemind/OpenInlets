@@ -17,8 +17,7 @@
     "eslint-plugin-xss": "^0.1.11",
     "eslint-plugin-yml": "^1.0.0",
     "grunt": "~1.5.3",
-    "grunt-shell": "4.0.0",
-    "@snyk/protect": "^1.934.0"
+    "grunt-shell": "4.0.0"
   },
   "directories": {},
   "engines": {
@@ -48,9 +47,7 @@
   },
   "scripts": {
     "install": "npm install -g uglify-js@latest",
-    "test": "grunt",
-    "snyk-protect": "snyk-protect",
-    "prepare": "npm run snyk-protect"
+    "test": "grunt"
   },
   "version": "2.7.2",
   "snyk": true
