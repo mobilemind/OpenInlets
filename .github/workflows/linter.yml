@@ -4,8 +4,6 @@ name: Lint Code Base
 on:
   push:
     branches: [main, hotfix]
-    # branches-ignore: [main]
-    # Remove the line above to run when pushing to master
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -16,23 +14,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the code base
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
           # Full git history needed to get list of changed files w/in `super-linter`
           fetch-depth: 0
 
-      # install plugins globally to avoid changing package-lock.json
-      - name: Install ESLint Plugins
-        run: npm install eslint-plugin-compat eslint-plugin-no-storage eslint-plugin-no-unsanitized eslint-plugin-security eslint-plugin-xss eslint-plugin-yml --global
+      # install for devDependencies that get eslint-plugins
+      - name: Install devDependencies
+        run: npm install
 
       # Run Linter against code base
-      - name: Lint Code Base
+      - name: Lint Code Base with env
         uses: github/super-linter/slim@v4
         env:
           ACTIONS_RUNNER_DEBUG: false
           DEFAULT_BRANCH: main
-          FILTER_REGEX_EXCLUDE: .*web/.*.js
+          FILTER_REGEX_EXCLUDE: web/.*.js
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LOG_LEVEL: NOTICE
           SUPPRESS_POSSUM: true
