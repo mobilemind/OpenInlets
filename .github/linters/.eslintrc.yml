@@ -20,16 +20,13 @@ parserOptions:
   sourceType: script
 
 plugins:
-- compat
 - json
-- no-storage
 - no-unsanitized
 - security
 - xss
-- yml
 
 # yamllint disable-line rule:line-length
-extends: [eslint:recommended, plugin:compat/recommended, plugin:json/recommended, plugin:security/recommended, plugin:yml/recommended]
+extends: [eslint:recommended, plugin:json/recommended, plugin:security/recommended]
 
 # http://eslint.org/docs/rules/
 rules:
@@ -233,11 +230,6 @@ rules:
   template-curly-spacing: 2
   yield-star-spacing: 2
 
-  # compat - w/recommended: https://github.com/amilajack/eslint-plugin-compat
-
-  # no-storage - https://github.com/Implisit/eslint-plugin-no-storage
-  no-storage/no-browser-storage: 2
-
   # no-unsanitized - https://github.com/mozilla/eslint-plugin-no-unsanitized
   no-unsanitized/method: 2
   no-unsanitized/property: 2
@@ -248,7 +240,3 @@ rules:
   # xss - https://github.com/Rantanen/eslint-plugin-xss
   xss/no-location-href-assign: 0
   xss/no-mixed-html: 2
-
-  # yml
-  # using recommended https://github.com/ota-meshi/eslint-plugin-yml
-  yml/key-spacing: 2
