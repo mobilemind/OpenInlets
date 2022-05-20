@@ -1,6 +1,3 @@
-# eslint max-lines: [2, {"max": 255, "skipBlankLines": true, "skipComments": true}]
-# yamllint disable-line rule:line-length
-# eslint max-len: ["warn", {"code": 135, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
 ---
 root: true
 
@@ -234,7 +231,7 @@ rules:
   no-unsanitized/method: 2
   no-unsanitized/property: 2
 
-  # security w/recommended: https://github.com/nodesecurity/eslint-plugin-security
+  # security - https://github.com/nodesecurity/eslint-plugin-security
   security/detect-non-literal-regexp: 0
 
   # xss - https://github.com/Rantanen/eslint-plugin-xss
