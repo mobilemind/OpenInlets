@@ -43,8 +43,8 @@
     "url": "https://github.com/mobilemind/OpenInlets.git"
   },
   "scripts": {
-    "install": "npm install --location=global uglify-js@latest",
+    "install": "npm install --location=global --no-save uglify-js@latest",
     "test": "grunt"
   },
-  "version": "2.7.2"
+  "version": "2.7.3"
 }
