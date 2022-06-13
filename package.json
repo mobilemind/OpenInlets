@@ -44,7 +44,7 @@
   },
   "scripts": {
     "install": "npm install --location=global --no-save uglify-js@latest",
-    "test": "grunt"
+    "test": "npx grunt"
   },
-  "version": "2.7.3"
+  "version": "2.7.4"
 }

@@ -31,7 +31,7 @@ jobs:
         # rm -fv package-lock.json
         npm install
         # grunt-shell uses uglify-js
-        npm install --location=global uglify-js
-        grunt
+        npm install --location=global --no-save uglify-js
+        npx grunt
         # need to add identity info if you want to commit
         # git commit -am 'GitHub Action: update lockfile & generated files'
