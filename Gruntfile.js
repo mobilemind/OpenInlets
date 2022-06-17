@@ -117,7 +117,11 @@ module.exports = function(grunt) {
             let theCode = readOrFail(thisFile);
             // minimal URL encoding for javascript: URL (and '*' as %2A)
             theCode = `${theCode}void'${this.data.version}'`;
-            theCode = `javascript:${encodeURIComponent(theCode).replace("*", "%2A")}`;
+            theCode = `javascript:${encodeURIComponent(theCode).replace(/\*/g, "%2A")}`;
+            // encoding tricks from js2uri %3F -> ?, %3D -> =, %2F -> /
+            theCode = theCode.replace(/%2F/g, "/");
+            theCode = theCode.replace(/%3D/g, "=");
+            theCode = theCode.replace(/%3F/g, "?");
             grunt.file.write(thisFile, theCode);
             // output some stats
             grunt.log.writeln(`${this.target} v${this.data.version}`);
