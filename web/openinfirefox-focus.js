@@ -1,1 +1,1 @@
-javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href%3D'firefox-focus%3A%2F%2Fopen-url%3Furl%3D'%2BencodeURIComponent(location.href)%2B'%26private%3Dtrue'%3Bvoid'1.0.0'
+javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox-focus%3A//open-url?url='%2BencodeURIComponent(location.href)%2B'%26private=true'%3Bvoid'1.0.0'

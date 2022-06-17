@@ -1,1 +1,1 @@
-javascript:location.href%3D'onepassword4%3A%2F%2Fsearch%2F'%2Blocation.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.4.2'
+javascript:location.href='onepassword4%3A//search/'%2Blocation.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.4.2'
