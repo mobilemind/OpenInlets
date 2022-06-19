@@ -1,1 +1,1 @@
-javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'%2Blocation.href%3Bvoid'1.5.1'
+javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'+location.href%3Bvoid'1.5.1'
