@@ -12,7 +12,7 @@ module.exports = function(grunt) {
             },
             "ModifySupportUrl": {
                 "file": "modifysupporturl.js",
-                "version": "1.1.4"
+                "version": "1.1.5"
             },
             "OpenIn1Password": {
                 "file": "openin1password.js",
@@ -70,21 +70,9 @@ module.exports = function(grunt) {
                 "file": "searchin1password.js",
                 "version": "1.4.2"
             },
-            "Url2DocLink": {
-                "file": "url2doclink.js",
-                "version": "0.9.0"
-            },
             "UtmStrip": {
                 "file": "utmstrip.js",
                 "version": "1.6.1"
-            },
-            "WindowResize": {
-                "file": "windowresize.js",
-                "version": "0.9.2"
-            },
-            "WindowSize": {
-                "file": "windowsize.js",
-                "version": "0.9.1"
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
@@ -118,8 +106,10 @@ module.exports = function(grunt) {
             // minimal URL encoding for javascript: URL (and '*' as %2A)
             theCode = `${theCode}void'${this.data.version}'`;
             theCode = `javascript:${encodeURIComponent(theCode).replace(/\*/g, "%2A")}`;
-            // encoding tricks from js2uri %3F -> ?, %3D -> =, %2F -> /
+            // encoding tricks like %3F -> ?, %3D -> =, %2F -> /
+            theCode = theCode.replace(/%2B/g, "+");
             theCode = theCode.replace(/%2F/g, "/");
+            theCode = theCode.replace(/%3A/g, ":");
             theCode = theCode.replace(/%3D/g, "=");
             theCode = theCode.replace(/%3F/g, "?");
             grunt.file.write(thisFile, theCode);

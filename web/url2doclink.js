@@ -1,1 +1,0 @@
-javascript:n=(n=document.location.pathname.split('/'))%5Bn.length-1%5D%2Co=document.location.hash%2Cvoid%20alert(%60Original%20URL-%0A%24%7Bdocument.location.href%7D%0A%0ADocC%20link-%0A%3Cdoc%3A%24%7Bn%7D%3E%60%2B(o?'%5Cn%5CnDocC%20section%20link-%5Cn%3Cdoc%3A'%2Bn%2Bo%2B'%3E'%3A''))%3Bvar%20n%2Co%3Bvoid'0.9.0'
