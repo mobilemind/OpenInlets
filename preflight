@@ -55,7 +55,7 @@ echo
 ## check README.md
 echo "  checking README.md"
 if hash markdownlint >/dev/null 2>&1 ; then
-  markdownlint -c .github/linters/.markdown-lint.yml "*.md" \
+  markdownlint "*.md" --disable MD034 \
     || { echo "    *** ERROR markdownlint *.md check failed." ; exit 1 ; }
   echo "    *.md: Markdown OK"
 else
