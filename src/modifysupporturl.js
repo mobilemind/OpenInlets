@@ -70,10 +70,12 @@
         // results didn't change, show original URL
         alert('Unable to simplify current URL-\n' + url);
     }
-    // set linktext for Markdown to either selected heading or page title
-    let linktext = '';
-    /* eslint-disable-next-line no-ternary, multiline-ternary */
-    linktext = heading !== '' && subid !== '' ? heading : document.title.replace(/ - Apple Support$/, '');
-    /* eslint-disable-next-line no-ternary, multiline-ternary */
-    alert(`Original URL-\n${url}\n\nModified URL-\n${result}${heading !== '' && subid !== '' ? '\n\nSelected Heading-\n' + heading : ''}\n\nMarkdown link-\n[${linktext}](${result})`);
+    else {
+        // set linktext for Markdown to either selected heading or page title
+        let linktext = '';
+        /* eslint-disable-next-line no-ternary, multiline-ternary */
+        linktext = heading !== '' && subid !== '' ? heading : document.title.replace(/ - Apple Support$/, '');
+        /* eslint-disable-next-line no-ternary, multiline-ternary */
+        alert(`Original URL-\n${url}\n\nModified URL-\n${result}${heading !== '' && subid !== '' ? '\n\nSelected Heading-\n' + heading : ''}\n\nMarkdown link-\n[${linktext}](${result})`);
+    }
 })();
