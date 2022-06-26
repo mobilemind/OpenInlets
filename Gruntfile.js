@@ -76,7 +76,7 @@ module.exports = function(grunt) {
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
-        "shell": {"uglify_es": {"command": "for OJS in src/*.js; do uglifyjs --config-file .uglifyjs3.json --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}}
+        "shell": {"uglify_es": {"command": "for OJS in src/*.js; do npx uglifyjs --config-file .uglifyjs3.json --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}}
     });
 
     // Load plugins
@@ -112,6 +112,8 @@ module.exports = function(grunt) {
             theCode = theCode.replace(/%3A/g, ":");
             theCode = theCode.replace(/%3D/g, "=");
             theCode = theCode.replace(/%3F/g, "?");
+            theCode = theCode.replace(/%7B/g, "{");
+            theCode = theCode.replace(/%7D/g, "}");
             grunt.file.write(thisFile, theCode);
             // output some stats
             grunt.log.writeln(`${this.target} v${this.data.version}`);
