@@ -69,8 +69,7 @@
     if (url === result) {
         // results didn't change, show original URL
         alert('Unable to simplify current URL-\n' + url);
-    }
-    else {
+    } else {
         // set linktext for Markdown to either selected heading or page title
         let linktext = '';
         /* eslint-disable-next-line no-ternary, multiline-ternary */
