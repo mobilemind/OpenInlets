@@ -27,6 +27,7 @@ else
 	echo "    running npm install …"
 	npm install
 fi
+echo
 
 ## check .UGLIFYJS3.JSON & PACKAGE.JSON
 echo "  checking .uglifyjs3.json & package.json"
