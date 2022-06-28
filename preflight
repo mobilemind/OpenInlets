@@ -20,25 +20,19 @@ fi
 echo
 
 ## check for node_modules to verify devDependencies are installed
-if hash eslint >/dev/null 2>&1 ; then
-	echo "  checking if devDependencies needed for eslint are installed…"
-	if [ -d "node_modules" ] ; then
-		echo "    node_modules: found"
-	else
-		echo "    running npm install …"
-		npm install
-	fi
+echo "  checking if devDependencies needed for eslint are installed…"
+if [ -d "node_modules" ] ; then
+	echo "    node_modules: found"
+else
+	echo "    running npm install …"
+	npm install
 fi
 
 ## check .UGLIFYJS3.JSON & PACKAGE.JSON
 echo "  checking .uglifyjs3.json & package.json"
-if hash eslint >/dev/null 2>&1 ; then
-  eslint -c .github/linters/.eslintrc.yml --no-ignore ".uglifyjs3.json" "package.json" \
+npx eslint -c .github/linters/.eslintrc.yml --no-ignore ".uglifyjs3.json" "package.json" \
     || { echo "    *** ERROR .uglifyjs3.json & package.json eslint check failed." ; exit 1 ; }
-  echo "    .uglifyjs3.json, package.json: validate OK"
-else
-  echo "    --- eslint not installed: skipping JSON validation"
-fi
+echo "    .uglifyjs3.json, package.json: validate OK"
 echo
 
 ## check YAML
@@ -76,13 +70,9 @@ echo
 
 ## check JavaScript
 echo "  checking JavaScript files (w/ eslint, see .eslintrc.yml)"
-if hash eslint >/dev/null 2>&1 ; then
-  eslint -c .github/linters/.eslintrc.yml "*.js" "src/*.js" \
+npx eslint -c .github/linters/.eslintrc.yml "*.js" "src/*.js" \
     || { echo "    *** ERROR eslint JavaScript check failed." ; exit 1 ; }
-  echo "    *.js src/*.js: JavaScript OK"
-else
-  echo "    --- eslint not installed: skipping eslint JavaScript checks"
-fi
+echo "    *.js src/*.js: JavaScript OK"
 echo
 
 echo "  OK, preflight checks passed."
