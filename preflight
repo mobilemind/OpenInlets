@@ -48,13 +48,9 @@ echo
 
 ## check README.md
 echo "  checking README.md"
-if hash markdownlint >/dev/null 2>&1 ; then
-  markdownlint "*.md" --disable MD034 \
-    || { echo "    *** ERROR markdownlint *.md check failed." ; exit 1 ; }
-  echo "    *.md: Markdown OK"
-else
-  echo "    --- markdownlint not installed: skipping Markdown checks"
-fi
+npx markdownlint "*.md" --disable MD034 \
+  || { echo "    *** ERROR markdownlint *.md check failed." ; exit 1 ; }
+echo "    *.md: Markdown OK"
 echo
 
 ## check .github/workflows
