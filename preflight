@@ -49,7 +49,7 @@ echo
 
 ## check README.md
 echo "  checking README.md"
-npx markdownlint "*.md" --disable MD034 \
+npx markdownlint -c .github/linters/.markdown-lint.yml "*.md" \
   || { echo "    *** ERROR markdownlint *.md check failed." ; exit 1 ; }
 echo "    *.md: Markdown OK"
 echo
