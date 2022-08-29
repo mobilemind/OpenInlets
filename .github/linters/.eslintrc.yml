@@ -144,7 +144,7 @@ rules:
   line-comment-position: 2
   linebreak-style: 2
   padding-line-between-statements: 0
-  max-depth: 1
+  max-depth: ["error", 5]
   # yamllint disable-line rule:line-length
   max-len: ["warn", {"code": 110, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}]
   max-lines: ["error", {"max": 172, "skipBlankLines": true, "skipComments": true}]
