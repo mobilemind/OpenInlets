@@ -25,8 +25,6 @@ login credentials.
 
 __OpenInBrave__: Open the current web page in the Brave app for iOS.
 
-__OpenInDolphin__: Open the current web page in the Dolphin app for iOS.
-
 __OpenInFirefox__: Open the current web page in the Firefox app for iOS.
 
 __OpenInFirefox-Focus__: Open the current web page in the Firefox Focus app
@@ -45,8 +43,6 @@ __OpenInGoogleMaps__: Open the current web page in the Google Maps application
 on iOS. Handy when an app opens a Google Maps page in Mobile Safari, but you'd
 prefer the Google Maps _app_. If the current URL does NOT contain an address
 or location, it will search in the Google Maps app using the page title.
-
-__OpenInOpera__: Open the current web page in the Opera app for iOS.
 
 __OpenInTextastic__: Open the current web page in the Textastic app on iOS.
 Download the server response of the current HTTP URL, save it in the root
@@ -90,14 +86,12 @@ iCloud will sync the bookmarklet to iOS.
 + [ModifySupportUrl] v1.1.6 ``javascript:{var%20a=document.location%3Bconst%20l=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cp=RegExp('/'+navigator.language.toLowerCase()+'/'%2C'i')%2Ci=a.pathname%2Cr=window.getSelection()%2Cs=a.href%3Blet%20e=''%2Ct=null%2Cn=s%2Co=''%3Bif('support.apple.com'===a.host){if(p.test(i))n=s.replace(p%2C'/')%3Belse%20if(!/-/.test(i)%26%26l.test(i)){let%20e=s.indexOf('/toc/')%3B0%3Ce?n=s.substr(0%2Ce+5):0%3C(e=s.indexOf('/welcome/'))%26%26(n=s.substr(0%2Ce+9))}else{if(null!==(t=i.match(l))%26%261%3Ct.length){let%20e=t%5B2%5D.split('-')%3Bn='https://support.apple.com'+t%5B1%5D+e.pop()+'/'}'None'!==r.type%26%260%3Cr.rangeCount%26%26((a=r.getRangeAt(0))%26%26(a=3===(a=a.startContainer).nodeType?a.parentNode:a).parentNode%26%26(o=a.parentNode.id%2C''!==(e=a.innerText)%26%26''!==o%26%26(n+='%23'+o))%2Cr.empty())}s===n?alert('Unable%20to%20simplify%20current%20URL-%5Cn'+s):(a=''!==e%26%26''!==o?e:document.title.replace(/%20-%20Apple%20Support%24/%2C'')%2Calert(%60Original%20URL-%0A%24{s}%0A%0AModified%20URL-%0A%24{n}%24{''!==e%26%26''!==o?'%5Cn%5CnSelected%20Heading-%5Cn'+e:''}%0A%0AMarkdown%20link-%0A%5B%24{a}%5D(%24{n})%60))}void%200}void'1.1.6'``
 + [OpenIn1Password] v1.5.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'+location.href%3Bvoid'1.5.1'``
 + [OpenInBrave] v1.0.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='brave://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.1'``
-+ [OpenInDolphin] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'dolphin')%3Bvoid'1.0.0'``
 + [OpenInFirefox] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.5.0'``
 + [OpenInFirefox-Focus] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0'``
 + [OpenInFirefox-Private] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0'``
 + [OpenInGoodReader] v1.5.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26/%5C.pdf(%24%7C%5C?)/.test(location.href))location.href='gr'+location.href%3Bvoid'1.5.1'``
 + [OpenInGoogleChrome] v1.4.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttp/%2C'googlechrome')%3Bvoid'1.4.0'``
 + [OpenInGoogleMaps] v2.2.0 ``javascript:if(/%5C.google%5C.com/.test(location.host)%26%26/iP(.d%7Chone)/.test(navigator.userAgent)){if(location.search)return%20location.href='comgooglemaps://'+location.search%3Bif(/%20-%20Google%20Maps/.test(document.title))location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps'%2C'').replace(/%20/g%2C'+'))}void'2.2.0'``
-+ [OpenInOpera] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='opera://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.0'``
 + [OpenInTextastic] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'textastic')%3Bvoid'1.0.0'``
 + [OpenInWorkingCopy] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26('bitbucket.org'===location.host%7C%7C'github.com'===location.host))location.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0%2C5).join('/'))+'.git'%3Bvoid'1.5.0'``
 + [OpenURLParam] v1.0.0 ``javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co){let%20e=location.search.substr(4+o)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co?e.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))}void'1.0.0'``
@@ -118,14 +112,12 @@ bookmarklet.
 + __Mobile Safari setup link__ -- [Setup ModifySupportUrl] v1.1.6
 + __Mobile Safari setup link__ -- [Setup OpenIn1Password] v1.5.1
 + __Mobile Safari setup link__ -- [Setup OpenInBrave] v1.0.1
-+ __Mobile Safari setup link__ -- [Setup OpenInDolphin] v1.0.0
 + __Mobile Safari setup link__ -- [Setup OpenInFirefox] v1.5.0
 + __Mobile Safari setup link__ -- [Setup OpenInFirefox-Focus] v1.0.0
 + __Mobile Safari setup link__ -- [Setup OpenInFirefox-Private] v1.0.0
 + __Mobile Safari setup link__ -- [Setup OpenInGoodReader] v1.5.1
 + __Mobile Safari setup link__ -- [Setup OpenInGoogleChrome] v1.4.0
 + __Mobile Safari setup link__ -- [Setup OpenInGoogleMaps] v2.2.0
-+ __Mobile Safari setup link__ -- [Setup OpenInOpera] v1.0.0
 + __Mobile Safari setup link__ -- [Setup OpenInTextastic] v1.0.0
 + __Mobile Safari setup link__ -- [Setup OpenInWorkingCopy] v1.5.0
 + __Mobile Safari setup link__ -- [Setup OpenURLParam] v1.0.0
@@ -203,7 +195,6 @@ alert with a transformed Apple SUpport page URL and Markdown links.
   [Open URLs externally][1Password URL Scheme] for details.
 + __OpenInBrave__ - Uses the `brave://open-url?url=` scheme for the Brave app
   on iOS.
-+ __OpenInDolphin__ - Uses the `dolphin://` scheme for the Dolphin app on iOS.
 + __OpenInFirefox__ _and_ __OpenInFirefox-Private__ - Uses the
   `firefox://open-url?url=` scheme for the Firefox app on iOS. The "Private"
   version appends `&private=true` after the target url for private browsing.
@@ -218,8 +209,6 @@ alert with a transformed Apple SUpport page URL and Markdown links.
 + __OpenInGoogleMaps__ - Uses the `comgooglemaps://` protocol scheme for the
   Google Maps app on iOS. See [Google Maps URL Scheme][Google Maps URL Scheme]
   for details.
-+ __OpenInOpera__ - Uses the `opera://open-url?url=` scheme for the
-  Opera app on iOS.
 + __OpenInTextastic__ - Uses the `textastic://` protocol scheme of the
   Textastic app on iOS. For details, see
   [Textastic x-callback-url API][Textastic x-callback-url API].
@@ -239,6 +228,8 @@ alert with a transformed Apple SUpport page URL and Markdown links.
   Extension Neat URL][Neat URL]
 
 ## Version Notes
+
+2.7.7 Drop OpenInDolphin, OpenInOpera
 
 2.7.5 Drop Url2DocLink, WindowResize, WindowSize; Tighten UrlEncoding
 
@@ -335,14 +326,12 @@ repos I have; doesn't build yet
 [ModifySupportUrl]: javascript:{var%20a=document.location%3Bconst%20l=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cp=RegExp('/'+navigator.language.toLowerCase()+'/'%2C'i')%2Ci=a.pathname%2Cr=window.getSelection()%2Cs=a.href%3Blet%20e=''%2Ct=null%2Cn=s%2Co=''%3Bif('support.apple.com'===a.host){if(p.test(i))n=s.replace(p%2C'/')%3Belse%20if(!/-/.test(i)%26%26l.test(i)){let%20e=s.indexOf('/toc/')%3B0%3Ce?n=s.substr(0%2Ce+5):0%3C(e=s.indexOf('/welcome/'))%26%26(n=s.substr(0%2Ce+9))}else{if(null!==(t=i.match(l))%26%261%3Ct.length){let%20e=t%5B2%5D.split('-')%3Bn='https://support.apple.com'+t%5B1%5D+e.pop()+'/'}'None'!==r.type%26%260%3Cr.rangeCount%26%26((a=r.getRangeAt(0))%26%26(a=3===(a=a.startContainer).nodeType?a.parentNode:a).parentNode%26%26(o=a.parentNode.id%2C''!==(e=a.innerText)%26%26''!==o%26%26(n+='%23'+o))%2Cr.empty())}s===n?alert('Unable%20to%20simplify%20current%20URL-%5Cn'+s):(a=''!==e%26%26''!==o?e:document.title.replace(/%20-%20Apple%20Support%24/%2C'')%2Calert(%60Original%20URL-%0A%24{s}%0A%0AModified%20URL-%0A%24{n}%24{''!==e%26%26''!==o?'%5Cn%5CnSelected%20Heading-%5Cn'+e:''}%0A%0AMarkdown%20link-%0A%5B%24{a}%5D(%24{n})%60))}void%200}void'1.1.6' "ModifySupportUrl"
 [OpenIn1Password]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'+location.href%3Bvoid'1.5.1' "OpenIn1Password"
 [OpenInBrave]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='brave://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.1' "OpenInBrave"
-[OpenInDolphin]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'dolphin')%3Bvoid'1.0.0' "OpenInDolphin"
 [OpenInFirefox]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.5.0' "OpenInFirefox"
 [OpenInFirefox-Focus]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0' "OpenInFirefox-Focus"
 [OpenInFirefox-Private]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0' "OpenInFirefox-Private"
 [OpenInGoodReader]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26/%5C.pdf(%24%7C%5C?)/.test(location.href))location.href='gr'+location.href%3Bvoid'1.5.1' "OpenInGoodReader"
 [OpenInGoogleChrome]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttp/%2C'googlechrome')%3Bvoid'1.4.0' "OpenInGoogleChrome"
 [OpenInGoogleMaps]: javascript:if(/%5C.google%5C.com/.test(location.host)%26%26/iP(.d%7Chone)/.test(navigator.userAgent)){if(location.search)return%20location.href='comgooglemaps://'+location.search%3Bif(/%20-%20Google%20Maps/.test(document.title))location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps'%2C'').replace(/%20/g%2C'+'))}void'2.2.0' "OpenInGoogleMaps"
-[OpenInOpera]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='opera://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.0' "OpenInOpera"
 [OpenInTextastic]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'textastic')%3Bvoid'1.0.0' "OpenInTextastic"
 [OpenInWorkingCopy]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26('bitbucket.org'===location.host%7C%7C'github.com'===location.host))location.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0%2C5).join('/'))+'.git'%3Bvoid'1.5.0' "OpenInWorkingCopy"
 [OpenURLParam]: javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co){let%20e=location.search.substr(4+o)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co?e.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))}void'1.0.0' "OpenURLParam"
@@ -356,14 +345,12 @@ repos I have; doesn't build yet
 [Setup ModifySupportUrl]: http://mmind.me/x/#javascript:{var%20a=document.location%3Bconst%20l=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cp=RegExp('/'+navigator.language.toLowerCase()+'/'%2C'i')%2Ci=a.pathname%2Cr=window.getSelection()%2Cs=a.href%3Blet%20e=''%2Ct=null%2Cn=s%2Co=''%3Bif('support.apple.com'===a.host){if(p.test(i))n=s.replace(p%2C'/')%3Belse%20if(!/-/.test(i)%26%26l.test(i)){let%20e=s.indexOf('/toc/')%3B0%3Ce?n=s.substr(0%2Ce+5):0%3C(e=s.indexOf('/welcome/'))%26%26(n=s.substr(0%2Ce+9))}else{if(null!==(t=i.match(l))%26%261%3Ct.length){let%20e=t%5B2%5D.split('-')%3Bn='https://support.apple.com'+t%5B1%5D+e.pop()+'/'}'None'!==r.type%26%260%3Cr.rangeCount%26%26((a=r.getRangeAt(0))%26%26(a=3===(a=a.startContainer).nodeType?a.parentNode:a).parentNode%26%26(o=a.parentNode.id%2C''!==(e=a.innerText)%26%26''!==o%26%26(n+='%23'+o))%2Cr.empty())}s===n?alert('Unable%20to%20simplify%20current%20URL-%5Cn'+s):(a=''!==e%26%26''!==o?e:document.title.replace(/%20-%20Apple%20Support%24/%2C'')%2Calert(%60Original%20URL-%0A%24{s}%0A%0AModified%20URL-%0A%24{n}%24{''!==e%26%26''!==o?'%5Cn%5CnSelected%20Heading-%5Cn'+e:''}%0A%0AMarkdown%20link-%0A%5B%24{a}%5D(%24{n})%60))}void%200}void'1.1.6' "Setup ModifySupportUrl"
 [Setup OpenIn1Password]: http://mmind.me/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'+location.href%3Bvoid'1.5.1' "Setup OpenIn1Password"
 [Setup OpenInBrave]: http://mmind.me/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='brave://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.1' "Setup OpenInBrave"
-[Setup OpenInDolphin]: http://mmind.me/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'dolphin')%3Bvoid'1.0.0' "Setup OpenInDolphin"
 [Setup OpenInFirefox]: http://mmind.me/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.5.0' "Setup OpenInFirefox"
 [Setup OpenInFirefox-Focus]: http://mmind.me/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0' "Setup OpenInFirefox-Focus"
 [Setup OpenInFirefox-Private]: http://mmind.me/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0' "Setup OpenInFirefox-Private"
 [Setup OpenInGoodReader]: http://mmind.me/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26/%5C.pdf(%24%7C%5C?)/.test(location.href))location.href='gr'+location.href%3Bvoid'1.5.1' "Setup OpenInGoodReader"
 [Setup OpenInGoogleChrome]: http://mmind.me/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttp/%2C'googlechrome')%3Bvoid'1.4.0' "Setup OpenInGoogleChrome"
 [Setup OpenInGoogleMaps]: http://mmind.me/x/#javascript:if(/%5C.google%5C.com/.test(location.host)%26%26/iP(.d%7Chone)/.test(navigator.userAgent)){if(location.search)return%20location.href='comgooglemaps://'+location.search%3Bif(/%20-%20Google%20Maps/.test(document.title))location.href='comgooglemaps://?q='+encodeURI(document.title.replace('%20-%20Google%20Maps'%2C'').replace(/%20/g%2C'+'))}void'2.2.0' "Setup OpenInGoogleMaps"
-[Setup OpenInOpera]: http://mmind.me/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='opera://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.0' "Setup OpenInOpera"
 [Setup OpenInTextastic]: http://mmind.me/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'textastic')%3Bvoid'1.0.0' "Setup OpenInTextastic"
 [Setup OpenInWorkingCopy]: http://mmind.me/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26('bitbucket.org'===location.host%7C%7C'github.com'===location.host))location.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0%2C5).join('/'))+'.git'%3Bvoid'1.5.0' "Setup OpenInWorkingCopy"
 [Setup OpenURLParam]: http://mmind.me/x/#javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co){let%20e=location.search.substr(4+o)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co?e.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))}void'1.0.0' "Setup OpenURLParam"

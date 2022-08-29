@@ -22,10 +22,6 @@ module.exports = function(grunt) {
                 "file": "openinbrave.js",
                 "version": "1.0.1"
             },
-            "OpenInDolphin": {
-                "file": "openindolphin.js",
-                "version": "1.0.0"
-            },
             "OpenInFirefox": {
                 "file": "openinfirefox.js",
                 "version": "1.5.0"
@@ -49,10 +45,6 @@ module.exports = function(grunt) {
             "OpenInGoogleMaps": {
                 "file": "openingooglemaps.js",
                 "version": "2.2.0"
-            },
-            "OpenInOpera": {
-                "file": "openinopera.js",
-                "version": "1.0.0"
             },
             "OpenInTextastic": {
                 "file": "openintextastic.js",

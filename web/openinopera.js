@@ -1,1 +1,0 @@
-javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='opera://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.0'
