@@ -10,14 +10,15 @@ typically from iOS Mobile Safari to an iOS app.
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1db800475a4744c68fe643a84a4454f4)](https://www.codacy.com/app/mobilemind/OpenInlets)
 
 __IsItAws__: Check the current page host to determine if runs on AWS.<br/>
-_NOTE:_ This also works with Safari and Firefox on macOS, and most browsers on most platforms.
+_NOTE:_ This also works with Safari and Firefox on macOS, and most browsers on
+desktop platforms.
 
 __KillStickyHeaders__: Find & delete all fixed position elements of body
 
 __ModifySupportUrl__: Checks if current page is an Apple Support page, and if
 so it display the de-localized "evergreen" version of the URL and Markdown
-links for the page. For links to a subheading, select any text of the subheading
-before invoking the bookmarklet.
+links for the page. For links to a subheading, select any text of the
+subheading before invoking the bookmarklet.
 
 __OpenIn1Password__: Open the current web page with the Webview in 1Password
 4.1+. Handy for login/form completion, or to quickly add a new entry with
@@ -58,7 +59,7 @@ repo locally if necessary).
 
 __SearchIn1Password__: Open 1Password and search for entries containing the
 domain of the current web page. _NOTE:_ This also works with Safari and
-Firefox on Mac OS X Mavericks (and macOS Sierra).
+Firefox on macOS.
 
 __UtmStrip__: Strips off the UTM query string elements of the current URL to
 remove common "urchin" tracking information from youtube, etc. _NOTE:_ This
@@ -134,14 +135,14 @@ location.
 ## Requirements
 
 + Mobile Safari 7.x or higher (v2.2.0 tested with iOS 11)
-+ Corresponding iOS app (_except_ for "IsItAws" bookmarklet)
++ Corresponding iOS app (_except_ for "IsItAws" and "ModifySupportUrl"
+bookmarklet)
 
 ### Notes
 
 1. Bookmarklets do _not_ work in Google Chrome, Ghostery and DuckDuckGo iOS
    apps due to restrictions of those apps on `javascript:` URL bookmarks.
-2. SearchIn1Password _does_ work on Macintosh OS X Mavericks with Safari or
-   Firefox.
+2. SearchIn1Password _does_ work on macOS with Safari or Firefox.
 
 ## License
 
@@ -233,13 +234,15 @@ alert with a transformed Apple SUpport page URL and Markdown links.
 
 2.7.5 Drop Url2DocLink, WindowResize, WindowSize; Tighten UrlEncoding
 
-2.7.0 Remove bookmarklets for discontinued apps (Blogsy, CodeBucket, CodeHub, iOctocat)
+2.7.0 Remove bookmarklets for discontinued apps (Blogsy, CodeBucket, CodeHub,
+iOctocat)
 
 2.6.1 bump to node 16.7+
 
 2.6.0 switch to node 16
 
-2.4.3 Create `preflight` script for build & move static checks there; bump version
+2.4.3 Create `preflight` script for build & move static checks there; bump
+version
 
 2.4.2 UtmStrip updated to remove common email hash (eid) parameter
 
@@ -317,7 +320,7 @@ update
 `README.md`, version numbers not updating
 
 0.0.0: July 22, 2014 - Initial commit, smushing together multiple bookmarklet
-repos I have; doesn't build yet
+repos I had; doesn't build yet
 
 <!--- JavaScript links -->
 
