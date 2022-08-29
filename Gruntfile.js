@@ -16,7 +16,7 @@ module.exports = function(grunt) {
             },
             "OpenIn1Password": {
                 "file": "openin1password.js",
-                "version": "1.5.1"
+                "version": "1.6.0"
             },
             "OpenInBrave": {
                 "file": "openinbrave.js",
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
             },
             "SearchIn1Password": {
                 "file": "searchin1password.js",
-                "version": "1.4.2"
+                "version": "1.5.0"
             },
             "UtmStrip": {
                 "file": "utmstrip.js",
@@ -161,7 +161,7 @@ module.exports = function(grunt) {
         // update reference link bookmarklet URL (de-encode & re-encode needed)
         readMeString = updatereadme(
             new RegExp("(\\[Setup " + this.target + '\\]: )http.*( \\"Setup ' + this.target + '\\")', "g"),
-            "$1http://mmind.me/x/#" + bookmarkletString.replace("*", "%2A") +
+            "$1https://mobilemind.github.io/OpenInlets/x/#" + bookmarkletString.replace("*", "%2A") +
             "$2", readMeString, "Setup link", this.target);
 
         // use regex to update version references
