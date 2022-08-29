@@ -39,7 +39,7 @@
         // validate match w/substrings was found
         if (null !== matches && matches.length > 1) {
             // 3rd match is vanity & ID; split it into parts separated by '-'
-            let parts = matches[2].split('-');
+            const parts = matches[2].split('-');
             // remove vanity parts, keep ID (part after last dash)
             result = 'https://support.apple.com' + matches[1] + parts.pop() + '/';
         }
