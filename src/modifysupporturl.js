@@ -3,19 +3,20 @@
 // wrap it all in anonymous function closure for isolation
 (() => {
     const docloc = document.location;
+    // for now, only work on support.apple.com
+    if ('support.apple.com' !== docloc.host) {
+        return;
+    }
     const guide = (/(\/guide\/[-0-9a-z]+\/)([-0-9a-z]+)\//),
         lang = new RegExp('/' + navigator.language.toLowerCase() + '/', 'i'),
         path = docloc.pathname,
         selected = window.getSelection(),
         url = docloc.href;
     let heading = '',
+        linktext = document.title.replace(/ - (Official )?Apple Support$/, ''),
         matches = null,
         result = url,
         subid = '';
-    // for now, only work on support.apple.com
-    if ('support.apple.com' !== docloc.host) {
-        return;
-    }
 
     // handle general support doc URLs
     if (lang.test(path)) {
@@ -58,6 +59,7 @@
                     heading = anchor.innerText;
                     // update result with id for selection
                     if (heading !== '' && subid !== '') {
+                        linktext = heading;
                         result += '#' + subid;
                     }
                 }
@@ -66,15 +68,6 @@
         }
     }
 
-    if (url === result) {
-        // results didn't change, show original URL
-        alert('Unable to simplify current URL-\n' + url);
-    } else {
-        // set linktext for Markdown to either selected heading or page title
-        let linktext = '';
-        /* eslint-disable-next-line no-ternary, multiline-ternary */
-        linktext = heading !== '' && subid !== '' ? heading : document.title.replace(/ - Apple Support$/, '');
-        /* eslint-disable-next-line no-ternary, multiline-ternary */
-        alert(`Original URL-\n${url}\n\nModified URL-\n${result}${heading !== '' && subid !== '' ? '\n\nSelected Heading-\n' + heading : ''}\n\nMarkdown link-\n[${linktext}](${result})`);
-    }
+    /* eslint-disable-next-line no-ternary, multiline-ternary */
+    alert(`Original URL-\n${url}\n\nModified URL-\n${result}${heading !== '' && subid !== '' ? '\n\nSelected Heading-\n' + heading : ''}\n\nMarkdown link-\n[${linktext}](${result})`);
 })();
