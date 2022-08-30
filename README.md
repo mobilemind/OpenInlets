@@ -20,9 +20,8 @@ so it display the de-localized "evergreen" version of the URL and Markdown
 links for the page. For links to a subheading, select any text of the
 subheading before invoking the bookmarklet.
 
-__OpenIn1Password__: Open the current web page with the Webview in 1Password
-4.1+. Handy for login/form completion, or to quickly add a new entry with
-login credentials.
+__OpenIn1Password__: Open 1Password using `onepassword://search` URL scheme
+that may be deprecated.
 
 __OpenInBrave__: Open the current web page in the Brave app for iOS.
 
@@ -58,8 +57,9 @@ Mobile Safari, show the same repo in the Working Copy iOS app (cloning the
 repo locally if necessary).
 
 __SearchIn1Password__: Open 1Password and search for entries containing the
-domain of the current web page. _NOTE:_ This also works with Safari and
-Firefox on macOS.
+domain of the current web page.<br/>
+_NOTE:_ This may be deprecated soon, but also works with Safari and Firefox
+on macOS.
 
 __UtmStrip__: Strips off the UTM query string elements of the current URL to
 remove common "urchin" tracking information from youtube, etc. _NOTE:_ This
@@ -85,7 +85,7 @@ iCloud will sync the bookmarklet to iOS.
 + [IsItAws] v1.3.2 ``javascript:location.href='https://isitonaws.com/discover?name='+location.host%3Bvoid'1.3.2'``
 + [KillStickyHeaders] v1.2.0 ``javascript:{let%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo++)'fixed'===getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200}void'1.2.0'``
 + [ModifySupportUrl] v1.1.7 ``javascript:{var%20a=document.location%3Bconst%20l=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cp=RegExp('/'+navigator.language.toLowerCase()+'/'%2C'i')%2Ci=a.pathname%2Cr=window.getSelection()%2Cs=a.href%3Blet%20e=''%2Ct=null%2Cn=s%2Co=''%3Bif('support.apple.com'===a.host){if(p.test(i))n=s.replace(p%2C'/')%3Belse%20if(!/-/.test(i)%26%26l.test(i)){let%20e=s.indexOf('/toc/')%3B0%3Ce?n=s.substr(0%2Ce+5):0%3C(e=s.indexOf('/welcome/'))%26%26(n=s.substr(0%2Ce+9))}else{if(null!==(t=i.match(l))%26%261%3Ct.length){const%20d=t%5B2%5D.split('-')%3Bn='https://support.apple.com'+t%5B1%5D+d.pop()+'/'}'None'!==r.type%26%260%3Cr.rangeCount%26%26((a=r.getRangeAt(0))%26%26(a=3===(a=a.startContainer).nodeType?a.parentNode:a).parentNode%26%26(o=a.parentNode.id%2C''!==(e=a.innerText)%26%26''!==o%26%26(n+='%23'+o))%2Cr.empty())}s===n?alert('Unable%20to%20simplify%20current%20URL-%5Cn'+s):(a=''!==e%26%26''!==o?e:document.title.replace(/%20-%20Apple%20Support%24/%2C'')%2Calert(%60Original%20URL-%0A%24{s}%0A%0AModified%20URL-%0A%24{n}%24{''!==e%26%26''!==o?'%5Cn%5CnSelected%20Heading-%5Cn'+e:''}%0A%0AMarkdown%20link-%0A%5B%24{a}%5D(%24{n})%60))}void%200}void'1.1.7'``
-+ [OpenIn1Password] v1.5.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'+location.href%3Bvoid'1.5.1'``
++ [OpenIn1Password] v1.6.0 ``javascript:location.href='onepassword://search/'%3Bvoid'1.6.0'``
 + [OpenInBrave] v1.0.1 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='brave://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.1'``
 + [OpenInFirefox] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.5.0'``
 + [OpenInFirefox-Focus] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0'``
@@ -96,7 +96,7 @@ iCloud will sync the bookmarklet to iOS.
 + [OpenInTextastic] v1.0.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'textastic')%3Bvoid'1.0.0'``
 + [OpenInWorkingCopy] v1.5.0 ``javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26('bitbucket.org'===location.host%7C%7C'github.com'===location.host))location.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0%2C5).join('/'))+'.git'%3Bvoid'1.5.0'``
 + [OpenURLParam] v1.0.0 ``javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co){let%20e=location.search.substr(4+o)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co?e.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))}void'1.0.0'``
-+ [SearchIn1Password] v1.4.2 ``javascript:location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.4.2'``
++ [SearchIn1Password] v1.5.0 ``javascript:location.href='onepassword://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.5.0'``
 + [UtmStrip] v1.6.1 ``javascript:var%20i=location.search%3Bif(3%3C=i.length){let%20e=i%3Bconst%20a=location.host%3B(~(e=~(e=~(e=(e=~(e=~(e=~a.indexOf('amazon.com')?(e=(e=e.replace(/(%5B?%26%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)p%5Bdf%5D_rd_.%2A?=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)ascsubtag=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('fb_')?e.replace(/(%5B?%26%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('action_')?e.replace(/(%5B?%26%5D)action_(object%7Cref%7Ctype)_map=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/(%5B?%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E%26%5D+/gi%2C'%241')).indexOf('aff_')?e.replace(/(%5B?%26%5D)aff_(platform%7Ctrace_key)=%5B%5E%26%5D+/gi%2C'%241'):e).toLowerCase().indexOf('id=')?e.replace(/(%5B?%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('ga_')%7C%7C~e.indexOf('utm_'))%26%26(e=e.replace(/(%5B?%26%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E%26%5D+/gi%2C'%241'))%2Ci!==(e=(e=(e='?'!=((e='%26'==((e=(e=~(e=~(e=~(e=~(e=~(e=~(e=~a.indexOf('youtu')%7C%7C~a.indexOf('googlevideo.com')?e.replace(/(%5B?%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('_hsenc')%7C%7C~e.indexOf('_hsmi')?e.replace(/(%5B?%26%5D)_hs(enc%7Cmi)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('hmb_')?e.replace(/(%5B?%26%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('cm_')?(e=e.replace(/(%5B?%26%5D)cm_(mmc%7Cmmca%5Cd+%7Cre%7Csp)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)manual_cm_mmc=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('mc_cid')%7C%7C~e.indexOf('mc_eid')?e.replace(/(%5B?%26%5D)mc_%5Bce%5Did=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('iesrc')%7C%7C~e.indexOf('mkt_tok')?e.replace(/(%5B?%26%5D)(iesrc%7Cmkt_tok)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('pk_')?e.replace(/(%5B?%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/%26%26+/g%2C'%26'))%5B0%7Ce.length-1%5D%7C%7C'')?e.substr(0%2Ce.length-1):e)%5B0%5D%7C%7C'')?'?'+e:e).indexOf('?%26')?e:'?'+e.substr(2)).length%3C3?'':e)%26%26history.replaceState(null%2Cnull%2Clocation.origin+location.pathname+e)}void%200%3Bvoid'1.6.1'``
 
 _NOTE:_ The `javascript:` bookmarks above will _not_ work from the Github
@@ -110,7 +110,7 @@ followed link into a bookmark for JavaScript bookmarklet.
 + __Mobile Safari setup link__ -- [Setup IsItAws] v1.3.2
 + __Mobile Safari setup link__ -- [Setup KillStickyHeaders] v1.2.0
 + __Mobile Safari setup link__ -- [Setup ModifySupportUrl] v1.1.7
-+ __Mobile Safari setup link__ -- [Setup OpenIn1Password] v1.5.1
++ __Mobile Safari setup link__ -- [Setup OpenIn1Password] v1.6.0
 + __Mobile Safari setup link__ -- [Setup OpenInBrave] v1.0.1
 + __Mobile Safari setup link__ -- [Setup OpenInFirefox] v1.5.0
 + __Mobile Safari setup link__ -- [Setup OpenInFirefox-Focus] v1.0.0
@@ -121,7 +121,7 @@ followed link into a bookmark for JavaScript bookmarklet.
 + __Mobile Safari setup link__ -- [Setup OpenInTextastic] v1.0.0
 + __Mobile Safari setup link__ -- [Setup OpenInWorkingCopy] v1.5.0
 + __Mobile Safari setup link__ -- [Setup OpenURLParam] v1.0.0
-+ __Mobile Safari setup link__ -- [Setup SearchIn1Password] v1.4.2
++ __Mobile Safari setup link__ -- [Setup SearchIn1Password] v1.5.0
 + __Mobile Safari setup link__ -- [Setup UtmStrip] v1.6.1
 
 ## Use
@@ -190,9 +190,9 @@ using a URL protocol scheme.
   [Kill sticky headers][Kill sticky headers].
 + __ModifySupportUrl__ - Does _not_ use a URL protocol scheme. Displays an
 alert with a transformed Apple SUpport page URL and Markdown links.
-+ __OpenIn1Password__ - Uses the `ophttp://` or `ophttps://` URL protocol
-  scheme for 1Password. See the subheading
-  [Open URLs externally][1Password URL Scheme] for details.
++ __OpenIn1Password__ - Uses the ~~`ophttps://`~~  `onepassword://` URL
+  protocol scheme for 1Password. As of August 2022, this seems deprecated and
+  may not continue to work.
 + __OpenInBrave__ - Uses the `brave://open-url?url=` scheme for the Brave app
   on iOS.
 + __OpenInFirefox__ _and_ __OpenInFirefox-Private__ - Uses the
@@ -219,15 +219,17 @@ alert with a transformed Apple SUpport page URL and Markdown links.
   tracking blockers. If the current URL contains a parameter in the form of
   `url=...` this bookmarklet will parse the `url` parameter and navigate to
   that URL.
-+ __SearchIn1Password__ - Uses `onepassword4://search/` with the current
-  domain appended to trigger a 1Password search. See the subheading
-  [Open URLs externally][1Password URL Scheme] for details.
++ __SearchIn1Password__ - Uses `onepassword://search/` with the current
+  domain appended to trigger a 1Password search. As of August 2022, this seems
+  deprecated and may not continue to work.
 + __UtmStrip__ -  Strips off the UTM query string elements of the current URL.
   Based on [safari-utm-stripper Bookmarklet][kiding-gist 589242021df49eb17be3].
   NOTE: UtmStrip now borrows heavily from patterns provided by [Firefox
   Extension Neat URL][Neat URL]
 
 ## Version Notes
+
+2.7.9 Update 1Password bookmarklets and Mobile browser install links.
 
 2.7.7 Drop OpenInDolphin, OpenInOpera
 
@@ -326,7 +328,7 @@ repos I had; doesn't build yet
 [IsItAws]: javascript:location.href='https://isitonaws.com/discover?name='+location.host%3Bvoid'1.3.2' "IsItAws"
 [KillStickyHeaders]: javascript:{let%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo++)'fixed'===getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200}void'1.2.0' "KillStickyHeaders"
 [ModifySupportUrl]: javascript:{var%20a=document.location%3Bconst%20l=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cp=RegExp('/'+navigator.language.toLowerCase()+'/'%2C'i')%2Ci=a.pathname%2Cr=window.getSelection()%2Cs=a.href%3Blet%20e=''%2Ct=null%2Cn=s%2Co=''%3Bif('support.apple.com'===a.host){if(p.test(i))n=s.replace(p%2C'/')%3Belse%20if(!/-/.test(i)%26%26l.test(i)){let%20e=s.indexOf('/toc/')%3B0%3Ce?n=s.substr(0%2Ce+5):0%3C(e=s.indexOf('/welcome/'))%26%26(n=s.substr(0%2Ce+9))}else{if(null!==(t=i.match(l))%26%261%3Ct.length){const%20d=t%5B2%5D.split('-')%3Bn='https://support.apple.com'+t%5B1%5D+d.pop()+'/'}'None'!==r.type%26%260%3Cr.rangeCount%26%26((a=r.getRangeAt(0))%26%26(a=3===(a=a.startContainer).nodeType?a.parentNode:a).parentNode%26%26(o=a.parentNode.id%2C''!==(e=a.innerText)%26%26''!==o%26%26(n+='%23'+o))%2Cr.empty())}s===n?alert('Unable%20to%20simplify%20current%20URL-%5Cn'+s):(a=''!==e%26%26''!==o?e:document.title.replace(/%20-%20Apple%20Support%24/%2C'')%2Calert(%60Original%20URL-%0A%24{s}%0A%0AModified%20URL-%0A%24{n}%24{''!==e%26%26''!==o?'%5Cn%5CnSelected%20Heading-%5Cn'+e:''}%0A%0AMarkdown%20link-%0A%5B%24{a}%5D(%24{n})%60))}void%200}void'1.1.7' "ModifySupportUrl"
-[OpenIn1Password]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'+location.href%3Bvoid'1.5.1' "OpenIn1Password"
+[OpenIn1Password]: javascript:location.href='onepassword://search/'%3Bvoid'1.6.0' "OpenIn1Password"
 [OpenInBrave]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='brave://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.1' "OpenInBrave"
 [OpenInFirefox]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.5.0' "OpenInFirefox"
 [OpenInFirefox-Focus]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0' "OpenInFirefox-Focus"
@@ -337,7 +339,7 @@ repos I had; doesn't build yet
 [OpenInTextastic]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'textastic')%3Bvoid'1.0.0' "OpenInTextastic"
 [OpenInWorkingCopy]: javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26('bitbucket.org'===location.host%7C%7C'github.com'===location.host))location.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0%2C5).join('/'))+'.git'%3Bvoid'1.5.0' "OpenInWorkingCopy"
 [OpenURLParam]: javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co){let%20e=location.search.substr(4+o)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co?e.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))}void'1.0.0' "OpenURLParam"
-[SearchIn1Password]: javascript:location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.4.2' "SearchIn1Password"
+[SearchIn1Password]: javascript:location.href='onepassword://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.5.0' "SearchIn1Password"
 [UtmStrip]: javascript:var%20i=location.search%3Bif(3%3C=i.length){let%20e=i%3Bconst%20a=location.host%3B(~(e=~(e=~(e=(e=~(e=~(e=~a.indexOf('amazon.com')?(e=(e=e.replace(/(%5B?%26%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)p%5Bdf%5D_rd_.%2A?=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)ascsubtag=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('fb_')?e.replace(/(%5B?%26%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('action_')?e.replace(/(%5B?%26%5D)action_(object%7Cref%7Ctype)_map=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/(%5B?%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E%26%5D+/gi%2C'%241')).indexOf('aff_')?e.replace(/(%5B?%26%5D)aff_(platform%7Ctrace_key)=%5B%5E%26%5D+/gi%2C'%241'):e).toLowerCase().indexOf('id=')?e.replace(/(%5B?%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('ga_')%7C%7C~e.indexOf('utm_'))%26%26(e=e.replace(/(%5B?%26%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E%26%5D+/gi%2C'%241'))%2Ci!==(e=(e=(e='?'!=((e='%26'==((e=(e=~(e=~(e=~(e=~(e=~(e=~(e=~a.indexOf('youtu')%7C%7C~a.indexOf('googlevideo.com')?e.replace(/(%5B?%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('_hsenc')%7C%7C~e.indexOf('_hsmi')?e.replace(/(%5B?%26%5D)_hs(enc%7Cmi)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('hmb_')?e.replace(/(%5B?%26%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('cm_')?(e=e.replace(/(%5B?%26%5D)cm_(mmc%7Cmmca%5Cd+%7Cre%7Csp)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)manual_cm_mmc=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('mc_cid')%7C%7C~e.indexOf('mc_eid')?e.replace(/(%5B?%26%5D)mc_%5Bce%5Did=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('iesrc')%7C%7C~e.indexOf('mkt_tok')?e.replace(/(%5B?%26%5D)(iesrc%7Cmkt_tok)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('pk_')?e.replace(/(%5B?%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/%26%26+/g%2C'%26'))%5B0%7Ce.length-1%5D%7C%7C'')?e.substr(0%2Ce.length-1):e)%5B0%5D%7C%7C'')?'?'+e:e).indexOf('?%26')?e:'?'+e.substr(2)).length%3C3?'':e)%26%26history.replaceState(null%2Cnull%2Clocation.origin+location.pathname+e)}void%200%3Bvoid'1.6.1' "UtmStrip"
 
 <!--- Setup links -->
@@ -345,7 +347,7 @@ repos I had; doesn't build yet
 [Setup IsItAws]: https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='https://isitonaws.com/discover?name='+location.host%3Bvoid'1.3.2' "Setup IsItAws"
 [Setup KillStickyHeaders]: https://mobilemind.github.io/OpenInlets/x/#javascript:{let%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo++)'fixed'===getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200}void'1.2.0' "Setup KillStickyHeaders"
 [Setup ModifySupportUrl]: https://mobilemind.github.io/OpenInlets/x/#javascript:{var%20a=document.location%3Bconst%20l=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cp=RegExp('/'+navigator.language.toLowerCase()+'/'%2C'i')%2Ci=a.pathname%2Cr=window.getSelection()%2Cs=a.href%3Blet%20e=''%2Ct=null%2Cn=s%2Co=''%3Bif('support.apple.com'===a.host){if(p.test(i))n=s.replace(p%2C'/')%3Belse%20if(!/-/.test(i)%26%26l.test(i)){let%20e=s.indexOf('/toc/')%3B0%3Ce?n=s.substr(0%2Ce+5):0%3C(e=s.indexOf('/welcome/'))%26%26(n=s.substr(0%2Ce+9))}else{if(null!==(t=i.match(l))%26%261%3Ct.length){const%20d=t%5B2%5D.split('-')%3Bn='https://support.apple.com'+t%5B1%5D+d.pop()+'/'}'None'!==r.type%26%260%3Cr.rangeCount%26%26((a=r.getRangeAt(0))%26%26(a=3===(a=a.startContainer).nodeType?a.parentNode:a).parentNode%26%26(o=a.parentNode.id%2C''!==(e=a.innerText)%26%26''!==o%26%26(n+='%23'+o))%2Cr.empty())}s===n?alert('Unable%20to%20simplify%20current%20URL-%5Cn'+s):(a=''!==e%26%26''!==o?e:document.title.replace(/%20-%20Apple%20Support%24/%2C'')%2Calert(%60Original%20URL-%0A%24{s}%0A%0AModified%20URL-%0A%24{n}%24{''!==e%26%26''!==o?'%5Cn%5CnSelected%20Heading-%5Cn'+e:''}%0A%0AMarkdown%20link-%0A%5B%24{a}%5D(%24{n})%60))}void%200}void'1.1.7' "Setup ModifySupportUrl"
-[Setup OpenIn1Password]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'+location.href%3Bvoid'1.5.1' "Setup OpenIn1Password"
+[Setup OpenIn1Password]: https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='onepassword://search/'%3Bvoid'1.6.0' "Setup OpenIn1Password"
 [Setup OpenInBrave]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='brave://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.1' "Setup OpenInBrave"
 [Setup OpenInFirefox]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.5.0' "Setup OpenInFirefox"
 [Setup OpenInFirefox-Focus]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0' "Setup OpenInFirefox-Focus"
@@ -356,7 +358,7 @@ repos I had; doesn't build yet
 [Setup OpenInTextastic]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'textastic')%3Bvoid'1.0.0' "Setup OpenInTextastic"
 [Setup OpenInWorkingCopy]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26('bitbucket.org'===location.host%7C%7C'github.com'===location.host))location.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0%2C5).join('/'))+'.git'%3Bvoid'1.5.0' "Setup OpenInWorkingCopy"
 [Setup OpenURLParam]: https://mobilemind.github.io/OpenInlets/x/#javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co){let%20e=location.search.substr(4+o)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co?e.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))}void'1.0.0' "Setup OpenURLParam"
-[Setup SearchIn1Password]: https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.4.2' "Setup SearchIn1Password"
+[Setup SearchIn1Password]: https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='onepassword://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.5.0' "Setup SearchIn1Password"
 [Setup UtmStrip]: https://mobilemind.github.io/OpenInlets/x/#javascript:var%20i=location.search%3Bif(3%3C=i.length){let%20e=i%3Bconst%20a=location.host%3B(~(e=~(e=~(e=(e=~(e=~(e=~a.indexOf('amazon.com')?(e=(e=e.replace(/(%5B?%26%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)p%5Bdf%5D_rd_.%2A?=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)ascsubtag=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('fb_')?e.replace(/(%5B?%26%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('action_')?e.replace(/(%5B?%26%5D)action_(object%7Cref%7Ctype)_map=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/(%5B?%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E%26%5D+/gi%2C'%241')).indexOf('aff_')?e.replace(/(%5B?%26%5D)aff_(platform%7Ctrace_key)=%5B%5E%26%5D+/gi%2C'%241'):e).toLowerCase().indexOf('id=')?e.replace(/(%5B?%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('ga_')%7C%7C~e.indexOf('utm_'))%26%26(e=e.replace(/(%5B?%26%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E%26%5D+/gi%2C'%241'))%2Ci!==(e=(e=(e='?'!=((e='%26'==((e=(e=~(e=~(e=~(e=~(e=~(e=~(e=~a.indexOf('youtu')%7C%7C~a.indexOf('googlevideo.com')?e.replace(/(%5B?%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('_hsenc')%7C%7C~e.indexOf('_hsmi')?e.replace(/(%5B?%26%5D)_hs(enc%7Cmi)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('hmb_')?e.replace(/(%5B?%26%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('cm_')?(e=e.replace(/(%5B?%26%5D)cm_(mmc%7Cmmca%5Cd+%7Cre%7Csp)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)manual_cm_mmc=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('mc_cid')%7C%7C~e.indexOf('mc_eid')?e.replace(/(%5B?%26%5D)mc_%5Bce%5Did=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('iesrc')%7C%7C~e.indexOf('mkt_tok')?e.replace(/(%5B?%26%5D)(iesrc%7Cmkt_tok)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('pk_')?e.replace(/(%5B?%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/%26%26+/g%2C'%26'))%5B0%7Ce.length-1%5D%7C%7C'')?e.substr(0%2Ce.length-1):e)%5B0%5D%7C%7C'')?'?'+e:e).indexOf('?%26')?e:'?'+e.substr(2)).length%3C3?'':e)%26%26history.replaceState(null%2Cnull%2Clocation.origin+location.pathname+e)}void%200%3Bvoid'1.6.1' "Setup UtmStrip"
 
 <!-- Reference links -->
@@ -372,8 +374,6 @@ repos I had; doesn't build yet
 [Kill sticky headers]: https://alisdair.mcdiarmid.org/kill-sticky-headers/
 [Neat URL]: https://github.com/Smile4ever/Neat-URL/
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
-[1Password URL Scheme]: http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/
-"Agile Bits: 1Password URL Scheme"
 [GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp
 "GoodReader:How do I save a file from Safari to GoodReader?"
 [Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme
