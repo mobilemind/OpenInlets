@@ -161,7 +161,7 @@ module.exports = function(grunt) {
         // update reference link bookmarklet URL (de-encode & re-encode needed)
         readMeString = updatereadme(
             new RegExp("(\\[Setup " + this.target + '\\]: )http.*( \\"Setup ' + this.target + '\\")', "g"),
-            "$1https://mobilemind.github.io/OpenInlets/x/#" + bookmarkletString.replace("*", "%2A") +
+            "$1https://mobilemind.github.io/OpenInlets/x/#" + bookmarkletString.replace(/\*/g, "%2A") +
             "$2", readMeString, "Setup link", this.target);
 
         // use regex to update version references
