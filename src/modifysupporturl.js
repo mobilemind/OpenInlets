@@ -69,5 +69,5 @@
     }
 
     /* eslint-disable-next-line no-ternary, multiline-ternary */
-    alert(`Original URL-\n${url}\n\nModified URL-\n${result}${heading !== '' && subid !== '' ? '\n\nSelected Heading-\n' + heading : ''}\n\nMarkdown link-\n[${linktext}](${result})`);
+    alert(`Page title-\n${document.title}\n\nOriginal URL-\n${url}\n${heading !== '' && subid !== '' ? '\nSelected Heading-\n' + heading + '\n' : ''}\nModified URL-\n${result}\n\nMarkdown link-\n[${linktext}](${result})`);
 })();
