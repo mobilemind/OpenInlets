@@ -229,6 +229,8 @@ alert with a transformed Apple SUpport page URL and Markdown links.
 
 ## Version Notes
 
+2.8.0 bump to node 18.8+
+
 2.7.9 Update 1Password bookmarklets and Mobile browser install links.
 
 2.7.7 Drop OpenInDolphin, OpenInOpera
