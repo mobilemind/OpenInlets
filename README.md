@@ -49,9 +49,6 @@ Download the server response of the current HTTP URL, save it in the root
 directory of the local (Textastic) file system, and then open it in the
 editor. Handy to view the source code of a web page or download a raw file.
 
-__OpenIniOctocat__: When viewing a Github repository in Mobile Safari, open
-the same repository in the iOctocat iOS app.
-
 __OpenInWorkingCopy__: When viewing a BitBucket _or_ Github repository in
 Mobile Safari, show the same repo in the Working Copy iOS app (cloning the
 repo locally if necessary).
