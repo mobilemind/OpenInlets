@@ -26,11 +26,11 @@
     } else if (!/-/.test(path) && guide.test(path)) {
         let i = url.indexOf('/toc/');
         if (i > 0) {
-            result = url.substr(0, i + 5);
+            result = url.substr(0, i + 4);
         } else {
             i = url.indexOf('/welcome/');
             if (i > 0) {
-                result = url.substr(0, i + 9);
+                result = url.substr(0, i + 8);
             }
         }
     // try to handle general guide case
@@ -42,7 +42,7 @@
             // 3rd match is vanity & ID; split it into parts separated by '-'
             const parts = matches[2].split('-');
             // remove vanity parts, keep ID (part after last dash)
-            result = 'https://support.apple.com' + matches[1] + parts.pop() + '/';
+            result = 'https://support.apple.com' + matches[1] + parts.pop();
         }
 
         // is there a selection range?
