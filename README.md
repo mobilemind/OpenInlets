@@ -9,7 +9,7 @@ typically from iOS Mobile Safari to an iOS app.
 [![NodeJS with Grunt](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1db800475a4744c68fe643a84a4454f4)](https://www.codacy.com/app/mobilemind/OpenInlets)
 
-__IsItAws__: Check the current page host to determine if runs on AWS.<br/>
+__IsItAws__: Check the current page host to determine if it runs on AWS.<br/>
 _NOTE:_ This also works with Safari and Firefox on macOS, and most browsers on
 desktop platforms.
 
