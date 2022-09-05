@@ -31,78 +31,69 @@ typically from iOS Mobile Safari to an iOS app.</p>
 <a href="https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml"><img src="https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml/badge.svg" alt="NodeJS with Grunt" /></a>
 <a href="https://www.codacy.com/app/mobilemind/OpenInlets"><img src="https://api.codacy.com/project/badge/Grade/1db800475a4744c68fe643a84a4454f4" alt="Codacy Badge" /></a></p>
 
-<p><strong>IsItAws</strong>: Check the current page host to determine if runs
-on AWS.<br/>
-<em>NOTE:</em> This also works with Safari and Firefox on macOS, and most
-browsers on most platforms.</p>
+<p><strong>IsItAws</strong>: Check the current page host to determine if it runs on AWS.<br/>
+<em>NOTE:</em> This also works with Safari and Firefox on macOS, and most browsers on
+desktop platforms.</p>
 
-<p><strong>KillStickyHeaders</strong>: Find &amp; delete all fixed position
-elements of body</p>
+<p><strong>KillStickyHeaders</strong>: Find &amp; delete all fixed position elements of body</p>
 
-<p><strong>ModifySupportUrl</strong>: Checks if current page is an Apple
-Support page, and if so it display the de-localized &ldquo;evergreen&rdquo;
-version of the URL and Markdown links for the page. For links to a subheading,
-select any text of the subheading before invoking the bookmarklet.</p>
+<p><strong>ModifySupportUrl</strong>: Checks if current page is an Apple Support page, and if
+so it display the de-localized &ldquo;evergreen&rdquo; version of the URL and Markdown
+links for the page. For links to a subheading, select any text of the
+subheading before invoking the bookmarklet.</p>
 
-<p><strong>OpenIn1Password</strong>: Open the current web page with the
-Webview in 1Password 4.1+. Handy for login/form completion, or to quickly add
-a new entry with login credentials.</p>
+<p><strong>OpenIn1Password</strong>: Open 1Password using <code>onepassword://search</code> URL scheme
+that may be deprecated.</p>
 
-<p><strong>OpenInBrave</strong>: Open the current web page in the Brave app
+<p><strong>OpenInBrave</strong>: Open the current web page in the Brave app for iOS.</p>
+
+<p><strong>OpenInFirefox</strong>: Open the current web page in the Firefox app for iOS.</p>
+
+<p><strong>OpenInFirefox-Focus</strong>: Open the current web page in the Firefox Focus app
 for iOS.</p>
 
-<p><strong>OpenInFirefox</strong>: Open the current web page in the Firefox
-app for iOS.</p>
+<p><strong>OpenInFirefox-Private</strong>: Open the current web page in private mode of the
+Firefox app for iOS.</p>
 
-<p><strong>OpenInFirefox-Focus</strong>: Open the current web page in the
-Firefox Focus app
-for iOS.</p>
+<p><strong>OpenInGoodReader</strong>: When viewing a PDF in Mobile Safari, open/download the
+same PDF in GoodReader 4.</p>
 
-<p><strong>OpenInFirefox-Private</strong>: Open the current web page in
-private mode of the Firefox app for iOS.</p>
+<p><strong>OpenInGoogleChrome</strong>: Open the current web page in the Google Chrome app for
+iOS.</p>
 
-<p><strong>OpenInGoodReader</strong>: When viewing a PDF in Mobile Safari,
-open/download the same PDF in GoodReader 4.</p>
+<p><strong>OpenInGoogleMaps</strong>: Open the current web page in the Google Maps application
+on iOS. Handy when an app opens a Google Maps page in Mobile Safari, but you&rsquo;d
+prefer the Google Maps <em>app</em>. If the current URL does NOT contain an address
+or location, it will search in the Google Maps app using the page title.</p>
 
-<p><strong>OpenInGoogleChrome</strong>: Open the current web page in the
-Google Chrome app for iOS.</p>
+<p><strong>OpenInTextastic</strong>: Open the current web page in the Textastic app on iOS.
+Download the server response of the current HTTP URL, save it in the root
+directory of the local (Textastic) file system, and then open it in the
+editor. Handy to view the source code of a web page or download a raw file.</p>
 
-<p><strong>OpenInGoogleMaps</strong>: Open the current web page in the Google
-Maps application on iOS. Handy when an app opens a Google Maps page in Mobile
-Safari, but you&rsquo;d prefer the Google Maps <em>app</em>. If the current
-URL does NOT contain an address or location, it will search in the Google Maps
-app using the page title.</p>
+<p><strong>OpenInWorkingCopy</strong>: When viewing a BitBucket <em>or</em> Github repository in
+Mobile Safari, show the same repo in the Working Copy iOS app (cloning the
+repo locally if necessary).</p>
 
-<p><strong>OpenInTextastic</strong>: Open the current web page in the
-Textastic app on iOS. Download the server response of the current HTTP URL,
-save it in the root directory of the local (Textastic) file system, and then
-open it in the editor. Handy to view the source code of a web page or download
-a raw file.</p>
+<p><strong>SearchIn1Password</strong>: Open 1Password and search for entries containing the
+domain of the current web page.<br/>
+<em>NOTE:</em> This may be deprecated soon, but also works with Safari and Firefox
+on macOS.</p>
 
-<p><strong>OpenIniOctocat</strong>: When viewing a Github repository in Mobile
-Safari, open the same repository in the iOctocat iOS app.</p>
+<p><strong>UtmStrip</strong>: Strips off the UTM query string elements of the current URL to
+remove common &ldquo;urchin&rdquo; tracking information from youtube, etc. <em>NOTE:</em> This
+also works with Safari and Firefox on macOS.</p>
 
-<p><strong>OpenInWorkingCopy</strong>: When viewing a BitBucket <em>or</em>
-Github repository in Mobile Safari, show the same repo in the Working Copy iOS
-app (cloning the repo locally if necessary).</p>
-
-<p><strong>SearchIn1Password</strong>: Open 1Password and search for entries
-containing the domain of the current web page. <em>NOTE:</em> This also works
-with Safari and Firefox on macOS.</p>
-
-<p><strong>UtmStrip</strong>: Strips off the UTM query string elements of the
-current URL to remove common &ldquo;urchin&rdquo; tracking information from
-youtube, etc. <em>NOTE:</em> This also works with Safari and Firefox on
-macOS.</p>
-
-<p><strong>OpenURLParam</strong>: Work-around for blocked navigation from
-certain ad or tracking blockers. If the current URL contains a parameter in
-the form of <code>url=...</code> this bookmarklet will parse the
-<code>url</code> parameter and navigate to that URL.</p>
+<p><strong>OpenURLParam</strong>: Work-around for blocked navigation from certain ad or
+tracking blockers. If the current URL contains a parameter in the form of
+<code>url=...</code> this bookmarklet will parse the <code>url</code> parameter and navigate to that
+URL.</p>
 
 <h2>Install</h2>
 
 <h3>Desktop browser</h3>
+
+<p>Visit the <a href="http://mobilemind.github.io/OpenInlets/">OpenInlets page</a> (this README.md file as a hosted HTML page).</p>
 
 <p>Drag a <strong>JavaScript</strong> <strong>bookmark</strong> to the
 bookmark bar or select it and add bookmark/favorite. Optionally edit or rename
@@ -113,8 +104,8 @@ the bookmark/favorite. iTunes or iCloud will sync the bookmarklet to iOS.</p>
 <ul>
 <li><a href="javascript:location.href='https://isitonaws.com/discover?name='+location.host%3Bvoid'1.3.2'" title="IsItAws">IsItAws</a> v1.3.2 <code>javascript:location.href='https://isitonaws.com/discover?name='+location.host%3Bvoid'1.3.2'</code></li>
 <li><a href="javascript:{let%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo++)'fixed'===getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200}void'1.2.0'" title="KillStickyHeaders">KillStickyHeaders</a> v1.2.0 <code>javascript:{let%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo++)'fixed'===getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200}void'1.2.0'</code></li>
-<li><a href="javascript:{var%20a=document.location%3Bconst%20l=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cp=RegExp('/'+navigator.language.toLowerCase()+'/'%2C'i')%2Ci=a.pathname%2Cr=window.getSelection()%2Cs=a.href%3Blet%20e=''%2Ct=null%2Cn=s%2Co=''%3Bif('support.apple.com'===a.host){if(p.test(i))n=s.replace(p%2C'/')%3Belse%20if(!/-/.test(i)%26%26l.test(i)){let%20e=s.indexOf('/toc/')%3B0%3Ce?n=s.substr(0%2Ce+5):0%3C(e=s.indexOf('/welcome/'))%26%26(n=s.substr(0%2Ce+9))}else{if(null!==(t=i.match(l))%26%261%3Ct.length){const%20d=t%5B2%5D.split('-')%3Bn='https://support.apple.com'+t%5B1%5D+d.pop()+'/'}'None'!==r.type%26%260%3Cr.rangeCount%26%26((a=r.getRangeAt(0))%26%26(a=3===(a=a.startContainer).nodeType?a.parentNode:a).parentNode%26%26(o=a.parentNode.id%2C''!==(e=a.innerText)%26%26''!==o%26%26(n+='%23'+o))%2Cr.empty())}s===n?alert('Unable%20to%20simplify%20current%20URL-%5Cn'+s):(a=''!==e%26%26''!==o?e:document.title.replace(/%20-%20Apple%20Support%24/%2C'')%2Calert(%60Original%20URL-%0A%24{s}%0A%0AModified%20URL-%0A%24{n}%24{''!==e%26%26''!==o?'%5Cn%5CnSelected%20Heading-%5Cn'+e:''}%0A%0AMarkdown%20link-%0A%5B%24{a}%5D(%24{n})%60))}void%200}void'1.1.7'" title="ModifySupportUrl">ModifySupportUrl</a> v1.1.7 &ldquo;javascript:{var%20a=document.location%3Bconst%20l=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cp=RegExp(&lsquo;/&rsquo;+navigator.language.toLowerCase()+&lsquo;/&rsquo;%2C'i')%2Ci=a.pathname%2Cr=window.getSelection()%2Cs=a.href%3Blet%20e=&rdquo;%2Ct=null%2Cn=s%2Co=&lsquo;&rsquo;%3Bif(&lsquo;support.apple.com&rsquo;===a.host){if(p.test(i))n=s.replace(p%2C'/&lsquo;)%3Belse%20if(!/-/.test(i)%26%26l.test(i)){let%20e=s.indexOf(&rsquo;/toc/&lsquo;)%3B0%3Ce?n=s.substr(0%2Ce+5):0%3C(e=s.indexOf(&rsquo;/welcome/&lsquo;))%26%26(n=s.substr(0%2Ce+9))}else{if(null!==(t=i.match(l))%26%261%3Ct.length){const%20d=t%5B2%5D.split(&rsquo;-&lsquo;)%3Bn='<a href="https://support.apple.com">https://support.apple.com</a>&rsquo;+t%5B1%5D+d.pop()+&lsquo;/&rsquo;}&lsquo;None&rsquo;!==r.type%26%260%3Cr.rangeCount%26%26((a=r.getRangeAt(0))%26%26(a=3===(a=a.startContainer).nodeType?a.parentNode:a).parentNode%26%26(o=a.parentNode.id%2C'&lsquo;!==(e=a.innerText)%26%26&rsquo;&lsquo;!==o%26%26(n+=&rsquo;%23'+o))%2Cr.empty())}s===n?alert(&lsquo;Unable%20to%20simplify%20current%20URL-%5Cn&rsquo;+s):(a=&lsquo;&rsquo;!==e%26%26'&lsquo;!==o?e:document.title.replace(/%20-%20Apple%20Support%24/%2C&rsquo;&lsquo;)%2Calert(%60Original%20URL-%0A%24{s}%0A%0AModified%20URL-%0A%24{n}%24{&rsquo;&lsquo;!==e%26%26&rsquo;&lsquo;!==o?&rsquo;%5Cn%5CnSelected%20Heading-%5Cn'+e:&lsquo;&rsquo;}%0A%0AMarkdown%20link-%0A%5B%24{a}%5D(%24{n})%60))}void%200}void'1.1.7'``</li>
-<li><a href="javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'+location.href%3Bvoid'1.5.1'" title="OpenIn1Password">OpenIn1Password</a> v1.5.1 <code>javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'+location.href%3Bvoid'1.5.1'</code></li>
+<li><a href="javascript:var%20p=document.location%3Bif('support.apple.com'===p.host){const%20i=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cl=RegExp('/'+navigator.language.toLowerCase()+'/'%2C'i')%2Cr=p.pathname%2Cd=window.getSelection()%2Cs=p.href%3Blet%20e=''%2Ct=document.title.replace(/%20-%20(Official%20)?Apple%20Support%24/%2C'')%2Cn=null%2Co=s%2Ca=''%3Bif(l.test(r))o=s.replace(l%2C'/')%3Belse%20if(!/-/.test(r)%26%26i.test(r)){let%20e=s.indexOf('/toc/')%3B0%3Ce?o=s.substr(0%2Ce+4):0%3C(e=s.indexOf('/welcome/'))%26%26(o=s.substr(0%2Ce+8))}else{if(null!==(n=r.match(i))%26%261%3Cn.length){const%20c=n%5B2%5D.split('-')%3Bo='https://support.apple.com'+n%5B1%5D+c.pop()}'None'!==d.type%26%260%3Cd.rangeCount%26%26((p=d.getRangeAt(0))%26%26(p=3===(p=p.startContainer).nodeType?p.parentNode:p).parentNode%26%26(a=p.parentNode.id%2C''!==(e=p.innerText)%26%26''!==a%26%26(t=e%2Co+='%23'+a))%2Cd.empty())}alert(document.title+'%5Cn%5Cn'+s+'%5Cn'+(''!==e%26%26''!==a?'%5CnSelected%20Heading:%5Cn'+e+'%5Cn':'')+'%5CnModified%20URL:%5Cn'+o+'%5Cn%5CnMarkdown%20link:%5Cn%5B'+t+'%5D('+o+')')}void%200%3Bvoid'1.2.3'" title="ModifySupportUrl">ModifySupportUrl</a> v1.2.3 &ldquo;javascript:var%20p=document.location%3Bif(&lsquo;support.apple.com&rsquo;===p.host){const%20i=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cl=RegExp(&lsquo;/&rsquo;+navigator.language.toLowerCase()+&lsquo;/&rsquo;%2C'i')%2Cr=p.pathname%2Cd=window.getSelection()%2Cs=p.href%3Blet%20e=&rdquo;%2Ct=document.title.replace(/%20-%20(Official%20)?Apple%20Support%24/%2C'&lsquo;)%2Cn=null%2Co=s%2Ca=&rsquo;&lsquo;%3Bif(l.test&reg;)o=s.replace(l%2C&rsquo;/&lsquo;)%3Belse%20if(!/-/.test&reg;%26%26i.test&reg;){let%20e=s.indexOf(&rsquo;/toc/&lsquo;)%3B0%3Ce?o=s.substr(0%2Ce+4):0%3C(e=s.indexOf(&rsquo;/welcome/&lsquo;))%26%26(o=s.substr(0%2Ce+8))}else{if(null!==(n=r.match(i))%26%261%3Cn.length){const%20c=n%5B2%5D.split(&rsquo;-&lsquo;)%3Bo='<a href="https://support.apple.com">https://support.apple.com</a>&rsquo;+n%5B1%5D+c.pop()}&lsquo;None&rsquo;!==d.type%26%260%3Cd.rangeCount%26%26((p=d.getRangeAt(0))%26%26(p=3===(p=p.startContainer).nodeType?p.parentNode:p).parentNode%26%26(a=p.parentNode.id%2C'&lsquo;!==(e=p.innerText)%26%26&rsquo;&lsquo;!==a%26%26(t=e%2Co+=&rsquo;%23'+a))%2Cd.empty())}alert(document.title+&lsquo;%5Cn%5Cn&rsquo;+s+&lsquo;%5Cn&rsquo;+(&lsquo;&rsquo;!==e%26%26'&lsquo;!==a?&rsquo;%5CnSelected%20Heading:%5Cn'+e+&lsquo;%5Cn&rsquo;:&lsquo;&rsquo;)+&lsquo;%5CnModified%20URL:%5Cn&rsquo;+o+&lsquo;%5Cn%5CnMarkdown%20link:%5Cn%5B&rsquo;+t+&lsquo;%5D(&rsquo;+o+&lsquo;)&rsquo;)}void%200%3Bvoid'1.2.3'``</li>
+<li><a href="javascript:location.href='onepassword://search/'%3Bvoid'1.6.0'" title="OpenIn1Password">OpenIn1Password</a> v1.6.0 <code>javascript:location.href='onepassword://search/'%3Bvoid'1.6.0'</code></li>
 <li><a href="javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='brave://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.1'" title="OpenInBrave">OpenInBrave</a> v1.0.1 <code>javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='brave://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.1'</code></li>
 <li><a href="javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.5.0'" title="OpenInFirefox">OpenInFirefox</a> v1.5.0 <code>javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.5.0'</code></li>
 <li><a href="javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0'" title="OpenInFirefox-Focus">OpenInFirefox-Focus</a> v1.0.0 <code>javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0'</code></li>
@@ -125,24 +116,24 @@ the bookmark/favorite. iTunes or iCloud will sync the bookmarklet to iOS.</p>
 <li><a href="javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'textastic')%3Bvoid'1.0.0'" title="OpenInTextastic">OpenInTextastic</a> v1.0.0 <code>javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'textastic')%3Bvoid'1.0.0'</code></li>
 <li><a href="javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26('bitbucket.org'===location.host%7C%7C'github.com'===location.host))location.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0%2C5).join('/'))+'.git'%3Bvoid'1.5.0'" title="OpenInWorkingCopy">OpenInWorkingCopy</a> v1.5.0 <code>javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26('bitbucket.org'===location.host%7C%7C'github.com'===location.host))location.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0%2C5).join('/'))+'.git'%3Bvoid'1.5.0'</code></li>
 <li><a href="javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co){let%20e=location.search.substr(4+o)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co?e.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))}void'1.0.0'" title="OpenURLParam">OpenURLParam</a> v1.0.0 <code>javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co){let%20e=location.search.substr(4+o)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co?e.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))}void'1.0.0'</code></li>
-<li><a href="javascript:location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.4.2'" title="SearchIn1Password">SearchIn1Password</a> v1.4.2 <code>javascript:location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.4.2'</code></li>
+<li><a href="javascript:location.href='onepassword://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.5.0'" title="SearchIn1Password">SearchIn1Password</a> v1.5.0 <code>javascript:location.href='onepassword://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.5.0'</code></li>
 <li><a href="javascript:var%20i=location.search%3Bif(3%3C=i.length){let%20e=i%3Bconst%20a=location.host%3B(~(e=~(e=~(e=(e=~(e=~(e=~a.indexOf('amazon.com')?(e=(e=e.replace(/(%5B?%26%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)p%5Bdf%5D_rd_.%2A?=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)ascsubtag=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('fb_')?e.replace(/(%5B?%26%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('action_')?e.replace(/(%5B?%26%5D)action_(object%7Cref%7Ctype)_map=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/(%5B?%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E%26%5D+/gi%2C'%241')).indexOf('aff_')?e.replace(/(%5B?%26%5D)aff_(platform%7Ctrace_key)=%5B%5E%26%5D+/gi%2C'%241'):e).toLowerCase().indexOf('id=')?e.replace(/(%5B?%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('ga_')%7C%7C~e.indexOf('utm_'))%26%26(e=e.replace(/(%5B?%26%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E%26%5D+/gi%2C'%241'))%2Ci!==(e=(e=(e='?'!=((e='%26'==((e=(e=~(e=~(e=~(e=~(e=~(e=~(e=~a.indexOf('youtu')%7C%7C~a.indexOf('googlevideo.com')?e.replace(/(%5B?%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('_hsenc')%7C%7C~e.indexOf('_hsmi')?e.replace(/(%5B?%26%5D)_hs(enc%7Cmi)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('hmb_')?e.replace(/(%5B?%26%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('cm_')?(e=e.replace(/(%5B?%26%5D)cm_(mmc%7Cmmca%5Cd+%7Cre%7Csp)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)manual_cm_mmc=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('mc_cid')%7C%7C~e.indexOf('mc_eid')?e.replace(/(%5B?%26%5D)mc_%5Bce%5Did=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('iesrc')%7C%7C~e.indexOf('mkt_tok')?e.replace(/(%5B?%26%5D)(iesrc%7Cmkt_tok)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('pk_')?e.replace(/(%5B?%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/%26%26+/g%2C'%26'))%5B0%7Ce.length-1%5D%7C%7C'')?e.substr(0%2Ce.length-1):e)%5B0%5D%7C%7C'')?'?'+e:e).indexOf('?%26')?e:'?'+e.substr(2)).length%3C3?'':e)%26%26history.replaceState(null%2Cnull%2Clocation.origin+location.pathname+e)}void%200%3Bvoid'1.6.1'" title="UtmStrip">UtmStrip</a> v1.6.1 &ldquo;javascript:var%20i=location.search%3Bif(3%3C=i.length){let%20e=i%3Bconst%20a=location.host%3B(~(e=~(e=~(e=(e=~(e=~(e=~a.indexOf(&lsquo;amazon.com&rsquo;)?(e=(e=e.replace(/(%5B?%26%5D)(<em>encoding%7Cie%7Cpsc%7Cref</em>%7Ctag)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)p%5Bdf%5D_rd<em>.%2A?=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)ascsubtag=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf(&lsquo;fb</em>&rsquo;)?e.replace(/(%5B?%26%5D)fb<em>(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf(&lsquo;action</em>&rsquo;)?e.replace(/(%5B?%26%5D)action<em>(object%7Cref%7Ctype)</em>map=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/(%5B?%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E%26%5D+/gi%2C'%241')).indexOf(&lsquo;aff<em>&rsquo;)?e.replace(/(%5B?%26%5D)aff</em>(platform%7Ctrace_key)=%5B%5E%26%5D+/gi%2C'%241'):e).toLowerCase().indexOf(&lsquo;id=&rsquo;)?e.replace(/(%5B?%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf(&lsquo;ga<em>&rsquo;)%7C%7C~e.indexOf(&lsquo;utm</em>&rsquo;))%26%26(e=e.replace(/(%5B?%26%5D)(ga%7Cutm)<em>(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E%26%5D+/gi%2C'%241'))%2Ci!==(e=(e=(e=&lsquo;?&rsquo;!=((e=&lsquo;%26&rsquo;==((e=(e=~(e=~(e=~(e=~(e=~(e=~(e=~a.indexOf(&lsquo;youtu&rsquo;)%7C%7C~a.indexOf(&lsquo;googlevideo.com&rsquo;)?e.replace(/(%5B?%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf(&lsquo;</em>hsenc&rsquo;)%7C%7C~e.indexOf(&lsquo;<em>hsmi&rsquo;)?e.replace(/(%5B?%26%5D)</em>hs(enc%7Cmi)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf(&lsquo;hmb<em>&rsquo;)?e.replace(/(%5B?%26%5D)hmb</em>(campaign%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf(&lsquo;cm<em>&rsquo;)?(e=e.replace(/(%5B?%26%5D)cm</em>(mmc%7Cmmca%5Cd+%7Cre%7Csp)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)manual_cm_mmc=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf(&lsquo;mc_cid&rsquo;)%7C%7C~e.indexOf(&lsquo;mc_eid&rsquo;)?e.replace(/(%5B?%26%5D)mc<em>%5Bce%5Did=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf(&lsquo;iesrc&rsquo;)%7C%7C~e.indexOf(&lsquo;mkt_tok&rsquo;)?e.replace(/(%5B?%26%5D)(iesrc%7Cmkt_tok)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf(&lsquo;pk</em>&rsquo;)?e.replace(/(%5B?%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/%26%26+/g%2C'%26'))%5B0%7Ce.length-1%5D%7C%7C&rdquo;)?e.substr(0%2Ce.length-1):e)%5B0%5D%7C%7C'&lsquo;)?&rsquo;?&lsquo;+e:e).indexOf(&rsquo;?%26')?e:&lsquo;?&rsquo;+e.substr(2)).length%3C3?&lsquo;&rsquo;:e)%26%26history.replaceState(null%2Cnull%2Clocation.origin+location.pathname+e)}void%200%3Bvoid'1.6.1'``</li>
 </ul>
 
-<p><em>NOTE:</em> The <code>javascript:</code> bookmarks above will
-<em>not</em> work from the Github repository page, due to Github security
-precautions.</p>
+
+<p><em>NOTE:</em> The <code>javascript:</code> bookmarks above will <em>not</em> work from the Github
+repository page, due to Github security precautions.</p>
 
 <h3>Mobile browser</h3>
 
-<p>Tap a link below. Follow the instructions on the resulting page to turn
-the followed bookmark into a JavaScript bookmarklet.</p>
+<p>Tap a link below. Follow the instructions on the resulting page to turn the
+followed link into a bookmark for JavaScript bookmarklet.</p>
 
 <ul>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='https://isitonaws.com/discover?name='+location.host%3Bvoid'1.3.2'" title="Setup IsItAws">Setup IsItAws</a> v1.3.2</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:{let%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo++)'fixed'===getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200}void'1.2.0'" title="Setup KillStickyHeaders">Setup KillStickyHeaders</a> v1.2.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:{var%20a=document.location%3Bconst%20l=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cp=RegExp('/'+navigator.language.toLowerCase()+'/'%2C'i')%2Ci=a.pathname%2Cr=window.getSelection()%2Cs=a.href%3Blet%20e=''%2Ct=null%2Cn=s%2Co=''%3Bif('support.apple.com'===a.host){if(p.test(i))n=s.replace(p%2C'/')%3Belse%20if(!/-/.test(i)%26%26l.test(i)){let%20e=s.indexOf('/toc/')%3B0%3Ce?n=s.substr(0%2Ce+5):0%3C(e=s.indexOf('/welcome/'))%26%26(n=s.substr(0%2Ce+9))}else{if(null!==(t=i.match(l))%26%261%3Ct.length){const%20d=t%5B2%5D.split('-')%3Bn='https://support.apple.com'+t%5B1%5D+d.pop()+'/'}'None'!==r.type%26%260%3Cr.rangeCount%26%26((a=r.getRangeAt(0))%26%26(a=3===(a=a.startContainer).nodeType?a.parentNode:a).parentNode%26%26(o=a.parentNode.id%2C''!==(e=a.innerText)%26%26''!==o%26%26(n+='%23'+o))%2Cr.empty())}s===n?alert('Unable%20to%20simplify%20current%20URL-%5Cn'+s):(a=''!==e%26%26''!==o?e:document.title.replace(/%20-%20Apple%20Support%24/%2C'')%2Calert(%60Original%20URL-%0A%24{s}%0A%0AModified%20URL-%0A%24{n}%24{''!==e%26%26''!==o?'%5Cn%5CnSelected%20Heading-%5Cn'+e:''}%0A%0AMarkdown%20link-%0A%5B%24{a}%5D(%24{n})%60))}void%200}void'1.1.7'" title="Setup ModifySupportUrl">Setup ModifySupportUrl</a> v1.1.7</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='op'+location.href%3Bvoid'1.5.1'" title="Setup OpenIn1Password">Setup OpenIn1Password</a> v1.5.1</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:var%20p=document.location%3Bif('support.apple.com'===p.host){const%20i=/(%5C/guide%5C/%5B-0-9a-z%5D+%5C/)(%5B-0-9a-z%5D+)%5C//%2Cl=RegExp('/'+navigator.language.toLowerCase()+'/'%2C'i')%2Cr=p.pathname%2Cd=window.getSelection()%2Cs=p.href%3Blet%20e=''%2Ct=document.title.replace(/%20-%20(Official%20)?Apple%20Support%24/%2C'')%2Cn=null%2Co=s%2Ca=''%3Bif(l.test(r))o=s.replace(l%2C'/')%3Belse%20if(!/-/.test(r)%26%26i.test(r)){let%20e=s.indexOf('/toc/')%3B0%3Ce?o=s.substr(0%2Ce+4):0%3C(e=s.indexOf('/welcome/'))%26%26(o=s.substr(0%2Ce+8))}else{if(null!==(n=r.match(i))%26%261%3Cn.length){const%20c=n%5B2%5D.split('-')%3Bo='https://support.apple.com'+n%5B1%5D+c.pop()}'None'!==d.type%26%260%3Cd.rangeCount%26%26((p=d.getRangeAt(0))%26%26(p=3===(p=p.startContainer).nodeType?p.parentNode:p).parentNode%26%26(a=p.parentNode.id%2C''!==(e=p.innerText)%26%26''!==a%26%26(t=e%2Co+='%23'+a))%2Cd.empty())}alert(document.title+'%5Cn%5Cn'+s+'%5Cn'+(''!==e%26%26''!==a?'%5CnSelected%20Heading:%5Cn'+e+'%5Cn':'')+'%5CnModified%20URL:%5Cn'+o+'%5Cn%5CnMarkdown%20link:%5Cn%5B'+t+'%5D('+o+')')}void%200%3Bvoid'1.2.3'" title="Setup ModifySupportUrl">Setup ModifySupportUrl</a> v1.2.3</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='onepassword://search/'%3Bvoid'1.6.0'" title="Setup OpenIn1Password">Setup OpenIn1Password</a> v1.6.0</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='brave://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.0.1'" title="Setup OpenInBrave">Setup OpenInBrave</a> v1.0.1</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.5.0'" title="Setup OpenInFirefox">Setup OpenInFirefox</a> v1.5.0</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox-focus://open-url?url='+encodeURIComponent(location.href)+'%26private=true'%3Bvoid'1.0.0'" title="Setup OpenInFirefox-Focus">Setup OpenInFirefox-Focus</a> v1.0.0</li>
@@ -153,9 +144,10 @@ the followed bookmark into a JavaScript bookmarklet.</p>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'textastic')%3Bvoid'1.0.0'" title="Setup OpenInTextastic">Setup OpenInTextastic</a> v1.0.0</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26('bitbucket.org'===location.host%7C%7C'github.com'===location.host))location.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0%2C5).join('/'))+'.git'%3Bvoid'1.5.0'" title="Setup OpenInWorkingCopy">Setup OpenInWorkingCopy</a> v1.5.0</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co){let%20e=location.search.substr(4+o)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co?e.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))}void'1.0.0'" title="Setup OpenURLParam">Setup OpenURLParam</a> v1.0.0</li>
-<li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='onepassword4://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.4.2'" title="Setup SearchIn1Password">Setup SearchIn1Password</a> v1.4.2</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='onepassword://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.5.0'" title="Setup SearchIn1Password">Setup SearchIn1Password</a> v1.5.0</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:var%20i=location.search%3Bif(3%3C=i.length){let%20e=i%3Bconst%20a=location.host%3B(~(e=~(e=~(e=(e=~(e=~(e=~a.indexOf('amazon.com')?(e=(e=e.replace(/(%5B?%26%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)p%5Bdf%5D_rd_.%2A?=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)ascsubtag=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('fb_')?e.replace(/(%5B?%26%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('action_')?e.replace(/(%5B?%26%5D)action_(object%7Cref%7Ctype)_map=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/(%5B?%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E%26%5D+/gi%2C'%241')).indexOf('aff_')?e.replace(/(%5B?%26%5D)aff_(platform%7Ctrace_key)=%5B%5E%26%5D+/gi%2C'%241'):e).toLowerCase().indexOf('id=')?e.replace(/(%5B?%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('ga_')%7C%7C~e.indexOf('utm_'))%26%26(e=e.replace(/(%5B?%26%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E%26%5D+/gi%2C'%241'))%2Ci!==(e=(e=(e='?'!=((e='%26'==((e=(e=~(e=~(e=~(e=~(e=~(e=~(e=~a.indexOf('youtu')%7C%7C~a.indexOf('googlevideo.com')?e.replace(/(%5B?%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('_hsenc')%7C%7C~e.indexOf('_hsmi')?e.replace(/(%5B?%26%5D)_hs(enc%7Cmi)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('hmb_')?e.replace(/(%5B?%26%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('cm_')?(e=e.replace(/(%5B?%26%5D)cm_(mmc%7Cmmca%5Cd+%7Cre%7Csp)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)manual_cm_mmc=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('mc_cid')%7C%7C~e.indexOf('mc_eid')?e.replace(/(%5B?%26%5D)mc_%5Bce%5Did=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('iesrc')%7C%7C~e.indexOf('mkt_tok')?e.replace(/(%5B?%26%5D)(iesrc%7Cmkt_tok)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('pk_')?e.replace(/(%5B?%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/%26%26+/g%2C'%26'))%5B0%7Ce.length-1%5D%7C%7C'')?e.substr(0%2Ce.length-1):e)%5B0%5D%7C%7C'')?'?'+e:e).indexOf('?%26')?e:'?'+e.substr(2)).length%3C3?'':e)%26%26history.replaceState(null%2Cnull%2Clocation.origin+location.pathname+e)}void%200%3Bvoid'1.6.1'" title="Setup UtmStrip">Setup UtmStrip</a> v1.6.1</li>
 </ul>
+
 
 <h2>Use</h2>
 
@@ -168,7 +160,7 @@ location.</p>
 
 <ul>
 <li>Mobile Safari 7.x or higher (v2.2.0 tested with iOS 11)</li>
-<li>Corresponding iOS app (<em>except</em> for &ldquo;IsItAws&rdquo;
+<li>Corresponding iOS app (<em>except</em> for &ldquo;IsItAws&rdquo; and &ldquo;ModifySupportUrl&rdquo;
 bookmarklet)</li>
 </ul>
 
@@ -176,11 +168,9 @@ bookmarklet)</li>
 <h3>Notes</h3>
 
 <ol>
-<li>Bookmarklets do <em>not</em> work in Google Chrome, Ghostery and
-DuckDuckGo iOS apps due to restrictions of those apps on
-<code>javascript:</code> URL bookmarks.</li>
-<li>SearchIn1Password <em>does</em> work on Macintosh OS X Mavericks with
-Safari or Firefox.</li>
+<li>Bookmarklets do <em>not</em> work in Google Chrome, Ghostery and DuckDuckGo iOS
+apps due to restrictions of those apps on <code>javascript:</code> URL bookmarks.</li>
+<li>SearchIn1Password <em>does</em> work on macOS with Safari or Firefox.</li>
 </ol>
 
 
@@ -190,26 +180,24 @@ Safari or Firefox.</li>
 
 <h2>Source Code Notes</h2>
 
-<p>The <code>src/</code> directory has human readable JavaScript, written in a
-way to facilitate testing. The <code>web/</code> directory has
-&ldquo;uglified&rdquo; code that has a <code>javascript:</code> URL protocol
-prefix and should be shorter. The <code>void'x.y.z'</code> at the end the
-bookmarklet URL code serves two purposes.</p>
+<p>The <code>src/</code> directory has human readable JavaScript, written in a way to
+facilitate testing. The <code>web/</code> directory has &ldquo;uglified&rdquo; code that has a
+<code>javascript:</code> URL protocol prefix and should be shorter. The <code>void'x.y.z'</code> at
+the end the bookmarklet URL code serves two purposes.</p>
 
 <ol>
 <li>It prevents the browser from navigating to another page when the bookmark
 is used.</li>
-<li>It is a convenient place to embed a string indicating the
-<code>semver</code> version of the bookmark.</li>
+<li>It is a convenient place to embed a string indicating the <code>semver</code> version
+of the bookmark.</li>
 </ol>
 
 
 <h2>Build</h2>
 
 <p>Clone the repository. If <code>node</code> is not installed go get it from
-<a href="http://nodejs.org/">nodejs.org</a>. Finally change to the
-<code>OpenInlets</code> directory and install the dependencies into the
-project before invoking <code>grunt</code>.</p>
+<a href="http://nodejs.org/">nodejs.org</a>. Finally change to the <code>OpenInlets</code> directory and install
+the dependencies into the project before invoking <code>grunt</code>.</p>
 
 <pre><code class="bash">git clone https://github.com/mobilemind/OpenInlets.git
 cd OpenInlets
@@ -217,12 +205,9 @@ npm install
 grunt</code></pre>
 
 
-<p>Note that <a href="http://nodejs.org/">nodejs</a> and
-<a href="https://npmjs.org/">npm</a> are required. The lines above will
-install <a href="http://gruntjs.com/">grunt</a>,
-<a href="https://npmjs.org/package/js2uri">js2uri</a>, and other dependencies
-defined in <code>package.json</code>. You can update dependencies using
-<code>npm update</code> at any time or just invoke <code>grunt</code> to
+<p>Note that <a href="http://nodejs.org/">nodejs</a> and <a href="https://npmjs.org/">npm</a> are required. The lines above will install
+<a href="http://gruntjs.com/">grunt</a>, <a href="https://npmjs.org/package/js2uri">js2uri</a>, and other dependencies defined in <code>package.json</code>. You can
+update dependencies using <code>npm update</code> at any time or just invoke <code>grunt</code> to
 re-build OpenInlets <code>web/</code> directory.</p>
 
 <h2>URL Scheme Notes (References)</h2>
@@ -231,103 +216,90 @@ re-build OpenInlets <code>web/</code> directory.</p>
 using a URL protocol scheme.</p>
 
 <ul>
-<li><strong>IsItAws</strong> - Does <em>not</em> use a URL protocol scheme.
-Rather it uses the lambda <a href="https://isitonaws.com/">IsItOnAWS.com</a>
-functions created by Tim Bray. For details, see
+<li><strong>IsItAws</strong> - Does <em>not</em> use a URL protocol scheme. Rather it uses the
+lambda <a href="https://isitonaws.com/">IsItOnAWS.com</a> functions created by Tim Bray. For details, see
 <a href="https://aws.amazon.com/blogs/aws/is-it-on-aws-domain-identification-using-aws-lambda/">Is it on AWS? Domain Identification Using AWS Lambda</a>.</li>
-<li><strong>KillStickyHeaders</strong> - Does <em>not</em> use a URL protocol
-scheme. Removes HTML child elements of <code>&lt;body&gt;</code> that have a
-fixed position. See
+<li><strong>KillStickyHeaders</strong> - Does <em>not</em> use a URL protocol scheme. Removes HTML
+child elements of <code>&lt;body&gt;</code> that have a fixed position. See
 <a href="https://alisdair.mcdiarmid.org/kill-sticky-headers/">Kill sticky headers</a>.</li>
-<li><strong>ModifySupportUrl</strong> - Does <em>not</em> use a URL protocol
-scheme. Displays an alert with a transformed Apple SUpport page URL and
-Markdown links.</li>
-<li><strong>OpenIn1Password</strong> - Uses the <code>ophttp://</code> or
-<code>ophttps://</code> URL protocol scheme for 1Password. See the subheading
-<a href="http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/">Open URLs externally</a> for details.</li>
-<li><strong>OpenInBrave</strong> - Uses the <code>brave://open-url?url=</code>
-scheme for the Brave app on iOS.</li>
-<li><strong>OpenInFirefox</strong> <em>and</em>
-<strong>OpenInFirefox-Private</strong> - Uses the
-<code>firefox://open-url?url=</code> scheme for the Firefox app on iOS. The
-&ldquo;Private&rdquo; version appends <code>&amp;private=true</code> after the
+<li><strong>ModifySupportUrl</strong> - Does <em>not</em> use a URL protocol scheme. Displays an
+alert with a transformed Apple SUpport page URL and Markdown links.</li>
+<li><strong>OpenIn1Password</strong> - Uses the <del><code>ophttps://</code></del>  <code>onepassword://</code> URL
+protocol scheme for 1Password. As of August 2022, this seems deprecated and
+may not continue to work.</li>
+<li><strong>OpenInBrave</strong> - Uses the <code>brave://open-url?url=</code> scheme for the Brave app
+on iOS.</li>
+<li><strong>OpenInFirefox</strong> <em>and</em> <strong>OpenInFirefox-Private</strong> - Uses the
+<code>firefox://open-url?url=</code> scheme for the Firefox app on iOS. The &ldquo;Private&rdquo;
+version appends <code>&amp;private=true</code> after the target url for private browsing.</li>
+<li><strong>OpenInFirefox-Focus</strong> - Uses the <code>firefox-focus://open-url?url=</code> scheme
+for the Firefox Focus app on iOS, with <code>&amp;private=true</code> appended to the
 target url for private browsing.</li>
-<li><strong>OpenInFirefox-Focus</strong> - Uses the
-<code>firefox-focus://open-url?url=</code> scheme for the Firefox Focus app on
-iOS, with <code>&amp;private=true</code> appended to the target url for
-private browsing.</li>
-<li><strong>OpenInGoodReader</strong> - Uses the <code>grhttp://</code> or
-<code>grhttps://</code> URL protocol scheme for GoodReader. See
-<a href="http://www.goodreader.com/gr-man-howto.html#ghttp">GoodReader URL Scheme</a>.</li>
-<li><strong>OpenInGoogleChrome</strong> - Uses the
-<code>googlechrome://</code> or <code>googlechromes://</code> scheme for the
-Google Chrome app on iOS. Formerly documented at
+<li><strong>OpenInGoodReader</strong> - Uses the <code>grhttp://</code> or <code>grhttps://</code> URL protocol
+scheme for GoodReader. See <a href="http://www.goodreader.com/gr-man-howto.html#ghttp">GoodReader URL Scheme</a>.</li>
+<li><strong>OpenInGoogleChrome</strong> - Uses the <code>googlechrome://</code> or <code>googlechromes://</code>
+scheme for the Google Chrome app on iOS. Formerly documented at
 <code>https://developer.chrome.com/multidevice/ios/links</code>.</li>
-<li><strong>OpenInGoogleMaps</strong> - Uses the <code>comgooglemaps://</code>
-protocol scheme for the Google Maps app on iOS. See
-<a href="https://developers.google.com/maps/documentation/ios/urlscheme">Google Maps URL Scheme</a>
+<li><strong>OpenInGoogleMaps</strong> - Uses the <code>comgooglemaps://</code> protocol scheme for the
+Google Maps app on iOS. See <a href="https://developers.google.com/maps/documentation/ios/urlscheme">Google Maps URL Scheme</a>
 for details.</li>
-<li><strong>OpenInTextastic</strong> - Uses the <code>textastic://</code>
-protocol scheme of the Textastic app on iOS. For details, see
+<li><strong>OpenInTextastic</strong> - Uses the <code>textastic://</code> protocol scheme of the
+Textastic app on iOS. For details, see
 <a href="https://www.textasticapp.com/v4/manual/x-callback-url.html#downloadusingthetextastic:scheme">Textastic x-callback-url API</a>.</li>
-<li><strong>OpenInWorkingCopy</strong> - Uses the
-<code>working-copy://show?remote=/</code> (&ldquo;show&rdquo;) URL protocol
-scheme for Working Copy. See the subheading
+<li><strong>OpenInWorkingCopy</strong> - Uses the <code>working-copy://show?remote=/</code> (&ldquo;show&rdquo;)
+URL protocol scheme for Working Copy. See the subheading
 <a href="https://workingcopyapp.com/url-schemes.html">URL Schemes in Working Copy</a> for details.</li>
-<li><strong>OpenURLParam</strong> - Work-around for blocked navigation from
-certain ad or tracking blockers. If the current URL contains a parameter in
-the form of <code>url=...</code> this bookmarklet will parse the
-<code>url</code> parameter and navigate to that URL.</li>
-<li><strong>SearchIn1Password</strong> - Uses
-<code>onepassword4://search/</code> with the current domain appended to
-trigger a 1Password search. See the subheading
-<a href="http://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/">Open URLs externally</a> for details.</li>
-<li><strong>UtmStrip</strong> -  Strips off the UTM query string elements of
-the current URL. Based on
-<a href="https://gist.github.com/kiding/589242021df49eb17be3/">safari-utm-stripper Bookmarklet</a>.
-NOTE: UtmStrip now borrows heavily from patterns provided by
-<a href="https://github.com/Smile4ever/Neat-URL/">Firefox Extension Neat URL</a></li>
+<li><strong>OpenURLParam</strong> - Work-around for blocked navigation from certain ad or
+tracking blockers. If the current URL contains a parameter in the form of
+<code>url=...</code> this bookmarklet will parse the <code>url</code> parameter and navigate to
+that URL.</li>
+<li><strong>SearchIn1Password</strong> - Uses <code>onepassword://search/</code> with the current
+domain appended to trigger a 1Password search. As of August 2022, this seems
+deprecated and may not continue to work.</li>
+<li><strong>UtmStrip</strong> -  Strips off the UTM query string elements of the current URL.
+Based on <a href="https://gist.github.com/kiding/589242021df49eb17be3/">safari-utm-stripper Bookmarklet</a>.
+NOTE: UtmStrip now borrows heavily from patterns provided by <a href="https://github.com/Smile4ever/Neat-URL/">Firefox
+Extension Neat URL</a></li>
 </ul>
 
 
 <h2>Version Notes</h2>
 
+<p>2.8.0 bump to node 18.8+</p>
+
+<p>2.7.9 Update 1Password bookmarklets and Mobile browser install links.</p>
+
 <p>2.7.7 Drop OpenInDolphin, OpenInOpera</p>
 
 <p>2.7.5 Drop Url2DocLink, WindowResize, WindowSize; Tighten UrlEncoding</p>
 
-<p>2.7.0 Remove bookmarklets for discontinued apps (Blogsy, CodeBucket,
-CodeHub, iOctocat)</p>
+<p>2.7.0 Remove bookmarklets for discontinued apps (Blogsy, CodeBucket, CodeHub,
+iOctocat)</p>
 
 <p>2.6.1 bump to node 16.7+</p>
 
 <p>2.6.0 switch to node 16</p>
 
-<p>2.4.3 Create <code>preflight</code> script for build &amp; move static
-checks there; bump version</p>
+<p>2.4.3 Create <code>preflight</code> script for build &amp; move static checks there; bump
+version</p>
 
 <p>2.4.2 UtmStrip updated to remove common email hash (eid) parameter</p>
 
-<p>2.4.1 UtmStrip streamlined for Google Analytics &amp; Youtube; added
-Matomo</p>
+<p>2.4.1 UtmStrip streamlined for Google Analytics &amp; Youtube; added Matomo</p>
 
 <p>2.3.2 adds &ldquo;OpenURLParam&rdquo;</p>
 
 <p>2.3.1 drops &ldquo;LoginESA&rdquo;</p>
 
-<p>2.3.0  significant updates to utmstrip; update utmstrip &amp; overall
-version</p>
+<p>2.3.0  significant updates to utmstrip; update utmstrip &amp; overall version</p>
 
-<p>2.2.0  Adds &ldquo;LoginESA&rdquo; for WiFi login; Updates source indent to
-4 spaces.</p>
+<p>2.2.0  Adds &ldquo;LoginESA&rdquo; for WiFi login; Updates source indent to 4 spaces.</p>
 
-<p>2.1.5  Adds &ldquo;OpenIn..&rdquo; for Firefox in Private mode and for the
-Firefox Focus
+<p>2.1.5  Adds &ldquo;OpenIn..&rdquo; for Firefox in Private mode and for the Firefox Focus
 iOS app.</p>
 
-<p>2.1.0  Adds &ldquo;OpenIn..&rdquo; for Brave, Dolphin, Opera, and
-Textastic. Use encodeURIComponent for parameters to Firefox, Opera and
-WorkingCopy URLs.</p>
+<p>2.1.0  Adds &ldquo;OpenIn..&rdquo; for Brave, Dolphin, Opera, and Textastic. Use
+encodeURIComponent for parameters to Firefox, Opera and WorkingCopy URLs.</p>
 
 <p>2.0.0  Remove Blogsy; Enhance OpenInGoogleMaps; Prefer concatenation; Bump
 version</p>
@@ -337,41 +309,39 @@ version</p>
 <p>1.8.1  restore curly brackets in bookmarklet source; improve URI encoding;
 automate updates to <code>README.md</code> links/bookmarks; Bump version</p>
 
-<p>1.7.0  use arrow-functions closures where needed &amp; remove other
-closures; new build process and encoding; Bump version</p>
+<p>1.7.0  use arrow-functions closures where needed &amp; remove other closures; new
+build process and encoding; Bump version</p>
 
 <p>1.6.0  Add KillStickyHeaders bookmarklet; Bump version</p>
 
-<p>1.5.1  Update OpenIniOctcat to work with Github gists; cleanup eslint
-warnings and uglify-js option</p>
+<p>1.5.1  Update OpenIniOctcat to work with Github gists; cleanup eslint warnings
+and uglify-js option</p>
 
-<p>1.5.0  Add OpenInCodeBucket &amp; OpenInCodeHub; bump version of
-OpenInWorkingCopy and overall version</p>
+<p>1.5.0  Add OpenInCodeBucket &amp; OpenInCodeHub; bump version of OpenInWorkingCopy
+and overall version</p>
 
 <p>1.4.1  Added OpenInWorkingCopy and bumped overall version</p>
 
 <p>1.3.1: Added OpenInFirefox and bumped version</p>
 
-<p>1.3.0: Added IsItAws and bumped overall version as this is significant
-change</p>
+<p>1.3.0: Added IsItAws and bumped overall version as this is significant change</p>
 
-<p>1.2.0: overall package # bumped due to significant ES6/eslint driven
-changes</p>
+<p>1.2.0: overall package # bumped due to significant ES6/eslint driven changes</p>
 
 <p>1.1.1: update package.json to use- node: >6.0, grunt: >1.0,
 grunt-contrib-uglify >=2.0 (reduces size of output); bump semver</p>
 
-<p>1.1.0: update to LTS versions of <code>node</code>; use
-<code>grunt-contrib-...</code> >= 1.0.0; bump semver</p>
+<p>1.1.0: update to LTS versions of <code>node</code>; use <code>grunt-contrib-...</code> >= 1.0.0;
+bump semver</p>
 
-<p>1.0.0: September 19, 2015 - update package.json to use
-<code>node: "&gt;=0.12.0"</code>; baseline semver to 1.0.0</p>
+<p>1.0.0: September 19, 2015 - update package.json to use <code>node: "&gt;=0.12.0"</code>;
+baseline semver to 1.0.0</p>
 
-<p>0.0.15: August 2, 2015 - update build dependencies and README, no
-functional changes</p>
+<p>0.0.15: August 2, 2015 - update build dependencies and README, no functional
+changes</p>
 
-<p>0.0.10: January 22, 2015 - update to <code>grunt-contrib-jshint</code>
-0.11.x; add some stricter checks</p>
+<p>0.0.10: January 22, 2015 - update to <code>grunt-contrib-jshint</code> 0.11.x; add some
+stricter checks</p>
 
 <p>0.0.8: August 19, 2014 - Add OpenInGoogleChrome; update version</p>
 
@@ -379,27 +349,27 @@ functional changes</p>
 
 <p>0.0.6: August 18, 2014 - Add OpenInBlogsy; update version</p>
 
-<p>0.0.3: August 10, 2014 - Refactor Gruntfile.js for efficiency &amp;
-&lsquo;DRY&rsquo;; add package.json keywords; add OpenIniOctocat</p>
+<p>0.0.3: August 10, 2014 - Refactor Gruntfile.js for efficiency &amp; &lsquo;DRY&rsquo;; add
+package.json keywords; add OpenIniOctocat</p>
 
 <p>0.0.2: August 8, 2014 - Bookmarklets have individual version numbers that
 update</p>
 
-<p>0.0.1: July 28, 2014 - Bookmarklets build via <code>grunt</code>,
-<code>grunt deploy</code> updates <code>README.md</code>, version numbers not
-updating</p>
+<p>0.0.1: July 28, 2014 - Bookmarklets build via <code>grunt</code>, <code>grunt deploy</code> updates
+<code>README.md</code>, version numbers not updating</p>
 
-<p>0.0.0: July 22, 2014 - Initial commit, smushing together multiple
-bookmarklet repos I had; doesn&rsquo;t build yet</p>
+<p>0.0.0: July 22, 2014 - Initial commit, smushing together multiple bookmarklet
+repos I had; doesn&rsquo;t build yet</p>
+
 
 <p>&ldquo;safari-utm-stripper Bookmarklet&rdquo;
-&ldquo;Agile Bits: 1Password URL Scheme&rdquo;
 &ldquo;GoodReader:How do I save a file from Safari to GoodReader?&rdquo;
 &ldquo;Google Developers:Google Maps URL Scheme&rdquo;
 &ldquo;Download using the textastic:// scheme&rdquo;
 &ldquo;URL Schemes in Working Copy&rdquo;</p>
 <!-- ##END MARKED WRAPPER## -->
     </div>
+
 
 
 <div style="display:none" markdown="0">
