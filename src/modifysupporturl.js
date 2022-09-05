@@ -69,5 +69,5 @@
     }
     // show original title & url, heading if selected, and then modified url & markdown
     /* eslint-disable-next-line no-ternary, multiline-ternary */
-    alert(`${document.title}\nURL:\n${url}\n${heading !== '' && subid !== '' ? '\nSelected Heading:\n' + heading + '\n' : ''}\nModified URL:\n${result}\n\nMarkdown link:\n[${linktext}](${result})`);
+    alert(document.title + '\n\n' + url + '\n' + (heading !== '' && subid !== '' ? '\nSelected Heading:\n' + heading + '\n' : '') + '\nModified URL:\n' + result + '\n\nMarkdown link:\n[' + linktext + '](' + result + ')');
 })();
