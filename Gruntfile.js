@@ -12,7 +12,7 @@ module.exports = function(grunt) {
             },
             "ModifySupportUrl": {
                 "file": "modifysupporturl.js",
-                "version": "1.2.3"
+                "version": "1.2.4"
             },
             "OpenIn1Password": {
                 "file": "openin1password.js",
