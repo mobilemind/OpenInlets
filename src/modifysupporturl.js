@@ -18,6 +18,8 @@
         result = url,
         subid = '';
 
+    // another suffix change
+    linktext = document.title.replace(/ - Apple( Developer)?$/, '');
     // handle general support doc URLs
     if (lang.test(path)) {
         // replace language-locale with '/'
