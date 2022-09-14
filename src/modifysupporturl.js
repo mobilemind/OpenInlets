@@ -19,7 +19,7 @@
         subid = '';
 
     // another suffix change
-    linktext = linktext.replace(/ - Apple( Developer)?$/, '');
+    linktext = document.title.replace(/ - Apple( Developer)?$/, '');
     // handle general support doc URLs
     if (lang.test(path)) {
         // replace language-locale with '/'
