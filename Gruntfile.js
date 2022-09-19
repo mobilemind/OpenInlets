@@ -62,6 +62,10 @@ module.exports = function(grunt) {
                 "file": "searchin1password.js",
                 "version": "1.5.0"
             },
+            "SupportLinkUtil": {
+                "file": "supportlinkutil.js",
+                "version": "1.2.6"
+            },
             "UtmStrip": {
                 "file": "utmstrip.js",
                 "version": "1.6.1"
