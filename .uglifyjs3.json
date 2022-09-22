@@ -1,7 +1,6 @@
 {
     "compress": {
       "drop_console": true,
-      "expression": true,
       "passes": 2,
       "unsafe": true,
       "unsafe_comps": true,
@@ -18,6 +17,5 @@
       "quote_style": 1
     },
     "toplevel": true,
-    "warnings": true,
-    "webkit": true
+    "warnings": true
 }

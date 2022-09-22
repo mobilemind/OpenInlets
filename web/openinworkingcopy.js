@@ -1,1 +1,1 @@
-javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent)%26%26('bitbucket.org'==location.host%7C%7C'github.com'==location.host))location.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0%2C5).join('/'))+'.git'%3Bvoid'1.5.0'
+javascript:!/iP(.d%7Chone)/.test(navigator.userAgent)%7C%7C'bitbucket.org'!=location.host%26%26'github.com'!=location.host%7C%7C(location.href='working-copy://show?remote='+encodeURIComponent(location.href.split('/').slice(0%2C5).join('/'))+'.git')%3Bvoid'1.5.1'

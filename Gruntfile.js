@@ -8,11 +8,11 @@ module.exports = function(grunt) {
             },
             "KillStickyHeaders": {
                 "file": "killStickyHeaders.js",
-                "version": "1.2.0"
+                "version": "1.2.1"
             },
             "ModifySupportUrl": {
                 "file": "modifysupporturl.js",
-                "version": "1.2.5"
+                "version": "1.2.6"
             },
             "OpenIn1Password": {
                 "file": "openin1password.js",
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
             },
             "OpenInWorkingCopy": {
                 "file": "openinworkingcopy.js",
-                "version": "1.5.0"
+                "version": "1.5.1"
             },
             "OpenURLParam": {
                 "file": "openurlparam.js",
@@ -64,15 +64,15 @@ module.exports = function(grunt) {
             },
             "SupportLinkUtil": {
                 "file": "supportlinkutil.js",
-                "version": "1.2.6"
+                "version": "1.2.7"
             },
             "UtmStrip": {
                 "file": "utmstrip.js",
-                "version": "1.6.1"
+                "version": "1.6.2"
             },
             "docLinker": {
                 "file": "doclinker.js",
-                "version": "1.0.0"
+                "version": "1.0.1"
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
