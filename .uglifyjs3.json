@@ -10,16 +10,14 @@
       "unsafe_undefined": true
     },
     "mangle": {
-      "toplevel": true,
-      "properties": false
+      "toplevel": true
     },
     "output": {
       "beautify": false,
-      "ie": false,
       "indent_level": 0,
       "quote_style": 1
     },
-    "parse": {},
     "toplevel": true,
-    "warnings": true
+    "warnings": true,
+    "webkit": true
 }
