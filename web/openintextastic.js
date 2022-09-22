@@ -1,1 +1,1 @@
-javascript:/iP(.d%7Chone)/.test(navigator.userAgent)%26%26(location.href=location.href.replace(/%5Ehttps?/%2C'textastic'))%3Bvoid'1.0.0'
+javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href=location.href.replace(/%5Ehttps?/%2C'textastic')%3Bvoid'1.0.0'

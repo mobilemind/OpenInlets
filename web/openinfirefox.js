@@ -1,1 +1,1 @@
-javascript:/iP(.d%7Chone)/.test(navigator.userAgent)%26%26(location.href='firefox://open-url?url='+encodeURIComponent(location.href))%3Bvoid'1.5.0'
+javascript:if(/iP(.d%7Chone)/.test(navigator.userAgent))location.href='firefox://open-url?url='+encodeURIComponent(location.href)%3Bvoid'1.5.0'
