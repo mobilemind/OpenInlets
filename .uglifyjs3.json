@@ -17,7 +17,7 @@
       "indent_level": 0,
       "quote_style": 1
     },
-    "parse": {},
     "toplevel": true,
-    "warnings": true
+    "warnings": true,
+    "webkit" : true
 }

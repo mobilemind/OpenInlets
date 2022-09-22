@@ -240,7 +240,9 @@ alert with a transformed Apple SUpport page URL and Markdown links. Simpler
 
 ## Version Notes
 
-2.8.1 update .uglifyjs3.json for latest uglifyjs, add docLinker
+2.8.2 add docLinker
+
+2.8.1 update .uglifyjs3.json for latest uglifyjs republish w/new compresion
 
 2.8.0 bump to node 18.8+
 
