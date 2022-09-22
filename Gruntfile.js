@@ -69,10 +69,14 @@ module.exports = function(grunt) {
             "UtmStrip": {
                 "file": "utmstrip.js",
                 "version": "1.6.1"
+            },
+            "docLinker": {
+                "file": "doclinker.js",
+                "version": "1.0.0"
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
-        "shell": {"uglify_es": {"command": "for OJS in src/*.js; do npx uglifyjs --config-file .uglifyjs3.json --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}}
+        "shell": {"uglify_es": {"command": "for OJS in src/*.js; do npx uglifyjs -c --config-file .uglifyjs3.json --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}}
     });
 
     // Load plugins
