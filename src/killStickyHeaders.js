@@ -4,7 +4,7 @@
     let elements = document.querySelectorAll('body *'),
         i = 0;
     for (i = 0; i < elements.length; i++) {
-        if ('fixed' === getComputedStyle(elements[i]).position) {
+        if ('fixed' == getComputedStyle(elements[i]).position) {
             elements[i].parentNode.removeChild(elements[i]);
         }
     }
