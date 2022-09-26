@@ -10,10 +10,6 @@ module.exports = function(grunt) {
                 "file": "killStickyHeaders.js",
                 "version": "1.2.1"
             },
-            "ModifySupportUrl": {
-                "file": "modifysupporturl.js",
-                "version": "1.2.6"
-            },
             "OpenIn1Password": {
                 "file": "openin1password.js",
                 "version": "1.6.1"
@@ -62,17 +58,9 @@ module.exports = function(grunt) {
                 "file": "searchin1password.js",
                 "version": "1.5.1"
             },
-            "SupportLinkUtil": {
-                "file": "supportlinkutil.js",
-                "version": "1.2.7"
-            },
             "UtmStrip": {
                 "file": "utmstrip.js",
                 "version": "1.6.2"
-            },
-            "docLinker": {
-                "file": "doclinker.js",
-                "version": "1.0.1"
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
