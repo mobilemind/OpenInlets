@@ -4,75 +4,75 @@ module.exports = function(grunt) {
         "buildbookmarklet": {
             "IsItAws": {
                 "file": "isitaws.js",
-                "version": "1.3.2"
+                "version": "1.3.3"
             },
             "KillStickyHeaders": {
                 "file": "killStickyHeaders.js",
-                "version": "1.2.0"
+                "version": "1.2.1"
             },
             "ModifySupportUrl": {
                 "file": "modifysupporturl.js",
-                "version": "1.2.5"
+                "version": "1.2.6"
             },
             "OpenIn1Password": {
                 "file": "openin1password.js",
-                "version": "1.6.0"
+                "version": "1.6.1"
             },
             "OpenInBrave": {
                 "file": "openinbrave.js",
-                "version": "1.0.1"
+                "version": "1.0.2"
             },
             "OpenInFirefox": {
                 "file": "openinfirefox.js",
-                "version": "1.5.0"
+                "version": "1.5.1"
             },
             "OpenInFirefox-Focus": {
                 "file": "openinfirefox-focus.js",
-                "version": "1.0.0"
+                "version": "1.0.1"
             },
             "OpenInFirefox-Private": {
                 "file": "openinfirefox-private.js",
-                "version": "1.0.0"
+                "version": "1.0.1"
             },
             "OpenInGoodReader": {
                 "file": "openingoodreader.js",
-                "version": "1.5.1"
+                "version": "1.5.2"
             },
             "OpenInGoogleChrome": {
                 "file": "openingooglechrome.js",
-                "version": "1.4.0"
+                "version": "1.4.1"
             },
             "OpenInGoogleMaps": {
                 "file": "openingooglemaps.js",
-                "version": "2.2.0"
+                "version": "2.2.1"
             },
             "OpenInTextastic": {
                 "file": "openintextastic.js",
-                "version": "1.0.0"
+                "version": "1.0.1"
             },
             "OpenInWorkingCopy": {
                 "file": "openinworkingcopy.js",
-                "version": "1.5.0"
+                "version": "1.5.1"
             },
             "OpenURLParam": {
                 "file": "openurlparam.js",
-                "version": "1.0.0"
+                "version": "1.0.1"
             },
             "SearchIn1Password": {
                 "file": "searchin1password.js",
-                "version": "1.5.0"
+                "version": "1.5.1"
             },
             "SupportLinkUtil": {
                 "file": "supportlinkutil.js",
-                "version": "1.2.6"
+                "version": "1.2.7"
             },
             "UtmStrip": {
                 "file": "utmstrip.js",
-                "version": "1.6.1"
+                "version": "1.6.2"
             },
             "docLinker": {
                 "file": "doclinker.js",
-                "version": "1.0.0"
+                "version": "1.0.1"
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
@@ -103,17 +103,13 @@ module.exports = function(grunt) {
             const origFile = `src/${this.data.file}`,
                 thisFile = `web/${this.data.file}`;
             let theCode = readOrFail(thisFile);
-            // minimal URL encoding for javascript: URL (and '*' as %2A)
             theCode = `${theCode}void'${this.data.version}'`;
+            // URL encoding for javascript: URL avoids RegEx & HTML issues
+            // with things like: "$&*+/<>?[]\^; also force encode '*' as %2A
             theCode = `javascript:${encodeURIComponent(theCode).replace(/\*/g, "%2A")}`;
-            // encoding tricks like %3F -> ?, %3D -> =, %2F -> /
-            theCode = theCode.replace(/%2B/g, "+");
-            theCode = theCode.replace(/%2F/g, "/");
+            // un-encode a couple of generally safe chars for URLs
             theCode = theCode.replace(/%3A/g, ":");
             theCode = theCode.replace(/%3D/g, "=");
-            theCode = theCode.replace(/%3F/g, "?");
-            theCode = theCode.replace(/%7B/g, "{");
-            theCode = theCode.replace(/%7D/g, "}");
             grunt.file.write(thisFile, theCode);
             // output some stats
             grunt.log.writeln(`${this.target} v${this.data.version}`);
@@ -132,19 +128,13 @@ module.exports = function(grunt) {
         targetName
     ) {
         let retVal = null;
-        // fail early if there's no match
-        if (!readMeString.match(oldStrRegEx)) {
-            grunt.fail.fatal(`Can't find ${targetKind} references for ${targetName} using /${oldStrRegEx}/`);
-        } else if ("UtmStrip" === targetName && "``javascript:...``" === targetKind) {
-            retVal = readMeString.replace(oldStrRegEx, `[${targetName}] v${grunt.config.getRaw('buildbookmarklet.UtmStrip.version')} -PLACEHOLDER-`);
-            retVal = retVal.replace("-PLACEHOLDER-", newStr.substr(2));
-        } else if ("UtmStrip" === targetName && "javascript: URL" === targetKind) {
-            retVal = readMeString.replace(oldStrRegEx, `[${targetName}]: -PLACEHOLDER-`);
-            retVal = retVal.replace("-PLACEHOLDER-", newStr.substring(2, newStr.length - 2) +
-                ` "${targetName}"`);
-        } else {
+
+        if (readMeString.match(oldStrRegEx)) {
             // 'normal' case; bookmarklet doesn't have internal RegEx symbols
             retVal = readMeString.replace(oldStrRegEx, newStr);
+        } else {
+            // fail early if there's no match
+            grunt.fail.fatal(`Can't find ${targetKind} references for ${targetName} using /${oldStrRegEx}/`);
         }
         return retVal;
     };
