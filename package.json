@@ -19,7 +19,7 @@
   },
   "directories": {},
   "engines": {
-    "node": ">18.14.1"
+    "node": ">=20.0.0"
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
@@ -46,5 +46,5 @@
   "scripts": {
     "test": "npx grunt"
   },
-  "version": "2.9.2"
+  "version": "3.0.0"
 }

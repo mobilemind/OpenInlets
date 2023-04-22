@@ -217,6 +217,8 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+3.0.0 Switch to node 20 LTS release
+
 2.9.1 Regex & HTML safe URL encoding, drop deprecated utils
 
 2.8.2 add docLinker
