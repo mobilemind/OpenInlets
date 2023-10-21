@@ -10,6 +10,10 @@ module.exports = function(grunt) {
                 "file": "killStickyHeaders.js",
                 "version": "1.2.1"
             },
+            "Linklighter": {
+                "file": "linklighter.js",
+                "version": "1.0.0"
+            },
             "OpenIn1Password": {
                 "file": "openin1password.js",
                 "version": "1.6.1"
