@@ -1,63 +1,59 @@
-// Linklighter - generate a link that highlights a selected text fragment when
-//   opened in a modern browser. After showing an alert, it opens a new window
-//   that should show the effect.
+// Linklighter - use current text selection on a web page to generate a URL
+// that highlights the selected text when opened in a modern browser.
+// If a new URL is generated, open it in a new window to preview the highlight
 
 (() => {
-    const docloc = document.location,
-        doctitle = document.title,
-        textFrag = window.getSelection().toString(),
+    const textFrag = window.getSelection().toString(),
         textFragLen = textFrag.length,
-        url = docloc.href;
-    let hashpos = url.indexOf('#'),
-        result = url;
+        url = document.location.href;
+    let newUrl = url,
+        strPos = url.indexOf('#');
 
-    // trim off named anchor
-    if (hashpos > -1) {
-        result = result.substring(0, hashpos);
-    }
-
-    // use selection to set text fragment or subfragments for start,end
+    // reset selection
+    window.getSelection().empty();
+    // use text fragment or split it into subfragments
     if (textFrag && '' != textFrag) {
-        let subLen = 0;
-        result += '#:~:text=';
+        // trim named anchor off of end of url
+        if (strPos > -1) {
+            newUrl = newUrl.substring(0, strPos);
+        }
+        // append 1st part of suffix
+        newUrl += '#:~:text=';
         if (textFragLen < 80) {
-            result += encodeURIComponent(textFrag);
+            // append selection as a single fragment
+            newUrl += encodeURIComponent(textFrag);
         } else {
+            // sub-fragment default length is < 1/2 selection length
+            let subLen = ~~((textFragLen / 2) - 2);
             if (textFragLen > 150) {
-                subLen = 60;
+                subLen = 48;
             } else if (textFragLen > 100) {
                 subLen = ~~(textFragLen / 3);
-            } else {
-                subLen = ~~((textFragLen / 2) - 2);
             }
+            // create start & end subfragments of selection
             let subFrag = [encodeURIComponent(textFrag.substring(0, subLen)),
                 encodeURIComponent(textFrag.substr(textFragLen - subLen))];
-            // trim start string by truncating at last space
-            hashpos = subFrag[0].lastIndexOf('%20');
-            if (hashpos > -1) {
-                subFrag[0] = subFrag[0].substring(0, hashpos);
+            // trim start string- truncate at last space
+            strPos = subFrag[0].lastIndexOf('%20');
+            if (strPos > -1) {
+                subFrag[0] = subFrag[0].substring(0, strPos);
             }
-            // trim end string by cutting off text before first space
-            hashpos = subFrag[1].indexOf('%20');
-            if (hashpos > -1) {
-                subFrag[1] = subFrag[1].substr(hashpos + 3);
+            // trim end string- drop text before first space
+            strPos = subFrag[1].indexOf('%20');
+            if (strPos > -1) {
+                subFrag[1] = subFrag[1].substr(strPos + 3);
             }
-            // join start & end
-            result += subFrag.join();
+            // append selection as start & end subfragments
+            newUrl += subFrag.join();
         }
-        // clean-up trailing %0A or %20, and any leading double-hash, just in case
-        result = result.replace((/%0A$/), '');
-        result = result.replace((/%20$/), '');
-        result = result.replace('##:~:text=', '#:~:text=');
-    } else {
-        // warn if no selection & defaulting to top of page link
-        alert('Unable to link directly to selection. Link will be to top of page.');
+        // clean-up trailing %0A (newline) or %20 (space)
+        // and any leading double-hash, just in case
+        newUrl = newUrl.replace((/%0A$/), '');
+        newUrl = newUrl.replace((/%20$/), '');
+        newUrl = newUrl.replace('##:~:text=', '#:~:text=');
     }
-
-    // page title & url, selection to highlight, and URL with Markdown
-    alert(`${doctitle}\n${url}\n${textFrag && '' != textFrag ? `\nText fragment to highlight\n${textFrag}\n` : ''}\nModified URL:\n${result}\n\nMarkdown link:\n[${doctitle}](${result})`);
-    window.getSelection().empty();
-    // open in new window # or try window.open(result, '_blank', 'noreferrer');
-    window.open(result, '_blank').opener = null;
-
+    if (newUrl != url) {
+        // open in new window # or try window.open(newUrl, '_blank', 'noreferrer');
+        window.open(newUrl, '_blank').opener = null;
+    }
 })();
