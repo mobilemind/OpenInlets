@@ -9,11 +9,22 @@ typically from iOS Mobile Safari to an iOS app.
 [![NodeJS with Grunt](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1db800475a4744c68fe643a84a4454f4)](https://www.codacy.com/gh/mobilemind/OpenInlets/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mobilemind/OpenInlets&amp;utm_campaign=Badge_Grade)
 
+__deLighter__: Effectively de-highlights any highlighted text fragment on the
+current page. If the current URL includes a hash, which can imply a text
+fragment highlight, then trim off the portion after the hash ('#') and reload
+the page to de-highlight it. (Companion to Linklighter bookmarklet, below.)
+
 __IsItAws__: Check the current page host to determine if it runs on AWS.<br/>
 _NOTE:_ This also works with Safari and Firefox on macOS, and most browsers on
 desktop platforms.
 
 __KillStickyHeaders__: Find & delete all fixed position elements of body
+
+__Linklighter__: Use the current text selection on the active web page to
+generate a URL that will highlight the selected text when opened in a modern
+browser. If a new URL is generated, Linklighter will open it in a new window
+to preview the highlight. (See deLighter above, as a companion bookmarklet that
+un-highlights.)
 
 __OpenIn1Password__: Open 1Password using `onepassword://search` URL scheme
 that may be deprecated.
@@ -74,8 +85,10 @@ iCloud will sync the bookmarklet to iOS.
 
 #### JavaScript bookmarks
 
++ [deLighter] v1.0.0 ``javascript:if(~document.location.href.indexOf('#'))document.location.href=document.location.href.substring(0,document.location.href.indexOf('#'));void'1.0.0'``
 + [IsItAws] v1.3.3 ``javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3'``
 + [KillStickyHeaders] v1.2.1 ``javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1'``
++ [Linklighter] v1.0.0 ``href%3Blet%20n=e%2Ct=e.indexOf('%23')%3Bif(window.getSelection().empty()%2Co%26%26''!=o)%7Bif(-1%3Ct%26%26(n=n.substring(0%2Ct))%2Cn%2B='%23:~:text='%2Ci%3C80)n%2B=encodeURIComponent(o)%3Belse%7Blet%20e=~~(i%2F2-2)%3B150%3Ci%3Fe=48:100%3Ci%26%26(e=~~(i%2F3))%3Bo=%5BencodeURIComponent(o.substring(0%2Ce))%2CencodeURIComponent(o.substr(i-e))%5D%3B-1%3C(t=o%5B0%5D.lastIndexOf('%2520'))%26%26(o%5B0%5D=o%5B0%5D.substring(0%2Ct))%2C-1%3C(t=o%5B1%5D.indexOf('%2520'))%26%26(o%5B1%5D=o%5B1%5D.substr(3%2Bt))%2Cn%2B=o.join()%7Dn=(n=(n=n.replace(%2F%250A%24%2F%2C'')).replace(%2F%2520%24%2F%2C'')).replace('%23%23:~:text='%2C'%23:~:text=')%7Dvoid(n!=e%26%26(window.open(n%2C'_blank').opener=null))%7Dvoid'1.0.0'``
 + [OpenIn1Password] v1.6.1 ``javascript:location.href='onepassword:%2F%2Fsearch%2F'%3Bvoid'1.6.1'``
 + [OpenInBrave] v1.0.2 ``javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='brave:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.0.2'``
 + [OpenInFirefox] v1.5.1 ``javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.5.1'``
@@ -99,7 +112,9 @@ Tap a link below. Follow the instructions on the resulting page to turn the
 followed link into a bookmark for JavaScript bookmarklet.
 
 + __Mobile Safari setup link__ -- [Setup IsItAws] v1.3.3
++ __Mobile Safari setup link__ -- [Setup deLighter] v1.0.0
 + __Mobile Safari setup link__ -- [Setup KillStickyHeaders] v1.2.1
++ __Mobile Safari setup link__ -- [Setup Linklighter] v1.0.0
 + __Mobile Safari setup link__ -- [Setup OpenIn1Password] v1.6.1
 + __Mobile Safari setup link__ -- [Setup OpenInBrave] v1.0.2
 + __Mobile Safari setup link__ -- [Setup OpenInFirefox] v1.5.1
@@ -172,12 +187,24 @@ re-build OpenInlets `web/` directory.
 Each bookmarklet does some rudimentary check and then redirects to an app
 using a URL protocol scheme.
 
++ __deLighter__: Does _not_ use a URL protocol scheme. Checks the current URL
+  for a '#' and if found, truncates the URL there and reloads the page.
 + __IsItAws__ - Does _not_ use a URL protocol scheme. Rather it uses the
   lambda [IsItOnAWS.com] functions created by Tim Bray. For details, see
   [Is it on AWS? Domain Identification Using AWS Lambda][IsItOnAWS Blog Post].
 + __KillStickyHeaders__ - Does _not_ use a URL protocol scheme. Removes HTML
   child elements of `<body>` that have a fixed position. See
   [Kill sticky headers][Kill sticky headers].
++ __Linklighter__: Does _not_ use a URL protocol scheme. Uses JavaScript to
+  get the current selection and append a `#:~:text=…` string to the current
+  URL. Modern browsers interpret this and when opening such a URL, the browser
+  scroll to the first matching selection and highlight that text. Logic will
+  automatically use the full selection when its less than 80 characters, or
+  algorithmically split the text into a shorter "start" fragment and "end"
+  fragment. In that case the browser highlights from the first match of the
+  start fragment to the last character of the next match of the "end" fragment.
+  To learn more about text fragment highlighting and security considerations,
+  refer to [Text fragments][Text fragments].
 + __OpenIn1Password__ - Uses the ~~`ophttps://`~~  `onepassword://` URL
   protocol scheme for 1Password. As of August 2022, this seems deprecated and
   may not continue to work.
@@ -216,6 +243,8 @@ using a URL protocol scheme.
   Extension Neat URL][Neat URL]
 
 ## Version Notes
+
+3.1.0 add deLighter and Linklighter bookmarklets; bump to node 21.0+
 
 3.0.0 Switch to node 20 LTS release
 
@@ -323,8 +352,10 @@ repos I had; doesn't build yet
 
 <!--- JavaScript links -->
 
+[deLighter]: javascript:if(~document.location.href.indexOf('%23'))document.location.href=document.location.href.substring(0%2Cdocument.location.href.indexOf('%23'))%3Bvoid'1.0.0' "deLighter"
 [IsItAws]: javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3' "IsItAws"
 [KillStickyHeaders]: javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1' "KillStickyHeaders"
+[Linklighter]: href%3Blet%20n=e%2Ct=e.indexOf('%23')%3Bif(window.getSelection().empty()%2Co%26%26''!=o)%7Bif(-1%3Ct%26%26(n=n.substring(0%2Ct))%2Cn%2B='%23:~:text='%2Ci%3C80)n%2B=encodeURIComponent(o)%3Belse%7Blet%20e=~~(i%2F2-2)%3B150%3Ci%3Fe=48:100%3Ci%26%26(e=~~(i%2F3))%3Bo=%5BencodeURIComponent(o.substring(0%2Ce))%2CencodeURIComponent(o.substr(i-e))%5D%3B-1%3C(t=o%5B0%5D.lastIndexOf('%2520'))%26%26(o%5B0%5D=o%5B0%5D.substring(0%2Ct))%2C-1%3C(t=o%5B1%5D.indexOf('%2520'))%26%26(o%5B1%5D=o%5B1%5D.substr(3%2Bt))%2Cn%2B=o.join()%7Dn=(n=(n=n.replace(%2F%250A%24%2F%2C'')).replace(%2F%2520%24%2F%2C'')).replace('%23%23:~:text='%2C'%23:~:text=')%7Dvoid(n!=e%26%26(window.open(n%2C'_blank').opener=null))%7Dvoid'1.0.0' "Linklighter"
 [OpenIn1Password]: javascript:location.href='onepassword:%2F%2Fsearch%2F'%3Bvoid'1.6.1' "OpenIn1Password"
 [OpenInBrave]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='brave:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.0.2' "OpenInBrave"
 [OpenInFirefox]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.5.1' "OpenInFirefox"
@@ -341,8 +372,10 @@ repos I had; doesn't build yet
 
 <!--- Setup links -->
 
+[Setup deLighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(~document.location.href.indexOf('%23'))document.location.href=document.location.href.substring(0%2Cdocument.location.href.indexOf('%23'))%3Bvoid'1.0.0' "Setup deLighter"
 [Setup IsItAws]: https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3' "Setup IsItAws"
 [Setup KillStickyHeaders]: https://mobilemind.github.io/OpenInlets/x/#javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1' "Setup KillStickyHeaders"
+[Setup Linklighter]: javascript:%7Bvar%20o=window.getSelection().toString()%2Ci=o.length%2Ce=document.location.href%3Blet%20n=e%2Ct=e.indexOf('%23')%3Bif(window.getSelection().empty()%2Co%26%26''!=o)%7Bif(-1%3Ct%26%26(n=n.substring(0%2Ct))%2Cn%2B='%23:~:text='%2Ci%3C80)n%2B=encodeURIComponent(o)%3Belse%7Blet%20e=~~(i%2F2-2)%3B150%3Ci%3Fe=48:100%3Ci%26%26(e=~~(i%2F3))%3Bo=%5BencodeURIComponent(o.substring(0%2Ce))%2CencodeURIComponent(o.substr(i-e))%5D%3B-1%3C(t=o%5B0%5D.lastIndexOf('%2520'))%26%26(o%5B0%5D=o%5B0%5D.substring(0%2Ct))%2C-1%3C(t=o%5B1%5D.indexOf('%2520'))%26%26(o%5B1%5D=o%5B1%5D.substr(3%2Bt))%2Cn%2B=o.join()%7Dn=(n=(n=n.replace(%2F%250A%24%2F%2C'')).replace(%2F%2520%24%2F%2C'')).replace('%23%23:~:text='%2C'%23:~:text=')%7Dvoid(n!=e%26%26(window.open(n%2C'_blank').opener=null))%7Dvoid'1.0.0' "Setup Linklighter"
 [Setup OpenIn1Password]: https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='onepassword:%2F%2Fsearch%2F'%3Bvoid'1.6.1' "Setup OpenIn1Password"
 [Setup OpenInBrave]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='brave:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.0.2' "Setup OpenInBrave"
 [Setup OpenInFirefox]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.5.1' "Setup OpenInFirefox"
@@ -376,5 +409,6 @@ repos I had; doesn't build yet
 "Google Developers:Google Maps URL Scheme"
 [Textastic x-callback-url API]: https://www.textasticapp.com/v4/manual/x-callback-url.html#downloadusingthetextastic:scheme
 "Download using the textastic:// scheme"
+[Text fragments]: https://developer.mozilla.org/en-US/docs/Web/Text_fragments
 [Working Copy URL Scheme]: https://workingcopyapp.com/url-schemes.html
 "URL Schemes in Working Copy"

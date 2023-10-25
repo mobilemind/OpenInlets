@@ -1,0 +1,1 @@
+javascript:if(~document.location.href.indexOf('%23'))document.location.href=document.location.href.substring(0%2Cdocument.location.href.indexOf('%23'))%3Bvoid'1.0.0'
