@@ -245,14 +245,14 @@ re-build OpenInlets <code>web/</code> directory.</p>
 using a URL protocol scheme.</p>
 
 <ul>
+<li><strong>deLighter</strong> - Does not use a URL protocol scheme. Checks the current URL for a '#' and if found, truncates the URL there and reloads the page.</li>
 <li><strong>IsItAws</strong> - Does <em>not</em> use a URL protocol scheme. Rather it uses the
 lambda <a href="https://isitonaws.com/">IsItOnAWS.com</a> functions created by Tim Bray. For details, see
 <a href="https://aws.amazon.com/blogs/aws/is-it-on-aws-domain-identification-using-aws-lambda/">Is it on AWS? Domain Identification Using AWS Lambda</a>.</li>
 <li><strong>KillStickyHeaders</strong> - Does <em>not</em> use a URL protocol scheme. Removes HTML
 child elements of <code>&lt;body&gt;</code> that have a fixed position. See
 <a href="https://alisdair.mcdiarmid.org/kill-sticky-headers/">Kill sticky headers</a>.</li>
-<li><strong>ModifySupportUrl</strong> - Does <em>not</em> use a URL protocol scheme. Displays an
-alert with a transformed Apple SUpport page URL and Markdown links.</li>
+<li><strong>Linklighter</strong> - Does not use a URL protocol scheme. Uses JavaScript to get the current selection and append a #:~:text=… string to the current URL. Modern browsers interpret this and when opening such a URL, the browser scroll to the first matching selection and highlight that text. Logic will automatically use the full selection when its less than 80 characters, or algorithmically split the text into a shorter "start" fragment and "end" fragment. In that case the browser highlights from the first match of the start fragment to the last character of the next match of the "end" fragment. To learn more about text fragment highlighting and security considerations, refer to <a href="https://developer.mozilla.org/en-US/docs/Web/Text_fragments" title="Text fragments">Text fragments</a>.
 <li><strong>OpenIn1Password</strong> - Uses the <del><code>ophttps://</code></del>  <code>onepassword://</code> URL
 protocol scheme for 1Password. As of August 2022, this seems deprecated and
 may not continue to work.</li>
