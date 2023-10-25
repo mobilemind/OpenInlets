@@ -10,6 +10,10 @@ module.exports = function(grunt) {
                 "file": "killStickyHeaders.js",
                 "version": "1.2.1"
             },
+            "Linklighter": {
+                "file": "linklighter.js",
+                "version": "1.0.0"
+            },
             "OpenIn1Password": {
                 "file": "openin1password.js",
                 "version": "1.6.1"
@@ -61,6 +65,10 @@ module.exports = function(grunt) {
             "UtmStrip": {
                 "file": "utmstrip.js",
                 "version": "1.6.2"
+            },
+            "deLighter": {
+                "file": "delighter.js",
+                "version": "1.0.0"
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
