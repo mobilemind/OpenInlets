@@ -69,6 +69,10 @@ module.exports = function(grunt) {
             "deLighter": {
                 "file": "delighter.js",
                 "version": "1.0.0"
+            },
+            "x-man": {
+                "file": "x-man.js",
+                "version": "1.0.0"
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
