@@ -1,0 +1,1 @@
+javascript:window.getSelection().toString()%3Fwindow.open('x-man-page:%2F%2F'%2Bwindow.getSelection().toString()%2C'_blank').opener=null:0%3Bvoid'1.0.0'

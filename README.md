@@ -24,7 +24,8 @@ __Linklighter__: Use the current text selection on the active web page to
 generate a URL that will highlight the selected text when opened in a modern
 browser. If a new URL is generated, Linklighter will open it in a new window
 to preview the highlight. (See deLighter above, as a companion bookmarklet that
-un-highlights.)
+un-highlights.) This also works with recent releases of Firefox and Google
+Chrome on desktop platforms.
 
 __OpenIn1Password__: Open 1Password using `onepassword://search` URL scheme
 that may be deprecated.
@@ -59,6 +60,11 @@ __OpenInWorkingCopy__: When viewing a BitBucket _or_ Github repository in
 Mobile Safari, show the same repo in the Working Copy iOS app (cloning the
 repo locally if necessary).
 
+__OpenURLParam__: Work-around for blocked navigation from certain ad or
+tracking blockers. If the current URL contains a parameter in the form of
+`url=...` this bookmarklet will parse the `url` parameter and navigate to that
+URL.
+
 __SearchIn1Password__: Open 1Password and search for entries containing the
 domain of the current web page.<br/>
 _NOTE:_ This may be deprecated soon, but also works with Safari and Firefox
@@ -68,10 +74,9 @@ __UtmStrip__: Strips off the UTM query string elements of the current URL to
 remove common "urchin" tracking information from youtube, etc. _NOTE:_ This
 also works with Safari and Firefox on macOS.
 
-__OpenURLParam__: Work-around for blocked navigation from certain ad or
-tracking blockers. If the current URL contains a parameter in the form of
-`url=...` this bookmarklet will parse the `url` parameter and navigate to that
-URL.
+__x-man__: Using the selected text in browser, open the corresponding man page
+with yellow highlighting in Terminal.app by using Safari and the
+`x-man-page://` URL scheme. This only works using Safari on macOS.
 
 ## Install
 
@@ -102,6 +107,7 @@ iCloud will sync the bookmarklet to iOS.
 + [OpenURLParam] v1.0.1 ``javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co)%7Blet%20e=location.search.substr(4%2Bo)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co%3Fe.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))%7Dvoid'1.0.1'``
 + [SearchIn1Password] v1.5.1 ``javascript:location.href='onepassword:%2F%2Fsearch%2F'%2Blocation.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.5.1'``
 + [UtmStrip] v1.6.2 ``javascript:var%20i=location.search%3Bif(3%3C=i.length)%7Blet%20e=i%3Bvar%20a=location.host%3B(~(e=~(e=~(e=(e=~(e=~(e=~a.indexOf('amazon.com')%3F(e=(e=e.replace(%2F(%5B%3F%26%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)p%5Bdf%5D_rd_.%2A%3F=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)ascsubtag=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('fb_')%3Fe.replace(%2F(%5B%3F%26%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('action_')%3Fe.replace(%2F(%5B%3F%26%5D)action_(object%7Cref%7Ctype)_map=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).replace(%2F(%5B%3F%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).indexOf('aff_')%3Fe.replace(%2F(%5B%3F%26%5D)aff_(platform%7Ctrace_key)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).toLowerCase().indexOf('id=')%3Fe.replace(%2F(%5B%3F%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('ga_')%7C%7C~e.indexOf('utm_'))%26%26(e=e.replace(%2F(%5B%3F%26%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ci!==(e=(e=(e='%3F'!=((e='%26'==((e=(e=~(e=~(e=~(e=~(e=~(e=~(e=~a.indexOf('youtu')%7C%7C~a.indexOf('googlevideo.com')%3Fe.replace(%2F(%5B%3F%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('_hsenc')%7C%7C~e.indexOf('_hsmi')%3Fe.replace(%2F(%5B%3F%26%5D)_hs(enc%7Cmi)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('hmb_')%3Fe.replace(%2F(%5B%3F%26%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('cm_')%3F(e=e.replace(%2F(%5B%3F%26%5D)cm_(mmc%7Cmmca%5Cd%2B%7Cre%7Csp)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)manual_cm_mmc=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('mc_cid')%7C%7C~e.indexOf('mc_eid')%3Fe.replace(%2F(%5B%3F%26%5D)mc_%5Bce%5Did=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('iesrc')%7C%7C~e.indexOf('mkt_tok')%3Fe.replace(%2F(%5B%3F%26%5D)(iesrc%7Cmkt_tok)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('pk_')%3Fe.replace(%2F(%5B%3F%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).replace(%2F%26%26%2B%2Fg%2C'%26'))%5B0%7Ce.length-1%5D%7C%7C'')%3Fe.substr(0%2Ce.length-1):e)%5B0%5D%7C%7C'')%3F'%3F'%2Be:e).indexOf('%3F%26')%3Fe:'%3F'%2Be.substr(2)).length%3C3%3F'':e)%26%26history.replaceState(null%2Cnull%2Clocation.origin%2Blocation.pathname%2Be)%7Dvoid%200%3Bvoid'1.6.2'``
++ [x-man] v1.0.0 ``javascript:window.getSelection().toString()%3Fwindow.open('x-man-page:%2F%2F'%2Bwindow.getSelection().toString()%2C'_blank').opener=null:0%3Bvoid'1.0.0'``
 
 _NOTE:_ The `javascript:` bookmarks above will _not_ work from the Github
 repository page, due to Github security precautions.
@@ -111,8 +117,8 @@ repository page, due to Github security precautions.
 Tap a link below. Follow the instructions on the resulting page to turn the
 followed link into a bookmark for JavaScript bookmarklet.
 
-+ __Mobile Safari setup link__ -- [Setup IsItAws] v1.3.3
 + __Mobile Safari setup link__ -- [Setup deLighter] v1.0.0
++ __Mobile Safari setup link__ -- [Setup IsItAws] v1.3.3
 + __Mobile Safari setup link__ -- [Setup KillStickyHeaders] v1.2.1
 + __Mobile Safari setup link__ -- [Setup Linklighter] v1.0.0
 + __Mobile Safari setup link__ -- [Setup OpenIn1Password] v1.6.1
@@ -128,6 +134,7 @@ followed link into a bookmark for JavaScript bookmarklet.
 + __Mobile Safari setup link__ -- [Setup OpenURLParam] v1.0.1
 + __Mobile Safari setup link__ -- [Setup SearchIn1Password] v1.5.1
 + __Mobile Safari setup link__ -- [Setup UtmStrip] v1.6.2
++ __Mobile Safari setup link__ -- [Setup x-man] v1.0.0
 
 ## Use
 
@@ -241,8 +248,16 @@ using a URL protocol scheme.
   Based on [safari-utm-stripper Bookmarklet][kiding-gist 589242021df49eb17be3].
   NOTE: UtmStrip now borrows heavily from patterns provided by [Firefox
   Extension Neat URL][Neat URL]
++ __x-man__ - Uses the current selection in the browser to create and open a
+  link that uses the `x-man-page://` URL scheme supported by Safari and
+  Terminal.app. There doesn't seem to be any official documentation for this
+  scheme which has been around for 20 years. However, you can find
+  documentation on GitHub at
+  [x-man-page: URL handler studied for the OSX Terminal.app][x-man-page URL handler]
 
 ## Version Notes
+
+3.2.0 adds x-man bookmarklet for `x-man-page://` URL scheme
 
 3.1.0 add deLighter and Linklighter bookmarklets; bump to node 21.0+
 
@@ -369,6 +384,7 @@ repos I had; doesn't build yet
 [OpenURLParam]: javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co)%7Blet%20e=location.search.substr(4%2Bo)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co%3Fe.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))%7Dvoid'1.0.1' "OpenURLParam"
 [SearchIn1Password]: javascript:location.href='onepassword:%2F%2Fsearch%2F'%2Blocation.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.5.1' "SearchIn1Password"
 [UtmStrip]: javascript:var%20i=location.search%3Bif(3%3C=i.length)%7Blet%20e=i%3Bvar%20a=location.host%3B(~(e=~(e=~(e=(e=~(e=~(e=~a.indexOf('amazon.com')%3F(e=(e=e.replace(%2F(%5B%3F%26%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)p%5Bdf%5D_rd_.%2A%3F=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)ascsubtag=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('fb_')%3Fe.replace(%2F(%5B%3F%26%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('action_')%3Fe.replace(%2F(%5B%3F%26%5D)action_(object%7Cref%7Ctype)_map=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).replace(%2F(%5B%3F%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).indexOf('aff_')%3Fe.replace(%2F(%5B%3F%26%5D)aff_(platform%7Ctrace_key)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).toLowerCase().indexOf('id=')%3Fe.replace(%2F(%5B%3F%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('ga_')%7C%7C~e.indexOf('utm_'))%26%26(e=e.replace(%2F(%5B%3F%26%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ci!==(e=(e=(e='%3F'!=((e='%26'==((e=(e=~(e=~(e=~(e=~(e=~(e=~(e=~a.indexOf('youtu')%7C%7C~a.indexOf('googlevideo.com')%3Fe.replace(%2F(%5B%3F%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('_hsenc')%7C%7C~e.indexOf('_hsmi')%3Fe.replace(%2F(%5B%3F%26%5D)_hs(enc%7Cmi)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('hmb_')%3Fe.replace(%2F(%5B%3F%26%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('cm_')%3F(e=e.replace(%2F(%5B%3F%26%5D)cm_(mmc%7Cmmca%5Cd%2B%7Cre%7Csp)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)manual_cm_mmc=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('mc_cid')%7C%7C~e.indexOf('mc_eid')%3Fe.replace(%2F(%5B%3F%26%5D)mc_%5Bce%5Did=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('iesrc')%7C%7C~e.indexOf('mkt_tok')%3Fe.replace(%2F(%5B%3F%26%5D)(iesrc%7Cmkt_tok)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('pk_')%3Fe.replace(%2F(%5B%3F%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).replace(%2F%26%26%2B%2Fg%2C'%26'))%5B0%7Ce.length-1%5D%7C%7C'')%3Fe.substr(0%2Ce.length-1):e)%5B0%5D%7C%7C'')%3F'%3F'%2Be:e).indexOf('%3F%26')%3Fe:'%3F'%2Be.substr(2)).length%3C3%3F'':e)%26%26history.replaceState(null%2Cnull%2Clocation.origin%2Blocation.pathname%2Be)%7Dvoid%200%3Bvoid'1.6.2' "UtmStrip"
+[x-man]: javascript:window.getSelection().toString()%3Fwindow.open('x-man-page:%2F%2F'%2Bwindow.getSelection().toString()%2C'_blank').opener=null:0%3Bvoid'1.0.0' "x-man"
 
 <!--- Setup links -->
 
@@ -389,6 +405,7 @@ repos I had; doesn't build yet
 [Setup OpenURLParam]: https://mobilemind.github.io/OpenInlets/x/#javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co)%7Blet%20e=location.search.substr(4%2Bo)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co%3Fe.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))%7Dvoid'1.0.1' "Setup OpenURLParam"
 [Setup SearchIn1Password]: https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='onepassword:%2F%2Fsearch%2F'%2Blocation.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.5.1' "Setup SearchIn1Password"
 [Setup UtmStrip]: https://mobilemind.github.io/OpenInlets/x/#javascript:var%20i=location.search%3Bif(3%3C=i.length)%7Blet%20e=i%3Bvar%20a=location.host%3B(~(e=~(e=~(e=(e=~(e=~(e=~a.indexOf('amazon.com')%3F(e=(e=e.replace(%2F(%5B%3F%26%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)p%5Bdf%5D_rd_.%2A%3F=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)ascsubtag=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('fb_')%3Fe.replace(%2F(%5B%3F%26%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('action_')%3Fe.replace(%2F(%5B%3F%26%5D)action_(object%7Cref%7Ctype)_map=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).replace(%2F(%5B%3F%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).indexOf('aff_')%3Fe.replace(%2F(%5B%3F%26%5D)aff_(platform%7Ctrace_key)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).toLowerCase().indexOf('id=')%3Fe.replace(%2F(%5B%3F%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('ga_')%7C%7C~e.indexOf('utm_'))%26%26(e=e.replace(%2F(%5B%3F%26%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ci!==(e=(e=(e='%3F'!=((e='%26'==((e=(e=~(e=~(e=~(e=~(e=~(e=~(e=~a.indexOf('youtu')%7C%7C~a.indexOf('googlevideo.com')%3Fe.replace(%2F(%5B%3F%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('_hsenc')%7C%7C~e.indexOf('_hsmi')%3Fe.replace(%2F(%5B%3F%26%5D)_hs(enc%7Cmi)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('hmb_')%3Fe.replace(%2F(%5B%3F%26%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('cm_')%3F(e=e.replace(%2F(%5B%3F%26%5D)cm_(mmc%7Cmmca%5Cd%2B%7Cre%7Csp)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)manual_cm_mmc=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('mc_cid')%7C%7C~e.indexOf('mc_eid')%3Fe.replace(%2F(%5B%3F%26%5D)mc_%5Bce%5Did=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('iesrc')%7C%7C~e.indexOf('mkt_tok')%3Fe.replace(%2F(%5B%3F%26%5D)(iesrc%7Cmkt_tok)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).indexOf('pk_')%3Fe.replace(%2F(%5B%3F%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):e).replace(%2F%26%26%2B%2Fg%2C'%26'))%5B0%7Ce.length-1%5D%7C%7C'')%3Fe.substr(0%2Ce.length-1):e)%5B0%5D%7C%7C'')%3F'%3F'%2Be:e).indexOf('%3F%26')%3Fe:'%3F'%2Be.substr(2)).length%3C3%3F'':e)%26%26history.replaceState(null%2Cnull%2Clocation.origin%2Blocation.pathname%2Be)%7Dvoid%200%3Bvoid'1.6.2' "Setup UtmStrip"
+[Setup x-man]: https://mobilemind.github.io/OpenInlets/x/#javascript:window.getSelection().toString()%3Fwindow.open('x-man-page:%2F%2F'%2Bwindow.getSelection().toString()%2C'_blank').opener=null:0%3Bvoid'1.0.0' "Setup x-man"
 
 <!-- Reference links -->
 
@@ -412,3 +429,4 @@ repos I had; doesn't build yet
 [Text fragments]: https://developer.mozilla.org/en-US/docs/Web/Text_fragments
 [Working Copy URL Scheme]: https://workingcopyapp.com/url-schemes.html
 "URL Schemes in Working Copy"
+[x-man-page URL handler]: https://github.com/ouspg/urlhandlers/blob/master/cases/x-man-page.md "x-man-page: URL handler studied for the OSX Terminal.app"
