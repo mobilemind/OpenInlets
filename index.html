@@ -87,6 +87,11 @@ editor. Handy to view the source code of a web page or download a raw file.</p>
 Mobile Safari, show the same repo in the Working Copy iOS app (cloning the
 repo locally if necessary).</p>
 
+<p><strong>OpenURLParam</strong>: Work-around for blocked navigation from certain ad or
+tracking blockers. If the current URL contains a parameter in the form of
+<code>url=...</code> this bookmarklet will parse the <code>url</code> parameter and navigate to that
+URL.</p>
+
 <p><strong>SearchIn1Password</strong>: Open 1Password and search for entries containing the
 domain of the current web page.<br/>
 <em>NOTE:</em> This may be deprecated soon, but also works with Safari and Firefox
@@ -96,10 +101,10 @@ on macOS.</p>
 remove common &ldquo;urchin&rdquo; tracking information from youtube, etc. <em>NOTE:</em> This
 also works with Safari and Firefox on macOS.</p>
 
-<p><strong>OpenURLParam</strong>: Work-around for blocked navigation from certain ad or
-tracking blockers. If the current URL contains a parameter in the form of
-<code>url=...</code> this bookmarklet will parse the <code>url</code> parameter and navigate to that
-URL.</p>
+<p><strong>x-man</strong>: Using the selected text in browser, open the
+corresponding man page with yellow highlighting in Terminal.app by using
+Safari and the <code>x-man-page://</code> URL scheme. This only works using
+Safari on macOS.</p>
 
 <h2 id="install">Install</h2>
 
@@ -145,6 +150,9 @@ the bookmark/favorite. iTunes or iCloud will sync the bookmarklet to iOS.</p>
 <li><a href="javascript:location.href='onepassword://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.5.0'" title="SearchIn1Password">SearchIn1Password</a> v1.5.0</li>
 
 <li><a href="javascript:var%20i=location.search%3Bif(3%3C=i.length){let%20e=i%3Bconst%20a=location.host%3B(~(e=~(e=~(e=(e=~(e=~(e=~a.indexOf('amazon.com')?(e=(e=e.replace(/(%5B?%26%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)p%5Bdf%5D_rd_.%2A?=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)ascsubtag=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('fb_')?e.replace(/(%5B?%26%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('action_')?e.replace(/(%5B?%26%5D)action_(object%7Cref%7Ctype)_map=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/(%5B?%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E%26%5D+/gi%2C'%241')).indexOf('aff_')?e.replace(/(%5B?%26%5D)aff_(platform%7Ctrace_key)=%5B%5E%26%5D+/gi%2C'%241'):e).toLowerCase().indexOf('id=')?e.replace(/(%5B?%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('ga_')%7C%7C~e.indexOf('utm_'))%26%26(e=e.replace(/(%5B?%26%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E%26%5D+/gi%2C'%241'))%2Ci!==(e=(e=(e='?'!=((e='%26'==((e=(e=~(e=~(e=~(e=~(e=~(e=~(e=~a.indexOf('youtu')%7C%7C~a.indexOf('googlevideo.com')?e.replace(/(%5B?%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('_hsenc')%7C%7C~e.indexOf('_hsmi')?e.replace(/(%5B?%26%5D)_hs(enc%7Cmi)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('hmb_')?e.replace(/(%5B?%26%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('cm_')?(e=e.replace(/(%5B?%26%5D)cm_(mmc%7Cmmca%5Cd+%7Cre%7Csp)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)manual_cm_mmc=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('mc_cid')%7C%7C~e.indexOf('mc_eid')?e.replace(/(%5B?%26%5D)mc_%5Bce%5Did=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('iesrc')%7C%7C~e.indexOf('mkt_tok')?e.replace(/(%5B?%26%5D)(iesrc%7Cmkt_tok)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('pk_')?e.replace(/(%5B?%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/%26%26+/g%2C'%26'))%5B0%7Ce.length-1%5D%7C%7C'')?e.substr(0%2Ce.length-1):e)%5B0%5D%7C%7C'')?'?'+e:e).indexOf('?%26')?e:'?'+e.substr(2)).length%3C3?'':e)%26%26history.replaceState(null%2Cnull%2Clocation.origin+location.pathname+e)}void%200%3Bvoid'1.6.1'" title="UtmStrip">UtmStrip</a> v1.6.1</li>
+
+<li><a href="javascript:window.getSelection().toString()%3Fwindow.open('x-man-page:%2F%2F'%2Bwindow.getSelection().toString()%2C'_blank').opener=null:0%3Bvoid'1.0.0'" title="x-man">x-man</a> v1.0.0</li>
+
 </ul>
 
 <p><em>NOTE:</em> <code>javascript:</code> bookmarks like the above wil
@@ -175,8 +183,8 @@ followed link into a bookmark for JavaScript bookmarklet.</p>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co){let%20e=location.search.substr(4+o)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co?e.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))}void'1.0.0'" title="Setup OpenURLParam">Setup OpenURLParam</a> v1.0.0</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='onepassword://search/'+location.host.split('.').slice(location.host.split('.').length-2).join('.')%3Bvoid'1.5.0'" title="Setup SearchIn1Password">Setup SearchIn1Password</a> v1.5.0</li>
 <li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:var%20i=location.search%3Bif(3%3C=i.length){let%20e=i%3Bconst%20a=location.host%3B(~(e=~(e=~(e=(e=~(e=~(e=~a.indexOf('amazon.com')?(e=(e=e.replace(/(%5B?%26%5D)(_encoding%7Cie%7Cpsc%7Cref_%7Ctag)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)p%5Bdf%5D_rd_.%2A?=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)ascsubtag=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('fb_')?e.replace(/(%5B?%26%5D)fb_(action_ids%7Caction_types%7Cref%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('action_')?e.replace(/(%5B?%26%5D)action_(object%7Cref%7Ctype)_map=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/(%5B?%26%5D)(assetType%7CelqTrack%7CoriginalReferer%7Creferrer%7Cterminal_id%7Ctrk%7CtrkInfo)=%5B%5E%26%5D+/gi%2C'%241')).indexOf('aff_')?e.replace(/(%5B?%26%5D)aff_(platform%7Ctrace_key)=%5B%5E%26%5D+/gi%2C'%241'):e).toLowerCase().indexOf('id=')?e.replace(/(%5B?%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('ga_')%7C%7C~e.indexOf('utm_'))%26%26(e=e.replace(/(%5B?%26%5D)(ga%7Cutm)_(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz_id)=%5B%5E%26%5D+/gi%2C'%241'))%2Ci!==(e=(e=(e='?'!=((e='%26'==((e=(e=~(e=~(e=~(e=~(e=~(e=~(e=~a.indexOf('youtu')%7C%7C~a.indexOf('googlevideo.com')?e.replace(/(%5B?%26%5D)(ac%7Cannotation_id%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc_vid)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('_hsenc')%7C%7C~e.indexOf('_hsmi')?e.replace(/(%5B?%26%5D)_hs(enc%7Cmi)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('hmb_')?e.replace(/(%5B?%26%5D)hmb_(campaign%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('cm_')?(e=e.replace(/(%5B?%26%5D)cm_(mmc%7Cmmca%5Cd+%7Cre%7Csp)=%5B%5E%26%5D+/gi%2C'%241')).replace(/(%5B?%26%5D)manual_cm_mmc=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('mc_cid')%7C%7C~e.indexOf('mc_eid')?e.replace(/(%5B?%26%5D)mc_%5Bce%5Did=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('iesrc')%7C%7C~e.indexOf('mkt_tok')?e.replace(/(%5B?%26%5D)(iesrc%7Cmkt_tok)=%5B%5E%26%5D+/gi%2C'%241'):e).indexOf('pk_')?e.replace(/(%5B?%26%5D)pk_(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D+/gi%2C'%241'):e).replace(/%26%26+/g%2C'%26'))%5B0%7Ce.length-1%5D%7C%7C'')?e.substr(0%2Ce.length-1):e)%5B0%5D%7C%7C'')?'?'+e:e).indexOf('?%26')?e:'?'+e.substr(2)).length%3C3?'':e)%26%26history.replaceState(null%2Cnull%2Clocation.origin+location.pathname+e)}void%200%3Bvoid'1.6.1'" title="Setup UtmStrip">Setup UtmStrip</a> v1.6.1</li>
+<li><strong>Mobile Safari setup link</strong> &ndash; <a href="https://mobilemind.github.io/OpenInlets/x/#javascript:window.getSelection().toString()%3Fwindow.open('x-man-page:%2F%2F'%2Bwindow.getSelection().toString()%2C'_blank').opener=null:0%3Bvoid'1.0.0'" title="Setup x-man">Setup x-man</a> v1.0.0</li>
 </ul>
-
 
 <h2>Use</h2>
 
@@ -193,7 +201,6 @@ location.</p>
 bookmarklet)</li>
 </ul>
 
-
 <h3>Notes</h3>
 
 <ol>
@@ -201,7 +208,6 @@ bookmarklet)</li>
 apps due to restrictions of those apps on <code>javascript:</code> URL bookmarks.</li>
 <li>SearchIn1Password <em>does</em> work on macOS with Safari or Firefox.</li>
 </ol>
-
 
 <h2>License</h2>
 
@@ -288,11 +294,18 @@ deprecated and may not continue to work.</li>
 <li><strong>UtmStrip</strong> -  Strips off the UTM query string elements of the current URL.
 Based on <a href="https://gist.github.com/kiding/589242021df49eb17be3/">safari-utm-stripper Bookmarklet</a>.
 NOTE: UtmStrip now borrows heavily from patterns provided by <a href="https://github.com/Smile4ever/Neat-URL/">Firefox
-Extension Neat URL</a></li>
+Extension Neat URL</a>.</li>
+<li><strong>x-man</strong> - Uses the current selection in the browser to
+create and open a link that uses the <code>x-man-page://</code> URL scheme
+supported by Safari and Terminal.app. There doesn't seem to be any official
+documentation for this scheme which has been around for 20 years. However, you
+can find documentation on GitHub at <a href="https://github.com/ouspg/urlhandlers/blob/master/cases/x-man-page.md" title="x-man-page: URL handler studied for the OSX Terminal.app">x-man-page: URL handler studied for the OSX Terminal.app</a>.</li>
+
 </ul>
 
-
 <h2>Version Notes</h2>
+
+<p>3.2.0 adds x-man bookmarklet for <code>x-man-page://</code> URL scheme</p>
 
 <p>3.1.0 add deLighter and Linklighter bookmarklets; bump to node 21.0+</p>
 
