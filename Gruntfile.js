@@ -68,7 +68,7 @@ module.exports = function(grunt) {
             },
             "deLighter": {
                 "file": "delighter.js",
-                "version": "1.0.0"
+                "version": "1.0.1"
             },
             "x-man": {
                 "file": "x-man.js",
