@@ -11,8 +11,8 @@ typically from iOS Mobile Safari to an iOS app.
 
 __deLighter__: Effectively de-highlights any highlighted text fragment on the
 current page. If the current URL includes a hash, which can imply a text
-fragment highlight, then trim off the portion after the hash ('#') and reload
-the page to de-highlight it. (Companion to Linklighter bookmarklet, below.)
+fragment highlight, then reload the page to de-highlight it.
+(Companion to Linklighter bookmarklet, below.)
 
 __IsItAws__: Check the current page host to determine if it runs on AWS.<br/>
 _NOTE:_ This also works with Safari and Firefox on macOS, and most browsers on
@@ -90,7 +90,7 @@ iCloud will sync the bookmarklet to iOS.
 
 #### JavaScript bookmarks
 
-+ [deLighter] v1.0.0 ``javascript:if(~document.location.href.indexOf('#'))document.location.href=document.location.href.substring(0,document.location.href.indexOf('#'));void'1.0.0'``
++ [deLighter] v1.0.1 ``javascript:if(~document.location.href.indexOf('#'))document.location.reload();void'1.0.1'``
 + [IsItAws] v1.3.3 ``javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3'``
 + [KillStickyHeaders] v1.2.1 ``javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1'``
 + [Linklighter] v1.0.0 ``href%3Blet%20n=e%2Ct=e.indexOf('%23')%3Bif(window.getSelection().empty()%2Co%26%26''!=o)%7Bif(-1%3Ct%26%26(n=n.substring(0%2Ct))%2Cn%2B='%23:~:text='%2Ci%3C80)n%2B=encodeURIComponent(o)%3Belse%7Blet%20e=~~(i%2F2-2)%3B150%3Ci%3Fe=48:100%3Ci%26%26(e=~~(i%2F3))%3Bo=%5BencodeURIComponent(o.substring(0%2Ce))%2CencodeURIComponent(o.substr(i-e))%5D%3B-1%3C(t=o%5B0%5D.lastIndexOf('%2520'))%26%26(o%5B0%5D=o%5B0%5D.substring(0%2Ct))%2C-1%3C(t=o%5B1%5D.indexOf('%2520'))%26%26(o%5B1%5D=o%5B1%5D.substr(3%2Bt))%2Cn%2B=o.join()%7Dn=(n=(n=n.replace(%2F%250A%24%2F%2C'')).replace(%2F%2520%24%2F%2C'')).replace('%23%23:~:text='%2C'%23:~:text=')%7Dvoid(n!=e%26%26(window.open(n%2C'_blank').opener=null))%7Dvoid'1.0.0'``
@@ -117,7 +117,7 @@ repository page, due to Github security precautions.
 Tap a link below. Follow the instructions on the resulting page to turn the
 followed link into a bookmark for JavaScript bookmarklet.
 
-+ __Mobile Safari setup link__ -- [Setup deLighter] v1.0.0
++ __Mobile Safari setup link__ -- [Setup deLighter] v1.0.1
 + __Mobile Safari setup link__ -- [Setup IsItAws] v1.3.3
 + __Mobile Safari setup link__ -- [Setup KillStickyHeaders] v1.2.1
 + __Mobile Safari setup link__ -- [Setup Linklighter] v1.0.0
@@ -195,7 +195,7 @@ Each bookmarklet does some rudimentary check and then redirects to an app
 using a URL protocol scheme.
 
 + __deLighter__: Does _not_ use a URL protocol scheme. Checks the current URL
-  for a '#' and if found, truncates the URL there and reloads the page.
+  for a '#' and if found, reloads the page to clear the highlight.
 + __IsItAws__ - Does _not_ use a URL protocol scheme. Rather it uses the
   lambda [IsItOnAWS.com] functions created by Tim Bray. For details, see
   [Is it on AWS? Domain Identification Using AWS Lambda][IsItOnAWS Blog Post].
@@ -367,7 +367,7 @@ repos I had; doesn't build yet
 
 <!--- JavaScript links -->
 
-[deLighter]: javascript:if(~document.location.href.indexOf('%23'))document.location.href=document.location.href.substring(0%2Cdocument.location.href.indexOf('%23'))%3Bvoid'1.0.0' "deLighter"
+[deLighter]: javascript:if(~document.location.href.indexOf('%23'))document.location.reload()%3Bvoid'1.0.1' "deLighter"
 [IsItAws]: javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3' "IsItAws"
 [KillStickyHeaders]: javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1' "KillStickyHeaders"
 [Linklighter]: href%3Blet%20n=e%2Ct=e.indexOf('%23')%3Bif(window.getSelection().empty()%2Co%26%26''!=o)%7Bif(-1%3Ct%26%26(n=n.substring(0%2Ct))%2Cn%2B='%23:~:text='%2Ci%3C80)n%2B=encodeURIComponent(o)%3Belse%7Blet%20e=~~(i%2F2-2)%3B150%3Ci%3Fe=48:100%3Ci%26%26(e=~~(i%2F3))%3Bo=%5BencodeURIComponent(o.substring(0%2Ce))%2CencodeURIComponent(o.substr(i-e))%5D%3B-1%3C(t=o%5B0%5D.lastIndexOf('%2520'))%26%26(o%5B0%5D=o%5B0%5D.substring(0%2Ct))%2C-1%3C(t=o%5B1%5D.indexOf('%2520'))%26%26(o%5B1%5D=o%5B1%5D.substr(3%2Bt))%2Cn%2B=o.join()%7Dn=(n=(n=n.replace(%2F%250A%24%2F%2C'')).replace(%2F%2520%24%2F%2C'')).replace('%23%23:~:text='%2C'%23:~:text=')%7Dvoid(n!=e%26%26(window.open(n%2C'_blank').opener=null))%7Dvoid'1.0.0' "Linklighter"
@@ -388,7 +388,7 @@ repos I had; doesn't build yet
 
 <!--- Setup links -->
 
-[Setup deLighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(~document.location.href.indexOf('%23'))document.location.href=document.location.href.substring(0%2Cdocument.location.href.indexOf('%23'))%3Bvoid'1.0.0' "Setup deLighter"
+[Setup deLighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(~document.location.href.indexOf('%23'))document.location.reload()%3Bvoid'1.0.1' "Setup deLighter"
 [Setup IsItAws]: https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3' "Setup IsItAws"
 [Setup KillStickyHeaders]: https://mobilemind.github.io/OpenInlets/x/#javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1' "Setup KillStickyHeaders"
 [Setup Linklighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:%7Bvar%20o=window.getSelection().toString()%2Ci=o.length%2Ce=document.location.href%3Blet%20n=e%2Ct=e.indexOf('%23')%3Bif(window.getSelection().empty()%2Co%26%26''!=o)%7Bif(-1%3Ct%26%26(n=n.substring(0%2Ct))%2Cn%2B='%23:~:text='%2Ci%3C80)n%2B=encodeURIComponent(o)%3Belse%7Blet%20e=~~(i%2F2-2)%3B150%3Ci%3Fe=48:100%3Ci%26%26(e=~~(i%2F3))%3Bo=%5BencodeURIComponent(o.substring(0%2Ce))%2CencodeURIComponent(o.substr(i-e))%5D%3B-1%3C(t=o%5B0%5D.lastIndexOf('%2520'))%26%26(o%5B0%5D=o%5B0%5D.substring(0%2Ct))%2C-1%3C(t=o%5B1%5D.indexOf('%2520'))%26%26(o%5B1%5D=o%5B1%5D.substr(3%2Bt))%2Cn%2B=o.join()%7Dn=(n=(n=n.replace(%2F%250A%24%2F%2C'')).replace(%2F%2520%24%2F%2C'')).replace('%23%23:~:text='%2C'%23:~:text=')%7Dvoid(n!=e%26%26(window.open(n%2C'_blank').opener=null))%7Dvoid'1.0.0' "Setup Linklighter"

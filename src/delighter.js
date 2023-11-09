@@ -2,5 +2,5 @@
 // fragment highlight, then reload the page (de-highlight it)
 
 if (document.location.href.indexOf('#') > -1) {
-    document.location.href = document.location.href.substring(0, document.location.href.indexOf('#'));
+    document.location.reload();
 }
