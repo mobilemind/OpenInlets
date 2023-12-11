@@ -150,8 +150,8 @@ location.
 ## Requirements
 
 + Mobile Safari 7.x or higher (last tested with iOS 17, macOS 14 Safari 17)
-+ Corresponding iOS app (_except_ for "delighter", "IsItAws", "Linklighter"
-  and "x-man" bookmarklets).
++ Corresponding iOS app (_except_ for "delighter", "IsItAws", "Linklighter",
+  "UTMStrip", and "x-man" bookmarklets).
 
 ### Notes
 
