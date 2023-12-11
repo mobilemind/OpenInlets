@@ -1,1 +1,1 @@
-javascript:window.getSelection().toString()%3Fwindow.open('x-man-page:%2F%2F'%2Bwindow.getSelection().toString()%2C'_blank').opener=null:0%3Bvoid'1.0.0'
+javascript:o='x-man-page:%2F%2F'%2B(n=window.getSelection().toString())%2Cvoid(n%26%26(confirm('x-man-page%20for:%20%22'%2Bn%2B'%22%3F')%26%26(navigator.clipboard%26%26navigator.clipboard.writeText(o)%2Cwindow.open(o%2C'_blank').opener=null)%2Cwindow.getSelection().empty()))%3Bvar%20n%2Co%3Bvoid'1.1.0'

@@ -12,7 +12,7 @@ module.exports = function(grunt) {
             },
             "Linklighter": {
                 "file": "linklighter.js",
-                "version": "1.0.0"
+                "version": "1.1.0"
             },
             "OpenIn1Password": {
                 "file": "openin1password.js",
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
             },
             "UtmStrip": {
                 "file": "utmstrip.js",
-                "version": "1.6.2"
+                "version": "1.7.0"
             },
             "deLighter": {
                 "file": "delighter.js",
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
             },
             "x-man": {
                 "file": "x-man.js",
-                "version": "1.0.0"
+                "version": "1.1.0"
             }
         },
         "pkg": grunt.file.readJSON("package.json"),

@@ -78,6 +78,10 @@
     }
     // if changed replace location with stripped version
     if (locSearch !== searchStr) {
-        history.replaceState(null, null, location.origin + location.pathname + searchStr);
+        const newURL = location.origin + location.pathname + searchStr;
+        history.replaceState(null, null, newURL);
+        if (confirm('Copy cleaned URL to clipboard?')) {
+            navigator.clipboard.writeText(newURL);
+        }
     }
 })();
