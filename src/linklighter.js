@@ -7,7 +7,8 @@
         textFragLen = textFrag.length,
         url = document.location.href;
     let newUrl = url,
-        strPos = url.indexOf('#');
+        strPos = url.indexOf('#'),
+        strStart = '';
 
     // reset selection
     window.getSelection().empty();
@@ -20,6 +21,7 @@
         // append 1st part of suffix
         newUrl += '#:~:text=';
         if (textFragLen < 80) {
+            strStart = textFrag;
             // append selection as a single fragment
             newUrl += encodeURIComponent(textFrag);
         } else {
@@ -31,8 +33,10 @@
                 subLen = ~~(textFragLen / 3);
             }
             // create start & end subfragments of selection
-            let subFrag = [encodeURIComponent(textFrag.substring(0, subLen)),
+            strStart = textFrag.substring(0, subLen);
+            const subFrag = [encodeURIComponent(strStart),
                 encodeURIComponent(textFrag.substr(textFragLen - subLen))];
+            strStart += '…';
             // trim start string- truncate at last space
             strPos = subFrag[0].lastIndexOf('%20');
             if (strPos > -1) {
@@ -53,7 +57,10 @@
         newUrl = newUrl.replace('##:~:text=', '#:~:text=');
     }
     if (newUrl != url) {
-        // open in new window # or try window.open(newUrl, '_blank', 'noreferrer');
-        window.open(newUrl, '_blank').opener = null;
+        if (confirm('Open URL with highlight on "' + strStart + '" and copy URL to clipboard?\n\nNote: If text isn’t highlighted in new tab, you can try again with a smaller selection.')) {
+            // send to clipboard & open in new window
+            navigator.clipboard.writeText(newUrl);
+            window.open(newUrl, '_blank').opener = null;
+        }
     }
 })();
