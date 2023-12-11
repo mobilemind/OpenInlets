@@ -79,7 +79,7 @@ Safari and Firefox on macOS.
 __x-man__: Using the selected text in browser, ask to open the corresponding
 man page with yellow highlighting in Terminal.app by using Safari and the
 `x-man-page://` URL scheme. The URL scheme only works using Safari on macOS.
-However, the xman bookmarklet will copy the `x-man-page://` to the clipboard
+However, the x-man bookmarklet will copy the `x-man-page://` to the clipboard
 on any platform where the bookmarklet runs.
 
 ## Install
@@ -151,7 +151,7 @@ location.
 
 + Mobile Safari 7.x or higher (last tested with iOS 17, macOS 14 Safari 17)
 + Corresponding iOS app (_except_ for "delighter", "IsItAws", "Linklighter"
-  and "xman" bookmarklets).
+  and "x-man" bookmarklets).
 
 ### Notes
 
@@ -261,7 +261,7 @@ using a URL protocol scheme.
 
 ## Version Notes
 
-3.3.0 updates Linklighter 1.1.0, UtmStrip 1.7.0, and xman 1.10 to ask to copy
+3.3.0 updates Linklighter 1.1.0, UtmStrip 1.7.0, and x-man 1.10 to ask to copy
 their results to the clipboard
 
 3.2.0 adds x-man bookmarklet for `x-man-page://` URL scheme
