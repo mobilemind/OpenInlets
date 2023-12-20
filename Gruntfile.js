@@ -76,11 +76,44 @@ module.exports = function(grunt) {
             }
         },
         "pkg": grunt.file.readJSON("package.json"),
-        "shell": {"uglify_es": {"command": "for OJS in src/*.js; do npx uglifyjs --config-file .uglifyjs3.json --output \"web/$(basename \"$OJS\")\" \"$OJS\" ; done"}}
+        "uglify": {
+            "options": {
+                "compress": {
+                    "drop_console": true,
+                    "expression": true,
+                    "passes": 2,
+                    "unsafe": true,
+                    "unsafe_comps": true,
+                    "unsafe_math": true,
+                    "unsafe_proto": true,
+                    "unsafe_undefined": true
+                },
+                "mangle": {
+                    "toplevel": true
+                },
+                "output": {
+                    "beautify": false,
+                    "indent_level": 0,
+                    "quote_style": 1
+                },
+                "toplevel": true,
+                "warnings": true,
+                "webkit": true
+            },
+            "sourceFiles": {
+                "files": [{
+                    "cwd": "src",
+                    "dest": "web",
+                    "expand": true,
+                    "src": "*.js"
+                }]
+            }
+        }
+
     });
 
     // Load plugins
-    grunt.loadNpmTasks("grunt-shell");
+    grunt.loadNpmTasks("grunt-contrib-uglify");
 
     // version info
     grunt.log.writeln(`\n${grunt.config("pkg.name")} ${grunt.config("pkg.version")}`);
@@ -176,7 +209,7 @@ module.exports = function(grunt) {
     });
 
     // Default task
-    grunt.registerTask("default", ["shell:uglify_es", "buildbookmarklet"]);
+    grunt.registerTask("default", ["uglify", "buildbookmarklet"]);
 
     // Deploy task
     grunt.registerTask("deploy", ["default", "updatereadme"]);

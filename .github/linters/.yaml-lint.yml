@@ -29,5 +29,5 @@ rules:
     indent-sequences: consistent
     check-multi-line-strings: false
   line-length:
-    max: 92
+    max: 84
     level: warning

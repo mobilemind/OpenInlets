@@ -14,8 +14,7 @@
     "eslint-plugin-security": "~1.7.1",
     "eslint-plugin-xss": "~0.1.12",
     "grunt": "~1.6.1",
-    "grunt-shell": "~4.0.0",
-    "uglify-js": "~3.17.4"
+    "grunt-contrib-uglify": "~5.2.2"
   },
   "directories": {},
   "engines": {
