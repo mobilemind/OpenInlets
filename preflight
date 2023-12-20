@@ -29,13 +29,6 @@ else
 fi
 echo
 
-## check .UGLIFYJS3.JSON & PACKAGE.JSON
-echo "  checking .uglifyjs3.json & package.json"
-npx eslint -c .github/linters/.eslintrc.yml --no-ignore ".uglifyjs3.json" "package.json" \
-    || { echo "    *** ERROR .uglifyjs3.json & package.json eslint check failed." ; exit 1 ; }
-echo "    .uglifyjs3.json, package.json: validate OK"
-echo
-
 ## check YAML
 echo "  checking YAML files (w/ yamllint, see .github/linters/.yaml-lint.yml)"
 if hash yamllint >/dev/null 2>&1 ; then
@@ -66,10 +59,10 @@ fi
 echo
 
 ## check JavaScript
-echo "  checking JavaScript files (w/ eslint, see .eslintrc.yml)"
-npx eslint -c .github/linters/.eslintrc.yml "*.js" "src/*.js" \
-    || { echo "    *** ERROR eslint JavaScript check failed." ; exit 1 ; }
-echo "    *.js src/*.js: JavaScript OK"
+echo "  checking JavaScrip & JSON files (w/ eslint, see .eslintrc.yml)"
+npx eslint -c .github/linters/.eslintrc.yml "*.js" "src/*.js" package.json\
+    || { echo "    *** ERROR eslint JavaScript &JSON check failed." ; exit 1 ; }
+echo "    *.js src/*.js package.json: JavaScript & JSON OK"
 echo
 
 echo "  OK, preflight checks passed."
