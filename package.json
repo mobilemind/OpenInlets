@@ -11,20 +11,21 @@
   "devDependencies": {
     "eslint-plugin-json": "~3.1.0",
     "eslint-plugin-no-unsanitized": "~4.0.2",
-    "eslint-plugin-security": "~1.7.1",
+    "eslint-plugin-security": "~2.1.0",
     "eslint-plugin-xss": "~0.1.12",
     "grunt": "~1.6.1",
     "grunt-contrib-uglify": "~5.2.2"
   },
   "directories": {},
   "engines": {
-    "node": "^21.4.0"
+    "node": "^21.5.0"
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
     "1Password",
     "AWS",
     "bookmarklet",
+    "delighter",
     "Firefox",
     "GoodReader",
     "Google Chrome",
@@ -33,7 +34,8 @@
     "iOS",
     "Linklighter",
     "UTM",
-    "UTM-Stripper"
+    "UTM-Stripper",
+    "x-man"
   ],
   "license": "MIT",
   "main": "Gruntfile.js",
@@ -46,5 +48,5 @@
   "scripts": {
     "test": "npx grunt"
   },
-  "version": "3.3.0"
+  "version": "3.3.1"
 }
