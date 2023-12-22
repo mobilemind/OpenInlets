@@ -23,7 +23,7 @@ plugins:
 - xss
 
 extends: [eslint:recommended, plugin:jsonc/recommended-with-json,
-          plugin:security/recommended]
+          plugin:security/recommended-legacy]
 
 # http://eslint.org/docs/rules/
 rules:
