@@ -6,7 +6,7 @@ module.exports = function(grunt) {
                 "file": "isitaws.js",
                 "version": "1.3.3"
             },
-            "KillStickyHeaders": {
+            "KillStickyHeaders" : {
                 "file": "killStickyHeaders.js",
                 "version": "1.2.1"
             },
