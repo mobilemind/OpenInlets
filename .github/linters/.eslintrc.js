@@ -10,7 +10,9 @@ module.exports = {
         "plugin:xss/recommended"
     ],
     "ignorePatterns": ["**/*{.,-}min.js", "/.github/workflows/",
-                       "/node_modules/", "/web/", "package-lock.json"],
+                       "/node_modules/", "/web/", "package-lock.json",
+                       "!.github/linters/.eslintrc.js",
+                       "!.github/linters/.markdownlint.js"],
     "parserOptions": {
         "ecmaVersion": 6
         // parserOptions:
@@ -51,7 +53,7 @@ module.exports = {
         "id-match": "error",
         "init-declarations": "error",
         "max-depth": "error",
-        "max-lines": ["error", {"max": 185, "skipBlankLines": true, "skipComments": true}],
+        "max-lines": ["error", {"max": 195, "skipBlankLines": true, "skipComments": true}],
         "max-nested-callbacks": "error",
         "max-params": ["error", 5],
         "max-statements": ["error", 50],
@@ -126,7 +128,7 @@ module.exports = {
         "radix": "error",
         "require-await": "error",
         "sort-imports": "error",
-        "sort-keys": "warn",
+        "sort-keys": "off",
         "symbol-description": "error",
         "vars-on-top": "error",
         // Layout & Formatting

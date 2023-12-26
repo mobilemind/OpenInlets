@@ -75,6 +75,14 @@ module.exports = function(grunt) {
                 "version": "1.1.0"
             }
         },
+        "eslint": {
+            "options": {
+              "failOnError": true,
+              "ignore": false,
+              "overrideConfigFile": ".github/linters/.eslintrc.js"
+            },
+            "target": [".github/linters/.*.js", "Gruntfile.js", "package.json", "src/*.js"]
+        },
         "pkg": grunt.file.readJSON("package.json"),
         "uglify": {
             "options": {
@@ -114,6 +122,7 @@ module.exports = function(grunt) {
 
     // Load plugins
     grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-eslint");
 
     // version info
     grunt.log.writeln(`\n${grunt.config("pkg.name")} ${grunt.config("pkg.version")}`);
@@ -208,8 +217,14 @@ module.exports = function(grunt) {
         return null;
     });
 
+    // build task
+    grunt.registerTask("build", ["uglify", "buildbookmarklet"]);
+
+    // lint task
+    grunt.registerTask("lint", ["eslint"]);
+
     // Default task
-    grunt.registerTask("default", ["uglify", "buildbookmarklet"]);
+    grunt.registerTask("default", ["lint", "build"]);
 
     // Deploy task
     grunt.registerTask("deploy", ["default", "updatereadme"]);

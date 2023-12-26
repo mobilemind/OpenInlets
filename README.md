@@ -14,7 +14,8 @@ current page. If the current URL includes a hash, which can imply a text
 fragment highlight, then reload the page to de-highlight it.
 (Companion to Linklighter bookmarklet, below.)
 
-__IsItAws__: Check the current page host to determine if it runs on AWS.<br/>
+__IsItAws__: Check the current page host to determine if it runs on AWS.
+
 _NOTE:_ This also works with Safari and Firefox on macOS, and most browsers on
 desktop platforms.
 
@@ -67,7 +68,8 @@ tracking blockers. If the current URL contains a parameter in the form of
 URL.
 
 __SearchIn1Password__: Open 1Password and search for entries containing the
-domain of the current web page.<br/>
+domain of the current web page.
+
 _NOTE:_ This may be deprecated soon, but also works with Safari and Firefox
 on macOS.
 
