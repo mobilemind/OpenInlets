@@ -43,7 +43,7 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mobilemind/OpenInlets.git"
+    "url": "git+https://github.com/mobilemind/OpenInlets.git"
   },
   "scripts": {
     "test": "npx grunt"

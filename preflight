@@ -54,14 +54,14 @@ if hash actionlint >/dev/null 2>&1 ; then
     || { echo "    *** ERROR actionlint .github/workflows/*.yml check failed." ; exit 1 ; }
   echo "    .github/workflows/*.yml: GitHub Actions .yml OK"
 else
-  echo "    --- markdownlint not installed: skipping GitHub Action checks"
+  echo "    --- actionlint not installed: skipping GitHub Action checks"
 fi
 echo
 
 ## check JavaScript
 echo "  checking JavaScrip & JSON files (w/ eslint, see .eslintrc.yml)"
 npx eslint -c .github/linters/.eslintrc.yml "*.js" "src/*.js" package.json\
-    || { echo "    *** ERROR eslint JavaScript &JSON check failed." ; exit 1 ; }
+    || { echo "    *** ERROR eslint JavaScript & JSON check failed." ; exit 1 ; }
 echo "    *.js src/*.js package.json: JavaScript & JSON OK"
 echo
 
