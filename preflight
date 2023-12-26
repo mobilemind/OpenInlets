@@ -60,7 +60,7 @@ echo
 
 ## check JavaScript
 echo "  checking JavaScrip & JSON files (w/ eslint, see .eslintrc.yml)"
-npx eslint -c .github/linters/.eslintrc.yml "*.js" "src/*.js" package.json\
+npx eslint -c .github/linters/.eslintrc.js "*.js" "src/*.js" package.json\
     || { echo "    *** ERROR eslint JavaScript & JSON check failed." ; exit 1 ; }
 echo "    *.js src/*.js package.json: JavaScript & JSON OK"
 echo
