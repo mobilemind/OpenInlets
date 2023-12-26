@@ -13,11 +13,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [21.x]
+
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
       with:
-        node-version: 21
-        cache: "npm"
-    - run: npm install
-    - run: npx grunt
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build
+      run: |
+        # remove lockfile to update it
+        # rm -fv package-lock.json
+        npm install
+        npx grunt
+        # need to add identity info if you want to commit
+        # git commit -am 'GitHub Action: update lockfile & generated files'
