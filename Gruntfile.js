@@ -129,7 +129,6 @@ module.exports = function(grunt) {
 
     // helper function for reading files
     function readOrFail(fileSpec) {
-        /* eslint security/detect-non-literal-fs-filename: 0 */
         if (grunt.file.exists(fileSpec)) {
             const text = grunt.file.read(fileSpec);
             if (text.length > 0) {

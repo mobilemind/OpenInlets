@@ -139,6 +139,7 @@ module.exports = {
         "no-unsanitized/method": "error",
         "no-unsanitized/property": "error",
         // security - https://github.com/nodesecurity/eslint-plugin-security
+        "security/detect-non-literal-fs-filename": "off",
         "security/detect-non-literal-regexp": "off",
         // xss - https://github.com/Rantanen/eslint-plugin-xss
         "xss/no-location-href-assign": "off",
