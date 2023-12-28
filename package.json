@@ -19,7 +19,7 @@
   },
   "directories": {},
   "engines": {
-    "node": "^21.5.0"
+    "node": ">=20.9.0"
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
