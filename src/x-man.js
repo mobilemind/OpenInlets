@@ -10,7 +10,9 @@
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(xman);
             }
-            window.open(xman, '_blank').opener = null;
+            if (navigator.platform.toUpperCase().indexOf('MAC')==0) {
+                window.open(xman, '_blank').opener = null;
+            }
         }
         window.getSelection().empty();
     }
