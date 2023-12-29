@@ -11,17 +11,11 @@ module.exports = {
     ],
     "ignorePatterns": ["**/*{.,-}min.js", "/.github/workflows/",
                        "/node_modules/", "/web/", "package-lock.json",
+                       "!.codesandbox/tasks.json", 
                        "!.github/linters/.eslintrc.js",
                        "!.github/linters/.markdownlint.js"],
     "parserOptions": {
         "ecmaVersion": 6
-        // parserOptions:
-        //   ecmaFeatures:
-        //     globalReturn: false
-        //     impliedStrict: true
-        //     modules: false
-        //   ecmaVersion: 6
-        //   sourceType: script
     },
     "plugins": [
         "jsonc",

@@ -1,8 +1,7 @@
+.codesandbox/
 .git/
 .github/
 .gitignore
-.snyk
-.uglifyjs3.json
 node_modules/
 npm-debug.log
 preflight
