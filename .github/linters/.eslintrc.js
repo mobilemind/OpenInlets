@@ -16,13 +16,6 @@ module.exports = {
                        "!.github/linters/.markdownlint.js"],
     "parserOptions": {
         "ecmaVersion": 6
-        // parserOptions:
-        //   ecmaFeatures:
-        //     globalReturn: false
-        //     impliedStrict: true
-        //     modules: false
-        //   ecmaVersion: 6
-        //   sourceType: script
     },
     "plugins": [
         "jsonc",
