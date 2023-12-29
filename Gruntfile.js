@@ -117,7 +117,6 @@ module.exports = function(grunt) {
                 }]
             }
         }
-
     });
 
     // Load plugins
