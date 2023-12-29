@@ -16,6 +16,11 @@
       "command": "npx grunt lint",
       "runAtStart": false
     },
+    "preflight": {
+      "name": "preflight",
+      "command": "./preflight",
+      "runAtStart": false
+    },
     "test": {
       "name": "test",
       "command": "npx grunt",
