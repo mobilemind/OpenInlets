@@ -9,7 +9,7 @@
     "build": {
       "name": "build",
       "command": "npx grunt build",
-      "runAtStart": false,
+      "runAtStart": false
     },
     "lint": {
       "name": "lint",
