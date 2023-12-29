@@ -11,9 +11,9 @@ module.exports = {
     ],
     "ignorePatterns": ["**/*{.,-}min.js", "/.github/workflows/",
                        "/node_modules/", "/web/", "package-lock.json",
-                       "!.codesandbox/tasks.json", 
-                       "!.github/linters/.eslintrc.js",
-                       "!.github/linters/.markdownlint.js"],
+                       "!.codesandbox/",
+                       "!.github/linters/"
+    ],
     "parserOptions": {
         "ecmaVersion": 6
     },
