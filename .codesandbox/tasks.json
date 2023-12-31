@@ -1,35 +1,34 @@
 {
+  // These tasks will run in order when initializing your CodeSandbox project.
   "setupTasks": [
     {
       "name": "Install Dependencies",
       "command": "npm install"
     }
   ],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
     "build": {
       "name": "build",
-      "command": "npx grunt build",
-      "runAtStart": false
+      "command": "npx grunt build"
     },
     "lint": {
       "name": "lint",
       "command": "npx grunt lint",
-      "runAtStart": false
+      "runAtStart": true
     },
     "preflight": {
       "name": "preflight",
-      "command": "./preflight",
-      "runAtStart": false
+      "command": "./preflight"
     },
     "test": {
       "name": "test",
-      "command": "npx grunt",
-      "runAtStart": false
+      "command": "npx grunt"
     },
     "update lockfile": {
       "name": "test",
-      "command": "rm -rf package-lock.json ; npm install && npm audit fix && ./preflight && npx grunt",
-      "runAtStart": false
+      "command": "rm -rf package-lock.json ; npm install && npm audit fix && ./preflight && npx grunt"
     }
   }
 }

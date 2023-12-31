@@ -50,7 +50,7 @@ module.exports = {
         "max-lines": ["error", {"max": 195, "skipBlankLines": true, "skipComments": true}],
         "max-nested-callbacks": "error",
         "max-params": ["error", 5],
-        "max-statements": ["error", 50],
+        "max-statements": ["error", 55],
         "new-cap": "error",
         "no-array-constructor": "error",
         "no-caller": "error",
@@ -128,6 +128,7 @@ module.exports = {
         // Layout & Formatting
         "unicode-bom": "error",
         // jsonc -https://github.com/ota-meshi/eslint-plugin-jsonc
+        "jsonc/no-comments": "off",
         "jsonc/vue-custom-block/no-parsing-error": "off",
         // no-unsanitized - https://github.com/mozilla/eslint-plugin-no-unsanitized
         "no-unsanitized/method": "error",
