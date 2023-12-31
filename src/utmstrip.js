@@ -1,10 +1,11 @@
 (() => {
-    const locSearch = location.search;
+    const locPath = location.pathname,
+        locSearch = location.search;
     // bail early if there's no params or /amp/ to replace
     if (locSearch.length < 3 && ! location.pathname.includes('/amp')) {
         return;
     }
-    let locPath = location.pathname,
+    let pathStr = locPath,
         searchStr = locSearch;
     const hostStr = location.host;
     // Amazon referrals
@@ -78,9 +79,9 @@
         searchStr = "";
     }
     // clean-up '/amp/' in pathname
-    locPath = locPath.replace(/\/amp\/?$/, '');
+    pathStr = pathStr.replace(/\/amp\/?$/, '');
     // if changed replace location with stripped version
-    if (locSearch !== searchStr) {
+    if (locSearch !== searchStr || locPath !== pathStr) {
         const newURL = location.origin + locPath + searchStr;
         history.replaceState(null, null, newURL);
         if (confirm('Copy cleaned URL to clipboard?')) {
