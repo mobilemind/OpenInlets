@@ -2,6 +2,10 @@ module.exports = function(grunt) {
     "use strict";
     grunt.initConfig({
         "buildbookmarklet": {
+            "FYI": {
+                "file": "fyi.js",
+                "version": "3.2.1"
+            },
             "IsItAws": {
                 "file": "isitaws.js",
                 "version": "1.3.3"
@@ -61,10 +65,6 @@ module.exports = function(grunt) {
             "deLighter": {
                 "file": "delighter.js",
                 "version": "1.0.2"
-            },
-            "fyi": {
-                "file": "fyi.js",
-                "version": "3.2.1"
             },
             "x-man": {
                 "file": "x-man.js",
@@ -137,37 +137,64 @@ module.exports = function(grunt) {
     grunt.registerMultiTask("buildbookmarklet", "make a simple javascript url",
         function() {
             const origFile = `src/${this.data.file}`,
-                README ='README.md',
                 srcLen = readOrFail(origFile).length,
                 thisFile = `web/${this.data.file}`;
-            let readMeString = readOrFail(README),
-                theCode = readOrFail(thisFile);
+            let theCode = readOrFail(thisFile);
             theCode = `${theCode}void'${this.data.version}'`;
             // URL encoding for javascript: URL avoids RegEx & HTML issues
             // with things like: "$&*+/<>?[]\^; also force encode '*' as %2A
             theCode = `javascript:${encodeURIComponent(theCode).replace(/\*/g, '%2A')}`;
             // un-encode a couple of generally safe chars for URLs
-            theCode = theCode.replace(/%23/g, '#').replace(/%3A/g, ':').replace(/%3D/g, '=');
+            theCode = theCode.replace(/%3A/g, ':').replace(/%3D/g, '=');
             grunt.file.write(thisFile, theCode);
             // output some stats
             const webLen = theCode.length;
             const diff = srcLen - webLen,
                 ratio = (diff / srcLen * 100).toFixed(1);
             grunt.log.writeln(`${this.target} v${this.data.version}, src: ${srcLen} bytes, web: ${webLen} bytes (-${ratio}%)`);
-            /* eslint-disable no-useless-escape */
-            // update bullet list of JavaScript Bookmarks
-            readMeString = readMeString.replace(new RegExp(`\\+ __\\[${this.target}\\] v\\d+\\.\\d+\\.\\d+__:`), `+ __[${this.target}] v${this.data.version}__:`);
-            // update bullet list of URL-based Setup links
-            readMeString = readMeString.replace(new RegExp(`-- \\[Setup ${this.target}\\] v\\d+\\.\\d+\.\\d+`), `-- [${this.target}] v${this.data.version}`);
-            // update JavaScript (reference) links
-            readMeString = readMeString.replace(new RegExp(`\\[${this.target}\\]: javascript:.*'\\d+\\.\\d+\\.\\d+' "${this.target}"`), `[${this.target}]: ${theCode}`);
-            // update Setup (reference) links
-            readMeString = readMeString.replace(new RegExp(`https://mobilemind\\.github\\.io/OpenInlets/x/#javascript:.*'\\d+\\.\\d+.\\d+' "Setup ${this.target}"`), `https://mobilemind.github.io/OpenInlets/x/#${theCode} "Setup ${this.target}"`);
-            /* eslint-enable no-useless-escape */
-            // update README file
-            grunt.file.write(README, readMeString);
         }
     );
+
+    // helper function for doing replacements from updatereadme task
+    const replaceReadme = function(readMeString, regexPattern, newStr) {
+        let retVal = null;
+        if (readMeString.match(regexPattern)) {
+            retVal = readMeString.replace(regexPattern, newStr);
+        } else {
+            // fail early if there's no match
+            grunt.fail.fatal(`Can't find old "${newStr}" reference using ${regexPattern}`);
+        }
+        return retVal;
+    };
+
+    // set updatereadme targets & define update task
+    grunt.config.set("updatereadme", grunt.config("buildbookmarklet"));
+    grunt.registerMultiTask("updatereadme", "update links in README.md", function() {
+        // read external files
+        const README ='README.md',
+            theCode = readOrFail(`web/${this.data.file}`);
+        let readMeString = readOrFail("README.md");
+        /* eslint-disable no-useless-escape */
+        // update bullet list of JavaScript Bookmarks
+        readMeString = replaceReadme(readMeString,
+            new RegExp(`\\+ __\\[${this.target}\\] v\\d+\\.\\d+\\.\\d+__:`),
+            `+ __[${this.target}] v${this.data.version}__:`);
+        // update bullet list of URL-based Setup links
+        readMeString = replaceReadme(readMeString,
+            new RegExp(`-- \\[Setup ${this.target}\\] v\\d+\\.\\d+\.\\d+`),
+            `-- [Setup ${this.target}] v${this.data.version}`);
+        // update JavaScript (reference) links
+        readMeString = replaceReadme(readMeString,
+            new RegExp(`\\[${this.target}\\]: javascript:.*'\\d+\\.\\d+\\.\\d+' "${this.target}"`),
+            `[${this.target}]: ${theCode} "${this.target}"`);
+        // update Setup (reference) links
+        readMeString = replaceReadme(readMeString,
+            new RegExp(`#javascript:.*?'\\d+\\.\\d+.\\d+' "Setup ${this.target}"`),
+            `#${theCode} "Setup ${this.target}"`);
+        /* eslint-enable no-useless-escape */
+        // update README file
+        grunt.file.write(README, readMeString);
+    });
 
     // build task
     grunt.registerTask("build", ["uglify", "buildbookmarklet"]);
@@ -179,5 +206,5 @@ module.exports = function(grunt) {
     grunt.registerTask("default", ["lint", "build"]);
 
     // Deploy task
-    // grunt.registerTask("deploy", ["default", "updatereadme"]);
+    grunt.registerTask("deploy", ["default", "updatereadme"]);
 };

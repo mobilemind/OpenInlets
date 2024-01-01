@@ -24,8 +24,12 @@
       "command": "npx grunt"
     },
     "update lockfile": {
-      "name": "test",
-      "command": "rm -rf package-lock.json ; npm install && npm audit fix && ./preflight && npx grunt"
+      "name": "update lockfile",
+      "command": "rm -rf package-lock.json node_modules && npm install && npm audit fix && npm pkg fix && ./preflight && npx grunt"
+    },
+    "update readme": {
+      "name": "update readme",
+      "command": "npx deploy"
     }
   }
 }
