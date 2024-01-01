@@ -94,8 +94,9 @@ macOS.
 
 + __[UtmStrip] v1.7.0__: Strips off the UTM query string elements of the
 current URL to remove common "urchin" tracking information from youtube, etc.
-Also asks to copy the new URL to the clipboard. _NOTE:_ This bookmarklet also
-works with Safari and Firefox on macOS.
+Also removes Google `/amp/` suffix fromU URL path. Asks to copy the new URL
+to the clipboard. Finally, replaces history & reloads the page. _NOTE:_ This
+bookmarklet also works with Safari and Firefox on macOS.
 
 + __[x-man] v1.1.1__: Using the selected text in browser, ask to open the
 corresponding man page with yellow highlighting in Terminal.app by using
