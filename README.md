@@ -161,7 +161,7 @@ the dependencies into the project before invoking `npx grunt`.
 ```bash
 git clone https://github.com/mobilemind/OpenInlets.git
 cd OpenInlets
-npm install && npm audit fix
+npm install
 npx grunt
 ```
 

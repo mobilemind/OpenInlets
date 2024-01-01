@@ -29,7 +29,7 @@
     },
     "update readme": {
       "name": "update readme",
-      "command": "npx deploy"
+      "command": "npx grunt deploy"
     }
   }
 }
