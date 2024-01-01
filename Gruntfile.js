@@ -181,7 +181,7 @@ module.exports = function(grunt) {
             `+ __[${this.target}] v${this.data.version}__:`);
         // update bullet list of URL-based Setup links
         readMeString = replaceReadme(readMeString,
-            new RegExp(`-- \\[Setup ${this.target}\\] v\\d+\\.\\d+\.\\d+`),
+            new RegExp(`-- \\[Setup ${this.target}\\] v\\d+\\.\\d+\\.\\d+`),
             `-- [Setup ${this.target}] v${this.data.version}`);
         // update JavaScript (reference) links
         readMeString = replaceReadme(readMeString,
