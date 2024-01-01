@@ -33,8 +33,8 @@ fragment on the current page. If the current URL includes a hash, which can
 imply a text fragment highlight, then reload the page to de-highlight it.
 (It's a cross-platform companion to the __Linklighter__ bookmarklet, below.)
 
-+ __[fyi] 3.2.1__: Select text on a web page and fire off an email that quotes
-the selection and includes the page title and URL. "fyi" opens a new email
++ __[FYI] 3.2.1__: Select text on a web page and fire off an email that quotes
+the selection and includes the page title and URL. "FYI" opens a new email
 with the page title in the subject line, the page title repeated again in the
 body, along with the selected text (if any text was selected), and the URL of
 the original page.
@@ -108,7 +108,7 @@ Tap a link below. Follow the instructions on the resulting page to turn the
 followed link into a bookmark for JavaScript bookmarklet.
 
 + __Mobile Safari setup link__ -- [Setup deLighter] v1.0.1
-+ __Mobile Safari setup link__ -- [Setup fyi] v3.2.1
++ __Mobile Safari setup link__ -- [Setup FYI] v3.2.1
 + __Mobile Safari setup link__ -- [Setup IsItAws] v1.3.3
 + __Mobile Safari setup link__ -- [Setup KillStickyHeaders] v1.2.1
 + __Mobile Safari setup link__ -- [Setup Linklighter] v1.1.0
@@ -128,7 +128,7 @@ followed link into a bookmark for JavaScript bookmarklet.
 ## Requirements
 
 + Mobile Safari 7.x or higher (last tested with iOS 17, macOS 14 Safari 17)
-+ Corresponding iOS app (_except_ for "delighter", "fyi", "IsItAws",
++ Corresponding iOS app (_except_ for "delighter", "FYI", "IsItAws",
 "Linklighter", "UTMStrip", and "x-man" bookmarklets).
 
 ### Notes
@@ -177,7 +177,7 @@ using a URL protocol scheme.
 
 + __deLighter__: Does _not_ use a URL protocol scheme. Checks the current URL
   for a '#' and if found, reloads the page to clear the highlight.
-+ __fyi__: Uses the `mailto:` protocol scheme to open a new email with the
++ __FYI__: Uses the `mailto:` protocol scheme to open a new email with the
   page title in the subject line, the page title repeated again in the body,
   along with the selected text (if any text was selected), and the URL of the
   original page. Based on [fyi-bookmarklets](https://github.com/mobilemind/fyi-bookmarklets)
@@ -237,7 +237,7 @@ using a URL protocol scheme.
 
 ## Version Notes
 
-3.4.0 adds "fyi" bookmarklet, removes deprecated 1Password bookmarklets
+3.4.0 adds "FYI" bookmarklet, removes deprecated 1Password bookmarklets
 
 3.3.0 updates Linklighter 1.1.0, UtmStrip 1.7.0, and x-man 1.10 to ask to copy
 their results to the clipboard
@@ -353,7 +353,7 @@ repos I had; doesn't build yet
 <!--- JavaScript links -->
 
 [deLighter]: javascript:if(~document.URL.indexOf('%23'))document.location.reload()%3Bvoid'1.0.2' "deLighter"
-[fyi]: javascript:e=encodeURIComponent(document.title)%2Co='Range'==(o=window.getSelection()).type%26%260%3Co.rangeCount%3Fo.getRangeAt(0).toString():''%2Cvoid(location.href=%60mailto:%3Fsubject=fyi:%24%7Be%7D%26body=%24%7Be%7D%250A%24%7BencodeURIComponent(document.URL)%7D%250A---%250A%24%7BencodeURIComponent(o)%7D%250A%250A%60)%3Bvar%20e%2Co%3Bvoid'3.2.1' "fyi"
+[FYI]: javascript:e=encodeURIComponent(document.title)%2Co='Range'==(o=window.getSelection()).type%26%260%3Co.rangeCount%3Fo.getRangeAt(0).toString():''%2Cvoid(location.href=%60mailto:%3Fsubject=fyi:%24%7Be%7D%26body=%24%7Be%7D%250A%24%7BencodeURIComponent(document.URL)%7D%250A---%250A%24%7BencodeURIComponent(o)%7D%250A%250A%60)%3Bvar%20e%2Co%3Bvoid'3.2.1' "FYI"
 [IsItAws]: javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3' "IsItAws"
 [KillStickyHeaders]: javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1' "KillStickyHeaders"
 [Linklighter]: javascript:%7Bvar%20o=window.getSelection().toString()%2Cl=o.length%2Ce=document.URL%3Blet%20n=e%2Ct=e.indexOf('%23')%2Ci=''%3Bif(window.getSelection().empty()%2Co%26%26''!=o)%7Bif(-1%3Ct%26%26(n=n.substring(0%2Ct))%2Cn%2B='%23:~:text='%2Cl%3C80)i=o%2Cn%2B=encodeURIComponent(o)%3Belse%7Blet%20e=~~(l%2F2-2)%3B150%3Cl%3Fe=48:100%3Cl%26%26(e=~~(l%2F3))%3Bo=%5BencodeURIComponent(i=o.substring(0%2Ce))%2CencodeURIComponent(o.substr(l-e))%5D%3Bi%2B='%E2%80%A6'%2C-1%3C(t=o%5B0%5D.lastIndexOf('%2520'))%26%26(o%5B0%5D=o%5B0%5D.substring(0%2Ct))%2C-1%3C(t=o%5B1%5D.indexOf('%2520'))%26%26(o%5B1%5D=o%5B1%5D.substr(3%2Bt))%2Cn%2B=o.join()%7Dn=(n=(n=n.replace(%2F%250A%24%2F%2C'')).replace(%2F%2520%24%2F%2C'')).replace('%23%23:~:text='%2C'%23:~:text=')%7Dvoid(n!=e%26%26confirm('Open%20URL%20with%20highlight%20on%20%22'%2Bi%2B'%22%20and%20copy%20URL%20to%20clipboard%3F%5Cn%5CnNote:%20If%20text%20isn%E2%80%99t%20highlighted%20in%20new%20tab%2C%20you%20can%20try%20again%20with%20a%20smaller%20selection.')%26%26(navigator.clipboard.writeText(n)%2Cwindow.open(n%2C'_blank').opener=null))%7Dvoid'1.1.1' "Linklighter"
@@ -373,7 +373,7 @@ repos I had; doesn't build yet
 <!--- Setup links -->
 
 [Setup deLighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(~document.URL.indexOf('%23'))document.location.reload()%3Bvoid'1.0.2' "Setup deLighter"
-[Setup fyi]: https://mobilemind.github.io/OpenInlets/x/#jjavascript:e=encodeURIComponent(document.title)%2Co='Range'==(o=window.getSelection()).type%26%260%3Co.rangeCount%3Fo.getRangeAt(0).toString():''%2Cvoid(location.href=%60mailto:%3Fsubject=fyi:%24%7Be%7D%26body=%24%7Be%7D%250A%24%7BencodeURIComponent(document.URL)%7D%250A---%250A%24%7BencodeURIComponent(o)%7D%250A%250A%60)%3Bvar%20e%2Co%3Bvoid'3.2.1' "Setup fyi"
+[Setup FYI]: https://mobilemind.github.io/OpenInlets/x/#jjavascript:e=encodeURIComponent(document.title)%2Co='Range'==(o=window.getSelection()).type%26%260%3Co.rangeCount%3Fo.getRangeAt(0).toString():''%2Cvoid(location.href=%60mailto:%3Fsubject=fyi:%24%7Be%7D%26body=%24%7Be%7D%250A%24%7BencodeURIComponent(document.URL)%7D%250A---%250A%24%7BencodeURIComponent(o)%7D%250A%250A%60)%3Bvar%20e%2Co%3Bvoid'3.2.1' "Setup FYI"
 [Setup IsItAws]: https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3' "Setup IsItAws"
 [Setup KillStickyHeaders]: https://mobilemind.github.io/OpenInlets/x/#javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1' "Setup KillStickyHeaders"
 [Setup Linklighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:%7Bvar%20o=window.getSelection().toString()%2Cl=o.length%2Ce=document.URL%3Blet%20n=e%2Ct=e.indexOf('%23')%2Ci=''%3Bif(window.getSelection().empty()%2Co%26%26''!=o)%7Bif(-1%3Ct%26%26(n=n.substring(0%2Ct))%2Cn%2B='%23:~:text='%2Cl%3C80)i=o%2Cn%2B=encodeURIComponent(o)%3Belse%7Blet%20e=~~(l%2F2-2)%3B150%3Cl%3Fe=48:100%3Cl%26%26(e=~~(l%2F3))%3Bo=%5BencodeURIComponent(i=o.substring(0%2Ce))%2CencodeURIComponent(o.substr(l-e))%5D%3Bi%2B='%E2%80%A6'%2C-1%3C(t=o%5B0%5D.lastIndexOf('%2520'))%26%26(o%5B0%5D=o%5B0%5D.substring(0%2Ct))%2C-1%3C(t=o%5B1%5D.indexOf('%2520'))%26%26(o%5B1%5D=o%5B1%5D.substr(3%2Bt))%2Cn%2B=o.join()%7Dn=(n=(n=n.replace(%2F%250A%24%2F%2C'')).replace(%2F%2520%24%2F%2C'')).replace('%23%23:~:text='%2C'%23:~:text=')%7Dvoid(n!=e%26%26confirm('Open%20URL%20with%20highlight%20on%20%22'%2Bi%2B'%22%20and%20copy%20URL%20to%20clipboard%3F%5Cn%5CnNote:%20If%20text%20isn%E2%80%99t%20highlighted%20in%20new%20tab%2C%20you%20can%20try%20again%20with%20a%20smaller%20selection.')%26%26(navigator.clipboard.writeText(n)%2Cwindow.open(n%2C'_blank').opener=null))%7Dvoid'1.1.1' "Setup Linklighter"
