@@ -141,6 +141,7 @@ module.exports = function(grunt) {
     grunt.registerMultiTask("buildbookmarklet", "make a simple javascript url",
         function() {
             const origFile = `src/${this.data.file}`,
+                srcLen = readOrFail(origFile).length,
                 thisFile = `web/${this.data.file}`;
             let theCode = readOrFail(thisFile);
             theCode = `${theCode}void'${this.data.version}'`;
@@ -148,13 +149,13 @@ module.exports = function(grunt) {
             // with things like: "$&*+/<>?[]\^; also force encode '*' as %2A
             theCode = `javascript:${encodeURIComponent(theCode).replace(/\*/g, "%2A")}`;
             // un-encode a couple of generally safe chars for URLs
-            theCode = theCode.replace(/%3A/g, ":");
-            theCode = theCode.replace(/%3D/g, "=");
+            theCode = theCode.replace(/%3A/g, ":").replace(/%3D/g, "=");
             grunt.file.write(thisFile, theCode);
             // output some stats
-            grunt.log.writeln(`${this.target} v${this.data.version}`);
-            grunt.log.writeln(`${origFile}: ${readOrFail(origFile).length} bytes`);
-            grunt.log.writeln(`${thisFile}: ${theCode.length} bytes`);
+            const webLen = theCode.length;
+            const diff = srcLen - webLen,
+                ratio = (diff / srcLen * 100).toFixed(1);
+            grunt.log.writeln(`${this.target} v${this.data.version}, src: ${srcLen} bytes, web: ${webLen} bytes (-${ratio}%)`);
         }
     );
 
