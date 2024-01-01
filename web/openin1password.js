@@ -1,1 +1,0 @@
-javascript:location.href='onepassword:%2F%2Fsearch%2F'%3Bvoid'1.6.1'

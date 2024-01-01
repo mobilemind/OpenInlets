@@ -5,7 +5,7 @@
 (() => {
     const textFrag = window.getSelection().toString(),
         textFragLen = textFrag.length,
-        url = document.location.href;
+        url = document.URL;
     let newUrl = url,
         strPos = url.indexOf('#'),
         strStart = '';

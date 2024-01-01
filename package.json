@@ -22,17 +22,18 @@
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
-    "1Password",
     "AWS",
     "bookmarklet",
     "delighter",
     "Firefox",
+    "fyi",
     "GoodReader",
     "Google Chrome",
     "Google Maps",
     "IsItAWS",
     "iOS",
     "Linklighter",
+    "Safari",
     "UTM",
     "UTM-Stripper",
     "x-man"
@@ -48,5 +49,5 @@
   "scripts": {
     "test": "npx grunt"
   },
-  "version": "3.3.2"
+  "version": "3.4.0"
 }

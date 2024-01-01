@@ -12,11 +12,7 @@ module.exports = function(grunt) {
             },
             "Linklighter": {
                 "file": "linklighter.js",
-                "version": "1.1.0"
-            },
-            "OpenIn1Password": {
-                "file": "openin1password.js",
-                "version": "1.6.1"
+                "version": "1.1.1"
             },
             "OpenInBrave": {
                 "file": "openinbrave.js",
@@ -58,17 +54,17 @@ module.exports = function(grunt) {
                 "file": "openurlparam.js",
                 "version": "1.0.1"
             },
-            "SearchIn1Password": {
-                "file": "searchin1password.js",
-                "version": "1.5.1"
-            },
             "UtmStrip": {
                 "file": "utmstrip.js",
                 "version": "1.8.0"
             },
             "deLighter": {
                 "file": "delighter.js",
-                "version": "1.0.1"
+                "version": "1.0.2"
+            },
+            "fyi": {
+                "file": "fyi.js",
+                "version": "3.2.1"
             },
             "x-man": {
                 "file": "x-man.js",
