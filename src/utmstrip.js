@@ -9,7 +9,7 @@
         searchStr = locSearch;
     const hostStr = location.host;
     // Amazon referrals
-    if (hostStr.indexOf('amazon.com') > -1) {
+    if (hostStr === 'www.amazon.com') {
         searchStr = searchStr.replace(/([?&])(_encoding|ie|psc|ref_|tag)=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])p[df]_rd_.*?=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])ascsubtag=[^&]+/ig, '$1');
@@ -34,7 +34,7 @@
         searchStr = searchStr.replace(/([?&])(ga|utm)_(campaign|cid|content|design|medium|name|place|pubreferrer|reader|source|swu|term|userid|viz_id)=[^&]+/ig, '$1');
     }
     // Google YouTube (handles youtube.com, youtu.be, etc.)
-    if (hostStr.indexOf('youtu') > -1 || hostStr.indexOf('googlevideo.com') > -1) {
+    if (hostStr === 'www.youtube.com' || hostStr === 'm.youtube.com' || hostStr === 'youtu.be' || hostStr === 'www.youtube-nocookie.com') {
         searchStr = searchStr.replace(/([?&])(ac|annotation_id|app|feature|gclid|kw|src_vid)=[^&]+/ig, '$1');
     }
     // HubSpot

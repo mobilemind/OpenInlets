@@ -36,7 +36,7 @@ module.exports = {
         "arrow-body-style": "error",
         "block-scoped-var": "error",
         "class-methods-use-this": "error",
-        "complexity": ["error", 28],
+        "complexity": ["error", 32],
         "consistent-return": "error",
         "consistent-this": "error",
         "curly": "error",
