@@ -1,0 +1,76 @@
+#!/bin/sh
+
+## pre-push for OpenInlets
+# To enable this hook, rename this file to "pre-push".
+
+# Redirect output to stderr.
+exec 1>&2
+
+## GLOBALS
+GITBRANCH="$(git rev-parse --abbrev-ref HEAD)"
+HOOKNAME="${0##*/}"
+GITOP="$(basename "${HOOKNAME##pre-}" .sh)"
+
+if [ "gh-pages" = "$GITBRANCH" ] ; then
+  echo "  git hooks $HOOKNAME ($GITBRANCH): SKIPPING tests - not a code development branch"
+  exit 0
+fi
+
+# echo something to explain lag in push
+echo "  git hooks $HOOKNAME ($GITBRANCH): running tests"
+
+## check for package-lock.json
+[ -f package-lock.json ] || \
+	{ echo "*** ERROR in $HOOKNAME script, missing file: package-lock.json"
+		echo "    before next push try: npm install && npm audit fix && git status -b"
+		exit 1
+	}
+
+# update (or implicit install) node modules
+if ! [ -d 'node_modules' ] ; then
+  echo '    Running "preflight" and "npm install". This could take awhile.'
+  if [ -f "./preflight" ] ; then
+    ./preflight || exit 1
+    echo
+  else
+    echo '      WARNING: "preflight" script not found.'
+  fi
+  echo
+fi
+
+# run test
+echo '  npx grunt'
+npx grunt || \
+  { echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'npx grunt'" ; exit 2 ; }
+echo "  git hooks $HOOKNAME ($GITBRANCH): OK, passed: 'npx grunt'"
+
+# cross-check git tag and package.json version
+if hash jq >/dev/null 2>&1 ; then
+  echo '  Checking consistency of package version and git tag'
+  TAGVERSION="$(git describe --abbrev=0 --tags)"
+  PKGVERSION="$(jq -r .version package.json)"
+  if [ "$TAGVERSION" = "$PKGVERSION" ] ; then
+    echo "    ok, git tag \"$TAGVERSION\" matches package version."
+  else
+    echo "    WARNING: git tag \"$TAGVERSION\" does not match package version $PKGVERSION."
+  fi
+  echo '  Checking consistency of package version and SECURITY.md'
+  MINORVERSION="$(echo "$PKGVERSION" | sed -E 's/[0-9]+$//')"
+  if grep -Fq "$MINORVERSION" SECURITY.md ; then
+    echo "    ok, package minor version \"$MINORVERSION\" found in SECURITY.md file."
+  else
+    echo "    WARNING: package minor version \"$MINORVERSION\" NOT found in SECURITY.md file."
+  fi
+fi
+
+# docs tests
+echo '  Checking LICENSE date'
+CURRENTYEAR="$(date +%Y)"
+if grep -Fq  "2014-$CURRENTYEAR" 'LICENSE' ; then
+	echo "    ok, \"2014-$CURRENTYEAR\" found in LICENSE.TXT file."
+else
+	echo "    WARNING: \"2014-$CURRENTYEAR\" NOT found in LICENSE.TXT file."
+fi
+
+echo "  OK, basic checks passed. Ready to continue with $GITOP."
+echo
