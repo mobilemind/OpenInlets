@@ -62,11 +62,11 @@ fi
 echo
 
 ## check JavaScript
-echo '  checking JavaScript & JSON files (w/ eslint, see .eslintrc.yml)'
+echo '  checking JavaScript & JSON files (w/ eslint, see .github/linters/eslintrc.js)'
 npx eslint -c .github/linters/.eslintrc.js "*.js" "src/*.js" .codesandbox/tasks.json \
 		".github/linters/.*.js" ".github/linters/.*.json" package.json \
     || { echo '    *** ERROR eslint JavaScript & JSON check failed.' ; exit 1 ; }
-echo '    *.js src/*.js package.json .codesandbox/tasks.json .github/linters/.*.js: JavaScript & JSON OK'
+echo '    *.js src/*.js package.json .github/linters/.*.js .codesandbox/tasks.json .github/linters/.*.json: JavaScript & JSON OK'
 echo
 
 echo '  OK, preflight checks passed.'
