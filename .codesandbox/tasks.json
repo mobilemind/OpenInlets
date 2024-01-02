@@ -2,7 +2,7 @@
   "setupTasks": [
     {
       "name": "Install Dependencies",
-      "command": "npm install ; [ -f .git/hooks/pre-push ] || cp -fpv pre-push .git/hooks"
+      "command": "npm install ; [ -f .git/hooks/pre-push ] || cp -fpv pre-* .git/hooks"
     }
   ],
   "tasks": {
