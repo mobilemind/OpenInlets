@@ -1,4 +1,8 @@
 {
     "default": true,
+    "fenced-code-language": {
+        "allowed_languages": ["bash"],
+        "language_only": true
+    },
     "line-length": false
 }
