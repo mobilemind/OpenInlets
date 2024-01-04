@@ -3,14 +3,14 @@
 
 /* eslint no-unused-expressions: 0 */
 (() => {
-    const selection = window.getSelection().toString(),
+    const selection = window.getSelection().toString().trim(),
         xman = 'x-man-page://' + selection;
     if (selection) {
         if (confirm('x-man-page for: "' + selection + '"?')) {
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(xman);
             }
-            if (navigator.platform.toUpperCase().indexOf('MAC')==0) {
+            if (navigator.platform.startsWith('Mac')) {
                 window.open(xman, '_blank').opener = null;
             }
         }
