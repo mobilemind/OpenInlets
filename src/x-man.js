@@ -10,7 +10,7 @@
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(xman);
             }
-            if (navigator.platform.toUpperCase().indexOf('MAC')==0) {
+            if (0===navigator.platform.toUpperCase().indexOf('MAC')) {
                 window.open(xman, '_blank').opener = null;
             }
         }

@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 module.exports = function(grunt) {
     "use strict";
     grunt.initConfig({
@@ -68,7 +69,7 @@ module.exports = function(grunt) {
             },
             "x-man": {
                 "file": "x-man.js",
-                "version": "1.1.1"
+                "version": "1.1.2"
             }
         },
         "eslint": {
