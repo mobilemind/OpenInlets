@@ -17,7 +17,7 @@ module.exports = function(grunt) {
             },
             "Linklighter": {
                 "file": "linklighter.js",
-                "version": "1.1.1"
+                "version": "1.1.2"
             },
             "OpenInBrave": {
                 "file": "openinbrave.js",
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
             },
             "UtmStrip": {
                 "file": "utmstrip.js",
-                "version": "1.8.0"
+                "version": "1.8.1"
             },
             "deLighter": {
                 "file": "delighter.js",
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
             },
             "x-man": {
                 "file": "x-man.js",
-                "version": "1.1.2"
+                "version": "1.1.3"
             }
         },
         "eslint": {
@@ -143,8 +143,8 @@ module.exports = function(grunt) {
             let theCode = readOrFail(thisFile);
             theCode = `${theCode}void'${this.data.version}'`;
             // URL encoding for javascript: URL avoids RegEx & HTML issues
-            // with things like: "$&*+/<>?[]\^; also force encode '*' as %2A
-            theCode = `javascript:${encodeURIComponent(theCode).replace(/\*/g, '%2A')}`;
+            // with things like: "$&*+/<>?[]\^; also force encode '*'–>%2A, '_'–>%5F for regex & Markdown
+            theCode = `javascript:${encodeURIComponent(theCode).replace(/\*/g, '%2A').replace(/_/g, '%5F')}`;
             // un-encode a couple of generally safe chars for URLs
             theCode = theCode.replace(/%3A/g, ':').replace(/%3D/g, '=');
             grunt.file.write(thisFile, theCode);
