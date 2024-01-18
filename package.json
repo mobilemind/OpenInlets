@@ -28,8 +28,6 @@
     "Firefox",
     "fyi",
     "GoodReader",
-    "Google Chrome",
-    "Google Maps",
     "IsItAWS",
     "iOS",
     "Linklighter",
@@ -49,5 +47,5 @@
   "scripts": {
     "test": "npx grunt"
   },
-  "version": "3.4.0"
+  "version": "3.5.0"
 }
