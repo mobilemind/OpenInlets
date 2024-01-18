@@ -39,14 +39,6 @@ module.exports = function(grunt) {
                 "file": "openingoodreader.js",
                 "version": "1.5.2"
             },
-            "OpenInGoogleChrome": {
-                "file": "openingooglechrome.js",
-                "version": "1.4.1"
-            },
-            "OpenInGoogleMaps": {
-                "file": "openingooglemaps.js",
-                "version": "2.2.1"
-            },
             "OpenInTextastic": {
                 "file": "openintextastic.js",
                 "version": "1.0.1"

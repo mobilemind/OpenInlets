@@ -18,7 +18,7 @@
     "grunt-eslint": "~24.3.0"
   },
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=20.11.0"
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
@@ -28,8 +28,6 @@
     "Firefox",
     "fyi",
     "GoodReader",
-    "Google Chrome",
-    "Google Maps",
     "IsItAWS",
     "iOS",
     "Linklighter",
@@ -49,5 +47,5 @@
   "scripts": {
     "test": "npx grunt"
   },
-  "version": "3.4.0"
+  "version": "3.5.0"
 }

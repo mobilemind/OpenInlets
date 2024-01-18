@@ -67,15 +67,6 @@ mode of the Firefox app for iOS.
 + __[OpenInGoodReader] v1.5.2__: When viewing a PDF in Mobile Safari, open or
 download the same PDF in GoodReader.
 
-+ __[OpenInGoogleChrome] v1.4.1__: Open the current web page in the Google
-Chrome app for iOS. May not work, I stopped using Chrome years ago.
-
-+ __[OpenInGoogleMaps] v2.2.1__: Open the current web page in the Google Maps
-application on iOS. Handy when an app opens a Google Maps page in Mobile
-Safari, but you'd prefer the Google Maps _app_. If the current URL does NOT
-contain an address or location, it will search in the Google Maps app using
-the page title. May not work, I stopped using Google Maps years ago.
-
 + __[OpenInTextastic] v1.0.1__: Open the current web page in the Textastic app
 on iOS. Download the server response of the current HTTP URL, save it in the
 root directory of the local (Textastic) file system, and then open it in the
@@ -117,8 +108,6 @@ followed link into a bookmark for JavaScript bookmarklet.
 + __Mobile Safari setup link__ -- [Setup OpenInFirefox-Focus] v1.0.1
 + __Mobile Safari setup link__ -- [Setup OpenInFirefox-Private] v1.0.1
 + __Mobile Safari setup link__ -- [Setup OpenInGoodReader] v1.5.2
-+ __Mobile Safari setup link__ -- [Setup OpenInGoogleChrome] v1.4.1
-+ __Mobile Safari setup link__ -- [Setup OpenInGoogleMaps] v2.2.1
 + __Mobile Safari setup link__ -- [Setup OpenInTextastic] v1.0.1
 + __Mobile Safari setup link__ -- [Setup OpenInWorkingCopy] v1.5.1
 + __Mobile Safari setup link__ -- [Setup OpenURLParam] v1.0.1
@@ -208,12 +197,6 @@ using a URL protocol scheme.
   target url for private browsing.
 + __OpenInGoodReader__ - Uses the `grhttp://` or `grhttps://` URL protocol
   scheme for GoodReader. See [GoodReader URL Scheme][GoodReader URL Scheme].
-+ __OpenInGoogleChrome__ - Uses the `googlechrome://` or `googlechromes://`
-  scheme for the Google Chrome app on iOS. Formerly documented at
-  `https://developer.chrome.com/multidevice/ios/links`.
-+ __OpenInGoogleMaps__ - Uses the `comgooglemaps://` protocol scheme for the
-  Google Maps app on iOS. See [Google Maps URL Scheme][Google Maps URL Scheme]
-  for details.
 + __OpenInTextastic__ - Uses the `textastic://` protocol scheme of the
   Textastic app on iOS. For details, see
   [Textastic x-callback-url API][Textastic x-callback-url API].
@@ -236,6 +219,8 @@ using a URL protocol scheme.
   [x-man-page: URL handler studied for the OSX Terminal.app][x-man-page URL handler]
 
 ## Version Notes
+
+3.5.0 drop "OpenInGoogleChrome" & "OpenInGoogleMaps" bookmarklets
 
 3.4.0 adds "FYI" bookmarklet, removes deprecated 1Password bookmarklets, updates deploy task
 
@@ -362,8 +347,6 @@ repos I had; doesn't build yet
 [OpenInFirefox-Focus]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox-focus:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%2B'%26private=true'%3Bvoid'1.0.1' "OpenInFirefox-Focus"
 [OpenInFirefox-Private]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%2B'%26private=true'%3Bvoid'1.0.1' "OpenInFirefox-Private"
 [OpenInGoodReader]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))location.href='gr'%2Blocation.href%3Bvoid'1.5.2' "OpenInGoodReader"
-[OpenInGoogleChrome]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=location.href.replace(%2F%5Ehttp%2F%2C'googlechrome')%3Bvoid'1.4.1' "OpenInGoogleChrome"
-[OpenInGoogleMaps]: javascript:if(%2F%5C.google%5C.com%2F.test(location.host)%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps:%2F%2F'%2Blocation.search%3Bif(%2F%20-%20Google%20Maps%2F.test(document.title))location.href='comgooglemaps:%2F%2F%3Fq='%2BencodeURI(document.title.replace('%20-%20Google%20Maps'%2C'').replace(%2F%20%2Fg%2C'%2B'))%7Dvoid'2.2.1' "OpenInGoogleMaps"
 [OpenInTextastic]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=location.href.replace(%2F%5Ehttps%3F%2F%2C'textastic')%3Bvoid'1.0.1' "OpenInTextastic"
 [OpenInWorkingCopy]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26('bitbucket.org'==location.host%7C%7C'github.com'==location.host))location.href='working-copy:%2F%2Fshow%3Fremote='%2BencodeURIComponent(location.href.split('%2F').slice(0%2C5).join('%2F'))%2B'.git'%3Bvoid'1.5.1' "OpenInWorkingCopy"
 [OpenURLParam]: javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co)%7Blet%20e=location.search.substr(4%2Bo)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co%3Fe.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))%7Dvoid'1.0.1' "OpenURLParam"
@@ -382,8 +365,6 @@ repos I had; doesn't build yet
 [Setup OpenInFirefox-Focus]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox-focus:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%2B'%26private=true'%3Bvoid'1.0.1' "Setup OpenInFirefox-Focus"
 [Setup OpenInFirefox-Private]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%2B'%26private=true'%3Bvoid'1.0.1' "Setup OpenInFirefox-Private"
 [Setup OpenInGoodReader]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))location.href='gr'%2Blocation.href%3Bvoid'1.5.2' "Setup OpenInGoodReader"
-[Setup OpenInGoogleChrome]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=location.href.replace(%2F%5Ehttp%2F%2C'googlechrome')%3Bvoid'1.4.1' "Setup OpenInGoogleChrome"
-[Setup OpenInGoogleMaps]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2F%5C.google%5C.com%2F.test(location.host)%26%26%2FiP(.d%7Chone)%2F.test(navigator.userAgent))%7Bif(location.search)return%20location.href='comgooglemaps:%2F%2F'%2Blocation.search%3Bif(%2F%20-%20Google%20Maps%2F.test(document.title))location.href='comgooglemaps:%2F%2F%3Fq='%2BencodeURI(document.title.replace('%20-%20Google%20Maps'%2C'').replace(%2F%20%2Fg%2C'%2B'))%7Dvoid'2.2.1' "Setup OpenInGoogleMaps"
 [Setup OpenInTextastic]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=location.href.replace(%2F%5Ehttps%3F%2F%2C'textastic')%3Bvoid'1.0.1' "Setup OpenInTextastic"
 [Setup OpenInWorkingCopy]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26('bitbucket.org'==location.host%7C%7C'github.com'==location.host))location.href='working-copy:%2F%2Fshow%3Fremote='%2BencodeURIComponent(location.href.split('%2F').slice(0%2C5).join('%2F'))%2B'.git'%3Bvoid'1.5.1' "Setup OpenInWorkingCopy"
 [Setup OpenURLParam]: https://mobilemind.github.io/OpenInlets/x/#javascript:var%20o=location.search.search('url=')%3Bif(-1%3Co)%7Blet%20e=location.search.substr(4%2Bo)%3Bo=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co%3Fe.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))%7Dvoid'1.0.1' "Setup OpenURLParam"
@@ -404,8 +385,6 @@ repos I had; doesn't build yet
 [OpenInlets page]: http://mobilemind.github.io/OpenInlets/
 [GoodReader URL Scheme]: http://www.goodreader.com/gr-man-howto.html#ghttp
 "GoodReader:How do I save a file from Safari to GoodReader?"
-[Google Maps URL Scheme]: https://developers.google.com/maps/documentation/ios/urlscheme
-"Google Developers:Google Maps URL Scheme"
 [Textastic x-callback-url API]: https://www.textasticapp.com/v4/manual/x-callback-url.html#downloadusingthetextastic:scheme
 "Download using the textastic:// scheme"
 [Text fragments]: https://developer.mozilla.org/en-US/docs/Web/Text_fragments
