@@ -7,7 +7,7 @@
     const agent = navigator.userAgent,
         containsOther = agent.includes('Chrome/') || agent.includes('Firefox/' ) || agent.includes('Brave/') || agent.includes('Edg/' ),
         containsSafari = agent.includes('Safari/'),
-        macSafari = navigator.platform.startsWith('Mac') && containsSafari && !containsOther && !navigator.maxTouchPoints && !navigator.maxTouchPoints > 1,
+        macSafari = navigator.platform.startsWith('Mac') && containsSafari && !containsOther && !navigator.maxTouchPoints && navigator.maxTouchPoints < 2,
         selection = window.getSelection().toString().trim();
     let xman = 'x-man-page://' + selection;
     if (selection) {
