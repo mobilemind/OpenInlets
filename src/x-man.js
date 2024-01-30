@@ -22,7 +22,9 @@
             if (macSafari && xman != '') {
                 const newWin = window.open(xman, '_blank');
                 if (typeof newWin.closed !== 'undefined' && !newWin.closed && newWin) {
-                  newWin.close();
+                  true ;
+                  // can't close it unless user previously said 'Always Allow'
+                  // setTimeout(() => { newWin.close(); }, 200);
                 } else {
                   alertMsg = `Popup window blocked. Unable to open new link with Terminal, but clipboard contains "${xman}"`;
                 }
