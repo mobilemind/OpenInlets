@@ -25,7 +25,7 @@ jobs:
       - name: "Install"
         run: npm install
 
-      # Run Linter against code base
+      # Run Linter against 
       - name: Lint Code Base with env
         uses: github/super-linter/slim@v6
         env:
