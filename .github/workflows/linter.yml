@@ -27,7 +27,7 @@ jobs:
 
       # Run Linter against code base
       - name: Lint Code Base with env
-        uses: github/super-linter/slim@v6.0.0
+        uses: github/super-linter/slim@v6
         env:
           ACTIONS_RUNNER_DEBUG: false
           DEFAULT_BRANCH: main
