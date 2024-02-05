@@ -27,7 +27,7 @@ jobs:
 
       # Run Linter against code base
       - name: Super-linter
-        uses: super-linter/super-linter/slim@v6
+        uses: super-linter/super-linter/slim@v6.0.0
         env:
           ACTIONS_RUNNER_DEBUG: false
           DEFAULT_BRANCH: main
@@ -36,6 +36,8 @@ jobs:
           LOG_LEVEL: NOTICE
           SUPPRESS_POSSUM: true
           VALIDATE_ALL_CODEBASE: false
+          VALIDATE_BASH: true
+          VALIDATE_BASH_EXEC: true
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_JSON: true
