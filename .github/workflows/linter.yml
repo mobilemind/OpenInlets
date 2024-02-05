@@ -25,9 +25,9 @@ jobs:
       - name: "Install"
         run: npm install
 
-      # Run Linter against 
-      - name: Lint Code Base with env
-        uses: github/super-linter/slim@v6
+      # Run Linter against code base
+      - name: Super-linter
+        uses: super-linter/super-linter/slim@v6
         env:
           ACTIONS_RUNNER_DEBUG: false
           DEFAULT_BRANCH: main
