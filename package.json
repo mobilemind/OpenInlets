@@ -11,7 +11,7 @@
   "devDependencies": {
     "eslint-plugin-jsonc": "~2.13.0",
     "eslint-plugin-no-unsanitized": "~4.0.2",
-    "eslint-plugin-security": "~2.1.0",
+    "eslint-plugin-security": "~2.1.1",
     "eslint-plugin-xss": "~0.1.12",
     "grunt": "~1.6.1",
     "grunt-contrib-uglify": "~5.2.2",
