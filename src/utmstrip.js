@@ -1,3 +1,4 @@
+/* eslint max-statements: ["error", 65] */
 (() => {
     const locPath = location.pathname,
         locSearch = location.search;
@@ -8,9 +9,16 @@
     let pathStr = locPath,
         searchStr = locSearch;
     const hostStr = location.host;
+    // AliExpress trackers
+    if (hostStr.includes(".aliexpress.")) {
+        searchStr = searchStr.replace(/([?&])aff_(platform|trace_key)=[^&]+/ig, '$1');
+        searchStr = searchStr.replace(/([?&])algo_[ep]vid=[^&]+/g, '$1');
+        searchStr = searchStr.replace(/([?&])(btsid|ws_ab_test)=[^&]+/g, '$1');
+        searchStr = searchStr.replace(/([?&])s[cp]m=[^&]+/g, '$1');
+    }
     // Amazon referrals
     if (hostStr === 'www.amazon.com') {
-        searchStr = searchStr.replace(/([?&])(_encoding|ie|psc|ref_|tag)=[^&]+/ig, '$1');
+        searchStr = searchStr.replace(/([?&])(_encoding|ie|pf|psc|ref_|tag)=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])p[df]_rd_.*?=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])(ascsubtag|content-id|qid|sprefix|sr|th)=[^&]+/g, '$1');
         searchStr = searchStr.replace(/([?&])dib(_tag)?=[^&]+/g, '$1');
@@ -18,12 +26,13 @@
     // Facebook
     if (searchStr.indexOf('fb_') > -1) {
         searchStr = searchStr.replace(/([?&])fb_(action_ids|action_types|ref|source)=[^&]+/ig, '$1');
+        searchStr = searchStr.replace(/([?&])(fbclid|hrc|refsrc)=[^&]+/ig, '$1');
     }
     if (searchStr.indexOf('action_') > -1) {
         searchStr = searchStr.replace(/([?&])action_(object|ref|type)_map=[^&]+/ig, '$1');
     }
     // generic/general
-    searchStr = searchStr.replace(/([?&])(assetType|elqTrack|originalReferer|referrer|terminal_id|trk|trkInfo)=[^&]+/ig, '$1');
+    searchStr = searchStr.replace(/([?&])(assetType|elqTrack|mkt_tok|originalReferer|referrer|terminal_id|trk|trkCampaign|trkInfo)=[^&]+/ig, '$1');
     if (searchStr.indexOf('aff_') > -1) {
         searchStr = searchStr.replace(/([?&])aff_(platform|trace_key)=[^&]+/ig, '$1');
     }
@@ -33,6 +42,7 @@
     // Google Analytics
     if (searchStr.indexOf('ga_') > -1 || searchStr.indexOf('utm_') > -1) {
         searchStr = searchStr.replace(/([?&])(ga|utm)_(campaign|cid|content|design|medium|name|place|pubreferrer|reader|source|swu|term|userid|viz_id)=[^&]+/ig, '$1');
+        searchStr = searchStr.replace(/([?&])gcl(id|src)=[^&]+/ig, '$1');
     }
     // Google YouTube (handles youtube.com, youtu.be, etc.)
     if (hostStr === 'www.youtube.com' || hostStr === 'm.youtube.com' || hostStr === 'youtu.be' || hostStr === 'www.youtube-nocookie.com') {
