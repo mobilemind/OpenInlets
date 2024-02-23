@@ -9,7 +9,7 @@
         containsSafari = agent.includes('Safari/'),
         containsUnknown = !containsOther && !containsSafari,
         macSafari = navigator.platform.startsWith('Mac') && containsSafari && !containsOther && !containsUnknown && !navigator.maxTouchPoints && navigator.maxTouchPoints < 2,
-        selection = window.getSelection().toString().split('\n')[0].toLowerCase().trim();
+        selection = window.getSelection().toString().split('\n')[0].trim();
     let xman = 'x-man-page://'
     // check for a section specification (ie "print(1)" or "print(3)" )
     const matched = selection.match(/^(.*?)\((\d)\)$/);
