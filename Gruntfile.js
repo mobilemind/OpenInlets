@@ -61,7 +61,7 @@ module.exports = function(grunt) {
             },
             "x-man": {
                 "file": "x-man.js",
-                "version": "1.1.8"
+                "version": "1.1.9"
             }
         },
         "eslint": {
