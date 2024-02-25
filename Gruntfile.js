@@ -53,7 +53,7 @@ module.exports = function(grunt) {
             },
             "UtmStrip": {
                 "file": "utmstrip.js",
-                "version": "1.8.5"
+                "version": "1.8.6"
             },
             "deLighter": {
                 "file": "delighter.js",
