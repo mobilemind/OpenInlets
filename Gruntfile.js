@@ -17,7 +17,7 @@ module.exports = function(grunt) {
             },
             "Linklighter": {
                 "file": "linklighter.js",
-                "version": "1.1.2"
+                "version": "1.1.3"
             },
             "OpenInBrave": {
                 "file": "openinbrave.js",
