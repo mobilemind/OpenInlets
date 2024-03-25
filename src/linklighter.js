@@ -52,9 +52,8 @@
         }
         // clean-up trailing %0A (newline) or %20 (space)
         // and any leading double-hash, just in case
-        newUrl = newUrl.replace((/%0A$/), '');
-        newUrl = newUrl.replace((/%20$/), '');
-        newUrl = newUrl.replace('##:~:text=', '#:~:text=');
+        newUrl = newUrl.replace((/(%0A|%20A)+$/), '');
+        newUrl = newUrl.replace(/##+:~:text=/, '#:~:text=');
     }
     if (newUrl != url) {
         if (confirm('Open URL with highlight on "' + strStart + '" and copy URL to clipboard?\n\nNote: If text isn’t highlighted in new tab, you can try again with a smaller selection.')) {
