@@ -2,7 +2,9 @@
 // the corresponding "x-man-page://" link. If using Safari on the Mac, also
 // try to open the corresponding yellow highlighted man page in Terminal.
 
+/*eslint max-depth: ["error", 5]*/
 /* eslint no-unused-expressions: 0 */
+/* eslint no-console: 0 */
 (() => {
     const agent = navigator.userAgent,
         containsOther = agent.includes('Chrome/') || agent.includes('Firefox/' ) || agent.includes('Brave/') || agent.includes('Edg/' ),
@@ -30,13 +32,18 @@
               xman = '';
             }
             if (macSafari && xman != '') {
-                const newWin = window.open(xman, '_blank');
-                if (typeof newWin.closed !== 'undefined' && !newWin.closed && newWin) {
-                  true ;
-                  // can't close it unless user previously said 'Always Allow'
-                  // setTimeout(() => { newWin.close(); }, 200);
-                } else {
+                let newWin = null;
+                try {
+                  newWin = window.open(xman);
+                  newWin.opener = null;
+                } catch (e) {
                   alertMsg = `Popup window blocked. Unable to open new link with Terminal, but clipboard contains "${xman}"`;
+                  console.error(e.name, e.message);
+                } finally {
+                  window.focus();
+                  if (newWin !== null) {
+                    setTimeout(() => {newWin.close()}, 3333);
+                  }
                 }
             } else if (xman != '') {
               alertMsg = `Browser doesn't look like Mac Safari. Unable to open new link with Terminal, but clipboard contains "${xman}"`;
