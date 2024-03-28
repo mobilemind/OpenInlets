@@ -51,7 +51,7 @@ modern browser. If a new URL is generated, Linklighter ask to open it in a new
 window to preview the highlight, and copy the new URL to the clipboard. (See
 deLighter above, as a companion bookmarklet that un-highlights the newly
 opened window.) Linklighter works with recent releases of Safari on iPhone,
-iPad, and Mac, and also works with Firefox and Google Chrome on desktops.
+iPad, and Mac, and also works with Google Chrome on desktops.
 
 + __[OpenInBrave] v1.0.2__: Open the current web page in the Brave app on iOS.
 
