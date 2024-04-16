@@ -9,13 +9,10 @@
   },
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
-    "eslint-plugin-jsonc": "~2.15.1",
-    "eslint-plugin-no-unsanitized": "~4.0.2",
     "eslint-plugin-security": "~3.0.0",
-    "eslint-plugin-xss": "~0.1.12",
     "grunt": "~1.6.1",
     "grunt-contrib-uglify": "~5.2.2",
-    "grunt-eslint": "~24.3.0"
+    "grunt-eslint": "~25.0.0"
   },
   "engines": {
     "node": ">=20.11.1"
@@ -47,5 +44,5 @@
   "scripts": {
     "test": "npx grunt"
   },
-  "version": "3.5.0"
+  "version": "3.5.1"
 }
