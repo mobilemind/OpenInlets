@@ -69,7 +69,7 @@ module.exports = function(grunt) {
               "ignore": false,
               "overrideConfigFile": ".github/linters/eslint.config.js"
             },
-            "target": [".github/linters/.*.js", "Gruntfile.js", "package.json", "src/*.js"]
+            "target": [".github/linters/*.js", "Gruntfile.js", "src/*.js"]
         },
         "pkg": grunt.file.readJSON("package.json"),
         "uglify": {
