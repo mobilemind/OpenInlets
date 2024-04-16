@@ -1,4 +1,3 @@
-/* eslint-disable max-lines */
 module.exports = function(grunt) {
     "use strict";
     grunt.initConfig({
@@ -68,7 +67,7 @@ module.exports = function(grunt) {
             "options": {
               "failOnError": true,
               "ignore": false,
-              "overrideConfigFile": ".github/linters/.eslintrc.js"
+              "overrideConfigFile": ".github/linters/eslint.config.js"
             },
             "target": [".github/linters/.*.js", "Gruntfile.js", "package.json", "src/*.js"]
         },
@@ -167,7 +166,6 @@ module.exports = function(grunt) {
         const README ='README.md',
             theCode = readOrFail(`web/${this.data.file}`);
         let readMeString = readOrFail("README.md");
-        /* eslint-disable no-useless-escape */
         // update bullet list of JavaScript Bookmarks
         readMeString = replaceReadme(readMeString,
             new RegExp(`\\+ __\\[${this.target}\\] v\\d+\\.\\d+\\.\\d+__:`),
@@ -184,7 +182,6 @@ module.exports = function(grunt) {
         readMeString = replaceReadme(readMeString,
             new RegExp(`#javascript:.*?'\\d+\\.\\d+.\\d+' "Setup ${this.target}"`),
             `#${theCode} "Setup ${this.target}"`);
-        /* eslint-enable no-useless-escape */
         // update README file
         grunt.file.write(README, readMeString);
     });
