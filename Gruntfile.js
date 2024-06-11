@@ -16,7 +16,7 @@ module.exports = function(grunt) {
             },
             "Linklighter": {
                 "file": "linklighter.js",
-                "version": "1.1.3"
+                "version": "1.1.4"
             },
             "OpenInBrave": {
                 "file": "openinbrave.js",
@@ -48,11 +48,11 @@ module.exports = function(grunt) {
             },
             "OpenURLParam": {
                 "file": "openurlparam.js",
-                "version": "1.0.1"
+                "version": "1.0.2"
             },
             "UtmStrip": {
                 "file": "utmstrip.js",
-                "version": "1.8.7"
+                "version": "1.8.8"
             },
             "deLighter": {
                 "file": "delighter.js",
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
             },
             "x-man": {
                 "file": "x-man.js",
-                "version": "1.2.0"
+                "version": "1.2.1"
             }
         },
         "eslint": {
