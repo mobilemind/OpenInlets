@@ -28,10 +28,10 @@ GitHub infrastructure prevents "drag & drop" install directly from the
 README.md preview. Use the [OpenInlets page] to drag & drop the bookmarklet
 links below on your desktop browser's favorites bar.
 
-+ __[deLighter] v1.0.2__: Effectively de-highlights any highlighted text
-fragment on the current page. If the current URL includes a hash, which can
-imply a text fragment highlight, then reload the page to de-highlight it.
-(It's a cross-platform companion to the __Linklighter__ bookmarklet, below.)
++ __[deLighter] v1.1.0__: Effectively de-highlights any highlighted text
+fragment on the current page. Uses `document.location.reload()` to reload the
+page to de-highlight it. (It's a cross-platform companion to the
+__Linklighter__ bookmarklet, below.)
 
 + __[FYI] v3.2.1__: Select text on a web page and fire off an email that
 quotes the selection and includes the page title and URL. "FYI" opens a new
@@ -108,7 +108,7 @@ and Safari (Mac, iPhone, & iPad).
 Tap a link below. Follow the instructions on the resulting page to turn the
 followed link into a bookmark for JavaScript bookmarklet.
 
-+ __Mobile Safari setup link__ -- [Setup deLighter] v1.0.2
++ __Mobile Safari setup link__ -- [Setup deLighter] v1.1.0
 + __Mobile Safari setup link__ -- [Setup FYI] v3.2.1
 + __Mobile Safari setup link__ -- [Setup IsItAws] v1.3.3
 + __Mobile Safari setup link__ -- [Setup KillStickyHeaders] v1.2.1
@@ -230,6 +230,8 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+3.5.4 minor updates for Safari Technonolgy Preview 200 (Sequoia)
+
 3.5.0 drop "OpenInGoogleChrome" & "OpenInGoogleMaps" bookmarklets
 
 3.4.0 adds "FYI" bookmarklet, removes deprecated 1Password bookmarklets, updates deploy task
@@ -347,7 +349,7 @@ repos I had; doesn't build yet
 
 <!--- JavaScript links -->
 
-[deLighter]: javascript:if(~document.URL.indexOf('%23'))document.location.reload()%3Bvoid'1.0.2' "deLighter"
+[deLighter]: javascript:document.location.reload()%3Bvoid'1.1.0' "deLighter"
 [FYI]: javascript:e=encodeURIComponent(document.title)%2Co='Range'==(o=window.getSelection()).type%26%260%3Co.rangeCount%3Fo.getRangeAt(0).toString():''%2Cvoid(location.href=%60mailto:%3Fsubject=fyi:%24%7Be%7D%26body=%24%7Be%7D%250A%24%7BencodeURIComponent(document.URL)%7D%250A---%250A%24%7BencodeURIComponent(o)%7D%250A%250A%60)%3Bvar%20e%2Co%3Bvoid'3.2.1' "FYI"
 [IsItAws]: javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3' "IsItAws"
 [KillStickyHeaders]: javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1' "KillStickyHeaders"
@@ -365,7 +367,7 @@ repos I had; doesn't build yet
 
 <!--- Setup links -->
 
-[Setup deLighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(~document.URL.indexOf('%23'))document.location.reload()%3Bvoid'1.0.2' "Setup deLighter"
+[Setup deLighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:document.location.reload()%3Bvoid'1.1.0' "Setup deLighter"
 [Setup FYI]: https://mobilemind.github.io/OpenInlets/x/#javascript:e=encodeURIComponent(document.title)%2Co='Range'==(o=window.getSelection()).type%26%260%3Co.rangeCount%3Fo.getRangeAt(0).toString():''%2Cvoid(location.href=%60mailto:%3Fsubject=fyi:%24%7Be%7D%26body=%24%7Be%7D%250A%24%7BencodeURIComponent(document.URL)%7D%250A---%250A%24%7BencodeURIComponent(o)%7D%250A%250A%60)%3Bvar%20e%2Co%3Bvoid'3.2.1' "Setup FYI"
 [Setup IsItAws]: https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3' "Setup IsItAws"
 [Setup KillStickyHeaders]: https://mobilemind.github.io/OpenInlets/x/#javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1' "Setup KillStickyHeaders"
