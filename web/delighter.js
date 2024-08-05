@@ -1,1 +1,1 @@
-javascript:if(~document.URL.indexOf('%23'))document.location.reload()%3Bvoid'1.0.2'
+javascript:document.location.reload()%3Bvoid'1.1.0'
