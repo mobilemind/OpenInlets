@@ -15,7 +15,7 @@
     "grunt-eslint": "~25.0.0"
   },
   "engines": {
-    "node": ">=22.8.0"
+    "node": ">=22.9.0"
   },
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
@@ -44,5 +44,5 @@
   "scripts": {
     "test": "npx grunt"
   },
-  "version": "3.5.3"
+  "version": "3.5.4"
 }
