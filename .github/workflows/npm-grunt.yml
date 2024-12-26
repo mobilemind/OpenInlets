@@ -22,8 +22,5 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-
-    - name: Build
-      run: |
-        npm ci
-        npx grunt
+      run: npm ci
+      run: npx grunt
