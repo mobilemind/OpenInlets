@@ -1,0 +1,49 @@
+{
+    "allowCompoundWords": true,
+    "dictionaries": [
+        "!bash","!cpp","!csharp","dictionary-src-sh","!en-gb","!go","html",
+        "!latex","node","!php","!python","typescript"
+    ],
+    "dictionaryDefinitions": [
+        {
+            "addWords": true,
+            "name": "dictionary-custom",
+            "path": "./.cspell/dictionary-custom.txt"
+        }
+    ],
+    "flagWords": ["hte"],
+    "ignorePaths": ["node_modules/**","web/**"],
+    "ignoreRegExpList": [
+        "entities","mdanchors","regexes","urlencoded","webhosts"
+    ],
+    "languageSettings": [
+        {
+            "dictionaries": ["dictionary-custom"],
+            "languageId": "javascript,markdown",
+            "locale": "*"
+        }
+    ],
+    "patterns": [
+        {
+          "name": "entities",
+          "pattern": "/&(apos|mdash|ndash|nbsp|rsquo|#[0-9]{2,3});/g"
+        },
+        {
+          "name": "mdanchors",
+          "pattern": "/]\\(#[a-z][-a-z]+\\)/g"
+        },
+        {
+          "name": "regexes",
+          "pattern": "/(?<=\/).+(?=\/)/g"
+        },
+        {
+          "name": "urlencoded",
+          "pattern": "/%[0-9A-F][0-9A-F]/g"
+        },
+        {
+          "name": "webhosts",
+          "pattern": "/(?<=\/\/)[.a-z]+(com|io|net|org)(?=\/)/g"
+        }
+    ],
+    "version": "0.2"
+}

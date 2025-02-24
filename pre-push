@@ -44,6 +44,15 @@ npx grunt || \
   { echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'npx grunt'" ; exit 2 ; }
 echo "  git hooks $HOOKNAME ($GITBRANCH): OK, passed: 'npx grunt'"
 
+# spell check source code if cspell available
+if hash cspell > /dev/null 2>&1 ; then
+	echo
+	echo '  Spell checking src/*.js'
+	cspell src/*.js || \
+		{ echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'cspell src/*.js'" ; exit 3 ; }
+	echo
+fi
+
 # cross-check git tag and package.json version
 if hash jq >/dev/null 2>&1 ; then
   echo '  Checking consistency of package version and git tag'
@@ -70,6 +79,15 @@ if grep -Fq  "2014-$CURRENTYEAR" 'LICENSE' ; then
 	echo "    ok, \"2014-$CURRENTYEAR\" found in LICENSE.TXT file."
 else
 	echo "    WARNING: \"2014-$CURRENTYEAR\" NOT found in LICENSE.TXT file."
+fi
+
+# spell check Markdown if cspell available
+if hash cspell > /dev/null 2>&1 ; then
+	echo
+	echo '  Spell checking src/*.js'
+	cspell *.md || \
+		{ echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'cspell *.md'" ; exit 3 ; }
+	echo
 fi
 
 echo "  OK, basic checks passed. Ready to continue with $GITOP."
