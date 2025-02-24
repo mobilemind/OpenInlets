@@ -10,6 +10,10 @@ exec 1>&2
 GITBRANCH="$(git rev-parse --abbrev-ref HEAD)"
 HOOKNAME="${0##*/}"
 GITOP="$(basename "${HOOKNAME##pre-}" .sh)"
+REPOHOME="$(pwd | sed -E "s|^$HOME|~|")"
+underline=$(tput smul) ; nounderline=$(tput rmul)
+bold=$(tput bold) ; normal=$(tput sgr0)
+
 
 if [ "gh-pages" = "$GITBRANCH" ] ; then
   echo "  git hooks $HOOKNAME ($GITBRANCH): SKIPPING tests - not a code development branch"
@@ -18,6 +22,18 @@ fi
 
 # echo something to explain lag in push
 echo "  git hooks $HOOKNAME ($GITBRANCH): running tests"
+
+## check for stale pre-push
+echo
+echo '  checking pre-push'
+if ! diff -bq ./pre-push .git/hooks/pre-push ; then
+	echo '    *** ERROR ./pre-push and active .git/hooks/pre-push differ - check failed.'
+	echo "        Try ${bold}${underline}kaleidoscope://diff?ROOT=${REPOHOME}/pre-push&REPO=${REPOHOME}/.git/hooks/pre-push&label=PRE-PUSH%20differs${nounderline}${normal}"
+	echo '        or: cp -fpv pre-push .git/hooks'
+	echo
+	exit 1
+fi
+echo
 
 ## check for package-lock.json
 [ -f package-lock.json ] || \
@@ -43,6 +59,15 @@ echo '  npx grunt'
 npx grunt || \
   { echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'npx grunt'" ; exit 2 ; }
 echo "  git hooks $HOOKNAME ($GITBRANCH): OK, passed: 'npx grunt'"
+
+# spell check source code if cspell available
+if hash cspell > /dev/null 2>&1 ; then
+	echo
+	echo '  Spell checking src/*.js'
+	cspell src/*.js || \
+		{ echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'cspell src/*.js'" ; exit 3 ; }
+	echo
+fi
 
 # cross-check git tag and package.json version
 if hash jq >/dev/null 2>&1 ; then
@@ -70,6 +95,15 @@ if grep -Fq  "2014-$CURRENTYEAR" 'LICENSE' ; then
 	echo "    ok, \"2014-$CURRENTYEAR\" found in LICENSE.TXT file."
 else
 	echo "    WARNING: \"2014-$CURRENTYEAR\" NOT found in LICENSE.TXT file."
+fi
+
+# spell check Markdown if cspell available
+if hash cspell > /dev/null 2>&1 ; then
+	echo
+	echo '  Spell checking *.md LICENSE'
+	cspell ./*.md LICENSE || \
+		{ echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'cspell *.md'" ; exit 3 ; }
+	echo
 fi
 
 echo "  OK, basic checks passed. Ready to continue with $GITOP."

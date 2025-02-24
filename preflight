@@ -5,6 +5,9 @@
 
 # Redirect output to stderr.
 exec 1>&2
+REPOHOME="$(pwd | sed -E "s|^$HOME|~|")"
+underline=$(tput smul) ; nounderline=$(tput rmul)
+bold=$(tput bold) ; normal=$(tput sgr0)
 
 echo
 
@@ -16,6 +19,24 @@ if hash shellcheck >/dev/null 2>&1 ; then
   echo '    preflight: bash script OK'
 else
   echo '    --- shellcheck not found: skipping check of preflight script.'
+fi
+echo
+
+## check pre-push
+echo '  checking pre-push'
+if hash shellcheck >/dev/null 2>&1 ; then
+  shellcheck -s sh pre-push || \
+    { echo '    *** ERROR in pre-push git hook- check failed.' ; exit 1 ; }
+  if ! diff -bq ./pre-push .git/hooks/pre-push ; then
+  	echo '    *** ERROR ./pre-push and active .git/hooks/pre-push differ - check failed.'
+		echo "        Try ${bold}${underline}kaleidoscope://diff?ROOT=${REPOHOME}/pre-push&REPO=${REPOHOME}/.git/hooks/pre-push&label=PRE-PUSH%20differs${nounderline}${normal}"
+		echo '        or: cp -fpv pre-push .git/hooks'
+		echo
+  	exit 1
+  fi
+  echo '    preflight: pre-push git OK'
+else
+  echo '    --- shellcheck not found: skipping check of pre-push got hook.'
 fi
 echo
 
@@ -47,6 +68,11 @@ echo '  checking README.md'
 [ -d 'node_modules/markdownlint' ] || npm install --no-save markdownlint-cli
 npx markdownlint -c .github/linters/.markdownlint.json "*.md" \
   || { echo '    *** ERROR markdownlint *.md check failed.' ; exit 1 ; }
+if hash cspell >/dev/null 2>&1 ; then
+  printf '  '
+	cspell ./*.md LICENSE || \
+		{ echo '    *** ERROR "cspell *.md LICENSE" failed.' ; exit 1 ; }
+fi
 echo '    *.md: Markdown OK'
 echo
 
@@ -65,6 +91,11 @@ echo
 echo '  checking JavaScript w/ eslint, see .github/linters/eslint.config.js'
 npx eslint -c .github/linters/eslint.config.js "*.js" "src/*.js" ".github/linters/*.js" \
     || { echo '    *** ERROR eslint JavaScript & JSON check failed.' ; exit 1 ; }
+if hash cspell >/dev/null 2>&1 ; then
+  printf '  '
+	cspell src/*.js || \
+		{ echo '    *** ERROR "cspell src/*.js" failed.' ; exit 1 ; }
+fi
 echo '    *.js src/*.js .github/linters/*.js: JavaScript OK'
 echo
 

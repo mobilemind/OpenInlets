@@ -1,4 +1,5 @@
 /* eslint max-statements: ["error", 65] */
+/* cSpell:ignore hsenc, hsmi, iesrc, Matomo, youtu */
 (() => {
     const locPath = location.pathname,
         locSearch = location.search;

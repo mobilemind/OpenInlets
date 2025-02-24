@@ -5,7 +5,7 @@ const security = require("eslint-plugin-security");
 module.exports = [
     {
         files: [".github/linters/eslint.config.js", "Gruntfile.js", "src/*.js"],
-        ignores: ["*.json", "**/*{.,-}min.js", "node_modules/*", "web/*.js"],
+        ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "web/*.js"],
         languageOptions: {
             ecmaVersion: "latest",
             globals: {
