@@ -1,5 +1,5 @@
 //  fyi - open a new email using page title as the subject, and in the body
-//        put the page tite, URL, and any selected text
+//        put the page title, URL, and any selected text
 (() => {
     const pageTitle = encodeURIComponent(document.title),
         returnChar = '%0A',

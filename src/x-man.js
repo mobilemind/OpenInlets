@@ -5,6 +5,7 @@
 /*eslint max-depth: ["error", 5]*/
 /* eslint no-unused-expressions: 0 */
 /* eslint no-console: 0 */
+/* Cspell: ignore xman */
 (() => {
     const agent = navigator.userAgent,
         containsOther = agent.includes('Chrome/') || agent.includes('Firefox/' ) || agent.includes('Brave/') || agent.includes('Edg/' ),
