@@ -40,7 +40,6 @@ jobs:
           VALIDATE_BASH_EXEC: true
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_JAVASCRIPT_ES: true
-          VALIDATE_JSON: false
           VALIDATE_JSONC: true
           VALIDATE_MARKDOWN: true
           VALIDATE_YAML: true
