@@ -23,7 +23,6 @@
             "locale": "*"
         }
     ],
-    // eslintjsonc/no-useless-escape: 0
     "patterns": [
         {
           "name": "entities",
