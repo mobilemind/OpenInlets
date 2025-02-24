@@ -1,3 +1,4 @@
+/* eslint jsonc/no-useless-escape: off */
 {
     "allowCompoundWords": true,
     "dictionaries": [
