@@ -6,6 +6,5 @@ Octocat
 Textastic
 delighter
 smushing
-textastic
 uglifyjs
 utmstrip

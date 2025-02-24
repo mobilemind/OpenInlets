@@ -84,8 +84,8 @@ fi
 # spell check Markdown if cspell available
 if hash cspell > /dev/null 2>&1 ; then
 	echo
-	echo '  Spell checking src/*.js'
-	cspell *.md || \
+	echo '  Spell checking *.md LICENSE'
+	cspell *.md LICENSE || \
 		{ echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'cspell *.md'" ; exit 3 ; }
 	echo
 fi
