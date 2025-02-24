@@ -230,9 +230,11 @@ using a URL protocol scheme.
 
 ## Version Notes
 
-3.5.4 switch to node 23, update lockfile
+3.5.6 integrate Cspell into git hook & fix typos it found
 
-3.5.4 minor updates for Safari Technonolgy Preview 200 (Sequoia)
+3.5.5 switch to node 23, update lockfile
+
+3.5.4 minor updates for Safari Technology Preview 200 (Sequoia)
 
 3.5.0 drop "OpenInGoogleChrome" & "OpenInGoogleMaps" bookmarklets
 
