@@ -230,6 +230,8 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+3.5.7 add .npmrc w/ strict engine check; update package.* for node >=23.10.0, npm >=11.3.0
+
 3.5.6 integrate Cspell into git hook & fix typos it found
 
 3.5.5 switch to node 23, update lockfile
