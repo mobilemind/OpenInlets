@@ -15,8 +15,10 @@
     "grunt-eslint": "~25.0.0"
   },
   "engines": {
-    "node": ">=23.8.0"
+    "node": ">=23.10.0",
+    "npm": ">=11.3.0"
   },
+  "engineStrict": true,
   "homepage": "https://github.com/mobilemind/OpenInlets#readme",
   "keywords": [
     "AWS",
@@ -44,5 +46,5 @@
   "scripts": {
     "test": "npx grunt"
   },
-  "version": "3.5.6"
+  "version": "3.5.7"
 }
