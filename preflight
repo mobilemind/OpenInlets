@@ -14,7 +14,7 @@ echo
 ## check preflight (this file)
 echo '  checking preflight'
 if hash shellcheck >/dev/null 2>&1 ; then
-  shellcheck -s bash preflight \
+  shellcheck -s bash -o add-default-case -o avoid-nullary-conditions -o check-unassigned-uppercase -o deprecate-which preflight \
     || { echo '    *** ERROR in preflight script- check failed.' ; exit 1 ; }
   echo '    preflight: bash script OK'
 else
@@ -25,7 +25,7 @@ echo
 ## check pre-push
 echo '  checking pre-push'
 if hash shellcheck >/dev/null 2>&1 ; then
-  shellcheck -s sh pre-push || \
+  shellcheck -s sh -o add-default-case -o avoid-nullary-conditions -o check-unassigned-uppercase -o deprecate-which pre-push || \
     { echo '    *** ERROR in pre-push git hook- check failed.' ; exit 1 ; }
   if ! diff -bq ./pre-push .git/hooks/pre-push ; then
   	echo '    *** ERROR ./pre-push and active .git/hooks/pre-push differ - check failed.'
