@@ -230,13 +230,9 @@ using a URL protocol scheme.
 
 ## Version Notes
 
-3.5.7 add engineStrict=true in package.json for node >=23.10.0, npm >=11.3.0
-
-3.5.6 integrate Cspell into git hook & fix typos it found
+3.5.8 uses engineStrict=true in package.json for node >=24.0, npm >=11.4
 
 3.5.5 switch to node 23, update lockfile
-
-3.5.4 minor updates for Safari Technology Preview 200 (Sequoia)
 
 3.5.0 drop "OpenInGoogleChrome" & "OpenInGoogleMaps" bookmarklets
 
@@ -253,42 +249,20 @@ their results to the clipboard
 
 2.9.1 Regex & HTML safe URL encoding, drop deprecated utils
 
-2.8.2 add docLinker
-
-2.8.1 update .uglifyjs3.json for latest uglifyjs republish w/new compression
-
 2.8.0 bump to node 18.8+
-
-2.7.9 Update 1Password bookmarklets and Mobile browser install links.
-
-2.7.7 Drop OpenInDolphin, OpenInOpera
 
 2.7.5 Drop Url2DocLink, WindowResize, WindowSize; Tighten UrlEncoding
 
 2.7.0 Remove bookmarklets for discontinued apps (Blogsy, CodeBucket, CodeHub,
 iOctocat)
 
-2.6.1 bump to node 16.7+
-
 2.6.0 switch to node 16
 
-2.4.3 Create `preflight` script for build & move static checks there; bump
-version
-
-2.4.2 UtmStrip updated to remove common email hash (eid) parameter
-
 2.4.1 UtmStrip streamlined for Google Analytics & Youtube; added Matomo
-
-2.3.2 adds "OpenURLParam"
-
-2.3.1 drops "LoginESA"
 
 2.3.0  significant updates to utmstrip; update utmstrip & overall version
 
 2.2.0  Adds "LoginESA" for WiFi login; Updates source indent to 4 spaces.
-
-2.1.5  Adds "OpenIn.." for Firefox in Private mode and for the Firefox Focus
-iOS app.
 
 2.1.0  Adds "OpenIn.." for Brave, Dolphin, Opera, and Textastic. Use
 encodeURIComponent for parameters to Firefox, Opera and WorkingCopy URLs.
@@ -306,22 +280,14 @@ build process and encoding; Bump version
 
 1.6.0  Add KillStickyHeaders bookmarklet; Bump version
 
-1.5.1  Update OpenIniOctcat to work with Github gists; cleanup eslint warnings
-and uglify-js option
-
 1.5.0  Add OpenInCodeBucket & OpenInCodeHub; bump version of OpenInWorkingCopy
 and overall version
 
 1.4.1  Added OpenInWorkingCopy and bumped overall version
 
-1.3.1: Added OpenInFirefox and bumped version
-
 1.3.0: Added IsItAws and bumped overall version as this is significant change
 
 1.2.0: overall package # bumped due to significant ES6/eslint driven changes
-
-1.1.1: update package.json to use- node: >6.0, grunt: >1.0,
-grunt-contrib-uglify >=2.0 (reduces size of output); bump semver
 
 1.1.0: update to LTS versions of `node`; use `grunt-contrib-...` >= 1.0.0;
 bump semver
@@ -337,15 +303,7 @@ stricter checks
 
 0.0.8: August 19, 2014 - Add OpenInGoogleChrome; update version
 
-0.0.7: August 18, 2014 - Enhance OpenInGoogleMaps; update version
-
 0.0.6: August 18, 2014 - Add OpenInBlogsy; update version
-
-0.0.3: August 10, 2014 - Refactor Gruntfile.js for efficiency & 'DRY'; add
-package.json keywords; add OpenIniOctocat
-
-0.0.2: August 8, 2014 - Bookmarklets have individual version numbers that
-update
 
 0.0.1: July 28, 2014 - Bookmarklets build via `grunt`, `grunt deploy` updates
 `README.md`, version numbers not updating
