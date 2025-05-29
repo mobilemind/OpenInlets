@@ -230,9 +230,7 @@ using a URL protocol scheme.
 
 ## Version Notes
 
-3.5.8 uses engineStrict=true in package.json for node >=24.0, npm >=11.4
-
-3.5.5 switch to node 23, update lockfile
+3.5.9 uses engineStrict=true in package.json for node >=24.0, npm >=11.4
 
 3.5.0 drop "OpenInGoogleChrome" & "OpenInGoogleMaps" bookmarklets
 
