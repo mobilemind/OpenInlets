@@ -9,7 +9,8 @@ exec 1>&2
 ## GLOBALS
 GITBRANCH="$(git rev-parse --abbrev-ref HEAD)"
 HOOKNAME="${0##*/}"
-GITOP="$(basename "${HOOKNAME##pre-}" .sh)"
+GITOP="${HOOKNAME##pre-}"
+GITOP="${GITOP%%.*}"
 REPOHOME="$(pwd | sed -E "s|^$HOME|~|")"
 underline=$(tput smul) ; nounderline=$(tput rmul)
 bold=$(tput bold) ; normal=$(tput sgr0)
