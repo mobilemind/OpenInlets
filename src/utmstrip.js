@@ -9,16 +9,16 @@
     }
     let pathStr = locPath,
         searchStr = locSearch;
-    const hostStr = location.host;
+    const hostStr = location.hostname;
     // AliExpress trackers
-    if (hostStr.includes(".aliexpress.")) {
+    if (hostStr.includes('aliexpress.')) {
         searchStr = searchStr.replace(/([?&])aff_(platform|trace_key)=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])algo_[ep]vid=[^&]+/g, '$1');
         searchStr = searchStr.replace(/([?&])(btsid|ws_ab_test)=[^&]+/g, '$1');
         searchStr = searchStr.replace(/([?&])s[cp]m=[^&]+/g, '$1');
     }
     // Amazon referrals
-    if (hostStr === 'www.amazon.com') {
+    if (hostStr.includes('amazon.com') {
         searchStr = searchStr.replace(/([?&])(_encoding|ie|linkCode|linkId|pf|psc|ref_|tag)=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])p[df]_rd_.*?=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])(content-id|crid|cv_ct_cx|language|qid|sprefix|sr|th)=[^&]+/g, '$1');
@@ -26,52 +26,52 @@
         searchStr = searchStr.replace(/([?&])dib(_tag)?=[^&]+/g, '$1');
     }
     // Facebook
-    if (searchStr.indexOf('fb_') > -1) {
+    if (searchStr.includes('fb_') {
         searchStr = searchStr.replace(/([?&])fb_(action_ids|action_types|ref|source)=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])(fbclid|hrc|refsrc)=[^&]+/ig, '$1');
     }
-    if (searchStr.indexOf('action_') > -1) {
+    if (searchStr.includes('action_')) {
         searchStr = searchStr.replace(/([?&])action_(object|ref|type)_map=[^&]+/ig, '$1');
     }
     // generic/general
     searchStr = searchStr.replace(/([?&])(assetType|elqTrack|mkt_tok|originalReferer|referrer|terminal_id|trk|trkCampaign|trkInfo)=[^&]+/ig, '$1');
-    if (searchStr.indexOf('aff_') > -1) {
+    if (searchStr.includes('aff_')) {
         searchStr = searchStr.replace(/([?&])aff_(platform|trace_key)=[^&]+/ig, '$1');
     }
     if (searchStr.toLowerCase().indexOf('id=') > -1) {
         searchStr = searchStr.replace(/([?&])(an|asset|campaign|e|gcl|recipient|site)id=[^&]+/ig, '$1');
     }
     // Google Analytics
-    if (searchStr.indexOf('ga_') > -1 || searchStr.indexOf('utm_') > -1) {
+    if (searchStr.includes('ga_') || searchStr.includes('utm_')) {
         searchStr = searchStr.replace(/([?&])(ga|utm)_(campaign|cid|content|design|medium|name|place|pubreferrer|reader|source|swu|term|userid|viz_id)=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])gcl(id|src)=[^&]+/ig, '$1');
     }
     // Google YouTube (handles youtube.com, youtu.be, etc.)
-    if (hostStr === 'www.youtube.com' || hostStr === 'm.youtube.com' || hostStr === 'youtu.be' || hostStr === 'www.youtube-nocookie.com') {
-        searchStr = searchStr.replace(/([?&])(ac|annotation_id|app|feature|gclid|kw|src_vid)=[^&]+/ig, '$1');
+    if (hostStr.test(/(m|www)\.youtube\.com$/) || hostStr === 'youtu.be' || hostStr === 'www.youtube-nocookie.com') {
+         searchStr = searchStr.replace(/([?&])(ac|annotation_id|app|feature|gclid|kw|src_vid)=[^&]+/ig, '$1');
     }
     // HubSpot
-    if (searchStr.indexOf('_hsenc') > -1 || searchStr.indexOf('_hsmi') > -1) {
+    if (searchStr.includes('_hsenc') || searchStr.includes('_hsmi')) {
         searchStr = searchStr.replace(/([?&])_hs(enc|mi)=[^&]+/ig, '$1');
     }
-    if (searchStr.indexOf('hmb_') > -1) {
+    if (searchStr.includes('hmb_')) {
         searchStr = searchStr.replace(/([?&])hmb_(campaign|medium|source)=[^&]+/ig, '$1');
     }
     // IBM Digital Analytics (Coremetrics)
-    if (searchStr.indexOf('cm_') > -1) {
+    if (searchStr.includes('cm_')) {
         searchStr = searchStr.replace(/([?&])cm_(mmc|mmca\d+|re|sp)=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])manual_cm_mmc=[^&]+/ig, '$1');
     }
     // MailChimp
-    if (searchStr.indexOf('mc_cid') > -1 || searchStr.indexOf('mc_eid') > -1) {
+    if (searchStr.includes('mc_cid') || searchStr.includes('mc_eid')) {
         searchStr = searchStr.replace(/([?&])mc_[ce]id=[^&]+/ig, '$1');
     }
     // Marketo
-    if (searchStr.indexOf('iesrc') > -1 || searchStr.indexOf('mkt_tok') > -1) {
+    if (searchStr.includes('iesrc') || searchStr.includes('mkt_tok')) {
         searchStr = searchStr.replace(/([?&])(iesrc|mkt_tok)=[^&]+/ig, '$1');
     }
     // Matomo
-    if (searchStr.indexOf('pk_') > -1) {
+    if (searchStr.includes('pk_')) {
         searchStr = searchStr.replace(/([?&])pk_(campaign|content|kwd|medium|source)=[^&]+/ig, '$1');
     }
     // clean-up: reduce run of '&', conditionally remove trailing '&'
