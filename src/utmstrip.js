@@ -18,7 +18,7 @@
         searchStr = searchStr.replace(/([?&])s[cp]m=[^&]+/g, '$1');
     }
     // Amazon referrals
-    if (hostStr.includes('amazon.com') {
+    if (hostStr.includes('amazon.com')) {
         searchStr = searchStr.replace(/([?&])(_encoding|ie|linkCode|linkId|pf|psc|ref_|tag)=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])p[df]_rd_.*?=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])(content-id|crid|cv_ct_cx|language|qid|sprefix|sr|th)=[^&]+/g, '$1');
@@ -26,7 +26,7 @@
         searchStr = searchStr.replace(/([?&])dib(_tag)?=[^&]+/g, '$1');
     }
     // Facebook
-    if (searchStr.includes('fb_') {
+    if (searchStr.includes('fb_')) {
         searchStr = searchStr.replace(/([?&])fb_(action_ids|action_types|ref|source)=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])(fbclid|hrc|refsrc)=[^&]+/ig, '$1');
     }
@@ -47,7 +47,7 @@
         searchStr = searchStr.replace(/([?&])gcl(id|src)=[^&]+/ig, '$1');
     }
     // Google YouTube (handles youtube.com, youtu.be, etc.)
-    if (hostStr.test(/(m|www)\.youtube\.com$/) || hostStr === 'youtu.be' || hostStr === 'www.youtube-nocookie.com') {
+    if ((/(m|www)\.youtube\.com$/).test(hostStr) || hostStr === 'youtu.be' || hostStr === 'www.youtube-nocookie.com') {
          searchStr = searchStr.replace(/([?&])(ac|annotation_id|app|feature|gclid|kw|src_vid)=[^&]+/ig, '$1');
     }
     // HubSpot
@@ -84,7 +84,7 @@
         searchStr = '?' + searchStr;
     }
     // clean-up '?&param=value' --> '?param=value'
-    if (searchStr.include('?&')) {
+    if (searchStr.includes('?&')) {
         searchStr = '?' + searchStr.substr(2);
     }
     // clean-up: nullify if no params assigns left (e.g. '?' or '?param')
