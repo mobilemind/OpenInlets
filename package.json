@@ -15,7 +15,7 @@
     "grunt-eslint": "25.0.0"
   },
   "engines": {
-    "node": ">=24.4.1",
+    "node": ">=24.5.0",
     "npm": ">=11.5.0"
   },
   "engineStrict": true,
