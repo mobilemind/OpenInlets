@@ -38,7 +38,7 @@
     if (searchStr.includes('aff_')) {
         searchStr = searchStr.replace(/([?&])aff_(platform|trace_key)=[^&]+/ig, '$1');
     }
-    if (searchStr.toLowerCase().indexOf('id=') > -1) {
+    if (searchStr.toLowerCase().includes('id=')) {
         searchStr = searchStr.replace(/([?&])(an|asset|campaign|e|gcl|recipient|site)id=[^&]+/ig, '$1');
     }
     // Google Analytics
@@ -84,7 +84,7 @@
         searchStr = '?' + searchStr;
     }
     // clean-up '?&param=value' --> '?param=value'
-    if (0 == searchStr.indexOf('?&')) {
+    if (searchStr.include('?&')) {
         searchStr = '?' + searchStr.substr(2);
     }
     // clean-up: nullify if no params assigns left (e.g. '?' or '?param')
