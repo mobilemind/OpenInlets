@@ -18,7 +18,7 @@
         searchStr = searchStr.replace(/([?&])s[cp]m=[^&]+/g, '$1');
     }
     // Amazon referrals
-    if ((/(|\.)amazon\.com$/).test(hostStr) )) {
+    if ((/(|\.)amazon\.com$/).test(hostStr)) {
         searchStr = searchStr.replace(/([?&])(_encoding|ie|linkCode|linkId|pf|psc|ref_|tag)=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])p[df]_rd_.*?=[^&]+/ig, '$1');
         searchStr = searchStr.replace(/([?&])(content-id|crid|cv_ct_cx|language|qid|sprefix|sr|th)=[^&]+/g, '$1');
