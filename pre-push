@@ -6,6 +6,9 @@
 # Redirect output to stderr.
 exec 1>&2
 
+# Ignore SIGPIPE to prevent broken pipe issues
+trap '' PIPE
+
 ## GLOBALS
 GITBRANCH="$(git rev-parse --abbrev-ref HEAD)"
 HOOKNAME="${0##*/}"
