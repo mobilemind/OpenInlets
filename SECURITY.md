@@ -17,7 +17,8 @@ See <https://github.com/mobilemind/OpenInlets/issues>
 
 ## Release Process
 
-Releases are automated via GitHub Actions when a version tag is pushed. The release workflow:
+Releases are automated via GitHub Actions when a version tag is pushed.
+The release workflow:
 
 1. Verifies the tag version matches `package.json` version
 2. Runs security audit
@@ -67,7 +68,9 @@ git log --show-signature origin/main..HEAD
 
 ### Software Bill of Materials (SBOM)
 
-Each CI build generates a Software Bill of Materials (SBOM) in CycloneDX format, available as a workflow artifact. The SBOM provides transparency into all dependencies used in the build.
+Each CI build generates a Software Bill of Materials (SBOM) in CycloneDX
+format, available as a workflow artifact. The SBOM provides transparency into
+all dependencies used in the build.
 
 To generate an SBOM locally:
 
@@ -79,13 +82,20 @@ npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
 
 ### Uglify Optimization Settings
 
-The project uses aggressive UglifyJS optimization settings (including `unsafe` flags) to minimize bookmarklet size for browser URL length constraints. While these settings can produce semantically different code in edge cases, they are considered acceptable for this project because:
+The project uses aggressive UglifyJS optimization settings (including `unsafe`
+flags) to minimize bookmarklet size for browser URL length constraints. While
+these settings can produce semantically different code in edge cases, they are
+considered acceptable for this project because:
 
-1. **Size Requirements**: Bookmarklets must be extremely small to fit within browser URL length limits
-2. **Code Simplicity**: The source code is straightforward and doesn't rely on edge case JavaScript behaviors
-3. **Testing**: Each bookmarklet is tested post-minification to verify correct behavior
+1. **Size Requirements**: Bookmarklets must be extremely small to fit within
+   browser URL length limits
+2. **Code Simplicity**: The source code is straightforward and doesn't rely on
+   edge case JavaScript behaviors
+3. **Testing**: Each bookmarklet is tested post-minification to verify correct
+behavior
 
-These optimization settings do not introduce security vulnerabilities, but developers should be aware they can change code semantics in rare cases.
+These optimization settings do not introduce security vulnerabilities, but
+developers should be aware they can change code semantics in rare cases.
 
 ### Build Verification
 
@@ -104,4 +114,4 @@ npm audit --audit-level=moderate
 # Test bookmarklets manually in target browsers
 ```
 
-All commits and tags should be signed. Verify signatures before deploying code.
+Sign all commits and tags. Verify signatures before deploying code.

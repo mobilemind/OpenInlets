@@ -238,7 +238,8 @@ using a URL protocol scheme.
 
 3.5.0 drop "OpenInGoogleChrome" & "OpenInGoogleMaps" bookmarklets
 
-3.4.0 adds "FYI" bookmarklet, removes deprecated 1Password bookmarklets, updates deploy task
+3.4.0 adds "FYI" bookmarklet, removes deprecated 1Password bookmarklets,
+updates deploy task
 
 3.3.0 updates Linklighter 1.1.0, UtmStrip 1.7.0, and x-man 1.10 to ask to copy
 their results to the clipboard

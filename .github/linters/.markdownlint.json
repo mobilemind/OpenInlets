@@ -4,5 +4,9 @@
         "allowed_languages": ["bash"],
         "language_only": true
     },
-    "line-length": false
+    "line-length": {
+        "code_blocks": false,
+        "tables": false,
+        "line_length": 80
+    }
 }
