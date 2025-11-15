@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -44,3 +44,10 @@ jobs:
         name: sbom-node-${{ matrix.node-version }}
         path: sbom.json
         retention-days: 90
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Build Summary
+        run: echo "All matrix builds completed successfully"
