@@ -230,11 +230,16 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+3.6.2 add some supply chain hardening and a release process.
+
+3.6.1 switch to for node >=24.11.0 (LTS), and npm >=11.6.1
+
 3.5.9 uses engineStrict=true in package.json for node >=24.0, npm >=11.4
 
 3.5.0 drop "OpenInGoogleChrome" & "OpenInGoogleMaps" bookmarklets
 
-3.4.0 adds "FYI" bookmarklet, removes deprecated 1Password bookmarklets, updates deploy task
+3.4.0 adds "FYI" bookmarklet, removes deprecated 1Password bookmarklets,
+updates deploy task
 
 3.3.0 updates Linklighter 1.1.0, UtmStrip 1.7.0, and x-man 1.10 to ask to copy
 their results to the clipboard
