@@ -1,7 +1,8 @@
 ---
+# yamllint disable rule:line-length
 name: "Release"
 
-on:
+'on':
   push:
     tags:
       - '[0-9]+.[0-9]+.[0-9]+'
@@ -14,95 +15,95 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v5
+      - uses: actions/checkout@v5
 
-    - uses: actions/setup-node@v6
-      with:
-        node-version: 24.x
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
 
-    - name: Security Audit
-      run: npm audit --audit-level=moderate
-      # TODO: re-evaluate continue-on-error on Dec 18, 2025 or after js-yaml update
-      continue-on-error: true
+      - name: Security Audit
+        run: npm audit --audit-level=moderate
+        # TODO: re-evaluate continue-on-error on Dec 18, 2025 or after js-yaml update
+        continue-on-error: true
 
-    - name: Build
-      run: |
-        npm ci
-        npx grunt
+      - name: Build
+        run: |
+          npm ci
+          npx grunt
 
-    - name: Generate SBOM
-      run: npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
+      - name: Generate SBOM
+        run: npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
 
-    - name: Verify Tag Matches Package Version
-      run: |
-        TAG_VERSION="${GITHUB_REF#refs/tags/}"
-        PKG_VERSION=$(node -p "require('./package.json').version")
-        if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
-          echo "Error: Git tag ($TAG_VERSION) does not match package.json version ($PKG_VERSION)"
-          exit 1
-        fi
-        echo "Version verified: $TAG_VERSION"
-
-    - name: Create Release Archive
-      run: |
-        mkdir -p release-artifacts
-        tar -czf release-artifacts/openinlets-${{ github.ref_name }}.tar.gz \
-          web/*.js \
-          README.md \
-          LICENSE \
-          SECURITY.md \
-          package.json
-
-        # Copy individual bookmarklets
-        cp web/*.js release-artifacts/
-
-    - name: Generate Release Notes
-      id: release_notes
-      run: |
-        TAG_VERSION="${GITHUB_REF#refs/tags/}"
-        PREV_TAG=$(git describe --abbrev=0 --tags "${TAG_VERSION}^" 2>/dev/null || echo "")
-
-        {
-          if [ -n "$PREV_TAG" ]; then
-            echo "## What's Changed"
-            echo ""
-            git log --pretty=format:"- %s (%h)" "$PREV_TAG..HEAD"
-          else
-            echo "## Release $TAG_VERSION"
-            echo ""
-            echo "Initial release"
+      - name: Verify Tag Matches Package Version
+        run: |
+          TAG_VERSION="${GITHUB_REF#refs/tags/}"
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
+            echo "Error: Git tag ($TAG_VERSION) does not match package.json version ($PKG_VERSION)"
+            exit 1
           fi
+          echo "Version verified: $TAG_VERSION"
 
-          echo ""
-          echo "## Verification"
-          echo ""
-          echo "This release includes:"
-          echo "- Signed commits and tags (verify with \`git verify-tag $TAG_VERSION\`)"
-          echo "- Software Bill of Materials (SBOM) in CycloneDX format"
-          echo "- Security audit results from CI pipeline"
-          echo ""
-          echo "See [SECURITY.md](SECURITY.md) for verification procedures."
-        } > release-notes.md
+      - name: Create Release Archive
+        run: |
+          mkdir -p release-artifacts
+          tar -czf release-artifacts/openinlets-${{ github.ref_name }}.tar.gz \
+            web/*.js \
+            README.md \
+            LICENSE \
+            SECURITY.md \
+            package.json
 
-    - name: Create GitHub Release
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: |
-        gh release create ${{ github.ref_name }} \
-          --title "OpenInlets ${{ github.ref_name }}" \
-          --notes-file release-notes.md \
-          --verify-tag \
-          release-artifacts/*.tar.gz \
-          sbom.json
+          # Copy individual bookmarklets
+          cp web/*.js release-artifacts/
 
-    - name: Upload Release Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: release-${{ github.ref_name }}
-        path: |
-          release-artifacts/
-          sbom.json
-        retention-days: 90
+      - name: Generate Release Notes
+        id: release_notes
+        run: |
+          TAG_VERSION="${GITHUB_REF#refs/tags/}"
+          PREV_TAG=$(git describe --abbrev=0 --tags "${TAG_VERSION}^" 2>/dev/null || echo "")
+
+          {
+            if [ -n "$PREV_TAG" ]; then
+              echo "## What's Changed"
+              echo ""
+              git log --pretty=format:"- %s (%h)" "$PREV_TAG..HEAD"
+            else
+              echo "## Release $TAG_VERSION"
+              echo ""
+              echo "Initial release"
+            fi
+
+            echo ""
+            echo "## Verification"
+            echo ""
+            echo "This release includes:"
+            echo "- Signed commits and tags (verify with \`git verify-tag $TAG_VERSION\`)"
+            echo "- Software Bill of Materials (SBOM) in CycloneDX format"
+            echo "- Security audit results from CI pipeline"
+            echo ""
+            echo "See [SECURITY.md](SECURITY.md) for verification procedures."
+          } > release-notes.md
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create ${{ github.ref_name }} \
+            --title "OpenInlets ${{ github.ref_name }}" \
+            --notes-file release-notes.md \
+            --verify-tag \
+            release-artifacts/*.tar.gz \
+            sbom.json
+
+      - name: Upload Release Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ github.ref_name }}
+          path: |
+            release-artifacts/
+            sbom.json
+          retention-days: 90
 
   deploy-gh-pages:
     runs-on: ubuntu-latest
@@ -111,79 +112,79 @@ jobs:
       contents: write
 
     steps:
-    - name: Checkout Tag
-      uses: actions/checkout@v5
-      with:
-        ref: ${{ github.ref }}
-        path: release-source
+      - name: Checkout Tag
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref }}
+          path: release-source
 
-    - name: Verify README.md Exists and is Valid
-      run: |
-        if [ ! -f release-source/README.md ]; then
-          echo "Error: README.md not found in release"
-          exit 1
-        fi
+      - name: Verify README.md Exists and is Valid
+        run: |
+          if [ ! -f release-source/README.md ]; then
+            echo "Error: README.md not found in release"
+            exit 1
+          fi
 
-        FILE_SIZE=$(stat -c%s release-source/README.md 2>/dev/null || stat -f%z release-source/README.md)
-        if [ "$FILE_SIZE" -lt 100 ]; then
-          echo "Error: README.md is too small (possible corruption)"
-          exit 1
-        fi
+          FILE_SIZE=$(stat -c%s release-source/README.md 2>/dev/null || stat -f%z release-source/README.md)
+          if [ "$FILE_SIZE" -lt 100 ]; then
+            echo "Error: README.md is too small (possible corruption)"
+            exit 1
+          fi
 
-        echo "README.md verified: $FILE_SIZE bytes"
+          echo "README.md verified: $FILE_SIZE bytes"
 
-    - name: Checkout gh-pages Branch
-      uses: actions/checkout@v5
-      with:
-        ref: gh-pages
-        path: gh-pages-branch
-        fetch-depth: 0
+      - name: Checkout gh-pages Branch
+        uses: actions/checkout@v5
+        with:
+          ref: gh-pages
+          path: gh-pages-branch
+          fetch-depth: 0
 
-    - name: Update index.md in gh-pages
-      run: |
-        cd gh-pages-branch
+      - name: Update index.md in gh-pages
+        run: |
+          cd gh-pages-branch
 
-        # Verify we're on gh-pages branch
-        CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-        if [ "$CURRENT_BRANCH" != "gh-pages" ]; then
-          echo "Error: Not on gh-pages branch (on $CURRENT_BRANCH)"
-          exit 1
-        fi
+          # Verify we're on gh-pages branch
+          CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          if [ "$CURRENT_BRANCH" != "gh-pages" ]; then
+            echo "Error: Not on gh-pages branch (on $CURRENT_BRANCH)"
+            exit 1
+          fi
 
-        # Copy README.md to index.md
-        cp ../release-source/README.md index.md
+          # Copy README.md to index.md
+          cp ../release-source/README.md index.md
 
-        # Verify the copy succeeded and has content
-        if [ ! -f index.md ] || [ ! -s index.md ]; then
-          echo "Error: index.md copy failed or is empty"
-          exit 1
-        fi
+          # Verify the copy succeeded and has content
+          if [ ! -f index.md ] || [ ! -s index.md ]; then
+            echo "Error: index.md copy failed or is empty"
+            exit 1
+          fi
 
-        # Check if there are changes
-        if git diff --quiet index.md; then
-          echo "No changes to index.md, skipping commit"
-          exit 0
-        fi
+          # Check if there are changes
+          if git diff --quiet index.md; then
+            echo "No changes to index.md, skipping commit"
+            exit 0
+          fi
 
-        # Configure git (using GitHub Actions bot)
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Configure git (using GitHub Actions bot)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-        # Commit and push
-        git add index.md
-        git commit -m "chore(docs): update index.md for release ${{ github.ref_name }}
+          # Commit and push
+          git add index.md
+          git commit -m "chore(docs): update index.md for release ${{ github.ref_name }}
 
-        Auto-updated from README.md via release workflow
-        Source: ${{ github.sha }}
+          Auto-updated from README.md via release workflow
+          Source: ${{ github.sha }}
 
-        🤖 Generated with GitHub Actions"
+          🤖 Generated with GitHub Actions"
 
-        # Verify commit was created
-        if ! git log -1 --pretty=format:"%s" | grep -q "update index.md"; then
-          echo "Error: Commit was not created properly"
-          exit 1
-        fi
+          # Verify commit was created
+          if ! git log -1 --pretty=format:"%s" | grep -q "update index.md"; then
+            echo "Error: Commit was not created properly"
+            exit 1
+          fi
 
-        git push origin gh-pages
+          git push origin gh-pages
 
-        echo "✓ Successfully updated gh-pages index.md for release ${{ github.ref_name }}"
+          echo "✓ Successfully updated gh-pages index.md for release ${{ github.ref_name }}"

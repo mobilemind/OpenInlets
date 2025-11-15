@@ -230,6 +230,8 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+3.6.2 add some supply chain hardening and a release process.
+
 3.6.1 switch to for node >=24.11.0 (LTS), and npm >=11.6.1
 
 3.5.9 uses engineStrict=true in package.json for node >=24.0, npm >=11.4
