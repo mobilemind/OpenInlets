@@ -1,0 +1,22 @@
+# CODEOWNERS file - defines who is responsible for code in this repository
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owner - all files require review from mobilemind
+* @mobilemind
+
+# Critical package and dependency files
+package.json @mobilemind
+package-lock.json @mobilemind
+
+# GitHub Actions workflows and security configuration
+.github/workflows/* @mobilemind
+.github/dependabot.yml @mobilemind
+.github/CODEOWNERS @mobilemind
+
+# Core build system
+Gruntfile.js @mobilemind
+tasks/* @mobilemind
+
+# Security and documentation
+SECURITY.md @mobilemind
+LICENSE @mobilemind
