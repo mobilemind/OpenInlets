@@ -2,7 +2,8 @@
 
 ## Supported Versions
 
-The following versions of OpenInlets are currently supported with security updates:
+The following versions of OpenInlets are currently supported with security
+updates:
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -17,13 +18,17 @@ The following versions of OpenInlets are currently supported with security updat
    - You'll receive credit for the discovery
    - We can work together on a fix before public disclosure
 
-2. **Alternative:** If you cannot use GitHub Security Advisories, create a private issue or email the maintainer directly (see package.json for contact info)
+2. **Alternative:** If you cannot use GitHub Security Advisories, create a
+   private issue or email the maintainer directly (see package.json for contact
+   info)
 
-**Please do not report security vulnerabilities via public GitHub issues** as this may put users at risk before a fix is available.
+**Please do not report security vulnerabilities via public GitHub issues** as
+this may put users at risk before a fix is available.
 
 ### What to Include
 
 When reporting a vulnerability, please include:
+
 - Description of the vulnerability
 - Steps to reproduce
 - Potential impact
@@ -33,7 +38,8 @@ When reporting a vulnerability, please include:
 
 - **Initial Response:** Within 48 hours
 - **Status Update:** Within 7 days
-- **Fix Timeline:** Depends on severity, but typically within 30 days for high/critical issues
+- **Fix Timeline:** Depends on severity, but typically within 30 days for
+  high/critical issues
 
 ## Release Process
 
@@ -115,6 +121,7 @@ To ensure the integrity of published packages and repository security:
 The `main` branch is protected with the following rules to prevent supply chain attacks:
 
 #### Required Settings
+
 - **Require pull request reviews before merging**
   - Required approving reviews: 1 (from CODEOWNERS)
   - Dismiss stale pull request approvals when new commits are pushed: ✓
@@ -147,12 +154,14 @@ The `main` branch is protected with the following rules to prevent supply chain 
 - **Allow deletions**: ✗ (disabled)
 
 #### Additional Protections
+
 - **Lock branch**: Consider enabling for release branches
 - **Do not allow bypassing the above settings**: ✓
 
 ### Repository Settings
 
 Additional security settings enabled:
+
 - **Vulnerability alerts**: ✓ Enabled (Dependabot alerts)
 - **Security updates**: ✓ Automated security PRs via Dependabot
 - **Secret scanning**: ✓ Enabled for detecting exposed credentials
