@@ -1,0 +1,105 @@
+---
+name: "Release"
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v5
+
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24.x
+
+    - name: Security Audit
+      run: npm audit --audit-level=moderate
+      # TODO: re-evaluate continue-on-error on Dec 18, 2025 or after js-yaml update
+      continue-on-error: true
+
+    - name: Build
+      run: |
+        npm ci
+        npx grunt
+
+    - name: Generate SBOM
+      run: npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
+
+    - name: Verify Tag Matches Package Version
+      run: |
+        TAG_VERSION="${GITHUB_REF#refs/tags/}"
+        PKG_VERSION=$(node -p "require('./package.json').version")
+        if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
+          echo "Error: Git tag ($TAG_VERSION) does not match package.json version ($PKG_VERSION)"
+          exit 1
+        fi
+        echo "Version verified: $TAG_VERSION"
+
+    - name: Create Release Archive
+      run: |
+        mkdir -p release-artifacts
+        tar -czf release-artifacts/openinlets-${{ github.ref_name }}.tar.gz \
+          web/*.js \
+          README.md \
+          LICENSE \
+          SECURITY.md \
+          package.json
+
+        # Copy individual bookmarklets
+        cp web/*.js release-artifacts/
+
+    - name: Generate Release Notes
+      id: release_notes
+      run: |
+        TAG_VERSION="${GITHUB_REF#refs/tags/}"
+        PREV_TAG=$(git describe --abbrev=0 --tags "${TAG_VERSION}^" 2>/dev/null || echo "")
+
+        {
+          if [ -n "$PREV_TAG" ]; then
+            echo "## What's Changed"
+            echo ""
+            git log --pretty=format:"- %s (%h)" "$PREV_TAG..HEAD"
+          else
+            echo "## Release $TAG_VERSION"
+            echo ""
+            echo "Initial release"
+          fi
+
+          echo ""
+          echo "## Verification"
+          echo ""
+          echo "This release includes:"
+          echo "- Signed commits and tags (verify with \`git verify-tag $TAG_VERSION\`)"
+          echo "- Software Bill of Materials (SBOM) in CycloneDX format"
+          echo "- Security audit results from CI pipeline"
+          echo ""
+          echo "See [SECURITY.md](SECURITY.md) for verification procedures."
+        } > release-notes.md
+
+    - name: Create GitHub Release
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        gh release create ${{ github.ref_name }} \
+          --title "OpenInlets ${{ github.ref_name }}" \
+          --notes-file release-notes.md \
+          --verify-tag \
+          release-artifacts/*.tar.gz \
+          sbom.json
+
+    - name: Upload Release Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-${{ github.ref_name }}
+        path: |
+          release-artifacts/
+          sbom.json
+        retention-days: 90

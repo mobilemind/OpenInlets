@@ -15,6 +15,31 @@ Create an issue to report a security vulnerability.
 I'll update reported vulnerabilities using Issues.
 See <https://github.com/mobilemind/OpenInlets/issues>
 
+## Release Process
+
+Releases are automated via GitHub Actions when a version tag is pushed. The release workflow:
+
+1. Verifies the tag version matches `package.json` version
+2. Runs security audit
+3. Builds all bookmarklets
+4. Generates SBOM
+5. Creates a release archive
+6. Publishes GitHub Release with auto-generated notes
+
+### Creating a Release
+
+```bash
+# Update version in package.json
+npm version patch  # or minor, or major
+
+# Push with tags (triggers release workflow)
+git push --follow-tags
+
+# Or manually create and push a signed tag
+git tag -s 3.6.2 -m "Release version 3.6.2"
+git push origin 3.6.2
+```
+
 ## Release Verification
 
 All releases should be signed with GPG/SSH signatures for verification:
