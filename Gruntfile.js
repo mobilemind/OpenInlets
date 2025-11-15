@@ -74,6 +74,14 @@ module.exports = function(grunt) {
         "pkg": grunt.file.readJSON("package.json"),
         "uglify": {
             "options": {
+                // Note: These "unsafe" optimizations are intentionally enabled to minimize
+                // bookmarklet size for URL length constraints. These may produce semantically
+                // different code in edge cases, but are acceptable for this use case where:
+                // 1. Bookmarklets must be extremely small to fit in browser URL length limits
+                // 2. The code is simple, well-tested, and doesn't rely on edge case behaviors
+                // 3. Each bookmarklet is tested post-minification to verify correct behavior
+                // Security note: These settings do not introduce vulnerabilities, but can
+                // change code semantics. See SECURITY.md for build verification procedures.
                 "compress": {
                     "drop_console": true,
                     "expression": true,

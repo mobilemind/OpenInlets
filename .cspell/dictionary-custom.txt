@@ -4,6 +4,7 @@ Ghostery
 Matomo
 Octocat
 Textastic
+cyclonedx
 delighter
 smushing
 uglifyjs

@@ -52,6 +52,16 @@ else
 fi
 echo
 
+## npm security audit
+echo '  checking for npm security vulnerabilities'
+if npm audit --audit-level=moderate ; then
+	echo '    npm audit: no moderate+ vulnerabilities found'
+else
+	echo '    --- WARNING: npm audit found moderate or higher vulnerabilities'
+	echo '        run "npm audit" for details'
+fi
+echo
+
 ## check YAML
 echo "  checking YAML files (w/ yamllint, see .github/linters/.yaml-lint.yml)"
 if hash yamllint >/dev/null 2>&1 ; then
