@@ -25,6 +25,7 @@ Releases are automated via GitHub Actions when a version tag is pushed. The rele
 4. Generates SBOM
 5. Creates a release archive
 6. Publishes GitHub Release with auto-generated notes
+7. Updates gh-pages branch (copies README.md → index.md)
 
 ### Creating a Release
 
