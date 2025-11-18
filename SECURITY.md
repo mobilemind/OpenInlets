@@ -94,10 +94,10 @@ git log --show-signature origin/main..HEAD
 
 ### Software Bill of Materials (SBOM)
 
-Each CI build and release generates a Software Bill of Materials (SBOM) in CycloneDX
-format. Release SBOMs are attached to GitHub Releases, while CI build SBOMs are
-available as workflow artifacts. The SBOM provides transparency into all dependencies
-used in the build.
+Each CI build and release generates a Software Bill of Materials (SBOM) in
+CycloneDX format. Release SBOMs are attached to GitHub Releases, while CI build
+SBOMs are available as workflow artifacts. The SBOM provides transparency into
+all dependencies used in the build.
 
 To generate an SBOM locally:
 
@@ -109,16 +109,22 @@ npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
 
 To ensure the integrity of published packages and repository security:
 
-- **2FA Required:** All project maintainers must enable two-factor authentication on their GitHub accounts
+- **2FA Required:** All project maintainers must enable two-factor authentication
+  on their GitHub accounts
 - **Signed Commits:** All commits to the main branch must be GPG signed
-- **Code Review:** All changes require review and approval before merging (via CODEOWNERS)
-- **Dependency Security:** Daily automated security scans via Dependabot for vulnerabilities, plus weekly version update checks
-- **Lockfile Integrity:** npm ci validates package-lock.json integrity (fails if corrupted or mismatched)
-- **SBOM Generation:** Software Bill of Materials attached to every release for supply chain transparency
+- **Code Review:** All changes require review and approval before merging
+  (via CODEOWNERS)
+- **Dependency Security:** Daily automated security scans via Dependabot for
+  vulnerabilities, plus weekly version update checks
+- **Lockfile Integrity:** npm ci validates package-lock.json integrity (fails
+  if corrupted or mismatched)
+- **SBOM Generation:** Software Bill of Materials attached to every release for
+  supply chain transparency
 
 ### Branch Protection Rules
 
-The `main` branch is protected with the following rules to prevent supply chain attacks:
+The `main` branch is protected with the following rules to prevent supply chain
+attacks:
 
 #### Required Settings
 
