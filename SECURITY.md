@@ -211,3 +211,92 @@ npm audit --audit-level=moderate
 ```
 
 Sign all commits and tags. Verify signatures before deploying code.
+
+## Bookmarklet Security
+
+### Security Scanning Process
+
+OpenInlets bookmarklets undergo security scanning at the **source code level**
+before being built into their final URL-encoded format:
+
+1. **Source Files** (`src/*.js`) contain the original, readable JavaScript code
+2. **ESLint + Security Plugin** scans source files using `eslint-plugin-security`
+   with strict security rules
+3. **Minification** compresses the code using UglifyJS
+4. **URL Encoding** converts the minified code into `javascript:` URI format
+   (`web/*.js`)
+
+The final bookmarklet files in `web/*.js` are **intentionally excluded** from
+CodeQL JavaScript analysis because they are URL-encoded JavaScript URIs (not
+standard JavaScript files). Security scanning occurs on the source files where
+the code is readable and parseable.
+
+### Security Configuration
+
+ESLint security rules enabled in `.github/linters/eslint.config.js`:
+
+- `eslint-plugin-security` with recommended rules
+- No `eval()` or implied eval allowed
+- No unsafe code practices
+- No external script injection
+- Strict code quality standards
+
+### Runtime Security Context
+
+**Important:** Bookmarklets execute in the user's browser context and have
+access to:
+
+- The current page's DOM (Document Object Model)
+- Cookies for the current domain
+- localStorage and sessionStorage
+- Any data visible on the page
+
+**Bookmarklets cannot:**
+
+- Access data from other domains (same-origin policy applies)
+- Persist across page reloads (they run once when triggered)
+- Run automatically (user must manually activate them)
+- Bypass Content Security Policy on sites that block `javascript:` URIs
+
+### User Security Recommendations
+
+If you're installing OpenInlets bookmarklets:
+
+1. **Review the source code** - All bookmarklets are open source. Check
+   `src/*.js` to see exactly what each bookmarklet does before installing
+2. **Verify the source** - Only install bookmarklets from the official
+   [OpenInlets repository](https://github.com/mobilemind/OpenInlets)
+3. **Understand the permissions** - Bookmarklets can read page content and
+   cookies when you activate them
+4. **Check for network requests** - Review if a bookmarklet makes external
+   network requests (most OpenInlets bookmarklets only manipulate the current
+   page or redirect to known services)
+5. **Keep bookmarklets updated** - Security fixes are published through new
+   releases
+
+### Bookmarklet Security Checklist (for Developers)
+
+When adding or modifying bookmarklets, verify:
+
+- [ ] No use of `eval()` or `Function()` constructor (blocked by ESLint)
+- [ ] No external script injection from untrusted sources
+- [ ] Minimal access to sensitive data (cookies, localStorage)
+- [ ] Clear documentation of what the bookmarklet does
+- [ ] Testing in multiple browsers post-minification
+- [ ] No credentials or secrets in the code
+- [ ] All external URLs use HTTPS
+- [ ] Input validation for any user-provided data
+
+### Transparency and Auditability
+
+All OpenInlets bookmarklets are:
+
+- **Open source** - Full source code available in `src/` directory
+- **Auditable** - Clear build process from source to bookmarklet
+- **Versioned** - Each bookmarklet includes version number
+- **Tested** - Validated through automated builds and manual testing
+- **Documented** - Purpose and behavior documented in README.md
+
+To audit a bookmarklet, compare the URL-decoded `web/*.js` file with its
+corresponding `src/*.js` source file. The build process is deterministic and
+reproducible.
