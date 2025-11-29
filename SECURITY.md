@@ -283,7 +283,10 @@ When adding or modifying bookmarklets, verify:
 
 - [ ] No use of `eval()` or `Function()` constructor (blocked by ESLint)
 - [ ] No external script injection from untrusted sources
-- [ ] Minimal access to sensitive data (cookies, localStorage)
+- [ ] No access to sensitive data (cookies, localStorage,
+sessionStorage).
+- [ ] If a new bookmarklet uses sensitive data, update the README
+and this SECURITY document.
 - [ ] Clear documentation of what the bookmarklet does
 - [ ] Testing in multiple browsers post-minification
 - [ ] No credentials or secrets in the code
