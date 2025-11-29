@@ -15,6 +15,7 @@ updates:
 
 1. **Preferred:** Report via [GitHub Security Advisories](https://github.com/mobilemind/OpenInlets/security/advisories/new)
    - This allows for private, coordinated disclosure
+   - You'll receive credit for the discovery
    - We can work together on a fix before public disclosure
 
 2. **Alternative:** If you cannot use GitHub Security Advisories, create a
@@ -184,6 +185,7 @@ considered acceptable for this project because:
 
 1. **Size Requirements**: Bookmarklets must be extremely small to fit within
    browser URL length limits
+2. **Code Simplicity**: The source code is straightforward and doesn't rely on
    edge case JavaScript behaviors
 3. **Testing**: Each bookmarklet is tested post-minification to verify correct
 behavior
@@ -241,14 +243,13 @@ ESLint security rules enabled in `.github/linters/eslint.config.js`:
 
 ### Runtime Security Context
 
+**Important:** Bookmarklets execute in the user's browser context and have
 access to:
 
+- The current page's DOM (Document Object Model)
 - Cookies for the current domain
 - localStorage and sessionStorage
 - Any data visible on the page
-
->NOTE: None of the bookmarklets in this project use cookies, localStorage,
-or sessionStorage.
 
 **Bookmarklets cannot:**
 
@@ -259,6 +260,7 @@ or sessionStorage.
 
 ### User Security Recommendations
 
+If you're installing OpenInlets bookmarklets:
 
 1. **Review the source code** - All bookmarklets are open source. Check
    `src/*.js` to see exactly what each bookmarklet does before installing
@@ -278,10 +280,7 @@ When adding or modifying bookmarklets, verify:
 
 - [ ] No use of `eval()` or `Function()` constructor (blocked by ESLint)
 - [ ] No external script injection from untrusted sources
-- [ ] Avoid or minimize access to sensitive data (cookies, localStorage,
-sessionStorage).
-- [ ] If a new bookmarklet uses sensitive data, update the README
-and this SECURITY document.
+- [ ] Minimal access to sensitive data (cookies, localStorage)
 - [ ] Clear documentation of what the bookmarklet does
 - [ ] Testing in multiple browsers post-minification
 - [ ] No credentials or secrets in the code
