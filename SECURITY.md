@@ -251,6 +251,9 @@ access to:
 - localStorage and sessionStorage
 - Any data visible on the page
 
+>NOTE: None of the bookmarklets in this project use cookies, localStorage,
+or sessionStorage.
+
 **Bookmarklets cannot:**
 
 - Access data from other domains (same-origin policy applies)
