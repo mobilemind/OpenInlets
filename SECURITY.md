@@ -60,8 +60,10 @@ The release workflow:
 npm version patch  # or minor, or major
 
 # Push with tags (triggers release workflow)
+git push --follow-tags
 
 # Or manually create and push a signed tag
+git tag -s 3.6.2 -m "Release version 3.6.2"
 git push origin 3.6.2
 ```
 
@@ -99,6 +101,7 @@ all dependencies used in the build.
 To generate an SBOM locally:
 
 ```bash
+npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
 ```
 
 ## Maintainer Security Practices
@@ -197,8 +200,10 @@ To verify the integrity of a build:
 npx grunt
 
 # Generate and review SBOM
+npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
 
 # Run security audit
+npm audit --audit-level=moderate
 
 # Test bookmarklets manually in target browsers
 ```
