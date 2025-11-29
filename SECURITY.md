@@ -83,8 +83,10 @@ git tag -v 3.6.1
 
 ```bash
 # Show commit signature
+git log --show-signature -1 <commit-hash>
 
 # Verify all commits in a range
+git log --show-signature origin/main..HEAD
 ```
 
 ### Software Bill of Materials (SBOM)
