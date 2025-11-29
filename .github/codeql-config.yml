@@ -1,0 +1,7 @@
+# CodeQL Configuration
+# Exclude bookmarklet files from JavaScript analysis
+
+name: "CodeQL Config"
+
+paths-ignore:
+  - web/*.js  # Bookmarklets (JavaScript URIs, not true JavaScript files)
