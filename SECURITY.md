@@ -7,7 +7,7 @@ updates:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 3.6.x   | :white_check_mark: |
+| 3.7.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
@@ -64,8 +64,8 @@ npm version patch  # or minor, or major
 git push --follow-tags
 
 # Or manually create and push a signed tag
-git tag -s 3.6.2 -m "Release version 3.6.2"
-git push origin 3.6.2
+git tag -s 3.7.0 -m "Release version 3.7.0"
+git push origin 3.7.0
 ```
 
 ## Release Verification
@@ -76,10 +76,10 @@ All releases should be signed with GPG/SSH signatures for verification:
 
 ```bash
 # Verify the signature on a release tag
-git verify-tag 3.6.1
+git verify-tag 3.7.0
 
 # Show tag details with signature
-git tag -v 3.6.1
+git tag -v 3.7.0
 ```
 
 ### Verifying Signed Commits
