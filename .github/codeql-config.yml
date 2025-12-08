@@ -1,5 +1,6 @@
 # CodeQL Configuration
-# Exclude bookmarklet files from JavaScript analysis
+# Exclude bookmarklet ("web") files from JavaScript analysis
+---
 
 name: "CodeQL Config"
 

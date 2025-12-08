@@ -58,6 +58,10 @@ module.exports = function(grunt) {
                 "file": "delighter.js",
                 "version": "1.1.0"
             },
+            "unskim": {
+                "file": "unskim.js",
+                "version": "1.0.0"
+            },
             "x-man": {
                 "file": "x-man.js",
                 "version": "1.2.1"
