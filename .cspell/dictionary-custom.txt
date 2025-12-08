@@ -8,4 +8,5 @@ cyclonedx
 delighter
 smushing
 uglifyjs
+unskim
 utmstrip
