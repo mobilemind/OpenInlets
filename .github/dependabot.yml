@@ -8,9 +8,13 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      time: "04:00"  # Avoid peak hours
+      timezone: "UTC"
     open-pull-requests-limit: 10
     labels:
       - "dependencies"
+    reviewers:
+      - "mobilemind"
     groups:
       dev-dependencies:
         dependency-type: "development"
@@ -23,7 +27,11 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+      time: "05:00"  # Staggered 1 hour from npm
+      timezone: "UTC"
     open-pull-requests-limit: 5
     labels:
       - "github-actions"
       - "dependencies"
+    reviewers:
+      - "mobilemind"
