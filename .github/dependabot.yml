@@ -3,22 +3,12 @@
 ---
 version: 2
 updates:
-  # Security updates - daily checks for vulnerabilities
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
-    labels:
-      - "dependencies"
-      - "security"
-
-  # Version updates - weekly checks for new versions
+  # NPM dependency updates - weekly checks
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 10
     labels:
       - "dependencies"
     groups:
