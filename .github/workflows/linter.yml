@@ -8,10 +8,16 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Prevent concurrent runs for the same PR/branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: "Lint Code Base"
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       # Checkout the code base
@@ -21,9 +27,16 @@ jobs:
           # Full git history needed to get list of changed files w/in `super-linter`
           fetch-depth: 0
 
+      # Setup Node.js with cache
+      - name: "Setup Node.js"
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.x'
+          cache: 'npm'
+
       # install
-      - name: "Install"
-        run: npm install
+      - name: "Install Dependencies"
+        run: npm ci --prefer-offline
 
       # Run Linter against code base
       - name: Super-linter
