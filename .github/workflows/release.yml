@@ -21,6 +21,11 @@ name: "Release"
 permissions:
   contents: write
 
+# Prevent concurrent releases
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false  # Don't cancel in-progress releases
+
 jobs:
   release:
     runs-on: ubuntu-latest
