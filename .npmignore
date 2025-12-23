@@ -1,8 +1,15 @@
+.DS_Store
 .codesandbox/
+.cspell/
+.cspell.jsonc
 .git/
 .github/
 .gitignore
+.npmrc
 node_modules/
 npm-debug.log
+pre-push
 preflight
 tmp/
+*.tgz
+SECURITY.md
