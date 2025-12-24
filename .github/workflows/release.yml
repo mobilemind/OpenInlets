@@ -21,25 +21,34 @@ name: "Release"
 permissions:
   contents: write
 
+# Prevent concurrent releases
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false  # Don't cancel in-progress releases
+
 jobs:
   release:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0  # Need full history for release notes
 
       - uses: actions/setup-node@v6
         with:
           node-version: 24.x
+          cache: 'npm'
 
       - name: Security Audit
         run: npm audit --audit-level=moderate
         # TODO: re-evaluate continue-on-error on Dec 18, 2025 or after js-yaml update
         continue-on-error: true
 
-      - name: Build
+      - name: Install Dependencies and Build
         run: |
-          npm ci
+          npm ci --prefer-offline
           npx grunt
 
       - name: Generate SBOM
@@ -135,6 +144,7 @@ jobs:
   deploy-gh-pages:
     runs-on: ubuntu-latest
     needs: release
+    timeout-minutes: 8
     # Only deploy gh-pages on actual releases, not dry-runs
     if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.dry_run == 'false')
     permissions:

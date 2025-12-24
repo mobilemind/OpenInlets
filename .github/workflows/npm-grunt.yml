@@ -7,16 +7,23 @@ on:
   pull_request:
     branches: ["main"]
 
+# Prevent concurrent runs for the same PR/branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
 
     strategy:
       matrix:
         node-version: [24.x, 25.x]
+      fail-fast: false
 
     steps:
     - uses: actions/checkout@v6
@@ -24,16 +31,18 @@ jobs:
     - uses: actions/setup-node@v6
       with:
         node-version: ${{ matrix.node-version }}
+        cache: 'npm'
 
     - name: Security Audit
       run: npm audit --omit=dev --audit-level=moderate
       # TODO: re-evaluate continue-on-error on Dec 18, 2025 or after js-yaml update
       continue-on-error: true
 
+    - name: Install Dependencies
+      run: npm ci --prefer-offline
+
     - name: Build
-      run: |
-        npm ci
-        npx grunt
+      run: npx grunt
 
     - name: Generate SBOM
       run: npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
@@ -48,6 +57,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: test
+    timeout-minutes: 5
     steps:
       - name: Build Summary
         run: echo "All matrix builds completed successfully"
