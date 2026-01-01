@@ -57,7 +57,14 @@ function buildBookmarklet(bookmarklet) {
 
 function main() {
     const configPath = path.join(__dirname, '..', 'bookmarklets.json');
-    const config = JSON.parse(readFileOrFail(configPath));
+    const configContent = readFileOrFail(configPath);
+    let config;
+    try {
+        config = JSON.parse(configContent);
+    } catch (error) {
+        console.error(`Invalid JSON in ${configPath}: ${error.message}`);
+        process.exit(1);
+    }
 
     console.log('Building bookmarklets...');
 
