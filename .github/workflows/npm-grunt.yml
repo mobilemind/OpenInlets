@@ -48,7 +48,7 @@ jobs:
       run: npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
 
     - name: Upload SBOM
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: sbom-node-${{ matrix.node-version }}
         path: sbom.json
