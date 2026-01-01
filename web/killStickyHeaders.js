@@ -1,1 +1,1 @@
-javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1'
+javascript:(()=%3E%7Bconst%20e=document.querySelectorAll('body%20%2A')%3Bfor(const%20o%20of%20e)'fixed'===getComputedStyle(o).position%26%26o.parentNode.removeChild(o)%7D)()%3Bvoid'1.2.1'

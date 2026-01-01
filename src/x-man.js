@@ -13,13 +13,13 @@
         containsUnknown = !containsOther && !containsSafari,
         macSafari = navigator.platform.startsWith('Mac') && containsSafari && !containsOther && !containsUnknown && !navigator.maxTouchPoints && navigator.maxTouchPoints < 2,
         selection = window.getSelection().toString().split('\n')[0].trim();
-    let xman = 'x-man-page://'
+    let xman = 'x-man-page://';
     // check for a section specification (ie "print(1)" or "print(3)" )
     const matched = selection.match(/^(.*?)\((\d)\)$/);
     if (matched) {
       // convert section ref = 1 to simplified x-man-page URL format; "print(1)" —> "printf"
       //     and section ref != 1 to x-man-page URL format; "print(3)" —> "3/printf"
-      xman += 1 == matched[2] ? matched[1] : `${matched[2]}/${matched[1]}`;
+      xman += matched[2] === '1' ? matched[1] : `${matched[2]}/${matched[1]}`;
     } else {
       xman += selection;
     }
@@ -32,7 +32,7 @@
               alertMsg = `Unable to copy "${xman}" to clipboard.`;
               xman = '';
             }
-            if (macSafari && xman != '') {
+            if (macSafari && xman !== '') {
                 let newWin = null;
                 try {
                   newWin = window.open(xman);
@@ -46,10 +46,10 @@
                     setTimeout(() => {newWin.close()}, 3333);
                   }
                 }
-            } else if (xman != '') {
+            } else if (xman !== '') {
               alertMsg = `Browser doesn't look like Mac Safari. Unable to open new link with Terminal, but clipboard contains "${xman}"`;
             }
-            if (alertMsg != '' ) {
+            if (alertMsg !== '' ) {
               alert(alertMsg);
             }
         }
