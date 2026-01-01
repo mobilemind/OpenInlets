@@ -12,7 +12,8 @@
     "eslint-plugin-security": "3.0.1",
     "grunt": "1.6.1",
     "grunt-contrib-uglify": "5.2.2",
-    "grunt-eslint": "26.0.0"
+    "grunt-eslint": "26.0.0",
+    "terser": "5.37.0"
   },
   "engines": {
     "node": ">=24.11.0",
@@ -45,7 +46,13 @@
     "url": "git+https://github.com/mobilemind/OpenInlets.git"
   },
   "scripts": {
-    "test": "npx grunt"
+    "build:minify": "node scripts/minify.js",
+    "build:bookmarklet": "node scripts/build-bookmarklet.js",
+    "build:readme": "node scripts/update-readme.js",
+    "build:terser": "npm run build:minify && npm run build:bookmarklet",
+    "deploy:terser": "npm run build:terser && npm run build:readme",
+    "test": "npx grunt",
+    "test:terser": "npm run build:terser"
   },
   "version": "3.7.0"
 }
