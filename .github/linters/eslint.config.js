@@ -4,7 +4,7 @@ const security = require("eslint-plugin-security");
 
 module.exports = [
     {
-        files: [".github/linters/eslint.config.js", "Gruntfile.js", "src/*.js"],
+        files: [".github/linters/eslint.config.js", "scripts/*.js", "src/*.js"],
         ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "web/*.js"],
         languageOptions: {
             ecmaVersion: 2020, // ES2020 - matches Terser target for bookmarklets
