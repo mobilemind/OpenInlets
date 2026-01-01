@@ -81,11 +81,11 @@
     }
     // clean-up: restore leading '?' if necessary
     if (searchStr.charAt(0) !== '?') {
-        searchStr = '?' + searchStr;
+        searchStr = `?${searchStr}`;
     }
     // clean-up '?&param=value' --> '?param=value'
     if (searchStr.includes('?&')) {
-        searchStr = '?' + searchStr.slice(2);
+        searchStr = `?${searchStr.slice(2)}`;
     }
     // clean-up: nullify if no params assigns left (e.g. '?' or '?param')
     if (searchStr.length < 3) {
@@ -96,7 +96,7 @@
     // if changed replace location with stripped version
     if (locSearch !== searchStr || locPath !== pathStr) {
         if (confirm('Update history and copy cleaned URL to clipboard?')) {
-            const newURL = location.protocol + '//' + location.host + pathStr + searchStr + location.hash;
+            const newURL = `${location.protocol}//${location.host}${pathStr}${searchStr}${location.hash}`;
             navigator.clipboard.writeText(newURL);
             history.replaceState(null, null, newURL);
             window.open(newURL, '_self', 'noreferrer').opener = null;

@@ -71,11 +71,11 @@ if ! [ -d 'node_modules' ] ; then
   echo
 fi
 
-# run test
-echo '  npx grunt'
-npx grunt || \
-  { echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'npx grunt'" ; exit 2 ; }
-echo "  git hooks $HOOKNAME ($GITBRANCH): OK, passed: 'npx grunt'"
+# run build
+echo '  npm run build'
+npm run build || \
+  { echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'npm run build'" ; exit 2 ; }
+echo "  git hooks $HOOKNAME ($GITBRANCH): OK, passed: 'npm run build'"
 
 # spell check source code if cspell available
 if hash cspell > /dev/null 2>&1 ; then

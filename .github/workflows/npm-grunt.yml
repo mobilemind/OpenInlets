@@ -1,5 +1,5 @@
 ---
-name: "NodeJS with Grunt"
+name: "NodeJS Build"
 
 on:
   push:
@@ -18,7 +18,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 5
 
     strategy:
       matrix:
@@ -41,51 +41,8 @@ jobs:
     - name: Install Dependencies
       run: npm ci --prefer-offline
 
-    - name: Build with Grunt (baseline)
-      run: npx grunt
-
-    - name: Backup Grunt output
-      run: mkdir -p .build-comparison && cp -r web .build-comparison/web-grunt
-
-    - name: Build with Terser (new)
-      run: npm run build:terser
-
-    - name: Compare build outputs
-      run: |
-        echo "Build Output Comparison: Terser vs Grunt/UglifyJS"
-        echo "=================================================="
-        echo ""
-        printf "%-25s %10s %10s %10s %8s\n" "Bookmarklet" "Terser" "Grunt" "Diff" "% Diff"
-        printf "%-25s %10s %10s %10s %8s\n" "-------------------------" "----------" "----------" "----------" "--------"
-
-        total_terser=0
-        total_grunt=0
-
-        for file in web/*.js; do
-          filename=$(basename "$file")
-          terser_size=$(wc -c < "$file" | tr -d ' ')
-          grunt_size=$(wc -c < ".build-comparison/web-grunt/$filename" | tr -d ' ')
-          diff=$((terser_size - grunt_size))
-
-          total_terser=$((total_terser + terser_size))
-          total_grunt=$((total_grunt + grunt_size))
-
-          if [ "$grunt_size" -gt 0 ]; then
-            pct_diff=$(awk "BEGIN {printf \"%.1f\", ($diff / $grunt_size) * 100}")
-          else
-            pct_diff="0.0"
-          fi
-
-          printf "%-25s %10d %10d %10d %7s%%\n" "$filename" "$terser_size" "$grunt_size" "$diff" "$pct_diff"
-        done
-
-        echo ""
-        total_diff=$((total_terser - total_grunt))
-        pct_total=$(awk "BEGIN {printf \"%.2f\", ($total_diff / $total_grunt) * 100}")
-        printf "%-25s %10d %10d %10d %7s%%\n" "TOTAL" "$total_terser" "$total_grunt" "$total_diff" "$pct_total"
-        echo ""
-        echo "Note: Terser maintains proper IIFE isolation (prevents global scope pollution)"
-        echo "      Grunt/UglifyJS removes IIFE wrapper (toplevel:true causes variable leakage)"
+    - name: Build bookmarklets
+      run: npm run build
 
     - name: Verify build artifacts
       run: |
@@ -97,6 +54,15 @@ jobs:
           echo "✗ Expected 16 bookmarklets, found $file_count"
           exit 1
         fi
+
+        echo ""
+        echo "Build Summary:"
+        total_size=0
+        for file in web/*.js; do
+          size=$(wc -c < "$file" | tr -d ' ')
+          total_size=$((total_size + size))
+        done
+        echo "Total bookmarklet size: $total_size bytes"
 
     - name: Generate SBOM
       run: npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json

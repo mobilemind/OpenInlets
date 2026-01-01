@@ -56,7 +56,7 @@
         newUrl = newUrl.replace(/##+:~:text=/, '#:~:text=');
     }
     if (newUrl !== url) {
-        if (confirm('Open URL with highlight on "' + strStart + '" and copy URL to clipboard?\n\nNote: If text isn’t highlighted in new tab, you can try again with a smaller selection.')) {
+        if (confirm(`Open URL with highlight on "${strStart}" and copy URL to clipboard?\n\nNote: If text isn't highlighted in new tab, you can try again with a smaller selection.`)) {
             // send to clipboard & open in new window
             navigator.clipboard.writeText(newUrl);
             window.open(newUrl, '_blank').opener = null;

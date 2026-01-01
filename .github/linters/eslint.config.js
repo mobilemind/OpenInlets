@@ -7,7 +7,7 @@ module.exports = [
         files: [".github/linters/eslint.config.js", "Gruntfile.js", "src/*.js"],
         ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "web/*.js"],
         languageOptions: {
-            ecmaVersion: "latest",
+            ecmaVersion: 2020, // ES2020 - matches Terser target for bookmarklets
             globals: {
                 ...globals.browser,
                 ...globals.node
@@ -107,6 +107,7 @@ module.exports = [
             "no-useless-constructor": "error",
             "no-useless-rename": "error",
             "no-useless-return": "error",
+            "no-var": "error", // ES2020: enforce const/let, no var
             "no-void": "error",
             "no-warning-comments": "error",
             "object-shorthand": "error",
@@ -114,6 +115,8 @@ module.exports = [
             "prefer-arrow-callback": "error",
             "prefer-const": "warn",
             "prefer-destructuring": "error",
+            "prefer-object-spread": "error", // ES2020: use {...obj} instead of Object.assign
+            "prefer-template": "warn", // ES2020: encourage template literals
             "prefer-numeric-literals": "error",
             "prefer-promise-reject-errors": "error",
             "prefer-rest-params": "error",
