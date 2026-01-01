@@ -46,7 +46,8 @@
     "build:bookmarklet": "node scripts/build-bookmarklet.js",
     "build:minify": "node scripts/minify.js",
     "build:readme": "node scripts/update-readme.js",
-    "deploy": "npm run build && npm run build:readme"
+    "deploy": "npm run build && npm run build:readme",
+    "test": "npm run build"
   },
   "version": "3.7.0"
 }
