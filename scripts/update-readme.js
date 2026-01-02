@@ -6,29 +6,16 @@
 
 const fs = require('fs');
 const path = require('path');
+const {readFileOrFail, validateBookmarklet} = require('./utils');
 
-function readFileOrFail(filePath) {
-    if (!fs.existsSync(filePath)) {
-        console.error(`File not found: ${filePath}`);
-        process.exit(1);
-    }
-
-    const content = fs.readFileSync(filePath, 'utf8');
-
-    if (content.length === 0) {
-        console.error(`File is empty: ${filePath}`);
-        process.exit(1);
-    }
-
-    return content;
-}
-
+// process.exit() never returns, so consistent-return doesn't apply
+// eslint-disable-next-line consistent-return
 function replaceReadme(readMeString, regexPattern, newStr, bookmarkletName) {
     if (readMeString.match(regexPattern)) {
         return readMeString.replace(regexPattern, newStr);
     }
 
-    // Fail early if there's no match
+    // Fail if there's no match
     console.error(`Can't find old "${newStr}" reference for ${bookmarkletName} using ${regexPattern}`);
     process.exit(1);
 }
@@ -84,11 +71,23 @@ function main() {
         console.error(`Invalid JSON in config file ${configPath}: ${error.message}`);
         process.exit(1);
     }
+
+    if (!config.bookmarklets || !Array.isArray(config.bookmarklets)) {
+        console.error(`Invalid config: 'bookmarklets' must be an array in ${configPath}`);
+        process.exit(1);
+    }
+
+    if (config.bookmarklets.length === 0) {
+        console.error(`Invalid config: 'bookmarklets' array is empty in ${configPath}`);
+        process.exit(1);
+    }
+
     let readMeString = readFileOrFail(readmePath);
 
     console.log('Updating README.md...');
 
-    for (const bookmarklet of config.bookmarklets) {
+    for (const [index, bookmarklet] of config.bookmarklets.entries()) {
+        validateBookmarklet(bookmarklet, index);
         try {
             readMeString = updateReadmeForBookmarklet(readMeString, bookmarklet);
             console.log(`Updated README.md for ${bookmarklet.name} v${bookmarklet.version}`);

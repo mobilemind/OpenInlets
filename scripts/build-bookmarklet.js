@@ -6,22 +6,7 @@
 
 const fs = require('fs');
 const path = require('path');
-
-function readFileOrFail(filePath) {
-    if (!fs.existsSync(filePath)) {
-        console.error(`File not found: ${filePath}`);
-        process.exit(1);
-    }
-
-    const content = fs.readFileSync(filePath, 'utf8');
-
-    if (content.length === 0) {
-        console.error(`File is empty: ${filePath}`);
-        process.exit(1);
-    }
-
-    return content;
-}
+const {readFileOrFail, validateBookmarklet} = require('./utils');
 
 function buildBookmarklet(bookmarklet) {
     const srcPath = path.join(__dirname, '..', 'src', bookmarklet.file);
@@ -66,9 +51,20 @@ function main() {
         process.exit(1);
     }
 
+    if (!config.bookmarklets || !Array.isArray(config.bookmarklets)) {
+        console.error(`Invalid config: 'bookmarklets' must be an array in ${configPath}`);
+        process.exit(1);
+    }
+
+    if (config.bookmarklets.length === 0) {
+        console.error(`Invalid config: 'bookmarklets' array is empty in ${configPath}`);
+        process.exit(1);
+    }
+
     console.log('Building bookmarklets...');
 
-    for (const bookmarklet of config.bookmarklets) {
+    for (const [index, bookmarklet] of config.bookmarklets.entries()) {
+        validateBookmarklet(bookmarklet, index);
         try {
             buildBookmarklet(bookmarklet);
         } catch (error) {
