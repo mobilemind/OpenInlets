@@ -199,7 +199,7 @@ To verify the integrity of a build:
 
 ```bash
 # Run the full build process
-npx grunt
+npm run build
 
 # Generate and review SBOM
 npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json

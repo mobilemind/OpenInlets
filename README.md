@@ -8,7 +8,7 @@ Now some make or modify URLs, or determine if a site is hosted on AWS.
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1db800475a4744c68fe643a84a4454f4)](https://www.codacy.com/gh/mobilemind/OpenInlets/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mobilemind/OpenInlets&amp;utm_campaign=Badge_Grade)
 [![GitHub Super-Linter](https://github.com/mobilemind/OpenInlets/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/linter.yml)
 [![CodeQL](https://github.com/mobilemind/OpenInlets/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/codeql-analysis.yml)
-[![NodeJS with Grunt](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml)
+[![NodeJS Build](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml)
 
 ## Installation
 
@@ -162,19 +162,19 @@ the end the bookmarklet URL code serves two purposes.
 
 Clone the repository. If `node` is not installed go get it from
 [nodejs.org][nodejs]. Finally change to the `OpenInlets` directory and install
-the dependencies into the project before invoking `npx grunt`.
+the dependencies into the project before building.
 
 ```bash
 git clone https://github.com/mobilemind/OpenInlets.git
 cd OpenInlets
 npm install
-npx grunt
+npm run build
 ```
 
 Note that [nodejs] and [npm] are required. The lines above will install
-[grunt] and other dependencies defined in `package.json`. You can
-update dependencies using `npm update` at any time or just invoke `npx grunt`
-to re-build OpenInlets `web/` directory.
+dependencies defined in `package.json`. You can update dependencies using
+`npm update` at any time or just invoke `npm run build` to re-build the
+OpenInlets `web/` directory.
 
 ## URL Scheme Notes (References)
 
@@ -365,7 +365,6 @@ repos I had; doesn't build yet
 
 [nodejs]: http://nodejs.org/
 [npm]: https://npmjs.org/
-[grunt]: http://gruntjs.com/
 [kiding-gist 589242021df49eb17be3]: https://gist.github.com/kiding/589242021df49eb17be3/
 "safari-utm-stripper Bookmarklet"
 [IsItOnAWS.com]: https://isitonaws.com/

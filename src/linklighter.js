@@ -13,7 +13,7 @@
     // reset selection
     window.getSelection().empty();
     // use text fragment or split it into subfragments
-    if (textFrag && '' != textFrag) {
+    if (textFrag && textFrag !== '') {
         // trim named anchor off of end of url
         if (strPos > -1) {
             newUrl = newUrl.substring(0, strPos);
@@ -35,7 +35,7 @@
             // create start & end subfragments of selection
             strStart = textFrag.substring(0, subLen);
             const subFrag = [encodeURIComponent(strStart),
-                encodeURIComponent(textFrag.substr(textFragLen - subLen))];
+                encodeURIComponent(textFrag.slice(textFragLen - subLen))];
             strStart += '…';
             // trim start string- truncate at last space
             strPos = subFrag[0].lastIndexOf('%20');
@@ -45,7 +45,7 @@
             // trim end string- drop text before first space
             strPos = subFrag[1].indexOf('%20');
             if (strPos > -1) {
-                subFrag[1] = subFrag[1].substr(strPos + 3);
+                subFrag[1] = subFrag[1].slice(strPos + 3);
             }
             // append selection as start & end subfragments
             newUrl += subFrag.join();
@@ -55,8 +55,8 @@
         newUrl = newUrl.replace((/(%0A|%20A)+$/), '');
         newUrl = newUrl.replace(/##+:~:text=/, '#:~:text=');
     }
-    if (newUrl != url) {
-        if (confirm('Open URL with highlight on "' + strStart + '" and copy URL to clipboard?\n\nNote: If text isn’t highlighted in new tab, you can try again with a smaller selection.')) {
+    if (newUrl !== url) {
+        if (confirm(`Open URL with highlight on "${strStart}" and copy URL to clipboard?\n\nNote: If text isn't highlighted in new tab, you can try again with a smaller selection.`)) {
             // send to clipboard & open in new window
             navigator.clipboard.writeText(newUrl);
             window.open(newUrl, '_blank').opener = null;

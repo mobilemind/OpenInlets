@@ -10,9 +10,7 @@
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
     "eslint-plugin-security": "3.0.1",
-    "grunt": "1.6.1",
-    "grunt-contrib-uglify": "5.2.2",
-    "grunt-eslint": "26.0.0"
+    "terser": "5.37.0"
   },
   "engines": {
     "node": ">=24.11.0",
@@ -37,7 +35,6 @@
     "x-man"
   ],
   "license": "MIT",
-  "main": "Gruntfile.js",
   "name": "OpenInlets",
   "readmeFilename": "README.md",
   "repository": {
@@ -45,7 +42,12 @@
     "url": "git+https://github.com/mobilemind/OpenInlets.git"
   },
   "scripts": {
-    "test": "npx grunt"
+    "build": "npm run build:minify && npm run build:bookmarklet",
+    "build:bookmarklet": "node scripts/build-bookmarklet.js",
+    "build:minify": "node scripts/minify.js",
+    "build:readme": "node scripts/update-readme.js",
+    "deploy": "npm run build && npm run build:readme",
+    "test": "npm run build"
   },
   "version": "3.7.0"
 }
