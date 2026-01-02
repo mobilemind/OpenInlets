@@ -28,9 +28,21 @@ function replaceReadme(readMeString, regexPattern, newStr, bookmarkletName) {
         return readMeString.replace(regexPattern, newStr);
     }
 
-    // Fail early if there's no match
+    // Fail if there's no match
     console.error(`Can't find old "${newStr}" reference for ${bookmarkletName} using ${regexPattern}`);
     process.exit(1);
+    return readMeString;
+}
+
+function validateBookmarklet(bookmarklet, index) {
+    const required = ['name', 'file', 'version'];
+    for (const field of required) {
+        // eslint-disable-next-line security/detect-object-injection
+        if (!bookmarklet[field]) {
+            console.error(`Invalid config: bookmarklet at index ${index} missing required field '${field}'`);
+            process.exit(1);
+        }
+    }
 }
 
 function updateReadmeForBookmarklet(readMeString, bookmarklet) {
@@ -84,11 +96,23 @@ function main() {
         console.error(`Invalid JSON in config file ${configPath}: ${error.message}`);
         process.exit(1);
     }
+
+    if (!config.bookmarklets || !Array.isArray(config.bookmarklets)) {
+        console.error(`Invalid config: 'bookmarklets' must be an array in ${configPath}`);
+        process.exit(1);
+    }
+
+    if (config.bookmarklets.length === 0) {
+        console.error(`Invalid config: 'bookmarklets' array is empty in ${configPath}`);
+        process.exit(1);
+    }
+
     let readMeString = readFileOrFail(readmePath);
 
     console.log('Updating README.md...');
 
-    for (const bookmarklet of config.bookmarklets) {
+    for (const [index, bookmarklet] of config.bookmarklets.entries()) {
+        validateBookmarklet(bookmarklet, index);
         try {
             readMeString = updateReadmeForBookmarklet(readMeString, bookmarklet);
             console.log(`Updated README.md for ${bookmarklet.name} v${bookmarklet.version}`);

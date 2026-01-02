@@ -23,6 +23,17 @@ function readFileOrFail(filePath) {
     return content;
 }
 
+function validateBookmarklet(bookmarklet, index) {
+    const required = ['name', 'file', 'version'];
+    for (const field of required) {
+        // eslint-disable-next-line security/detect-object-injection
+        if (!bookmarklet[field]) {
+            console.error(`Invalid config: bookmarklet at index ${index} missing required field '${field}'`);
+            process.exit(1);
+        }
+    }
+}
+
 function buildBookmarklet(bookmarklet) {
     const srcPath = path.join(__dirname, '..', 'src', bookmarklet.file);
     const webPath = path.join(__dirname, '..', 'web', bookmarklet.file);
@@ -66,9 +77,20 @@ function main() {
         process.exit(1);
     }
 
+    if (!config.bookmarklets || !Array.isArray(config.bookmarklets)) {
+        console.error(`Invalid config: 'bookmarklets' must be an array in ${configPath}`);
+        process.exit(1);
+    }
+
+    if (config.bookmarklets.length === 0) {
+        console.error(`Invalid config: 'bookmarklets' array is empty in ${configPath}`);
+        process.exit(1);
+    }
+
     console.log('Building bookmarklets...');
 
-    for (const bookmarklet of config.bookmarklets) {
+    for (const [index, bookmarklet] of config.bookmarklets.entries()) {
+        validateBookmarklet(bookmarklet, index);
         try {
             buildBookmarklet(bookmarklet);
         } catch (error) {
