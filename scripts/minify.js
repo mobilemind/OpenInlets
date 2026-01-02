@@ -116,31 +116,48 @@ async function minifyFile(srcPath, destPath) {
 }
 
 async function main() {
-    const srcDir = path.join(__dirname, '..', 'src');
-    const destDir = path.join(__dirname, '..', 'web');
+    const srcDir = path.join(__dirname, '..', '.temp');
+    const destDir = path.join(__dirname, '..', 'dist');
 
     if (!fs.existsSync(srcDir)) {
         console.error(`Source directory not found: ${srcDir}`);
         process.exit(1);
     }
 
-    const files = fs.readdirSync(srcDir).filter(file => file.endsWith('.js'));
-
-    if (files.length === 0) {
-        console.error('No JavaScript files found in src/');
+    // Read bookmarklets.json to get output filenames
+    const configPath = path.join(__dirname, '..', 'bookmarklets.json');
+    let config;
+    try {
+        const configContent = fs.readFileSync(configPath, 'utf8');
+        config = JSON.parse(configContent);
+    } catch (error) {
+        console.error(`Error reading ${configPath}: ${error.message}`);
         process.exit(1);
     }
 
-    console.log(`Minifying ${files.length} files from ${srcDir} to ${destDir}...`);
+    if (!config.bookmarklets || !Array.isArray(config.bookmarklets)) {
+        console.error(`Invalid config: 'bookmarklets' must be an array in ${configPath}`);
+        process.exit(1);
+    }
 
-    for (const file of files) {
-        const srcPath = path.join(srcDir, file);
-        const destPath = path.join(destDir, file);
+    console.log(`Minifying ${config.bookmarklets.length} files from ${srcDir} to ${destDir}...`);
+
+    for (const bookmarklet of config.bookmarklets) {
+        // Source file is always .js (TypeScript compiler output)
+        const baseName = path.basename(bookmarklet.file, path.extname(bookmarklet.file));
+        const srcPath = path.join(srcDir, `${baseName}.js`);
+        // Destination file uses the extension from bookmarklets.json
+        const destPath = path.join(destDir, bookmarklet.file);
+
+        if (!fs.existsSync(srcPath)) {
+            console.error(`Source file not found: ${srcPath}`);
+            process.exit(1);
+        }
 
         try {
             await minifyFile(srcPath, destPath);
         } catch (error) {
-            console.error(`Error minifying ${file}:`, error.message);
+            console.error(`Error minifying ${bookmarklet.file}:`, error.message);
             process.exit(1);
         }
     }

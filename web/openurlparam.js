@@ -1,1 +1,0 @@
-javascript:const%20e=location.search.search('url=')%3Bif(e%3E-1)%7Blet%20c=location.search.slice(4%2Be)%3Bconst%20o=c.indexOf('%26')%3Bif(o%3E-1%26%26(c=c.slice(0%2Co))%2Cc.length%3E5)location.replace(decodeURIComponent(c))%7Dvoid'1.0.2'

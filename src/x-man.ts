@@ -7,15 +7,19 @@
 /* eslint no-console: 0 */
 /* Cspell: ignore xman */
 (() => {
-    const agent = navigator.userAgent,
-        containsOther = agent.includes('Chrome/') || agent.includes('Firefox/' ) || agent.includes('Brave/') || agent.includes('Edg/' ),
-        containsSafari = agent.includes('Safari/'),
-        containsUnknown = !containsOther && !containsSafari,
-        macSafari = navigator.platform.startsWith('Mac') && containsSafari && !containsOther && !containsUnknown && !navigator.maxTouchPoints && navigator.maxTouchPoints < 2,
-        selection = window.getSelection().toString().split('\n')[0].trim();
-    let xman = 'x-man-page://';
+    const agent: string = navigator.userAgent,
+        containsOther: boolean = agent.includes('Chrome/') || agent.includes('Firefox/' ) || agent.includes('Brave/') || agent.includes('Edg/' ),
+        containsSafari: boolean = agent.includes('Safari/'),
+        containsUnknown: boolean = !containsOther && !containsSafari,
+        macSafari: boolean = navigator.platform.startsWith('Mac') && containsSafari && !containsOther && !containsUnknown && !navigator.maxTouchPoints && navigator.maxTouchPoints < 2;
+    const selectionObj: Selection | null = window.getSelection();
+    if (!selectionObj) {
+        return;
+    }
+    const selection: string = selectionObj.toString().split('\n')[0].trim();
+    let xman: string = 'x-man-page://';
     // check for a section specification (ie "print(1)" or "print(3)" )
-    const matched = selection.match(/^(.*?)\((\d)\)$/);
+    const matched: RegExpMatchArray | null = selection.match(/^(.*?)\((\d)\)$/);
     if (matched) {
       // convert section ref = 1 to simplified x-man-page URL format; "print(1)" —> "printf"
       //     and section ref != 1 to x-man-page URL format; "print(3)" —> "3/printf"
@@ -25,7 +29,7 @@
     }
     if (selection) {
         if (confirm(`Link for "${selection}" is: ${xman}\n\nCopy to clipboard?`)) {
-            let alertMsg = '';
+            let alertMsg: string = '';
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(xman);
             } else {
@@ -33,17 +37,25 @@
               xman = '';
             }
             if (macSafari && xman !== '') {
-                let newWin = null;
+                let newWin: Window | null = null;
                 try {
                   newWin = window.open(xman);
-                  newWin.opener = null;
+                  if (newWin) {
+                    newWin.opener = null;
+                  }
                 } catch (e) {
                   alertMsg = `Popup window blocked. Unable to open new link with Terminal, but clipboard contains "${xman}"`;
-                  console.error(e.name, e.message);
+                  if (e instanceof Error) {
+                    console.error(e.name, e.message);
+                  }
                 } finally {
                   window.focus();
                   if (newWin !== null) {
-                    setTimeout(() => {newWin.close()}, 3333);
+                    setTimeout(() => {
+                      if (newWin) {
+                        newWin.close();
+                      }
+                    }, 3333);
                   }
                 }
             } else if (xman !== '') {
@@ -53,6 +65,6 @@
               alert(alertMsg);
             }
         }
-        window.getSelection().empty();
+        selectionObj.empty();
     }
 })();

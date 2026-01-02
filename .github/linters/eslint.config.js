@@ -1,6 +1,8 @@
 const globals = require("globals");
 const js = require("@eslint/js");
 const security = require("eslint-plugin-security");
+const tsParser = require("@typescript-eslint/parser");
+const tsPlugin = require("@typescript-eslint/eslint-plugin");
 
 const baseRules = {
     ...js.configs.recommended.rules,
@@ -123,6 +125,36 @@ module.exports = [
             "no-console": "error",
             "no-inline-comments": "error",
             "no-param-reassign": "error"
+        }
+    },
+    {
+        files: ["src/*.ts"],
+        ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "web/*.js"],
+        languageOptions: {
+            parser: tsParser,
+            parserOptions: {
+                project: "./tsconfig.json",
+                ecmaVersion: 2020,
+                sourceType: "script"
+            },
+            globals: {...globals.browser, ...globals.node}
+        },
+        plugins: {
+            "@typescript-eslint": tsPlugin,
+            security
+        },
+        rules: {
+            ...baseRules,
+            ...tsPlugin.configs.strict.rules,
+            "init-declarations": "error",
+            "no-await-in-loop": "error",
+            "no-console": "error",
+            "no-inline-comments": "error",
+            "no-param-reassign": "error",
+            "no-shadow": "off",
+            "@typescript-eslint/no-shadow": "error",
+            "no-unused-vars": "off",
+            "@typescript-eslint/no-unused-vars": "error"
         }
     },
     {

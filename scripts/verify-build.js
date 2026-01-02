@@ -9,7 +9,7 @@ const path = require('path');
 
 function main() {
     const configPath = path.join(__dirname, '..', 'bookmarklets.json');
-    const webDir = path.join(__dirname, '..', 'web');
+    const distDir = path.join(__dirname, '..', 'dist');
 
     // Read and parse bookmarklets.json
     let config;
@@ -35,7 +35,7 @@ function main() {
 
     // Check each expected bookmarklet
     for (const bookmarklet of config.bookmarklets) {
-        const filePath = path.join(webDir, bookmarklet.file);
+        const filePath = path.join(distDir, bookmarklet.file);
 
         if (fs.existsSync(filePath)) {
             const {size} = fs.statSync(filePath);

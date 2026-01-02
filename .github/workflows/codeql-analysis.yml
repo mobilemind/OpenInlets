@@ -5,12 +5,12 @@ on:
   push:
     branches: [main, hotfix]
     paths-ignore:
-      - 'web/*.js'
+      - 'dist/*.bookmarklet'
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [main]
     paths-ignore:
-      - 'web/*.js'
+      - 'dist/*.bookmarklet'
   schedule:
     - cron: '4 10 * * 0'
   # eslint "yml/no-empty-mapping-value": 0

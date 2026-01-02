@@ -1,15 +1,15 @@
 /* eslint max-statements: ["error", 65] */
 /* cSpell:ignore hsenc, hsmi, iesrc, Matomo, youtu */
 (() => {
-    const locPath = location.pathname,
-        locSearch = location.search;
+    const locPath: string = location.pathname,
+        locSearch: string = location.search;
     // bail early if there's no params or /amp/ to replace
     if (locSearch.length < 3 && !locPath.includes('/amp')) {
         return;
     }
-    let pathStr = locPath,
-        searchStr = locSearch;
-    const hostStr = location.hostname;
+    let pathStr: string = locPath,
+        searchStr: string = locSearch;
+    const hostStr: string = location.hostname;
     // AliExpress trackers
     if (hostStr.includes('aliexpress.')) {
         searchStr = searchStr.replace(/([?&])aff_(platform|trace_key)=[^&]+/ig, '$1');
@@ -96,10 +96,13 @@
     // if changed replace location with stripped version
     if (locSearch !== searchStr || locPath !== pathStr) {
         if (confirm('Update history and copy cleaned URL to clipboard?')) {
-            const newURL = `${location.protocol}//${location.host}${pathStr}${searchStr}${location.hash}`;
+            const newURL: string = `${location.protocol}//${location.host}${pathStr}${searchStr}${location.hash}`;
             navigator.clipboard.writeText(newURL);
-            history.replaceState(null, null, newURL);
-            window.open(newURL, '_self', 'noreferrer').opener = null;
+            history.replaceState(null, '', newURL);
+            const newWindow: Window | null = window.open(newURL, '_self', 'noreferrer');
+            if (newWindow) {
+                newWindow.opener = null;
+            }
         }
     }
 })();

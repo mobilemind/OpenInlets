@@ -1,1 +1,0 @@
-javascript:(()=%3E%7Bconst%20e=document.querySelectorAll('body%20%2A')%3Bfor(const%20o%20of%20e)'fixed'===getComputedStyle(o).position%26%26o.parentNode.removeChild(o)%7D)()%3Bvoid'1.2.1'

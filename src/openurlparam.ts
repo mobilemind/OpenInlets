@@ -1,9 +1,9 @@
 // grab the URL param from the current URL query string (location.search)
-const u = location.search.search("url=");
+const u: number = location.search.search("url=");
 if (u > -1) {
-    let t = location.search.slice(4 + u);
+    let t: string = location.search.slice(4 + u);
     // check if there are params after it (i.e., an "&")
-    const p = t.indexOf("&");
+    const p: number = t.indexOf("&");
     // lop off trailing params
     if (p > -1) {
         t = t.slice(0, p);

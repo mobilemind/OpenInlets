@@ -21,8 +21,8 @@ function replaceReadme(readMeString, regexPattern, newStr, bookmarkletName) {
 }
 
 function updateReadmeForBookmarklet(readMeString, bookmarklet) {
-    const webPath = path.join(__dirname, '..', 'web', bookmarklet.file);
-    const theCode = readFileOrFail(webPath);
+    const distPath = path.join(__dirname, '..', 'dist', bookmarklet.file);
+    const theCode = readFileOrFail(distPath);
 
     // Update bullet list of JavaScript Bookmarks
     readMeString = replaceReadme(

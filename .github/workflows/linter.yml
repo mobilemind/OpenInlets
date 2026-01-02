@@ -44,7 +44,7 @@ jobs:
         env:
           ACTIONS_RUNNER_DEBUG: false
           DEFAULT_BRANCH: main
-          FILTER_REGEX_EXCLUDE: web\/.*\.js
+          FILTER_REGEX_EXCLUDE: dist\/.*\.bookmarklet
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LOG_LEVEL: NOTICE
           SUPPRESS_POSSUM: true

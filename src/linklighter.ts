@@ -3,15 +3,19 @@
 // If a new URL is generated, open it in a new window to preview the highlight
 
 (() => {
-    const textFrag = window.getSelection().toString(),
-        textFragLen = textFrag.length,
-        url = document.URL;
-    let newUrl = url,
-        strPos = url.indexOf('#'),
-        strStart = '';
+    const selection: Selection | null = window.getSelection();
+    if (!selection) {
+        return;
+    }
+    const textFrag: string = selection.toString(),
+        textFragLen: number = textFrag.length,
+        url: string = document.URL;
+    let newUrl: string = url,
+        strPos: number = url.indexOf('#'),
+        strStart: string = '';
 
     // reset selection
-    window.getSelection().empty();
+    selection.empty();
     // use text fragment or split it into subfragments
     if (textFrag && textFrag !== '') {
         // trim named anchor off of end of url
@@ -26,7 +30,7 @@
             newUrl += encodeURIComponent(textFrag);
         } else {
             // sub-fragment default length is < 1/2 selection length
-            let subLen = ~~((textFragLen / 2) - 2);
+            let subLen: number = ~~((textFragLen / 2) - 2);
             if (textFragLen > 150) {
                 subLen = 48;
             } else if (textFragLen > 100) {
@@ -34,7 +38,7 @@
             }
             // create start & end subfragments of selection
             strStart = textFrag.substring(0, subLen);
-            const subFrag = [encodeURIComponent(strStart),
+            const subFrag: string[] = [encodeURIComponent(strStart),
                 encodeURIComponent(textFrag.slice(textFragLen - subLen))];
             strStart += '…';
             // trim start string- truncate at last space
@@ -59,7 +63,10 @@
         if (confirm(`Open URL with highlight on "${strStart}" and copy URL to clipboard?\n\nNote: If text isn't highlighted in new tab, you can try again with a smaller selection.`)) {
             // send to clipboard & open in new window
             navigator.clipboard.writeText(newUrl);
-            window.open(newUrl, '_blank').opener = null;
+            const newWindow: Window | null = window.open(newUrl, '_blank');
+            if (newWindow) {
+                newWindow.opener = null;
+            }
         }
     }
 })();

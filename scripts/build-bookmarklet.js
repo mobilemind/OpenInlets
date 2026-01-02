@@ -9,15 +9,17 @@ const path = require('path');
 const {readFileOrFail, validateBookmarklet} = require('./utils');
 
 function buildBookmarklet(bookmarklet) {
-    const srcPath = path.join(__dirname, '..', 'src', bookmarklet.file);
-    const webPath = path.join(__dirname, '..', 'web', bookmarklet.file);
+    // Source file in .temp/ is always .js (TypeScript compiler output)
+    const baseName = path.basename(bookmarklet.file, path.extname(bookmarklet.file));
+    const srcPath = path.join(__dirname, '..', '.temp', `${baseName}.js`);
+    const distPath = path.join(__dirname, '..', 'dist', bookmarklet.file);
 
-    // Get original source size for statistics
+    // Get compiled source size for statistics (from TypeScript output)
     const originalCode = readFileOrFail(srcPath);
     const srcLen = originalCode.length;
 
-    // Read minified code from web/ directory
-    let theCode = readFileOrFail(webPath);
+    // Read minified code from dist/ directory
+    let theCode = readFileOrFail(distPath);
 
     // Append version string
     theCode = `${theCode}void'${bookmarklet.version}'`;
@@ -29,8 +31,8 @@ function buildBookmarklet(bookmarklet) {
     // Un-encode a couple of generally safe chars for URLs to reduce size
     theCode = theCode.replace(/%3A/g, ':').replace(/%3D/g, '=');
 
-    // Write the bookmarklet back to web/ directory
-    fs.writeFileSync(webPath, theCode, 'utf8');
+    // Write the bookmarklet back to dist/ directory
+    fs.writeFileSync(distPath, theCode, 'utf8');
 
     // Output statistics
     const webLen = theCode.length;

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "none",
+    "lib": ["ES2020", "DOM"],
+    "outDir": "./.temp",
+    "strict": true,
+    "noEmit": false,
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/*.ts"],
+  "exclude": ["node_modules", "dist", ".temp", "scripts"]
+}

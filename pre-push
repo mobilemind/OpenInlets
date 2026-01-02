@@ -80,9 +80,9 @@ echo "  git hooks $HOOKNAME ($GITBRANCH): OK, passed: 'npm run build'"
 # spell check source code if cspell available
 if hash cspell > /dev/null 2>&1 ; then
 	echo
-	echo '  Spell checking src/*.js'
-	cspell src/*.js || \
-		{ echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'cspell src/*.js'" ; exit 3 ; }
+	echo '  Spell checking src/*.ts'
+	cspell src/*.ts || \
+		{ echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'cspell src/*.ts'" ; exit 3 ; }
 	echo
 fi
 

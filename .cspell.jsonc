@@ -13,14 +13,14 @@
         }
     ],
     "flagWords": ["hte"],
-    "ignorePaths": ["node_modules/**","web/**"],
+    "ignorePaths": ["node_modules/**","dist/**",".temp/**"],
     "ignoreRegExpList": [
         "entities","mdanchors","regexes","urlencoded","webhosts"
     ],
     "languageSettings": [
         {
             "dictionaries": ["dictionary-custom"],
-            "languageId": "javascript,markdown",
+            "languageId": "javascript,typescript,markdown",
             "locale": "*"
         }
     ],
