@@ -10,12 +10,17 @@ const fs = require('fs');
  * @returns {string} File contents
  */
 function readFileOrFail(filePath) {
-    if (!fs.existsSync(filePath)) {
-        console.error(`File not found: ${filePath}`);
+    let content;
+    try {
+        content = fs.readFileSync(filePath, 'utf8');
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            console.error(`File not found: ${filePath}`);
+        } else {
+            console.error(`Error reading file ${filePath}: ${error.message}`);
+        }
         process.exit(1);
     }
-
-    const content = fs.readFileSync(filePath, 'utf8');
 
     if (content.length === 0) {
         console.error(`File is empty: ${filePath}`);
@@ -34,8 +39,14 @@ function validateBookmarklet(bookmarklet, index) {
     const required = ['name', 'file', 'version'];
     for (const field of required) {
         // eslint-disable-next-line security/detect-object-injection
-        if (!bookmarklet[field]) {
+        if (!(field in bookmarklet) || bookmarklet[field] === null) {
             console.error(`Invalid config: bookmarklet at index ${index} missing required field '${field}'`);
+            process.exit(1);
+        }
+        // eslint-disable-next-line security/detect-object-injection
+        const value = bookmarklet[field];
+        if (typeof value === 'string' && value.trim().length === 0) {
+            console.error(`Invalid config: bookmarklet at index ${index} has empty string for field '${field}'`);
             process.exit(1);
         }
     }
