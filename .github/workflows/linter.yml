@@ -48,7 +48,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LOG_LEVEL: NOTICE
           SUPPRESS_POSSUM: true
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: true
           VALIDATE_BASH: true
           VALIDATE_BASH_EXEC: true
           VALIDATE_GITHUB_ACTIONS: true
@@ -56,4 +56,6 @@ jobs:
           VALIDATE_JSON: true
           VALIDATE_JSONC: true
           VALIDATE_MARKDOWN: true
+          VALIDATE_TYPESCRIPT_ES: true
+          VALIDATE_TYPESCRIPT_STANDARD: true
           VALIDATE_YAML: true
