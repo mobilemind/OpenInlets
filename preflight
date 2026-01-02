@@ -106,7 +106,7 @@ if hash cspell >/dev/null 2>&1 ; then
 	cspell src/*.js || \
 		{ echo '    *** ERROR "cspell src/*.js" failed.' ; exit 1 ; }
 fi
-echo '    *.js src/*.js .github/linters/*.js: JavaScript OK'
+echo '    scripts/*.js, src/*.js, .github/linters/*.js: JavaScript OK'
 echo
 
 echo '  OK, preflight checks passed.'
