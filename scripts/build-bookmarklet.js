@@ -6,33 +6,7 @@
 
 const fs = require('fs');
 const path = require('path');
-
-function readFileOrFail(filePath) {
-    if (!fs.existsSync(filePath)) {
-        console.error(`File not found: ${filePath}`);
-        process.exit(1);
-    }
-
-    const content = fs.readFileSync(filePath, 'utf8');
-
-    if (content.length === 0) {
-        console.error(`File is empty: ${filePath}`);
-        process.exit(1);
-    }
-
-    return content;
-}
-
-function validateBookmarklet(bookmarklet, index) {
-    const required = ['name', 'file', 'version'];
-    for (const field of required) {
-        // eslint-disable-next-line security/detect-object-injection
-        if (!bookmarklet[field]) {
-            console.error(`Invalid config: bookmarklet at index ${index} missing required field '${field}'`);
-            process.exit(1);
-        }
-    }
-}
+const {readFileOrFail, validateBookmarklet} = require('./utils');
 
 function buildBookmarklet(bookmarklet) {
     const srcPath = path.join(__dirname, '..', 'src', bookmarklet.file);
