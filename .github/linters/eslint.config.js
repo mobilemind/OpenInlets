@@ -154,7 +154,9 @@ module.exports = [
             "no-shadow": "off",
             "@typescript-eslint/no-shadow": "error",
             "no-unused-vars": "off",
-            "@typescript-eslint/no-unused-vars": "error"
+            "@typescript-eslint/no-unused-vars": "error",
+            // Disable Node.js-specific rules for browser code
+            "n/no-unsupported-features/node-builtins": "off"
         }
     },
     {
