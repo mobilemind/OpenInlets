@@ -10,6 +10,6 @@ if (u > -1) {
     }
     if (t.length > 5) {
         // decode URL and navigate to it
-        location.replace(decodeURIComponent(t));
+        location.replace(encodeURI(decodeURIComponent(t)));
     }
 }
