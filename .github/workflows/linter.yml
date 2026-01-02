@@ -46,10 +46,9 @@ jobs:
           DEFAULT_BRANCH: main
           FILTER_REGEX_EXCLUDE: dist\/.*\.bookmarklet
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JAVASCRIPT_ES_CONFIG_FILE: .github/linters/eslint.config.js
+          LINTER_RULES_PATH: .github/linters
           LOG_LEVEL: NOTICE
           SUPPRESS_POSSUM: true
-          TYPESCRIPT_ES_CONFIG_FILE: .github/linters/eslint.config.js
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_BASH: true
           VALIDATE_BASH_EXEC: true
