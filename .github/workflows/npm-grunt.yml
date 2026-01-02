@@ -41,28 +41,8 @@ jobs:
     - name: Install Dependencies
       run: npm ci --prefer-offline
 
-    - name: Build bookmarklets
-      run: npm run build
-
-    - name: Verify build artifacts
-      run: |
-        echo "Verifying all 16 bookmarklets were built..."
-        file_count=$(ls -1 web/*.js | wc -l)
-        if [ "$file_count" -eq 16 ]; then
-          echo "✓ All 16 bookmarklets built successfully"
-        else
-          echo "✗ Expected 16 bookmarklets, found $file_count"
-          exit 1
-        fi
-
-        echo ""
-        echo "Build Summary:"
-        total_size=0
-        for file in web/*.js; do
-          size=$(wc -c < "$file" | tr -d ' ')
-          total_size=$((total_size + size))
-        done
-        echo "Total bookmarklet size: $total_size bytes"
+    - name: Build and verify bookmarklets
+      run: npm test
 
     - name: Generate SBOM
       run: npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json

@@ -9,7 +9,10 @@
   },
   "description": "Project that makes iOS bookmarklets to automagically jump Mobile Safari to the corresponding app and more.",
   "devDependencies": {
+    "@eslint/js": "9.39.2",
+    "eslint": "9.39.2",
     "eslint-plugin-security": "3.0.1",
+    "globals": "15.14.0",
     "terser": "5.37.0"
   },
   "engines": {
@@ -47,7 +50,8 @@
     "build:minify": "node scripts/minify.js",
     "build:readme": "node scripts/update-readme.js",
     "deploy": "npm run build && npm run build:readme",
-    "test": "npm run build"
+    "test": "npm run build && npm run verify-build",
+    "verify-build": "node scripts/verify-build.js"
   },
   "version": "3.7.0"
 }

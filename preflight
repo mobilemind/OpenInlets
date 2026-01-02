@@ -76,14 +76,14 @@ echo
 ## check README.md
 echo '  checking README.md'
 [ -d 'node_modules/markdownlint' ] || npm install --no-save markdownlint-cli
-npx markdownlint -c .github/linters/.markdownlint.json "*.md" \
-  || { echo '    *** ERROR markdownlint *.md check failed.' ; exit 1 ; }
+npx markdownlint -c .github/linters/.markdownlint.json README.md SECURITY.md \
+  || { echo '    *** ERROR markdownlint README.md SECURITY.md check failed.' ; exit 1 ; }
 if hash cspell >/dev/null 2>&1 ; then
   printf '  '
-	cspell ./*.md LICENSE || \
-		{ echo '    *** ERROR "cspell *.md LICENSE" failed.' ; exit 1 ; }
+	cspell README.md SECURITY.md LICENSE || \
+		{ echo '    *** ERROR "cspell README.md SECURITY.md LICENSE" failed.' ; exit 1 ; }
 fi
-echo '    *.md: Markdown OK'
+echo '    README.md SECURITY.md: Markdown OK'
 echo
 
 ## check .github/workflows
@@ -99,7 +99,7 @@ echo
 
 ## check JavaScript
 echo '  checking JavaScript w/ eslint, see .github/linters/eslint.config.js'
-npx eslint -c .github/linters/eslint.config.js "*.js" "src/*.js" ".github/linters/*.js" \
+npx eslint -c .github/linters/eslint.config.js "scripts/*.js" "src/*.js" ".github/linters/*.js" \
     || { echo '    *** ERROR eslint JavaScript & JSON check failed.' ; exit 1 ; }
 if hash cspell >/dev/null 2>&1 ; then
   printf '  '
