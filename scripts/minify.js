@@ -77,7 +77,7 @@ const terserOptions = {
         comments: false, // Remove all comments
         ecma: 2020, // Use ES2020 syntax in output (arrow functions, const, etc.)
         indent_level: 0,
-        quote_style: 3, // Use original quotes (can be smaller)
+        quote_style: 1, // Prefer single quotes (smaller w/ custom URI encoding)
         semicolons: true, // Always use semicolons (safer for bookmarklets)
         webkit: false, // Not needed for modern Safari
     },

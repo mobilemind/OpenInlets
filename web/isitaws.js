@@ -1,1 +1,1 @@
-javascript:location.href=%22https:%2F%2Fisitonaws.com%2Fdiscover%3Fname=%22%2Blocation.host%3Bvoid'1.3.3'
+javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3'
