@@ -108,7 +108,7 @@ const baseRules = {
 module.exports = [
     {
         files: ["src/*.js"],
-        ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "web/*.js"],
+        ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "dist/*.bookmarklet"],
         languageOptions: {
             ecmaVersion: 2020,
             globals: {...globals.browser, ...globals.node},
@@ -129,7 +129,7 @@ module.exports = [
     },
     {
         files: ["src/*.ts"],
-        ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "web/*.js"],
+        ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "dist/*.bookmarklet"],
         languageOptions: {
             parser: tsParser,
             parserOptions: {
@@ -159,7 +159,7 @@ module.exports = [
     },
     {
         files: ["scripts/*.js", ".github/linters/*.js"],
-        ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "web/*.js"],
+        ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "dist/*.bookmarklet"],
         languageOptions: {
             ecmaVersion: 2020,
             globals: globals.node,
