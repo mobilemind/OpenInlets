@@ -18,7 +18,7 @@ if (u > -1) {
             if (urlObj.protocol === "https:") {
                 location.replace(urlObj.href);
             }
-        } catch (e) {
+        } catch {
             // Invalid URL - do nothing
         }
     }
