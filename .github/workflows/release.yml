@@ -87,14 +87,14 @@ jobs:
 
           mkdir -p release-artifacts
           tar -czf release-artifacts/openinlets-$VERSION.tar.gz \
-            web/*.js \
+            dist/*.bookmarklet \
             README.md \
             LICENSE \
             SECURITY.md \
             package.json
 
           # Copy individual bookmarklets
-          cp web/*.js release-artifacts/
+          cp dist/*.bookmarklet release-artifacts/
 
           # Save version for next steps
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
@@ -185,6 +185,12 @@ jobs:
           ref: ${{ github.ref }}
           path: release-source
 
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: 'npm'
+          cache-dependency-path: release-source/package-lock.json
+
       - name: Determine Release Version
         run: |
           cd release-source
@@ -194,6 +200,12 @@ jobs:
             VERSION=$(node -p "require('./package.json').version")
           fi
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Build README.md
+        run: |
+          cd release-source
+          npm ci --prefer-offline
+          npm run deploy
 
       - name: Verify README.md Exists and is Valid
         run: |
