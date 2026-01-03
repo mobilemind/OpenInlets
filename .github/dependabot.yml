@@ -3,11 +3,11 @@
 ---
 version: 2
 updates:
-  # NPM dependency updates - bi-weekly checks
+  # NPM dependency updates - weekly checks
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "bi-weekly"
+      interval: "weekly"
       time: "04:00"  # Avoid peak hours
       timezone: "UTC"
     open-pull-requests-limit: 5
@@ -17,7 +17,7 @@ updates:
       - "mobilemind"
     groups:
       all-dependencies:
-        update-types: ["all"]
+        update-types: ["major", "minor", "patch"]
 
   # GitHub Actions updates - monthly
   - package-ecosystem: "github-actions"
