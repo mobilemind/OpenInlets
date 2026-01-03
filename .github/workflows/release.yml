@@ -86,7 +86,7 @@ jobs:
           fi
 
           mkdir -p release-artifacts
-          tar -czf release-artifacts/openinlets-$VERSION.tar.gz \
+          tar -czf "release-artifacts/openinlets-$VERSION.tar.gz" \
             dist/*.bookmarklet \
             README.md \
             LICENSE \
@@ -97,7 +97,7 @@ jobs:
           cp dist/*.bookmarklet release-artifacts/
 
           # Save version for next steps
-          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "RELEASE_VERSION=$VERSION" >> "$GITHUB_ENV"
 
       - name: Generate Release Notes
         id: release_notes
@@ -199,7 +199,7 @@ jobs:
           else
             VERSION=$(node -p "require('./package.json').version")
           fi
-          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "RELEASE_VERSION=$VERSION" >> "$GITHUB_ENV"
 
       - name: Build README.md
         run: |
