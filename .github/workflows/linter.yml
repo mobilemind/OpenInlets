@@ -54,8 +54,8 @@ jobs:
           LOG_LEVEL: NOTICE
           SUPPRESS_POSSUM: true
           VALIDATE_ALL_CODEBASE: true
-          VALIDATE_BASH: true
           VALIDATE_BASH_EXEC: true
+          VALIDATE_BASH: true
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_JAVASCRIPT_ES: false  # Disable - using direct ESLint above
           VALIDATE_JAVASCRIPT_STANDARD: false  # Disable - using direct ESLint above
