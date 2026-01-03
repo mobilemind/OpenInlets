@@ -71,18 +71,18 @@ if ! [ -d 'node_modules' ] ; then
   echo
 fi
 
-# run test
-echo '  npx grunt'
-npx grunt || \
-  { echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'npx grunt'" ; exit 2 ; }
-echo "  git hooks $HOOKNAME ($GITBRANCH): OK, passed: 'npx grunt'"
+# run build
+echo '  npm run build'
+npm run build || \
+  { echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'npm run build'" ; exit 2 ; }
+echo "  git hooks $HOOKNAME ($GITBRANCH): OK, passed: 'npm run build'"
 
 # spell check source code if cspell available
 if hash cspell > /dev/null 2>&1 ; then
 	echo
-	echo '  Spell checking src/*.js'
-	cspell src/*.js || \
-		{ echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'cspell src/*.js'" ; exit 3 ; }
+	echo '  Spell checking src/*.ts'
+	cspell src/*.ts || \
+		{ echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'cspell src/*.ts'" ; exit 3 ; }
 	echo
 fi
 
@@ -117,9 +117,9 @@ fi
 # spell check Markdown if cspell available
 if hash cspell > /dev/null 2>&1 ; then
 	echo
-	echo '  Spell checking *.md LICENSE'
-	cspell ./*.md LICENSE || \
-		{ echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'cspell *.md'" ; exit 3 ; }
+	echo '  Spell checking README.md SECURITY.md LICENSE'
+	cspell README.md SECURITY.md LICENSE || \
+		{ echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'cspell README.md SECURITY.md LICENSE'" ; exit 3 ; }
 	echo
 fi
 

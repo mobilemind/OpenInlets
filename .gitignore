@@ -2,6 +2,7 @@
 node_modules/
 npm-debug.log
 tmp/
+.temp/
+.temp-scripts/
 sbom.json
-tmp/
 *.tgz

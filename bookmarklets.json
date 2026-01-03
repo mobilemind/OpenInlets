@@ -1,0 +1,84 @@
+{
+  "bookmarklets": [
+    {
+      "name": "FYI",
+      "file": "fyi.bookmarklet",
+      "version": "3.3.0"
+    },
+    {
+      "name": "IsItAws",
+      "file": "isitaws.bookmarklet",
+      "version": "1.3.4"
+    },
+    {
+      "name": "KillStickyHeaders",
+      "file": "killStickyHeaders.bookmarklet",
+      "version": "2.0.0"
+    },
+    {
+      "name": "Linklighter",
+      "file": "linklighter.bookmarklet",
+      "version": "2.0.0"
+    },
+    {
+      "name": "OpenInBrave",
+      "file": "openinbrave.bookmarklet",
+      "version": "1.1.0"
+    },
+    {
+      "name": "OpenInFirefox",
+      "file": "openinfirefox.bookmarklet",
+      "version": "1.6.0"
+    },
+    {
+      "name": "OpenInFirefox-Focus",
+      "file": "openinfirefox-focus.bookmarklet",
+      "version": "1.1.0"
+    },
+    {
+      "name": "OpenInFirefox-Private",
+      "file": "openinfirefox-private.bookmarklet",
+      "version": "1.1.0"
+    },
+    {
+      "name": "OpenInGoodReader",
+      "file": "openingoodreader.bookmarklet",
+      "version": "1.5.0"
+    },
+    {
+      "name": "OpenInTextastic",
+      "file": "openintextastic.bookmarklet",
+      "version": "1.1.0"
+    },
+    {
+      "name": "OpenInWorkingCopy",
+      "file": "openinworkingcopy.bookmarklet",
+      "version": "1.6.0"
+    },
+    {
+      "name": "OpenURLParam",
+      "file": "openurlparam.bookmarklet",
+      "version": "1.1.0"
+    },
+    {
+      "name": "UtmStrip",
+      "file": "utmstrip.bookmarklet",
+      "version": "2.0.0"
+    },
+    {
+      "name": "deLighter",
+      "file": "delighter.bookmarklet",
+      "version": "1.3.0"
+    },
+    {
+      "name": "unskim",
+      "file": "unskim.bookmarklet",
+      "version": "2.0.0"
+    },
+    {
+      "name": "x-man",
+      "file": "x-man.bookmarklet",
+      "version": "1.3.0"
+    }
+  ]
+}

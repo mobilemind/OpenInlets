@@ -7,7 +7,7 @@ updates:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 3.7.x   | :white_check_mark: |
+| 4.0.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
@@ -64,8 +64,8 @@ npm version patch  # or minor, or major
 git push --follow-tags
 
 # Or manually create and push a signed tag
-git tag -s 3.7.0 -m "Release version 3.7.0"
-git push origin 3.7.0
+git tag -s 4.0.0 -m "Release version 4.0.0"
+git push origin 4.0.0
 ```
 
 ## Release Verification
@@ -76,10 +76,10 @@ All releases should be signed with GPG/SSH signatures for verification:
 
 ```bash
 # Verify the signature on a release tag
-git verify-tag 3.7.0
+git verify-tag 4.0.0
 
 # Show tag details with signature
-git tag -v 3.7.0
+git tag -v 4.0.0
 ```
 
 ### Verifying Signed Commits
@@ -176,18 +176,20 @@ Additional security settings enabled:
 
 ## Build Security Considerations
 
-### Uglify Optimization Settings
+### Terser Optimization Settings
 
-The project uses aggressive UglifyJS optimization settings (including `unsafe`
+The project uses aggressive Terser optimization settings (including `unsafe`
 flags) to minimize bookmarklet size for browser URL length constraints. While
 these settings can produce semantically different code in edge cases, they are
 considered acceptable for this project because:
 
-1. **Size Requirements**: Bookmarklets must be extremely small to fit within
+1. TypeScript transpiling and aggressive ESLint checks: Bookmarklets are written
+   in TypeScript for more type safety, and scanned with aggressive ESLint checks.
+2. **Size Requirements**: Bookmarklets must be extremely small to fit within
    browser URL length limits
-2. **Code Simplicity**: The source code is straightforward and doesn't rely on
+3. **Code Simplicity**: The source code is straightforward and doesn't rely on
    edge case JavaScript behaviors
-3. **Testing**: Each bookmarklet is tested post-minification to verify correct
+4. **Testing**: Each bookmarklet is tested post-minification to verify correct
 behavior
 
 These optimization settings do not introduce security vulnerabilities, but
@@ -199,7 +201,7 @@ To verify the integrity of a build:
 
 ```bash
 # Run the full build process
-npx grunt
+npm run build
 
 # Generate and review SBOM
 npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
@@ -219,17 +221,17 @@ Sign all commits and tags. Verify signatures before deploying code.
 OpenInlets bookmarklets undergo security scanning at the **source code level**
 before being built into their final URL-encoded format:
 
-1. **Source Files** (`src/*.js`) contain the original, readable JavaScript code
+1. **Source Files** (`src/*.ts`) contain the original, readable TypeScript code
 2. **ESLint + Security Plugin** scans source files using `eslint-plugin-security`
    with strict security rules
-3. **Minification** compresses the code using UglifyJS
+3. **Minification** compresses the code using Terser
 4. **URL Encoding** converts the minified code into `javascript:` URI format
-   (`web/*.js`)
+   (`dist/*.bookmarklet`)
 
-The final bookmarklet files in `web/*.js` are **intentionally excluded** from
-CodeQL JavaScript analysis because they are URL-encoded JavaScript URIs (not
-standard JavaScript files). Security scanning occurs on the source files where
-the code is readable and parseable.
+The final bookmarklet files in `dist/*.bookmarklet` are **intentionally
+excluded** from CodeQL JavaScript analysis because they are URL-encoded
+JavaScript URIs (not standard JavaScript files). Security scanning occurs on
+the source files where the code is readable and parseable.
 
 ### Security Configuration
 
@@ -266,7 +268,7 @@ or sessionStorage.
 If you're installing OpenInlets bookmarklets:
 
 1. **Review the source code** - All bookmarklets are open source. Check
-   `src/*.js` to see exactly what each bookmarklet does before installing
+   `src/*.ts` to see exactly what each bookmarklet does before installing
 2. **Verify the source** - Only install bookmarklets from the official
    [OpenInlets repository](https://github.com/mobilemind/OpenInlets)
 3. **Understand the permissions** - Bookmarklets can read page content and
@@ -303,6 +305,6 @@ All OpenInlets bookmarklets are:
 - **Tested** - Validated through automated builds and manual testing
 - **Documented** - Purpose and behavior documented in README.md
 
-To audit a bookmarklet, compare the URL-decoded `web/*.js` file with its
-corresponding `src/*.js` source file. The build process is deterministic and
+To audit a bookmarklet, compare the URL-decoded `dist/*.bookmarklet` file with its
+corresponding `src/*.ts` source file. The build process is deterministic and
 reproducible.

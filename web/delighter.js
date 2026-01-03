@@ -1,1 +1,0 @@
-javascript:document.location.reload()%3Bvoid'1.1.0'

@@ -14,9 +14,9 @@ echo
 ## check preflight (this file)
 echo '  checking preflight'
 if hash shellcheck >/dev/null 2>&1 ; then
-  shellcheck -s bash -o add-default-case -o avoid-nullary-conditions -o check-unassigned-uppercase -o deprecate-which preflight \
+  shellcheck -s sh -o add-default-case -o avoid-nullary-conditions -o check-unassigned-uppercase -o deprecate-which preflight \
     || { echo '    *** ERROR in preflight script- check failed.' ; exit 1 ; }
-  echo '    preflight: bash script OK'
+  echo '    preflight: sh script OK'
 else
   echo '    --- shellcheck not found: skipping check of preflight script.'
 fi
@@ -76,14 +76,14 @@ echo
 ## check README.md
 echo '  checking README.md'
 [ -d 'node_modules/markdownlint' ] || npm install --no-save markdownlint-cli
-npx markdownlint -c .github/linters/.markdownlint.json "*.md" \
-  || { echo '    *** ERROR markdownlint *.md check failed.' ; exit 1 ; }
+npx markdownlint -c .github/linters/.markdownlint.json README.md SECURITY.md \
+  || { echo '    *** ERROR markdownlint README.md SECURITY.md check failed.' ; exit 1 ; }
 if hash cspell >/dev/null 2>&1 ; then
   printf '  '
-	cspell ./*.md LICENSE || \
-		{ echo '    *** ERROR "cspell *.md LICENSE" failed.' ; exit 1 ; }
+	cspell README.md SECURITY.md LICENSE || \
+		{ echo '    *** ERROR "cspell README.md SECURITY.md LICENSE" failed.' ; exit 1 ; }
 fi
-echo '    *.md: Markdown OK'
+echo '    README.md SECURITY.md: Markdown OK'
 echo
 
 ## check .github/workflows
@@ -97,16 +97,16 @@ else
 fi
 echo
 
-## check JavaScript
-echo '  checking JavaScript w/ eslint, see .github/linters/eslint.config.js'
-npx eslint -c .github/linters/eslint.config.js "*.js" "src/*.js" ".github/linters/*.js" \
-    || { echo '    *** ERROR eslint JavaScript & JSON check failed.' ; exit 1 ; }
+## check TypeScript and JavaScript
+echo '  checking TypeScript & JavaScript w/ eslint, see .github/linters/eslint.config.js'
+npx eslint -c .github/linters/eslint.config.js "scripts/*.js" "src/*.ts" ".github/linters/*.js" \
+    || { echo '    *** ERROR eslint TypeScript & JavaScript check failed.' ; exit 1 ; }
 if hash cspell >/dev/null 2>&1 ; then
   printf '  '
-	cspell src/*.js || \
-		{ echo '    *** ERROR "cspell src/*.js" failed.' ; exit 1 ; }
+	cspell src/*.ts || \
+		{ echo '    *** ERROR "cspell src/*.ts" failed.' ; exit 1 ; }
 fi
-echo '    *.js src/*.js .github/linters/*.js: JavaScript OK'
+echo '    scripts/*.js, src/*.ts, .github/linters/*.js: TypeScript & JavaScript OK'
 echo
 
 echo '  OK, preflight checks passed.'
