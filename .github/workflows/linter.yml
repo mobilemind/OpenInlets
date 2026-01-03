@@ -40,7 +40,7 @@ jobs:
 
       # Run project's ESLint
       - name:  "Run ESLint"
-        run: npx eslint .
+        run: npx eslint --config .github/linters/eslint.config.js .
 
       # Run Linter against code base
       - name: Super-linter
