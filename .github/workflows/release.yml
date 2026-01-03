@@ -56,18 +56,37 @@ jobs:
 
       - name: Verify Tag Matches Package Version
         run: |
-          TAG_VERSION="${GITHUB_REF#refs/tags/}"
           PKG_VERSION=$(node -p "require('./package.json').version")
-          if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
-            echo "Error: Git tag ($TAG_VERSION) does not match package.json version ($PKG_VERSION)"
-            exit 1
+
+          # For tag pushes, verify tag matches package.json
+          if [ "${{ github.event_name }}" = "push" ]; then
+            TAG_VERSION="${GITHUB_REF#refs/tags/}"
+            if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
+              echo "Error: Git tag ($TAG_VERSION) does not match package.json version ($PKG_VERSION)"
+              exit 1
+            fi
+            echo "Version verified: $TAG_VERSION"
+          else
+            # For manual triggers, verify the tag exists
+            if ! git rev-parse "$PKG_VERSION" >/dev/null 2>&1; then
+              echo "Error: Tag $PKG_VERSION does not exist. Available tags:"
+              git tag -l | tail -5
+              exit 1
+            fi
+            echo "Using package.json version: $PKG_VERSION"
           fi
-          echo "Version verified: $TAG_VERSION"
 
       - name: Create Release Archive
         run: |
+          # Determine version to use
+          if [ "${{ github.event_name }}" = "push" ]; then
+            VERSION="${GITHUB_REF#refs/tags/}"
+          else
+            VERSION=$(node -p "require('./package.json').version")
+          fi
+
           mkdir -p release-artifacts
-          tar -czf release-artifacts/openinlets-${{ github.ref_name }}.tar.gz \
+          tar -czf release-artifacts/openinlets-$VERSION.tar.gz \
             web/*.js \
             README.md \
             LICENSE \
@@ -77,10 +96,19 @@ jobs:
           # Copy individual bookmarklets
           cp web/*.js release-artifacts/
 
+          # Save version for next steps
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+
       - name: Generate Release Notes
         id: release_notes
         run: |
-          TAG_VERSION="${GITHUB_REF#refs/tags/}"
+          # Determine version to use
+          if [ "${{ github.event_name }}" = "push" ]; then
+            TAG_VERSION="${GITHUB_REF#refs/tags/}"
+          else
+            TAG_VERSION=$(node -p "require('./package.json').version")
+          fi
+
           PREV_TAG=$(git describe --abbrev=0 --tags "${TAG_VERSION}^" 2>/dev/null || echo "")
 
           {
@@ -109,7 +137,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.dry_run == 'true'
         run: |
           echo "🧪 Dry-run mode - not actually creating release"
-          echo "Would create release: OpenInlets ${{ github.ref_name || 'MANUAL_RUN' }}"
+          echo "Would create release: OpenInlets ${{ env.RELEASE_VERSION }}"
           echo ""
           echo "Release notes preview:"
           cat release-notes.md
@@ -124,8 +152,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create ${{ github.ref_name }} \
-            --title "OpenInlets ${{ github.ref_name }}" \
+          gh release create ${{ env.RELEASE_VERSION }} \
+            --title "OpenInlets ${{ env.RELEASE_VERSION }}" \
             --notes-file release-notes.md \
             --verify-tag \
             release-artifacts/*.tar.gz \
@@ -135,7 +163,7 @@ jobs:
         if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.dry_run == 'false')
         uses: actions/upload-artifact@v6
         with:
-          name: release-${{ github.ref_name }}
+          name: release-${{ env.RELEASE_VERSION }}
           path: |
             release-artifacts/
             sbom.json
@@ -156,6 +184,16 @@ jobs:
         with:
           ref: ${{ github.ref }}
           path: release-source
+
+      - name: Determine Release Version
+        run: |
+          cd release-source
+          if [ "${{ github.event_name }}" = "push" ]; then
+            VERSION="${GITHUB_REF#refs/tags/}"
+          else
+            VERSION=$(node -p "require('./package.json').version")
+          fi
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Verify README.md Exists and is Valid
         run: |
@@ -211,7 +249,7 @@ jobs:
 
           # Commit and push
           git add index.md
-          git commit -m "chore(docs): update index.md for release ${{ github.ref_name }}
+          git commit -m "chore(docs): update index.md for release ${{ env.RELEASE_VERSION }}
 
           Auto-updated from README.md via release workflow
           Source: ${{ github.sha }}
@@ -226,4 +264,4 @@ jobs:
 
           git push origin gh-pages
 
-          echo "✓ Successfully updated gh-pages index.md for release ${{ github.ref_name }}"
+          echo "✓ Successfully updated gh-pages index.md for release ${{ env.RELEASE_VERSION }}"
