@@ -45,6 +45,7 @@ jobs:
           ACTIONS_RUNNER_DEBUG: false
           DEFAULT_BRANCH: main
           FILTER_REGEX_EXCLUDE: dist\/.*\.bookmarklet
+          FILTER_REGEX_INCLUDE_JAVASCRIPT_STANDARD: scripts/.*\. js  # Only for scripts
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LINTER_RULES_PATH: .github/linters
           LOG_LEVEL: NOTICE
@@ -57,5 +58,7 @@ jobs:
           VALIDATE_JSON: true
           VALIDATE_JSONC: true
           VALIDATE_MARKDOWN: true
+          VALIDATE_JAVASCRIPT_STANDARD: true
           VALIDATE_TYPESCRIPT_ES: true
+          VALIDATE_TYPESCRIPT_STANDARD: false  # Disable for TypeScript (browser code)
           VALIDATE_YAML: true
