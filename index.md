@@ -8,7 +8,7 @@ Now some make or modify URLs, or determine if a site is hosted on AWS.
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1db800475a4744c68fe643a84a4454f4)](https://www.codacy.com/gh/mobilemind/OpenInlets/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mobilemind/OpenInlets&amp;utm_campaign=Badge_Grade)
 [![GitHub Super-Linter](https://github.com/mobilemind/OpenInlets/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/linter.yml)
 [![CodeQL](https://github.com/mobilemind/OpenInlets/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/codeql-analysis.yml)
-[![NodeJS with Grunt](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/npm-grunt.yml)
+[![NodeJS Build](https://github.com/mobilemind/OpenInlets/actions/workflows/ci.yml/badge.svg)](https://github.com/mobilemind/OpenInlets/actions/workflows/ci.yml)
 
 ## Installation
 
@@ -28,24 +28,24 @@ GitHub infrastructure prevents "drag & drop" install directly from the
 README.md preview. Use the [OpenInlets page] to drag & drop the bookmarklet
 links below on your desktop browser's favorites bar.
 
-+ __[deLighter] v1.1.0__: Effectively de-highlights any highlighted text
++ __[deLighter] v1.3.0__: Effectively de-highlights any highlighted text
 fragment on the current page. Uses `document.location.reload()` to reload the
 page to de-highlight it. (It's a cross-platform companion to the
 __Linklighter__ bookmarklet, below.)
 
-+ __[FYI] v3.2.1__: Select text on a web page and fire off an email that
++ __[FYI] v3.3.0__: Select text on a web page and fire off an email that
 quotes the selection and includes the page title and URL. "FYI" opens a new
 email with the page title in the subject line, the page title repeated again
 in the body, along with the selected text (if any text was selected), and the
 URL of the original page.
 
-+ __[IsItAws] v1.3.3__: Check the current page host to determine if it runs on
++ __[IsItAws] v1.3.4__: Check the current page host to determine if it runs on
 AWS. This bookmarklet works with most browsers on most platforms.
 
-+ __[KillStickyHeaders] v1.2.1__: Find & delete all fixed position elements of
++ __[KillStickyHeaders] v2.0.0__: Find & delete all fixed position elements of
 HTML body element. Cross-platform.
 
-+ __[Linklighter] v1.1.5__: Use the current text selection on the active web
++ __[Linklighter] v2.0.0__: Use the current text selection on the active web
 page to generate a URL that will highlight the selected text when opened in a
 modern browser. If a new URL is generated, Linklighter ask to open it in a new
 window to preview the highlight, and copy the new URL to the clipboard. (See
@@ -53,47 +53,47 @@ deLighter above, as a companion bookmarklet that un-highlights the newly
 opened window.) Linklighter works with recent releases of Safari on iPhone,
 iPad, and Mac, and also works with Google Chrome on desktops.
 
-+ __[OpenInBrave] v1.0.2__: Open the current web page in the Brave app on iOS.
++ __[OpenInBrave] v1.1.0__: Open the current web page in the Brave app on iOS.
 
-+ __[OpenInFirefox] v1.5.1__: Open the current web page in the Firefox app for
++ __[OpenInFirefox] v1.6.0__: Open the current web page in the Firefox app for
 iOS.
 
-+ __[OpenInFirefox-Focus] v1.0.1__: Open the current web page in the Firefox
++ __[OpenInFirefox-Focus] v1.1.0__: Open the current web page in the Firefox
 Focus app for iOS.
 
-+ __[OpenInFirefox-Private] v1.0.1__: Open the current web page in private
++ __[OpenInFirefox-Private] v1.1.0__: Open the current web page in private
 mode of the Firefox app for iOS.
 
-+ __[OpenInGoodReader] v1.5.2__: When viewing a PDF in Mobile Safari, open or
++ __[OpenInGoodReader] v1.5.0__: When viewing a PDF in Mobile Safari, open or
 download the same PDF in GoodReader.
 
-+ __[OpenInTextastic] v1.0.1__: Open the current web page in the Textastic app
++ __[OpenInTextastic] v1.1.0__: Open the current web page in the Textastic app
 on iOS. Download the server response of the current HTTP URL, save it in the
 root directory of the local (Textastic) file system, and then open it in the
 editor. Handy to view the source code of a web page or download a raw file.
 
-+ __[OpenInWorkingCopy] v1.5.1__: When viewing a BitBucket _or_ Github
++ __[OpenInWorkingCopy] v1.6.0__: When viewing a BitBucket _or_ Github
 repository in Mobile Safari, show the same repo in the Working Copy iOS app
 (cloning the repo locally if necessary).
 
-+ __[OpenURLParam] v1.0.2__: Work-around for blocked navigation from certain
++ __[OpenURLParam] v1.1.0__: Work-around for blocked navigation from certain
 ad or tracking blockers. If the current URL contains a parameter in the form
 of `url=...` this bookmarklet will parse the `url` parameter and navigate to
 that URL.
 
-+ __[UtmStrip] v1.8.9__: Strips off the UTM query string elements of the
++ __[UtmStrip] v2.0.0__: Strips off the UTM query string elements of the
 current URL to remove common "urchin" tracking information from youtube, etc.
 Also removes Google `/amp/` suffix fromU URL path. Asks to copy the new URL
 to the clipboard. Finally, replaces history & reloads the page. _NOTE:_ This
 bookmarklet also works with Safari and Firefox on macOS.
 
-+ __[unskim] v1.0.0__: Bypass redirect and affiliate link wrappers by
++ __[unskim] v2.0.0__: Bypass redirect and affiliate link wrappers by
 detecting common URL parameters (like `url=`, `destination=`, `redirect=`,
 etc.) and navigating directly to the target URL. Also handles Safari DNS error
 pages when a redirect service is blocked, extracting the intended destination
 from the error message.
 
-+ __[x-man] v1.2.1__: Using the selected text in browser, create a
++ __[x-man] v1.3.0__: Using the selected text in browser, create a
 `x-man-page://` link to the corresponding man page and offer to place that
 link on the clipboard. When using Safari on Mac, the bookmarklet will use
 Safari to open the corresponding man page with yellow highlighting in
@@ -114,22 +114,22 @@ and Safari (Mac, iPhone, & iPad).
 Tap a link below. Follow the instructions on the resulting page to turn the
 followed link into a bookmark for JavaScript bookmarklet.
 
-+ __Mobile Safari setup link__ -- [Setup deLighter] v1.1.0
-+ __Mobile Safari setup link__ -- [Setup FYI] v3.2.1
-+ __Mobile Safari setup link__ -- [Setup IsItAws] v1.3.3
-+ __Mobile Safari setup link__ -- [Setup KillStickyHeaders] v1.2.1
-+ __Mobile Safari setup link__ -- [Setup Linklighter] v1.1.5
-+ __Mobile Safari setup link__ -- [Setup OpenInBrave] v1.0.2
-+ __Mobile Safari setup link__ -- [Setup OpenInFirefox] v1.5.1
-+ __Mobile Safari setup link__ -- [Setup OpenInFirefox-Focus] v1.0.1
-+ __Mobile Safari setup link__ -- [Setup OpenInFirefox-Private] v1.0.1
-+ __Mobile Safari setup link__ -- [Setup OpenInGoodReader] v1.5.2
-+ __Mobile Safari setup link__ -- [Setup OpenInTextastic] v1.0.1
-+ __Mobile Safari setup link__ -- [Setup OpenInWorkingCopy] v1.5.1
-+ __Mobile Safari setup link__ -- [Setup OpenURLParam] v1.0.2
-+ __Mobile Safari setup link__ -- [Setup UtmStrip] v1.8.9
-+ __Mobile Safari setup link__ -- [Setup unskim] v1.0.0
-+ __Mobile Safari setup link__ -- [Setup x-man] v1.2.1
++ __Mobile Safari setup link__ -- [Setup deLighter] v1.3.0
++ __Mobile Safari setup link__ -- [Setup FYI] v3.3.0
++ __Mobile Safari setup link__ -- [Setup IsItAws] v1.3.4
++ __Mobile Safari setup link__ -- [Setup KillStickyHeaders] v2.0.0
++ __Mobile Safari setup link__ -- [Setup Linklighter] v2.0.0
++ __Mobile Safari setup link__ -- [Setup OpenInBrave] v1.1.0
++ __Mobile Safari setup link__ -- [Setup OpenInFirefox] v1.6.0
++ __Mobile Safari setup link__ -- [Setup OpenInFirefox-Focus] v1.1.0
++ __Mobile Safari setup link__ -- [Setup OpenInFirefox-Private] v1.1.0
++ __Mobile Safari setup link__ -- [Setup OpenInGoodReader] v1.5.0
++ __Mobile Safari setup link__ -- [Setup OpenInTextastic] v1.1.0
++ __Mobile Safari setup link__ -- [Setup OpenInWorkingCopy] v1.6.0
++ __Mobile Safari setup link__ -- [Setup OpenURLParam] v1.1.0
++ __Mobile Safari setup link__ -- [Setup UtmStrip] v2.0.0
++ __Mobile Safari setup link__ -- [Setup unskim] v2.0.0
++ __Mobile Safari setup link__ -- [Setup x-man] v1.3.0
 
 ## Requirements
 
@@ -148,8 +148,8 @@ MIT License - <http://opensource.org/licenses/mit-license.php>
 
 ## Source Code Notes
 
-The `src/` directory has human readable JavaScript, written in a way to
-facilitate testing. The `web/` directory has "uglified" code that has a
+The `src/` directory has human readable TypeScript, written in a way to
+facilitate testing. The `dist/` directory has minified code that has a
 `javascript:` URL protocol prefix and should be shorter. The `void'x.y.z'` at
 the end the bookmarklet URL code serves two purposes.
 
@@ -162,19 +162,19 @@ the end the bookmarklet URL code serves two purposes.
 
 Clone the repository. If `node` is not installed go get it from
 [nodejs.org][nodejs]. Finally change to the `OpenInlets` directory and install
-the dependencies into the project before invoking `npx grunt`.
+the dependencies into the project before building.
 
 ```bash
 git clone https://github.com/mobilemind/OpenInlets.git
 cd OpenInlets
 npm install
-npx grunt
+npm run build
 ```
 
 Note that [nodejs] and [npm] are required. The lines above will install
-[grunt] and other dependencies defined in `package.json`. You can
-update dependencies using `npm update` at any time or just invoke `npx grunt`
-to re-build OpenInlets `web/` directory.
+dependencies defined in `package.json`. You can update dependencies using
+`npm update` at any time or just invoke `npm run build` to re-build the
+OpenInlets `dist/` directory.
 
 ## URL Scheme Notes (References)
 
@@ -236,6 +236,10 @@ using a URL protocol scheme.
   [x-man-page: URL handler studied for the OSX Terminal.app][x-man-page URL handler]
 
 ## Version Notes
+
+4.0.0 MAJOR RELEASE - Migrated to TypeScript for type safety & more, updated
+entire build system with more thorough checks, refined CI/CD. No more `grunt`
+for build process. Switched from Uglify-js to Terser for JavaScript compression.
 
 3.7.0 adds "unskim" bookmarklet to bypass redirect and affiliate link wrappers
 
@@ -325,47 +329,46 @@ repos I had; doesn't build yet
 
 <!--- JavaScript links -->
 
-[deLighter]: javascript:document.location.reload()%3Bvoid'1.1.0' "deLighter"
-[FYI]: javascript:e=encodeURIComponent(document.title)%2Co='Range'==(o=window.getSelection()).type%26%260%3Co.rangeCount%3Fo.getRangeAt(0).toString():''%2Cvoid(location.href=%60mailto:%3Fsubject=fyi:%24%7Be%7D%26body=%24%7Be%7D%250A%24%7BencodeURIComponent(document.URL)%7D%250A---%250A%24%7BencodeURIComponent(o)%7D%250A%250A%60)%3Bvar%20e%2Co%3Bvoid'3.2.1' "FYI"
-[IsItAws]: javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3' "IsItAws"
-[KillStickyHeaders]: javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1' "KillStickyHeaders"
-[Linklighter]: javascript:%7Blet%20n=window.getSelection().toString()%2Ct=n.length%2Ce=document.URL%2Ci=e%2Co=e.indexOf('%23')%2Cl=''%3Bif(window.getSelection().empty()%2Cn%26%26''!=n)%7Bif(-1%3Co%26%26(i=i.substring(0%2Co))%2Ci%2B='%23:~:text='%2Ct%3C80)l=n%2Ci%2B=encodeURIComponent(n)%3Belse%7Blet%20e=~~(t%2F2-2)%3B150%3Ct%3Fe=48:100%3Ct%26%26(e=~~(t%2F3))%3Bvar%20r=%5BencodeURIComponent(l=n.substring(0%2Ce))%2CencodeURIComponent(n.substr(t-e))%5D%3Bl%2B='%E2%80%A6'%2C~(o=r%5B0%5D.lastIndexOf('%2520'))%26%26(r%5B0%5D=r%5B0%5D.substring(0%2Co))%2C~(o=r%5B1%5D.indexOf('%2520'))%26%26(r%5B1%5D=r%5B1%5D.substr(3%2Bo))%2Ci%2B=r.join()%7Di=(i=i.replace(%2F(%250A%7C%2520A)%2B%24%2F%2C'')).replace(%2F%23%23%2B:~:text=%2F%2C'%23:~:text=')%7Dvoid(i!=e%26%26confirm('Open%20URL%20with%20highlight%20on%20%22'%2Bl%2B'%22%20and%20copy%20URL%20to%20clipboard%3F%5Cn%5CnNote:%20If%20text%20isn%E2%80%99t%20highlighted%20in%20new%20tab%2C%20you%20can%20try%20again%20with%20a%20smaller%20selection.')%26%26(navigator.clipboard.writeText(i)%2Cwindow.open(i%2C'%5Fblank').opener=null))%7Dvoid'1.1.5' "Linklighter"
-[OpenInBrave]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='brave:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.0.2' "OpenInBrave"
-[OpenInFirefox]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.5.1' "OpenInFirefox"
-[OpenInFirefox-Focus]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox-focus:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%2B'%26private=true'%3Bvoid'1.0.1' "OpenInFirefox-Focus"
-[OpenInFirefox-Private]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%2B'%26private=true'%3Bvoid'1.0.1' "OpenInFirefox-Private"
-[OpenInGoodReader]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))location.href='gr'%2Blocation.href%3Bvoid'1.5.2' "OpenInGoodReader"
-[OpenInTextastic]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=location.href.replace(%2F%5Ehttps%3F%2F%2C'textastic')%3Bvoid'1.0.1' "OpenInTextastic"
-[OpenInWorkingCopy]: javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26('bitbucket.org'==location.host%7C%7C'github.com'==location.host))location.href='working-copy:%2F%2Fshow%3Fremote='%2BencodeURIComponent(location.href.split('%2F').slice(0%2C5).join('%2F'))%2B'.git'%3Bvoid'1.5.1' "OpenInWorkingCopy"
-[OpenURLParam]: javascript:var%20a=location.search.search('url=')%3Bif(-1%3Ca)%7Blet%20e=location.search.substr(4%2Ba)%2Co=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co%3Fe.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))%7Dvoid'1.0.2' "OpenURLParam"
-[UtmStrip]: javascript:var%20r=location.pathname%2Cl=location.search%3Bif(3%3C=l.length%7C%7Cr.includes('%2Famp'))%7Blet%20e=r%2Cc=l%2Ci%2Ca=location.hostname%3Ba.includes('aliexpress.')%26%26(c=(c=(c=(c=c.replace(%2F(%5B%3F%26%5D)aff%5F(platform%7Ctrace%5Fkey)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)algo%5F%5Bep%5Dvid=%5B%5E%26%5D%2B%2Fg%2C'%241')).replace(%2F(%5B%3F%26%5D)(btsid%7Cws%5Fab%5Ftest)=%5B%5E%26%5D%2B%2Fg%2C'%241')).replace(%2F(%5B%3F%26%5D)s%5Bcp%5Dm=%5B%5E%26%5D%2B%2Fg%2C'%241'))%2C((c=(c=(c=(c=(c=(c=%2F(%7C%5C.)amazon%5C.com%24%2F.test(a)%3F(c=(c=(c=(c=c.replace(%2F(%5B%3F%26%5D)(%5Fencoding%7Cie%7ClinkCode%7ClinkId%7Cpf%7Cpsc%7Cref%5F%7Ctag)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)p%5Bdf%5D%5Frd%5F.%2A%3F=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)(content-id%7Ccrid%7Ccv%5Fct%5Fcx%7Clanguage%7Cqid%7Csprefix%7Csr%7Cth)=%5B%5E%26%5D%2B%2Fg%2C'%241')).replace(%2F(%5B%3F%26%5D)asc(%5Fcampaign%7C%5Frefurl%7C%5Fsource%7Csubtag)=%5B%5E%26%5D%2B%2Fg%2C'%241')).replace(%2F(%5B%3F%26%5D)dib(%5Ftag)%3F=%5B%5E%26%5D%2B%2Fg%2C'%241'):c).includes('fb%5F')%3F(c=c.replace(%2F(%5B%3F%26%5D)fb%5F(action%5Fids%7Caction%5Ftypes%7Cref%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)(fbclid%7Chrc%7Crefsrc)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('action%5F')%3Fc.replace(%2F(%5B%3F%26%5D)action%5F(object%7Cref%7Ctype)%5Fmap=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).replace(%2F(%5B%3F%26%5D)(assetType%7CelqTrack%7Cmkt%5Ftok%7CoriginalReferer%7Creferrer%7Cterminal%5Fid%7Ctrk%7CtrkCampaign%7CtrkInfo)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).includes('aff%5F')%3Fc.replace(%2F(%5B%3F%26%5D)aff%5F(platform%7Ctrace%5Fkey)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).toLowerCase().includes('id=')%3Fc.replace(%2F(%5B%3F%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('ga%5F')%7C%7Cc.includes('utm%5F'))%26%26(c=(c=c.replace(%2F(%5B%3F%26%5D)(ga%7Cutm)%5F(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz%5Fid)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)gcl(id%7Csrc)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(c=(c='%3F'!=((c='%26'==((c=(c=(c=(c=(c=(c=(c=(c=%2F(m%7Cwww)%5C.youtube%5C.com%24%2F.test(a)%7C%7C'youtu.be'===a%7C%7C'www.youtube-nocookie.com'===a%3Fc.replace(%2F(%5B%3F%26%5D)(ac%7Cannotation%5Fid%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc%5Fvid)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('%5Fhsenc')%7C%7Cc.includes('%5Fhsmi')%3Fc.replace(%2F(%5B%3F%26%5D)%5Fhs(enc%7Cmi)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('hmb%5F')%3Fc.replace(%2F(%5B%3F%26%5D)hmb%5F(campaign%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('cm%5F')%3F(c=c.replace(%2F(%5B%3F%26%5D)cm%5F(mmc%7Cmmca%5Cd%2B%7Cre%7Csp)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)manual%5Fcm%5Fmmc=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('mc%5Fcid')%7C%7Cc.includes('mc%5Feid')%3Fc.replace(%2F(%5B%3F%26%5D)mc%5F%5Bce%5Did=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('iesrc')%7C%7Cc.includes('mkt%5Ftok')%3Fc.replace(%2F(%5B%3F%26%5D)(iesrc%7Cmkt%5Ftok)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('pk%5F')%3Fc.replace(%2F(%5B%3F%26%5D)pk%5F(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).replace(%2F%26%26%2B%2Fg%2C'%26'))%5B0%7Cc.length-1%5D%7C%7C'')%3Fc.substr(0%2Cc.length-1):c)%5B0%5D%7C%7C'')%3F'%3F'%2Bc:c).includes('%3F%26')%3F'%3F'%2Bc.substr(2):c).length%3C3%26%26(c='')%2Ce=e.replace(%2F%5C%2Famp%5C%2F%3F%24%2F%2C'')%2Cl===c%26%26r===e%7C%7Cconfirm('Update%20history%20and%20copy%20cleaned%20URL%20to%20clipboard%3F')%26%26(i=location.protocol%2B'%2F%2F'%2Blocation.host%2Be%2Bc%2Blocation.hash%2Cnavigator.clipboard.writeText(i)%2Chistory.replaceState(null%2Cnull%2Ci)%2Cwindow.open(i%2C'%5Fself'%2C'noreferrer').opener=null)%7Dvoid%200%3Bvoid'1.8.9' "UtmStrip"
-[unskim]: javascript:var%20e%2Cn=new%20URL(document.location.href)%3Bif(''!=(n='safari-resource:%2FErrorPage.html'==n.href%26%26(e=document.querySelector('p.error-message')%3F.textContent.match(%2FSafari%20can%E2%80%99t%20open%20the%20page%20%E2%80%9C(https%3F:%5B%5E%E2%80%9D%5D%2B)%E2%80%9D%2F)%3F.%5B1%5D)%3Fnew%20URL(e):n).search)%7Blet%20t=new%20URLSearchParams(n.search)%2Cr=null%2Ca=''%2Co=!1%3B%5B'url'%2C'destination'%2C'redirect'%2C'target'%2C'goto'%2C'u'%2C'dest'%2C'link'%2C'out'%5D.forEach(e=%3E%7B!o%26%26t.has(e)%26%26(a=decodeURIComponent(t.get(e))).match(%2F%5Ehttps%3F:%2F)%26%26(r=new%20URL(a)%2Co=!0)%7D)%2Co%26%26window.location.replace(r)%7Dvoid%200%3Bvoid'1.0.0' "unskim"
-[x-man]: javascript:%7Blet%20i=navigator.userAgent%2Co=i.includes('Chrome%2F')%7C%7Ci.includes('Firefox%2F')%7C%7Ci.includes('Brave%2F')%7C%7Ci.includes('Edg%2F')%2Cn=i.includes('Safari%2F')%2Ce=!o%26%26!n%2Ct=navigator.platform.startsWith('Mac')%26%26n%26%26!o%26%26!e%26%26!navigator.maxTouchPoints%26%26navigator.maxTouchPoints%3C2%2Ca=window.getSelection().toString().split('%5Cn')%5B0%5D.trim()%2Cl='x-man-page:%2F%2F'%2Cr=a.match(%2F%5E(.%2A%3F)%5C((%5Cd)%5C)%24%2F)%3Bif(l%2B=r%3F1==r%5B2%5D%3Fr%5B1%5D:r%5B2%5D%2B'%2F'%2Br%5B1%5D:a%2Ca)%7Bif(confirm(%60Link%20for%20%22%24%7Ba%7D%22%20is:%20%24%7Bl%7D%0A%0ACopy%20to%20clipboard%3F%60))%7Blet%20o=''%3Bif(navigator.clipboard%3Fnavigator.clipboard.writeText(l):(o=%60Unable%20to%20copy%20%22%24%7Bl%7D%22%20to%20clipboard.%60%2Cl='')%2Ct%26%26''!=l)%7Blet%20i=null%3Btry%7B(i=window.open(l)).opener=null%7Dcatch(i)%7Bo=%60Popup%20window%20blocked.%20Unable%20to%20open%20new%20link%20with%20Terminal%2C%20but%20clipboard%20contains%20%22%24%7Bl%7D%22%60%7Dfinally%7Bwindow.focus()%2Cnull!==i%26%26setTimeout(()=%3E%7Bi.close()%7D%2C3333)%7D%7Delse''!=l%26%26(o=%60Browser%20doesn't%20look%20like%20Mac%20Safari.%20Unable%20to%20open%20new%20link%20with%20Terminal%2C%20but%20clipboard%20contains%20%22%24%7Bl%7D%22%60)%3B''!=o%26%26alert(o)%7Dwindow.getSelection().empty()%7Dvoid%200%7Dvoid'1.2.1' "x-man"
+[deLighter]: javascript:'use%20strict'%3Bdocument.location.reload()%3Bvoid'1.3.0' "deLighter"
+[FYI]: javascript:'use%20strict'%3B(()=%3E%7Bconst%20e=encodeURIComponent(document.title)%2Ct='%250A'%2Cn=window.getSelection()%2Co=n%26%26'Range'===n.type%26%26n.rangeCount%3E0%3Fn.getRangeAt(0).toString():''%3Blocation.href=%60mailto:%3Fsubject=fyi:%24%7Be%7D%26body=%24%7Be%7D%24%7Bt%7D%24%7BencodeURIComponent(document.URL)%7D%24%7Bt%7D---%24%7Bt%7D%24%7BencodeURIComponent(o)%7D%24%7Bt%7D%24%7Bt%7D%60%7D)()%3Bvoid'3.3.0' "FYI"
+[IsItAws]: javascript:'use%20strict'%3Blocation.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.4' "IsItAws"
+[KillStickyHeaders]: javascript:'use%20strict'%3B(()=%3E%7Bconst%20o=document.querySelectorAll('body%20%2A')%3Bfor(const%20e%20of%20Array.from(o))if('fixed'===getComputedStyle(e).position)%7Bconst%20o=e.parentNode%3Bo%26%26o.removeChild(e)%7D%7D)()%3Bvoid'2.0.0' "KillStickyHeaders"
+[Linklighter]: javascript:'use%20strict'%3B(()=%3E%7Bconst%20e=window.getSelection()%3Bif(!e)return%3Bconst%20n=e.toString()%2Ct=n.length%2Ci=document.URL%3Blet%20o=i%2Cc=i.indexOf('%23')%2Cl=''%3Bif(e.empty()%2Cn%26%26''!==n)%7Bif(c%3E-1%26%26(o=o.substring(0%2Cc))%2Co%2B='%23:~:text='%2C80%3Et)l=n%2Co%2B=encodeURIComponent(n)%3Belse%7Blet%20e=~~(t%2F2-2)%3Bt%3E150%3Fe=48:t%3E100%26%26(e=~~(t%2F3))%2Cl=n.substring(0%2Ce)%3Bconst%20i=%5BencodeURIComponent(l)%2CencodeURIComponent(n.slice(t-e))%5D%3Bl%2B='%E2%80%A6'%2Cc=i%5B0%5D.lastIndexOf('%2520')%2Cc%3E-1%26%26(i%5B0%5D=i%5B0%5D.substring(0%2Cc))%2Cc=i%5B1%5D.indexOf('%2520')%2Cc%3E-1%26%26(i%5B1%5D=i%5B1%5D.slice(c%2B3))%2Co%2B=i.join()%7Do=o.replace(%2F(%250A%7C%2520A)%2B%24%2F%2C'')%2Co=o.replace(%2F%23%23%2B:~:text=%2F%2C'%23:~:text=')%7Dif(o!==i%26%26confirm(%60Open%20URL%20with%20highlight%20on%20%22%24%7Bl%7D%22%20and%20copy%20URL%20to%20clipboard%3F%5Cn%5CnNote:%20If%20text%20isn't%20highlighted%20in%20new%20tab%2C%20you%20can%20try%20again%20with%20a%20smaller%20selection.%60))%7Bnavigator.clipboard.writeText(o)%3Bconst%20e=window.open(o%2C'%5Fblank')%3Be%26%26(e.opener=null)%7D%7D)()%3Bvoid'2.0.0' "Linklighter"
+[OpenInBrave]: javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='brave:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.1.0' "OpenInBrave"
+[OpenInFirefox]: javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.6.0' "OpenInFirefox"
+[OpenInFirefox-Focus]: javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=%60firefox-focus:%2F%2Fopen-url%3Furl=%24%7BencodeURIComponent(location.href)%7D%26private=true%60%3Bvoid'1.1.0' "OpenInFirefox-Focus"
+[OpenInFirefox-Private]: javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=%60firefox:%2F%2Fopen-url%3Furl=%24%7BencodeURIComponent(location.href)%7D%26private=true%60%3Bvoid'1.1.0' "OpenInFirefox-Private"
+[OpenInGoodReader]: javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))location.href='gr'%2Blocation.href%3Bvoid'1.5.0' "OpenInGoodReader"
+[OpenInTextastic]: javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=location.href.replace(%2F%5Ehttps%3F%2F%2C'textastic')%3Bvoid'1.1.0' "OpenInTextastic"
+[OpenInWorkingCopy]: javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26('bitbucket.org'===location.host%7C%7C'github.com'===location.host))location.href=%60working-copy:%2F%2Fshow%3Fremote=%24%7BencodeURIComponent(location.href.split('%2F').slice(0%2C5).join('%2F'))%7D.git%60%3Bvoid'1.6.0' "OpenInWorkingCopy"
+[OpenURLParam]: javascript:'use%20strict'%3Bconst%20c=location.search.search('url=')%3Bif(c%3E-1)%7Blet%20o=location.search.slice(4%2Bc)%3Bconst%20t=o.indexOf('%26')%3Bif(t%3E-1%26%26(o=o.slice(0%2Ct))%2Co.length%3E5)%7Bconst%20c=decodeURIComponent(o)%3Btry%7Bconst%20o=new%20URL(c%2Clocation.href)%3B'https:'===o.protocol%26%26location.replace(o.href)%7Dcatch%7B%7D%7D%7Dvoid'1.1.0' "OpenURLParam"
+[UtmStrip]: javascript:'use%20strict'%3B(()=%3E%7Bconst%20e=location.pathname%2Cc=location.search%3Bif(3%3Ec.length%26%26!e.includes('%2Famp'))return%3Blet%20i=e%2Ca=c%3Bconst%20r=location.hostname%3Bif(r.includes('aliexpress.')%26%26(a=a.replace(%2F(%5B%3F%26%5D)aff%5F(platform%7Ctrace%5Fkey)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)algo%5F%5Bep%5Dvid=%5B%5E%26%5D%2B%2Fg%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)(btsid%7Cws%5Fab%5Ftest)=%5B%5E%26%5D%2B%2Fg%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)s%5Bcp%5Dm=%5B%5E%26%5D%2B%2Fg%2C'%241'))%2C%2F(%7C%5C.)amazon%5C.com%24%2F.test(r)%26%26(a=a.replace(%2F(%5B%3F%26%5D)(%5Fencoding%7Cie%7ClinkCode%7ClinkId%7Cpf%7Cpsc%7Cref%5F%7Ctag)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)p%5Bdf%5D%5Frd%5F.%2A%3F=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)(content-id%7Ccrid%7Ccv%5Fct%5Fcx%7Clanguage%7Cqid%7Csprefix%7Csr%7Cth)=%5B%5E%26%5D%2B%2Fg%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)asc(%5Fcampaign%7C%5Frefurl%7C%5Fsource%7Csubtag)=%5B%5E%26%5D%2B%2Fg%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)dib(%5Ftag)%3F=%5B%5E%26%5D%2B%2Fg%2C'%241'))%2Ca.includes('fb%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)fb%5F(action%5Fids%7Caction%5Ftypes%7Cref%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)(fbclid%7Chrc%7Crefsrc)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca.includes('action%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)action%5F(object%7Cref%7Ctype)%5Fmap=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca=a.replace(%2F(%5B%3F%26%5D)(assetType%7CelqTrack%7Cmkt%5Ftok%7CoriginalReferer%7Creferrer%7Cterminal%5Fid%7Ctrk%7CtrkCampaign%7CtrkInfo)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca.includes('aff%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)aff%5F(platform%7Ctrace%5Fkey)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca.toLowerCase().includes('id=')%26%26(a=a.replace(%2F(%5B%3F%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(a.includes('ga%5F')%7C%7Ca.includes('utm%5F'))%26%26(a=a.replace(%2F(%5B%3F%26%5D)(ga%7Cutm)%5F(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz%5Fid)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)gcl(id%7Csrc)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(%2F(m%7Cwww)%5C.youtube%5C.com%24%2F.test(r)%7C%7C'youtu.be'===r%7C%7C'www.youtube-nocookie.com'===r)%26%26(a=a.replace(%2F(%5B%3F%26%5D)(ac%7Cannotation%5Fid%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc%5Fvid)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(a.includes('%5Fhsenc')%7C%7Ca.includes('%5Fhsmi'))%26%26(a=a.replace(%2F(%5B%3F%26%5D)%5Fhs(enc%7Cmi)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca.includes('hmb%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)hmb%5F(campaign%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca.includes('cm%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)cm%5F(mmc%7Cmmca%5Cd%2B%7Cre%7Csp)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)manual%5Fcm%5Fmmc=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(a.includes('mc%5Fcid')%7C%7Ca.includes('mc%5Feid'))%26%26(a=a.replace(%2F(%5B%3F%26%5D)mc%5F%5Bce%5Did=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(a.includes('iesrc')%7C%7Ca.includes('mkt%5Ftok'))%26%26(a=a.replace(%2F(%5B%3F%26%5D)(iesrc%7Cmkt%5Ftok)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca.includes('pk%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)pk%5F(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca=a.replace(%2F%26%26%2B%2Fg%2C'%26')%2C'%26'===a.charAt(a.length-1)%26%26(a=a.slice(0%2C-1))%2C'%3F'!==a.charAt(0)%26%26(a='%3F'%2Ba)%2Ca.includes('%3F%26')%26%26(a='%3F'%2Ba.slice(2))%2C3%3Ea.length%26%26(a='')%2Ci=i.replace(%2F%5C%2Famp%5C%2F%3F%24%2F%2C'')%2C(c!==a%7C%7Ce!==i)%26%26confirm('Update%20history%20and%20copy%20cleaned%20URL%20to%20clipboard%3F'))%7Bconst%20e=%60%24%7Blocation.protocol%7D%2F%2F%24%7Blocation.host%7D%24%7Bi%7D%24%7Ba%7D%24%7Blocation.hash%7D%60%3Bnavigator.clipboard.writeText(e)%2Chistory.replaceState(null%2C''%2Ce)%3Bconst%20c=window.open(e%2C'%5Fself'%2C'noreferrer')%3Bc%26%26(c.opener=null)%7D%7D)()%3Bvoid'2.0.0' "UtmStrip"
+[unskim]: javascript:'use%20strict'%3B(()=%3E%7Blet%20e=new%20URL(document.location.href)%3Bif('safari-resource:%2FErrorPage.html'===e.href)%7Bconst%20t=document.querySelector('p.error-message')%3F.textContent%3F.match(%2FSafari%20can't%20open%20the%20page%20%22(https%3F:%5B%5E%22%5D%2B)%22%2F)%3F.%5B1%5D%3Bt%26%26(e=new%20URL(t))%7Dif(''===e.search)return%3Bconst%20t=new%20URLSearchParams(e.search)%2Cr=%5B'url'%2C'destination'%2C'redirect'%2C'target'%2C'goto'%2C'u'%2C'dest'%2C'link'%2C'out'%5D.filter((e=%3Et.has(e))).map((e=%3E%7Bconst%20r=t.get(e)%3Breturn%20r%3FdecodeURIComponent(r):''%7D)).find((e=%3Ee.match(%2F%5Ehttps%3F:%2F)))%3Br%26%26window.location.replace(new%20URL(r))%7D)()%3Bvoid'2.0.0' "unskim"
+[x-man]: javascript:'use%20strict'%3B(()=%3E%7Bconst%20n=navigator.userAgent%2Co=n.includes('Chrome%2F')%7C%7Cn.includes('Firefox%2F')%7C%7Cn.includes('Brave%2F')%7C%7Cn.includes('Edg%2F')%2Ci=n.includes('Safari%2F')%2Ct=!o%26%26!i%2Ce=navigator.platform.startsWith('Mac')%26%26i%26%26!o%26%26!t%26%26!navigator.maxTouchPoints%26%262%3Enavigator.maxTouchPoints%2Ca=window.getSelection()%3Bif(!a)return%3Bconst%20l=a.toString().split('%5Cn')%5B0%5D.trim()%3Blet%20r='x-man-page:%2F%2F'%3Bconst%20c=l.match(%2F%5E(.%2A%3F)%5C((%5Cd)%5C)%24%2F)%3Bif(r%2B=c%3F'1'===c%5B2%5D%3Fc%5B1%5D:%60%24%7Bc%5B2%5D%7D%2F%24%7Bc%5B1%5D%7D%60:l%2Cl)%7Bif(confirm(%60Link%20for%20%22%24%7Bl%7D%22%20is:%20%24%7Br%7D%5Cn%5CnCopy%20to%20clipboard%3F%60))%7Blet%20n=''%3Bif(navigator.clipboard%3Fnavigator.clipboard.writeText(r):(n=%60Unable%20to%20copy%20%22%24%7Br%7D%22%20to%20clipboard.%60%2Cr='')%2Ce%26%26''!==r)%7Blet%20o=null%3Btry%7Bo=window.open(r)%2Co%26%26(o.opener=null)%7Dcatch(o)%7Bn=%60Popup%20window%20blocked.%20Unable%20to%20open%20new%20link%20with%20Terminal%2C%20but%20clipboard%20contains%20%22%24%7Br%7D%22%60%7Dfinally%7Bwindow.focus()%2Cnull!==o%26%26setTimeout((()=%3E%7Bo%26%26o.close()%7D)%2C3333)%7D%7Delse''!==r%26%26(n=%60Browser%20doesn't%20look%20like%20Mac%20Safari.%20Unable%20to%20open%20new%20link%20with%20Terminal%2C%20but%20clipboard%20contains%20%22%24%7Br%7D%22%60)%3B''!==n%26%26alert(n)%7Da.empty()%7D%7D)()%3Bvoid'1.3.0' "x-man"
 
 <!--- Setup links -->
 
-[Setup deLighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:document.location.reload()%3Bvoid'1.1.0' "Setup deLighter"
-[Setup FYI]: https://mobilemind.github.io/OpenInlets/x/#javascript:e=encodeURIComponent(document.title)%2Co='Range'==(o=window.getSelection()).type%26%260%3Co.rangeCount%3Fo.getRangeAt(0).toString():''%2Cvoid(location.href=%60mailto:%3Fsubject=fyi:%24%7Be%7D%26body=%24%7Be%7D%250A%24%7BencodeURIComponent(document.URL)%7D%250A---%250A%24%7BencodeURIComponent(o)%7D%250A%250A%60)%3Bvar%20e%2Co%3Bvoid'3.2.1' "Setup FYI"
-[Setup IsItAws]: https://mobilemind.github.io/OpenInlets/x/#javascript:location.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.3' "Setup IsItAws"
-[Setup KillStickyHeaders]: https://mobilemind.github.io/OpenInlets/x/#javascript:%7Blet%20e=document.querySelectorAll('body%20%2A')%2Co=0%3Bfor(o=0%3Bo%3Ce.length%3Bo%2B%2B)'fixed'==getComputedStyle(e%5Bo%5D).position%26%26e%5Bo%5D.parentNode.removeChild(e%5Bo%5D)%3Bvoid%200%7Dvoid'1.2.1' "Setup KillStickyHeaders"
-[Setup Linklighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:%7Blet%20n=window.getSelection().toString()%2Ct=n.length%2Ce=document.URL%2Ci=e%2Co=e.indexOf('%23')%2Cl=''%3Bif(window.getSelection().empty()%2Cn%26%26''!=n)%7Bif(-1%3Co%26%26(i=i.substring(0%2Co))%2Ci%2B='%23:~:text='%2Ct%3C80)l=n%2Ci%2B=encodeURIComponent(n)%3Belse%7Blet%20e=~~(t%2F2-2)%3B150%3Ct%3Fe=48:100%3Ct%26%26(e=~~(t%2F3))%3Bvar%20r=%5BencodeURIComponent(l=n.substring(0%2Ce))%2CencodeURIComponent(n.substr(t-e))%5D%3Bl%2B='%E2%80%A6'%2C~(o=r%5B0%5D.lastIndexOf('%2520'))%26%26(r%5B0%5D=r%5B0%5D.substring(0%2Co))%2C~(o=r%5B1%5D.indexOf('%2520'))%26%26(r%5B1%5D=r%5B1%5D.substr(3%2Bo))%2Ci%2B=r.join()%7Di=(i=i.replace(%2F(%250A%7C%2520A)%2B%24%2F%2C'')).replace(%2F%23%23%2B:~:text=%2F%2C'%23:~:text=')%7Dvoid(i!=e%26%26confirm('Open%20URL%20with%20highlight%20on%20%22'%2Bl%2B'%22%20and%20copy%20URL%20to%20clipboard%3F%5Cn%5CnNote:%20If%20text%20isn%E2%80%99t%20highlighted%20in%20new%20tab%2C%20you%20can%20try%20again%20with%20a%20smaller%20selection.')%26%26(navigator.clipboard.writeText(i)%2Cwindow.open(i%2C'%5Fblank').opener=null))%7Dvoid'1.1.5' "Setup Linklighter"
-[Setup OpenInBrave]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='brave:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.0.2' "Setup OpenInBrave"
-[Setup OpenInFirefox]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.5.1' "Setup OpenInFirefox"
-[Setup OpenInFirefox-Focus]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox-focus:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%2B'%26private=true'%3Bvoid'1.0.1' "Setup OpenInFirefox-Focus"
-[Setup OpenInFirefox-Private]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%2B'%26private=true'%3Bvoid'1.0.1' "Setup OpenInFirefox-Private"
-[Setup OpenInGoodReader]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))location.href='gr'%2Blocation.href%3Bvoid'1.5.2' "Setup OpenInGoodReader"
-[Setup OpenInTextastic]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=location.href.replace(%2F%5Ehttps%3F%2F%2C'textastic')%3Bvoid'1.0.1' "Setup OpenInTextastic"
-[Setup OpenInWorkingCopy]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26('bitbucket.org'==location.host%7C%7C'github.com'==location.host))location.href='working-copy:%2F%2Fshow%3Fremote='%2BencodeURIComponent(location.href.split('%2F').slice(0%2C5).join('%2F'))%2B'.git'%3Bvoid'1.5.1' "Setup OpenInWorkingCopy"
-[Setup OpenURLParam]: https://mobilemind.github.io/OpenInlets/x/#javascript:var%20a=location.search.search('url=')%3Bif(-1%3Ca)%7Blet%20e=location.search.substr(4%2Ba)%2Co=e.indexOf('%26')%3Bif(5%3C(e=-1%3Co%3Fe.substr(0%2Co):e).length)location.replace(decodeURIComponent(e))%7Dvoid'1.0.2' "Setup OpenURLParam"
-[Setup UtmStrip]: https://mobilemind.github.io/OpenInlets/x/#javascript:var%20r=location.pathname%2Cl=location.search%3Bif(3%3C=l.length%7C%7Cr.includes('%2Famp'))%7Blet%20e=r%2Cc=l%2Ci%2Ca=location.hostname%3Ba.includes('aliexpress.')%26%26(c=(c=(c=(c=c.replace(%2F(%5B%3F%26%5D)aff%5F(platform%7Ctrace%5Fkey)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)algo%5F%5Bep%5Dvid=%5B%5E%26%5D%2B%2Fg%2C'%241')).replace(%2F(%5B%3F%26%5D)(btsid%7Cws%5Fab%5Ftest)=%5B%5E%26%5D%2B%2Fg%2C'%241')).replace(%2F(%5B%3F%26%5D)s%5Bcp%5Dm=%5B%5E%26%5D%2B%2Fg%2C'%241'))%2C((c=(c=(c=(c=(c=(c=%2F(%7C%5C.)amazon%5C.com%24%2F.test(a)%3F(c=(c=(c=(c=c.replace(%2F(%5B%3F%26%5D)(%5Fencoding%7Cie%7ClinkCode%7ClinkId%7Cpf%7Cpsc%7Cref%5F%7Ctag)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)p%5Bdf%5D%5Frd%5F.%2A%3F=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)(content-id%7Ccrid%7Ccv%5Fct%5Fcx%7Clanguage%7Cqid%7Csprefix%7Csr%7Cth)=%5B%5E%26%5D%2B%2Fg%2C'%241')).replace(%2F(%5B%3F%26%5D)asc(%5Fcampaign%7C%5Frefurl%7C%5Fsource%7Csubtag)=%5B%5E%26%5D%2B%2Fg%2C'%241')).replace(%2F(%5B%3F%26%5D)dib(%5Ftag)%3F=%5B%5E%26%5D%2B%2Fg%2C'%241'):c).includes('fb%5F')%3F(c=c.replace(%2F(%5B%3F%26%5D)fb%5F(action%5Fids%7Caction%5Ftypes%7Cref%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)(fbclid%7Chrc%7Crefsrc)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('action%5F')%3Fc.replace(%2F(%5B%3F%26%5D)action%5F(object%7Cref%7Ctype)%5Fmap=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).replace(%2F(%5B%3F%26%5D)(assetType%7CelqTrack%7Cmkt%5Ftok%7CoriginalReferer%7Creferrer%7Cterminal%5Fid%7Ctrk%7CtrkCampaign%7CtrkInfo)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).includes('aff%5F')%3Fc.replace(%2F(%5B%3F%26%5D)aff%5F(platform%7Ctrace%5Fkey)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).toLowerCase().includes('id=')%3Fc.replace(%2F(%5B%3F%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('ga%5F')%7C%7Cc.includes('utm%5F'))%26%26(c=(c=c.replace(%2F(%5B%3F%26%5D)(ga%7Cutm)%5F(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz%5Fid)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)gcl(id%7Csrc)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(c=(c='%3F'!=((c='%26'==((c=(c=(c=(c=(c=(c=(c=(c=%2F(m%7Cwww)%5C.youtube%5C.com%24%2F.test(a)%7C%7C'youtu.be'===a%7C%7C'www.youtube-nocookie.com'===a%3Fc.replace(%2F(%5B%3F%26%5D)(ac%7Cannotation%5Fid%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc%5Fvid)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('%5Fhsenc')%7C%7Cc.includes('%5Fhsmi')%3Fc.replace(%2F(%5B%3F%26%5D)%5Fhs(enc%7Cmi)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('hmb%5F')%3Fc.replace(%2F(%5B%3F%26%5D)hmb%5F(campaign%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('cm%5F')%3F(c=c.replace(%2F(%5B%3F%26%5D)cm%5F(mmc%7Cmmca%5Cd%2B%7Cre%7Csp)=%5B%5E%26%5D%2B%2Fgi%2C'%241')).replace(%2F(%5B%3F%26%5D)manual%5Fcm%5Fmmc=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('mc%5Fcid')%7C%7Cc.includes('mc%5Feid')%3Fc.replace(%2F(%5B%3F%26%5D)mc%5F%5Bce%5Did=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('iesrc')%7C%7Cc.includes('mkt%5Ftok')%3Fc.replace(%2F(%5B%3F%26%5D)(iesrc%7Cmkt%5Ftok)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).includes('pk%5F')%3Fc.replace(%2F(%5B%3F%26%5D)pk%5F(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'):c).replace(%2F%26%26%2B%2Fg%2C'%26'))%5B0%7Cc.length-1%5D%7C%7C'')%3Fc.substr(0%2Cc.length-1):c)%5B0%5D%7C%7C'')%3F'%3F'%2Bc:c).includes('%3F%26')%3F'%3F'%2Bc.substr(2):c).length%3C3%26%26(c='')%2Ce=e.replace(%2F%5C%2Famp%5C%2F%3F%24%2F%2C'')%2Cl===c%26%26r===e%7C%7Cconfirm('Update%20history%20and%20copy%20cleaned%20URL%20to%20clipboard%3F')%26%26(i=location.protocol%2B'%2F%2F'%2Blocation.host%2Be%2Bc%2Blocation.hash%2Cnavigator.clipboard.writeText(i)%2Chistory.replaceState(null%2Cnull%2Ci)%2Cwindow.open(i%2C'%5Fself'%2C'noreferrer').opener=null)%7Dvoid%200%3Bvoid'1.8.9' "Setup UtmStrip"
-[Setup unskim]: https://mobilemind.github.io/OpenInlets/x/#javascript:var%20e%2Cn=new%20URL(document.location.href)%3Bif(''!=(n='safari-resource:%2FErrorPage.html'==n.href%26%26(e=document.querySelector('p.error-message')%3F.textContent.match(%2FSafari%20can%E2%80%99t%20open%20the%20page%20%E2%80%9C(https%3F:%5B%5E%E2%80%9D%5D%2B)%E2%80%9D%2F)%3F.%5B1%5D)%3Fnew%20URL(e):n).search)%7Blet%20t=new%20URLSearchParams(n.search)%2Cr=null%2Ca=''%2Co=!1%3B%5B'url'%2C'destination'%2C'redirect'%2C'target'%2C'goto'%2C'u'%2C'dest'%2C'link'%2C'out'%5D.forEach(e=%3E%7B!o%26%26t.has(e)%26%26(a=decodeURIComponent(t.get(e))).match(%2F%5Ehttps%3F:%2F)%26%26(r=new%20URL(a)%2Co=!0)%7D)%2Co%26%26window.location.replace(r)%7Dvoid%200%3Bvoid'1.0.0' "Setup unskim"
-[Setup x-man]: https://mobilemind.github.io/OpenInlets/x/#javascript:%7Blet%20i=navigator.userAgent%2Co=i.includes('Chrome%2F')%7C%7Ci.includes('Firefox%2F')%7C%7Ci.includes('Brave%2F')%7C%7Ci.includes('Edg%2F')%2Cn=i.includes('Safari%2F')%2Ce=!o%26%26!n%2Ct=navigator.platform.startsWith('Mac')%26%26n%26%26!o%26%26!e%26%26!navigator.maxTouchPoints%26%26navigator.maxTouchPoints%3C2%2Ca=window.getSelection().toString().split('%5Cn')%5B0%5D.trim()%2Cl='x-man-page:%2F%2F'%2Cr=a.match(%2F%5E(.%2A%3F)%5C((%5Cd)%5C)%24%2F)%3Bif(l%2B=r%3F1==r%5B2%5D%3Fr%5B1%5D:r%5B2%5D%2B'%2F'%2Br%5B1%5D:a%2Ca)%7Bif(confirm(%60Link%20for%20%22%24%7Ba%7D%22%20is:%20%24%7Bl%7D%0A%0ACopy%20to%20clipboard%3F%60))%7Blet%20o=''%3Bif(navigator.clipboard%3Fnavigator.clipboard.writeText(l):(o=%60Unable%20to%20copy%20%22%24%7Bl%7D%22%20to%20clipboard.%60%2Cl='')%2Ct%26%26''!=l)%7Blet%20i=null%3Btry%7B(i=window.open(l)).opener=null%7Dcatch(i)%7Bo=%60Popup%20window%20blocked.%20Unable%20to%20open%20new%20link%20with%20Terminal%2C%20but%20clipboard%20contains%20%22%24%7Bl%7D%22%60%7Dfinally%7Bwindow.focus()%2Cnull!==i%26%26setTimeout(()=%3E%7Bi.close()%7D%2C3333)%7D%7Delse''!=l%26%26(o=%60Browser%20doesn't%20look%20like%20Mac%20Safari.%20Unable%20to%20open%20new%20link%20with%20Terminal%2C%20but%20clipboard%20contains%20%22%24%7Bl%7D%22%60)%3B''!=o%26%26alert(o)%7Dwindow.getSelection().empty()%7Dvoid%200%7Dvoid'1.2.1' "Setup x-man"
+[Setup deLighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3Bdocument.location.reload()%3Bvoid'1.3.0' "Setup deLighter"
+[Setup FYI]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3B(()=%3E%7Bconst%20e=encodeURIComponent(document.title)%2Ct='%250A'%2Cn=window.getSelection()%2Co=n%26%26'Range'===n.type%26%26n.rangeCount%3E0%3Fn.getRangeAt(0).toString():''%3Blocation.href=%60mailto:%3Fsubject=fyi:%24%7Be%7D%26body=%24%7Be%7D%24%7Bt%7D%24%7BencodeURIComponent(document.URL)%7D%24%7Bt%7D---%24%7Bt%7D%24%7BencodeURIComponent(o)%7D%24%7Bt%7D%24%7Bt%7D%60%7D)()%3Bvoid'3.3.0' "Setup FYI"
+[Setup IsItAws]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3Blocation.href='https:%2F%2Fisitonaws.com%2Fdiscover%3Fname='%2Blocation.host%3Bvoid'1.3.4' "Setup IsItAws"
+[Setup KillStickyHeaders]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3B(()=%3E%7Bconst%20o=document.querySelectorAll('body%20%2A')%3Bfor(const%20e%20of%20Array.from(o))if('fixed'===getComputedStyle(e).position)%7Bconst%20o=e.parentNode%3Bo%26%26o.removeChild(e)%7D%7D)()%3Bvoid'2.0.0' "Setup KillStickyHeaders"
+[Setup Linklighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3B(()=%3E%7Bconst%20e=window.getSelection()%3Bif(!e)return%3Bconst%20n=e.toString()%2Ct=n.length%2Ci=document.URL%3Blet%20o=i%2Cc=i.indexOf('%23')%2Cl=''%3Bif(e.empty()%2Cn%26%26''!==n)%7Bif(c%3E-1%26%26(o=o.substring(0%2Cc))%2Co%2B='%23:~:text='%2C80%3Et)l=n%2Co%2B=encodeURIComponent(n)%3Belse%7Blet%20e=~~(t%2F2-2)%3Bt%3E150%3Fe=48:t%3E100%26%26(e=~~(t%2F3))%2Cl=n.substring(0%2Ce)%3Bconst%20i=%5BencodeURIComponent(l)%2CencodeURIComponent(n.slice(t-e))%5D%3Bl%2B='%E2%80%A6'%2Cc=i%5B0%5D.lastIndexOf('%2520')%2Cc%3E-1%26%26(i%5B0%5D=i%5B0%5D.substring(0%2Cc))%2Cc=i%5B1%5D.indexOf('%2520')%2Cc%3E-1%26%26(i%5B1%5D=i%5B1%5D.slice(c%2B3))%2Co%2B=i.join()%7Do=o.replace(%2F(%250A%7C%2520A)%2B%24%2F%2C'')%2Co=o.replace(%2F%23%23%2B:~:text=%2F%2C'%23:~:text=')%7Dif(o!==i%26%26confirm(%60Open%20URL%20with%20highlight%20on%20%22%24%7Bl%7D%22%20and%20copy%20URL%20to%20clipboard%3F%5Cn%5CnNote:%20If%20text%20isn't%20highlighted%20in%20new%20tab%2C%20you%20can%20try%20again%20with%20a%20smaller%20selection.%60))%7Bnavigator.clipboard.writeText(o)%3Bconst%20e=window.open(o%2C'%5Fblank')%3Be%26%26(e.opener=null)%7D%7D)()%3Bvoid'2.0.0' "Setup Linklighter"
+[Setup OpenInBrave]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='brave:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.1.0' "Setup OpenInBrave"
+[Setup OpenInFirefox]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.6.0' "Setup OpenInFirefox"
+[Setup OpenInFirefox-Focus]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=%60firefox-focus:%2F%2Fopen-url%3Furl=%24%7BencodeURIComponent(location.href)%7D%26private=true%60%3Bvoid'1.1.0' "Setup OpenInFirefox-Focus"
+[Setup OpenInFirefox-Private]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=%60firefox:%2F%2Fopen-url%3Furl=%24%7BencodeURIComponent(location.href)%7D%26private=true%60%3Bvoid'1.1.0' "Setup OpenInFirefox-Private"
+[Setup OpenInGoodReader]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26%2F%5C.pdf(%24%7C%5C%3F)%2F.test(location.href))location.href='gr'%2Blocation.href%3Bvoid'1.5.0' "Setup OpenInGoodReader"
+[Setup OpenInTextastic]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent))location.href=location.href.replace(%2F%5Ehttps%3F%2F%2C'textastic')%3Bvoid'1.1.0' "Setup OpenInTextastic"
+[Setup OpenInWorkingCopy]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3Bif(%2FiP(.d%7Chone)%2F.test(navigator.userAgent)%26%26('bitbucket.org'===location.host%7C%7C'github.com'===location.host))location.href=%60working-copy:%2F%2Fshow%3Fremote=%24%7BencodeURIComponent(location.href.split('%2F').slice(0%2C5).join('%2F'))%7D.git%60%3Bvoid'1.6.0' "Setup OpenInWorkingCopy"
+[Setup OpenURLParam]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3Bconst%20c=location.search.search('url=')%3Bif(c%3E-1)%7Blet%20o=location.search.slice(4%2Bc)%3Bconst%20t=o.indexOf('%26')%3Bif(t%3E-1%26%26(o=o.slice(0%2Ct))%2Co.length%3E5)%7Bconst%20c=decodeURIComponent(o)%3Btry%7Bconst%20o=new%20URL(c%2Clocation.href)%3B'https:'===o.protocol%26%26location.replace(o.href)%7Dcatch%7B%7D%7D%7Dvoid'1.1.0' "Setup OpenURLParam"
+[Setup UtmStrip]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3B(()=%3E%7Bconst%20e=location.pathname%2Cc=location.search%3Bif(3%3Ec.length%26%26!e.includes('%2Famp'))return%3Blet%20i=e%2Ca=c%3Bconst%20r=location.hostname%3Bif(r.includes('aliexpress.')%26%26(a=a.replace(%2F(%5B%3F%26%5D)aff%5F(platform%7Ctrace%5Fkey)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)algo%5F%5Bep%5Dvid=%5B%5E%26%5D%2B%2Fg%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)(btsid%7Cws%5Fab%5Ftest)=%5B%5E%26%5D%2B%2Fg%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)s%5Bcp%5Dm=%5B%5E%26%5D%2B%2Fg%2C'%241'))%2C%2F(%7C%5C.)amazon%5C.com%24%2F.test(r)%26%26(a=a.replace(%2F(%5B%3F%26%5D)(%5Fencoding%7Cie%7ClinkCode%7ClinkId%7Cpf%7Cpsc%7Cref%5F%7Ctag)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)p%5Bdf%5D%5Frd%5F.%2A%3F=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)(content-id%7Ccrid%7Ccv%5Fct%5Fcx%7Clanguage%7Cqid%7Csprefix%7Csr%7Cth)=%5B%5E%26%5D%2B%2Fg%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)asc(%5Fcampaign%7C%5Frefurl%7C%5Fsource%7Csubtag)=%5B%5E%26%5D%2B%2Fg%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)dib(%5Ftag)%3F=%5B%5E%26%5D%2B%2Fg%2C'%241'))%2Ca.includes('fb%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)fb%5F(action%5Fids%7Caction%5Ftypes%7Cref%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)(fbclid%7Chrc%7Crefsrc)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca.includes('action%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)action%5F(object%7Cref%7Ctype)%5Fmap=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca=a.replace(%2F(%5B%3F%26%5D)(assetType%7CelqTrack%7Cmkt%5Ftok%7CoriginalReferer%7Creferrer%7Cterminal%5Fid%7Ctrk%7CtrkCampaign%7CtrkInfo)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca.includes('aff%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)aff%5F(platform%7Ctrace%5Fkey)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca.toLowerCase().includes('id=')%26%26(a=a.replace(%2F(%5B%3F%26%5D)(an%7Casset%7Ccampaign%7Ce%7Cgcl%7Crecipient%7Csite)id=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(a.includes('ga%5F')%7C%7Ca.includes('utm%5F'))%26%26(a=a.replace(%2F(%5B%3F%26%5D)(ga%7Cutm)%5F(campaign%7Ccid%7Ccontent%7Cdesign%7Cmedium%7Cname%7Cplace%7Cpubreferrer%7Creader%7Csource%7Cswu%7Cterm%7Cuserid%7Cviz%5Fid)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)gcl(id%7Csrc)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(%2F(m%7Cwww)%5C.youtube%5C.com%24%2F.test(r)%7C%7C'youtu.be'===r%7C%7C'www.youtube-nocookie.com'===r)%26%26(a=a.replace(%2F(%5B%3F%26%5D)(ac%7Cannotation%5Fid%7Capp%7Cfeature%7Cgclid%7Ckw%7Csrc%5Fvid)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(a.includes('%5Fhsenc')%7C%7Ca.includes('%5Fhsmi'))%26%26(a=a.replace(%2F(%5B%3F%26%5D)%5Fhs(enc%7Cmi)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca.includes('hmb%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)hmb%5F(campaign%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca.includes('cm%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)cm%5F(mmc%7Cmmca%5Cd%2B%7Cre%7Csp)=%5B%5E%26%5D%2B%2Fgi%2C'%241')%2Ca=a.replace(%2F(%5B%3F%26%5D)manual%5Fcm%5Fmmc=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(a.includes('mc%5Fcid')%7C%7Ca.includes('mc%5Feid'))%26%26(a=a.replace(%2F(%5B%3F%26%5D)mc%5F%5Bce%5Did=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2C(a.includes('iesrc')%7C%7Ca.includes('mkt%5Ftok'))%26%26(a=a.replace(%2F(%5B%3F%26%5D)(iesrc%7Cmkt%5Ftok)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca.includes('pk%5F')%26%26(a=a.replace(%2F(%5B%3F%26%5D)pk%5F(campaign%7Ccontent%7Ckwd%7Cmedium%7Csource)=%5B%5E%26%5D%2B%2Fgi%2C'%241'))%2Ca=a.replace(%2F%26%26%2B%2Fg%2C'%26')%2C'%26'===a.charAt(a.length-1)%26%26(a=a.slice(0%2C-1))%2C'%3F'!==a.charAt(0)%26%26(a='%3F'%2Ba)%2Ca.includes('%3F%26')%26%26(a='%3F'%2Ba.slice(2))%2C3%3Ea.length%26%26(a='')%2Ci=i.replace(%2F%5C%2Famp%5C%2F%3F%24%2F%2C'')%2C(c!==a%7C%7Ce!==i)%26%26confirm('Update%20history%20and%20copy%20cleaned%20URL%20to%20clipboard%3F'))%7Bconst%20e=%60%24%7Blocation.protocol%7D%2F%2F%24%7Blocation.host%7D%24%7Bi%7D%24%7Ba%7D%24%7Blocation.hash%7D%60%3Bnavigator.clipboard.writeText(e)%2Chistory.replaceState(null%2C''%2Ce)%3Bconst%20c=window.open(e%2C'%5Fself'%2C'noreferrer')%3Bc%26%26(c.opener=null)%7D%7D)()%3Bvoid'2.0.0' "Setup UtmStrip"
+[Setup unskim]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3B(()=%3E%7Blet%20e=new%20URL(document.location.href)%3Bif('safari-resource:%2FErrorPage.html'===e.href)%7Bconst%20t=document.querySelector('p.error-message')%3F.textContent%3F.match(%2FSafari%20can't%20open%20the%20page%20%22(https%3F:%5B%5E%22%5D%2B)%22%2F)%3F.%5B1%5D%3Bt%26%26(e=new%20URL(t))%7Dif(''===e.search)return%3Bconst%20t=new%20URLSearchParams(e.search)%2Cr=%5B'url'%2C'destination'%2C'redirect'%2C'target'%2C'goto'%2C'u'%2C'dest'%2C'link'%2C'out'%5D.filter((e=%3Et.has(e))).map((e=%3E%7Bconst%20r=t.get(e)%3Breturn%20r%3FdecodeURIComponent(r):''%7D)).find((e=%3Ee.match(%2F%5Ehttps%3F:%2F)))%3Br%26%26window.location.replace(new%20URL(r))%7D)()%3Bvoid'2.0.0' "Setup unskim"
+[Setup x-man]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3B(()=%3E%7Bconst%20n=navigator.userAgent%2Co=n.includes('Chrome%2F')%7C%7Cn.includes('Firefox%2F')%7C%7Cn.includes('Brave%2F')%7C%7Cn.includes('Edg%2F')%2Ci=n.includes('Safari%2F')%2Ct=!o%26%26!i%2Ce=navigator.platform.startsWith('Mac')%26%26i%26%26!o%26%26!t%26%26!navigator.maxTouchPoints%26%262%3Enavigator.maxTouchPoints%2Ca=window.getSelection()%3Bif(!a)return%3Bconst%20l=a.toString().split('%5Cn')%5B0%5D.trim()%3Blet%20r='x-man-page:%2F%2F'%3Bconst%20c=l.match(%2F%5E(.%2A%3F)%5C((%5Cd)%5C)%24%2F)%3Bif(r%2B=c%3F'1'===c%5B2%5D%3Fc%5B1%5D:%60%24%7Bc%5B2%5D%7D%2F%24%7Bc%5B1%5D%7D%60:l%2Cl)%7Bif(confirm(%60Link%20for%20%22%24%7Bl%7D%22%20is:%20%24%7Br%7D%5Cn%5CnCopy%20to%20clipboard%3F%60))%7Blet%20n=''%3Bif(navigator.clipboard%3Fnavigator.clipboard.writeText(r):(n=%60Unable%20to%20copy%20%22%24%7Br%7D%22%20to%20clipboard.%60%2Cr='')%2Ce%26%26''!==r)%7Blet%20o=null%3Btry%7Bo=window.open(r)%2Co%26%26(o.opener=null)%7Dcatch(o)%7Bn=%60Popup%20window%20blocked.%20Unable%20to%20open%20new%20link%20with%20Terminal%2C%20but%20clipboard%20contains%20%22%24%7Br%7D%22%60%7Dfinally%7Bwindow.focus()%2Cnull!==o%26%26setTimeout((()=%3E%7Bo%26%26o.close()%7D)%2C3333)%7D%7Delse''!==r%26%26(n=%60Browser%20doesn't%20look%20like%20Mac%20Safari.%20Unable%20to%20open%20new%20link%20with%20Terminal%2C%20but%20clipboard%20contains%20%22%24%7Br%7D%22%60)%3B''!==n%26%26alert(n)%7Da.empty()%7D%7D)()%3Bvoid'1.3.0' "Setup x-man"
 
 <!-- Reference links -->
 
 [nodejs]: http://nodejs.org/
 [npm]: https://npmjs.org/
-[grunt]: http://gruntjs.com/
 [kiding-gist 589242021df49eb17be3]: https://gist.github.com/kiding/589242021df49eb17be3/
 "safari-utm-stripper Bookmarklet"
 [IsItOnAWS.com]: https://isitonaws.com/
