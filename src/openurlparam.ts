@@ -9,7 +9,17 @@ if (u > -1) {
         t = t.slice(0, p);
     }
     if (t.length > 5) {
-        // decode URL and navigate to it
-        location.replace(encodeURI(decodeURIComponent(t)));
+        // decode URL and validate it before navigating
+        const decodedUrl: string = decodeURIComponent(t);
+        try {
+            // Parse URL to validate it's well-formed
+            const urlObj: URL = new URL(decodedUrl, location.href);
+            // Only allow https scheme to prevent XSS and enforce secure connections
+            if (urlObj.protocol === "https:") {
+                location.replace(urlObj.href);
+            }
+        } catch (e) {
+            // Invalid URL - do nothing
+        }
     }
 }
