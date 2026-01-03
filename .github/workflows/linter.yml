@@ -48,12 +48,14 @@ jobs:
         env:
           ACTIONS_RUNNER_DEBUG: false
           DEFAULT_BRANCH: main
-          FILTER_REGEX_EXCLUDE: dist\/.*\.bookmarklet
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LOG_LEVEL: NOTICE
+          FILTER_REGEX_EXCLUDE: dist\/.*\. bookmarklet
+          GITHUB_TOKEN: ${{ secrets. GITHUB_TOKEN }}
+          LOG_LEVEL:  NOTICE
           SUPPRESS_POSSUM: true
           VALIDATE_ALL_CODEBASE: true
-          VALIDATE_JAVASCRIPT_ES: false
-          VALIDATE_JAVASCRIPT_STANDARD: false
-          VALIDATE_TYPESCRIPT_ES: false
-          VALIDATE_TYPESCRIPT_STANDARD: false
+          # Only validate these specific things
+          VALIDATE_BASH: true
+          VALIDATE_BASH_EXEC: true
+          VALIDATE_GITHUB_ACTIONS: true
+          VALIDATE_JSON: true
+          VALIDATE_YAML: true
