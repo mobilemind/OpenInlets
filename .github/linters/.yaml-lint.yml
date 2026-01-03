@@ -2,7 +2,7 @@
 ignore: |
   codeql-analysis.yml
   linter.yml
-  npm-grunt.yml
+  ci.yml
   /node_modules/
   /web/
 
