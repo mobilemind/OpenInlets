@@ -195,7 +195,7 @@ using a URL protocol scheme.
   child elements of `<body>` that have a fixed position. See
   [Kill sticky headers][Kill sticky headers].
 + __Linklighter__: Does _not_ use a URL protocol scheme. Gets the current
-  selection uses it to create a "Text Fragment" URL (e.g., appends `#:~:text=…`
+  selection and uses it to create a "Text Fragment" URL (e.g., appends `#:~:text=…`
   to the current URL. Browsers interpret this and when opening such a URL, they
   scroll to the first matching selection and highlight that text. Bookmarklet
   logic optimizes fragment. Depending on the selection, it will use the whole
