@@ -100,7 +100,7 @@ tools
 **Pre-requisite**: If preflight fails because `.git/hooks/pre-push` doesn't
 match `./pre-push`, run:
 
-```bash
+```sh
 cp -fpv pre-push .git/hooks
 ```
 
@@ -246,7 +246,7 @@ December 18, 2025, or until js-yaml is updated. This is documented in:
 
 **Issue**: If you see `EBADENGINE Unsupported engine` warnings:
 
-```bash
+```text
 npm warn EBADENGINE required: { node: '>=24.12.0', npm: '>=11.6.0' }
 npm warn EBADENGINE current: { node: 'v20.19.6', npm: '10.8.2' }
 ```
@@ -260,7 +260,11 @@ to enforce these requirements.
 **Issue**: preflight fails with "pre-push and active .git/hooks/pre-push
 differ".
 
-**Fix**: Run `cp -fpv pre-push .git/hooks` to install the pre-push hook.
+**Fix**: Run the following to install the pre-push hook:
+
+```sh
+cp -fpv pre-push .git/hooks
+```
 
 ### Missing Optional Tools
 
@@ -270,11 +274,19 @@ actionlint, cspell) aren't installed.
 **Workaround**: These checks are non-blocking locally but will run in CI.
 Install tools for full validation:
 
-- shellcheck: `brew install shellcheck` or `apt install shellcheck`
-- yamllint: `pip install yamllint`
-- actionlint: `brew install actionlint` or download from
-  <https://github.com/rhysd/actionlint>
-- cspell: `npm install -g cspell`
+```sh
+# shellcheck
+brew install shellcheck  # or: apt install shellcheck
+
+# yamllint
+pip install yamllint
+
+# actionlint
+brew install actionlint  # or download from https://github.com/rhysd/actionlint
+
+# cspell
+npm install -g cspell
+```
 
 ## Key Files Reference
 
