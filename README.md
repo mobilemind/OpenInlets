@@ -83,7 +83,7 @@ that URL.
 
 + __[UtmStrip] v2.1.0__: Strips off the UTM query string elements of the
 current URL to remove common "urchin" tracking information from youtube, etc.
-Also removes Google `/amp/` suffix fromU URL path. Asks to copy the new URL
+Also removes Google `/amp/` suffix from URL path. Asks to copy the new URL
 to the clipboard. Finally, replaces history & reloads the page. _NOTE:_ This
 bookmarklet also works with Safari and Firefox on macOS.
 
