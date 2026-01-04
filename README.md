@@ -200,7 +200,7 @@ using a URL protocol scheme.
   scroll to the first matching selection and highlight that text. Bookmarklet
   logic optimizes fragment. Depending on the selection, it will use the whole
   selection, a start/end fragment pair, and/or a prefix or suffix. Browsers
-  will highlights the first "best" match. To learn more about text fragment
+  will highlight the first "best" match. To learn more about text fragment
   highlighting, refer to [Text fragments][Text fragments]. Works with Safari
   on Apple platforms, and Google Chrome for desktops.
 + __OpenInBrave__ - Uses the `brave://open-url?url=` scheme for the Brave app
