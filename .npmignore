@@ -6,6 +6,7 @@
 .github/
 .gitignore
 .npmrc
+.temp/
 node_modules/
 npm-debug.log
 pre-push
