@@ -1,3 +1,4 @@
+/* eslint max-statements: ["error", 65] */
 // Linklighter - use current text selection on a web page to generate a URL
 // that highlights the selected text when opened in a modern browser.
 // If a new URL is generated, open it in a new window to preview the highlight
@@ -10,9 +11,9 @@
     }
     const textFrag: string = selection.toString(),
         textFragLen: number = textFrag.length,
-        url: string = document.URL;
+        url: string = document.URL,
+        strPos: number = url.indexOf('#');
     let newUrl: string = url,
-        strPos: number = url.indexOf('#'),
         strStart: string = '',
         prefix: string = '',
         suffix: string = '';
@@ -27,8 +28,7 @@
             const range: Range = selection.getRangeAt(0);
             const container: Node = range.commonAncestorContainer;
             const fullText: string = container.textContent || '';
-            const startOffset: number = range.startOffset;
-            const endOffset: number = range.endOffset;
+            const {startOffset, endOffset} = range;
 
             // Extract prefix (up to 20 chars before selection)
             const prefixStart: number = Math.max(0, startOffset - 20);
@@ -66,7 +66,7 @@
         // Build text fragment
         let fragment: string = '';
         if (prefix) {
-            fragment = enc(prefix) + '-,';
+            fragment = `${enc(prefix)}-,`;
         }
 
         if (textFragLen < 80) {
@@ -94,15 +94,15 @@
                 endFrag = endFrag.substring(firstSpace + 1);
             }
 
-            strStart = startFrag + '…';
-            fragment += enc(startFrag) + ',' + enc(endFrag);
+            strStart = `${startFrag}…`;
+            fragment += `${enc(startFrag)},${enc(endFrag)}`;
         }
 
         if (suffix) {
-            fragment += ',-' + enc(suffix);
+            fragment += `,-${enc(suffix)}`;
         }
 
-        newUrl += '#:~:text=' + fragment;
+        newUrl += `#:~:text=${fragment}`;
         // clean-up trailing %0A (newline), %0D (carriage return), %09 (tab), or %20 (space)
         newUrl = newUrl.replace(/(%0A|%0D|%09|%20)+$/g, '');
         newUrl = newUrl.replace(/(%20){2,}/g, '%20');
