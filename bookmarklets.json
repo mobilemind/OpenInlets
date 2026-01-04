@@ -73,12 +73,12 @@
     {
       "name": "unskim",
       "file": "unskim.bookmarklet",
-      "version": "2.0.0"
+      "version": "2.0.1"
     },
     {
       "name": "x-man",
       "file": "x-man.bookmarklet",
-      "version": "1.3.0"
+      "version": "1.3.1"
     }
   ]
 }
