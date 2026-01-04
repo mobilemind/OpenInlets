@@ -104,7 +104,7 @@
 
         newUrl += `#:~:text=${fragment}`;
         // clean-up trailing %0A (newline), %0D (carriage return), %09 (tab), or %20 (space)
-        newUrl = newUrl.replace(/(%0A|%0D|%09|%20)+$/g, '');
+        newUrl = newUrl.replace(/(%0A|%0D|%09|%20)+$/, '');
         newUrl = newUrl.replace(/(%20){2,}/g, '%20');
         newUrl = newUrl.replace(/##+:~:text=/, '#:~:text=');
     }
