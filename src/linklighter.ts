@@ -1,33 +1,77 @@
+/* eslint max-statements: ["error", 65] */
 // Linklighter - use current text selection on a web page to generate a URL
 // that highlights the selected text when opened in a modern browser.
 // If a new URL is generated, open it in a new window to preview the highlight
 
 (() => {
+    const enc: typeof encodeURIComponent = encodeURIComponent;
     const selection: Selection | null = window.getSelection();
     if (!selection) {
         return;
     }
     const textFrag: string = selection.toString(),
         textFragLen: number = textFrag.length,
-        url: string = document.URL;
+        url: string = document.URL,
+        strPos: number = url.indexOf('#');
     let newUrl: string = url,
-        strPos: number = url.indexOf('#'),
-        strStart: string = '';
+        strStart: string = '',
+        prefix: string = '',
+        suffix: string = '';
+
+    // Check for duplicate text and get context if needed
+    if (selection.rangeCount > 0 && textFrag) {
+        const bodyText: string = document.body.textContent || '';
+        const occurrences: number = bodyText.split(textFrag).length - 1;
+
+        // Only add prefix/suffix if text appears multiple times
+        if (occurrences > 1) {
+            const range: Range = selection.getRangeAt(0);
+            const container: Node = range.commonAncestorContainer;
+            const fullText: string = container.textContent || '';
+            const {startOffset, endOffset} = range;
+
+            // Extract prefix (up to 20 chars before selection)
+            const prefixStart: number = Math.max(0, startOffset - 20);
+            prefix = fullText.substring(prefixStart, startOffset).trim();
+            // If we cut mid-word at start, shift start forward to first complete word
+            if (prefixStart > 0 && fullText.charAt(prefixStart - 1) !== ' ') {
+                const firstSpace: number = prefix.indexOf(' ');
+                if (firstSpace > 0) {
+                    prefix = prefix.substring(firstSpace + 1);
+                }
+            }
+
+            // Extract suffix (up to 20 chars after selection)
+            const suffixEnd: number = Math.min(fullText.length, endOffset + 20);
+            suffix = fullText.substring(endOffset, suffixEnd).trim();
+            // If we cut mid-word at end, shift end backward to last complete word
+            if (suffixEnd < fullText.length && fullText.charAt(suffixEnd) !== ' ') {
+                const lastSpace: number = suffix.lastIndexOf(' ');
+                if (lastSpace > 0) {
+                    suffix = suffix.substring(0, lastSpace);
+                }
+            }
+        }
+    }
 
     // reset selection
-    selection.empty();
+    selection.removeAllRanges();
     // use text fragment or split it into subfragments
     if (textFrag && textFrag !== '') {
         // trim named anchor off of end of url
         if (strPos > -1) {
             newUrl = newUrl.substring(0, strPos);
         }
-        // append 1st part of suffix
-        newUrl += '#:~:text=';
+
+        // Build text fragment
+        let fragment: string = '';
+        if (prefix) {
+            fragment = `${enc(prefix)}-,`;
+        }
+
         if (textFragLen < 80) {
             strStart = textFrag;
-            // append selection as a single fragment
-            newUrl += encodeURIComponent(textFrag);
+            fragment += enc(textFrag);
         } else {
             // sub-fragment default length is < 1/2 selection length
             let subLen: number = ~~((textFragLen / 2) - 2);
@@ -37,35 +81,45 @@
                 subLen = ~~(textFragLen / 3);
             }
             // create start & end subfragments of selection
-            strStart = textFrag.substring(0, subLen);
-            const subFrag: string[] = [encodeURIComponent(strStart),
-                encodeURIComponent(textFrag.slice(textFragLen - subLen))];
-            strStart += '…';
-            // trim start string- truncate at last space
-            strPos = subFrag[0].lastIndexOf('%20');
-            if (strPos > -1) {
-                subFrag[0] = subFrag[0].substring(0, strPos);
+            let startFrag: string = textFrag.substring(0, subLen);
+            let endFrag: string = textFrag.slice(textFragLen - subLen);
+
+            // Improve word boundary awareness - trim to last/first word boundary
+            const lastSpace: number = startFrag.lastIndexOf(' ');
+            if (lastSpace > subLen / 2) {
+                startFrag = startFrag.substring(0, lastSpace);
             }
-            // trim end string- drop text before first space
-            strPos = subFrag[1].indexOf('%20');
-            if (strPos > -1) {
-                subFrag[1] = subFrag[1].slice(strPos + 3);
+            const firstSpace: number = endFrag.indexOf(' ');
+            if (firstSpace > -1 && firstSpace < subLen / 2) {
+                endFrag = endFrag.substring(firstSpace + 1);
             }
-            // append selection as start & end subfragments
-            newUrl += subFrag.join();
+
+            strStart = `${startFrag}…`;
+            fragment += `${enc(startFrag)},${enc(endFrag)}`;
         }
-        // clean-up trailing %0A (newline) or %20 (space)
-        // and any leading double-hash, just in case
-        newUrl = newUrl.replace((/(%0A|%20A)+$/), '');
+
+        if (suffix) {
+            fragment += `,-${enc(suffix)}`;
+        }
+
+        newUrl += `#:~:text=${fragment}`;
+        // clean-up trailing %0A (newline), %0D (carriage return), %09 (tab), or %20 (space)
+        newUrl = newUrl.replace(/(%0A|%0D|%09|%20)+$/, '');
+        newUrl = newUrl.replace(/(%20){2,}/g, '%20');
         newUrl = newUrl.replace(/##+:~:text=/, '#:~:text=');
     }
     if (newUrl !== url) {
-        if (confirm(`Open URL with highlight on "${strStart}" and copy URL to clipboard?\n\nNote: If text isn't highlighted in new tab, you can try again with a smaller selection.`)) {
-            // send to clipboard & open in new window
-            navigator.clipboard.writeText(newUrl);
+        if (confirm(`Open URL with highlight on "${strStart}" and copy URL to clipboard?`)) {
+            // Copy to clipboard with error feedback
+            navigator.clipboard.writeText(newUrl).catch(() => {
+                alert('Could not copy to clipboard. URL is in the new tab.');
+            });
+
             const newWindow: Window | null = window.open(newUrl, '_blank');
             if (newWindow) {
                 newWindow.opener = null;
+            } else {
+                alert('Popup blocked. URL copied to clipboard.');
             }
         }
     }

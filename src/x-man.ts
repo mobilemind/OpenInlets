@@ -44,7 +44,7 @@
                     newWin.opener = null;
                   }
                 } catch (e) {
-                  alertMsg = `Popup window blocked. Unable to open new link with Terminal, but clipboard contains "${xman}"`;
+                  alertMsg = `Popup window blocked. Clipboard contains "${xman}"`;
                   if (e instanceof Error) {
                     console.error(e.name, e.message);
                   }
@@ -59,7 +59,7 @@
                   }
                 }
             } else if (xman !== '') {
-              alertMsg = `Browser doesn't look like Mac Safari. Unable to open new link with Terminal, but clipboard contains "${xman}"`;
+              alertMsg = `Unable to open new link with Terminal. Clipboard contains "${xman}"`;
             }
             if (alertMsg !== '' ) {
               alert(alertMsg);

@@ -1,7 +1,8 @@
 {
     "default": true,
     "fenced-code-language": {
-        "allowed_languages": ["bash"],
+        "allowed_languages": ["bash", "javascript", "json", "jsonc", "markdown",
+                              "sh", "text", "typescript", "yaml"],
         "language_only": true
     },
     "line-length": {
@@ -10,3 +11,4 @@
         "line_length": 80
     }
 }
+
