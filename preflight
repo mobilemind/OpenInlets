@@ -109,4 +109,16 @@ fi
 echo '    scripts/*.js, src/*.ts, .github/linters/*.js: TypeScript & JavaScript OK'
 echo
 
+## check for @eslint/mcp updates (pinned in .mcp.json)
+if [ -f .mcp.json ]; then
+  MCP_CURRENT=$(sed -n 's/.*@eslint\/mcp@\([0-9][0-9.]*\).*/\1/p' .mcp.json)
+  if [ -n "$MCP_CURRENT" ]; then
+    MCP_LATEST=$(npm view @eslint/mcp version 2>/dev/null)
+    if [ -n "$MCP_LATEST" ] && [ "$MCP_CURRENT" != "$MCP_LATEST" ]; then
+      echo "  NOTE: @eslint/mcp $MCP_LATEST available (pinned: $MCP_CURRENT) - update .mcp.json"
+    fi
+  fi
+fi
+echo
+
 echo '  OK, preflight checks passed.'

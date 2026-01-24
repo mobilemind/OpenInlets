@@ -8,6 +8,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  statuses: write
+
 # Prevent concurrent runs for the same PR/branch
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
