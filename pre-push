@@ -51,8 +51,8 @@ echo
 # Once js-yaml vulnerabilities are resolved, change to: npm audit --audit-level=moderate || exit 4
 echo
 echo '  Checking for npm security vulnerabilities'
-npm audit --audit-level=moderate || exit 4
-echo "    ok, no moderate+ vulnerabilities found."
+if npm audit --audit-level=moderate ; then
+	echo "    ok, no moderate+ vulnerabilities found."
 else
 	echo "    WARNING: npm audit found moderate or higher vulnerabilities (temporarily non-blocking)"
 	echo "    Run 'npm audit' for details"
