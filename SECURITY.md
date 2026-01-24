@@ -137,7 +137,7 @@ attacks:
   - Require branches to be up to date before merging: ✓
   - Required status checks:
     - `Analyze (javascript)` - CodeQL security analysis
-    - `Build Summary` - Build and test completion across Node.js versions
+    - `build` - Build and test completion across Node.js versions
     - `Lint Code Base` - Code quality and style checks
 
 - **Require signed commits**
@@ -153,16 +153,11 @@ attacks:
   - Only repository administrators can push directly
 
 - **Rules applied to administrators**
-  - Include administrators: ✓
-  - Even admins must follow branch protection rules
+  - Admins can push commits to pull request branches (bypass mode: pull_request)
+  - Admins still require passing status checks and reviews to merge
 
 - **Allow force pushes**: ✗ (disabled)
 - **Allow deletions**: ✗ (disabled)
-
-#### Additional Protections
-
-- **Lock branch**: Consider enabling for release branches
-- **Do not allow bypassing the above settings**: ✓
 
 ### Repository Settings
 
