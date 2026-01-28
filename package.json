@@ -10,12 +10,12 @@
   "description": "Project that makes Safari bookmarklets to automagically jump to the corresponding app and more.",
   "devDependencies": {
     "@eslint/js": "9.39.2",
-    "@types/node": "25.0.10",
+    "@types/node": "25.1.0",
     "@typescript-eslint/eslint-plugin": "8.53.1",
     "@typescript-eslint/parser": "8.53.1",
     "eslint": "9.39.2",
     "eslint-plugin-security": "3.0.1",
-    "globals": "17.1.0",
+    "globals": "17.2.0",
     "terser": "5.46.0",
     "typescript": "5.9.3"
   },
