@@ -236,6 +236,8 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+4.0.2 No functional changes. Hardened install, build, & ci
+
 4.0.0 MAJOR RELEASE - Migrated to TypeScript for type safety & more, updated
 entire build system with more thorough checks, refined CI/CD. No more `grunt`
 for build process. Switched from Uglify-js to Terser for JavaScript compression.
