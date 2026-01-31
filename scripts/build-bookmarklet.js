@@ -20,9 +20,11 @@ function buildBookmarklet(bookmarklet) {
 
     // Read minified code from dist/ directory
     let theCode = readFileOrFail(distPath);
-    
+
     // "unstrict" theCode in simplest cases
     switch(bookmarklet.file) {
+        default:
+            break;
         case 'delighter.js':
         case 'isitaws.js':
         case bookmarklet.file.startsWith('openin') ? bookmarklet.file : false :
