@@ -25,10 +25,10 @@ function buildBookmarklet(bookmarklet) {
     switch(bookmarklet.file) {
         default:
             break;
-        case 'delighter.js':
-        case 'isitaws.js':
+        case 'delighter.bookmarklet':
+        case 'isitaws.bookmarklet':
         case bookmarklet.file.startsWith('openin') ? bookmarklet.file : false :
-        case 'openurlparam.js':
+        case 'openurlparam.bookmarklet':
             theCode = theCode.replace(/^'use strict';/,'');
     }
 

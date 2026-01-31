@@ -118,6 +118,9 @@ To ensure the integrity of published packages and repository security:
   vulnerabilities, plus weekly version update checks
 - **Lockfile Integrity:** npm ci validates package-lock.json integrity (fails
   if corrupted or mismatched)
+- **Lifecycle Script Blocking:** Automatic npm lifecycle scripts (preinstall,
+  postinstall, prepare) are blocked via `ignore-scripts=true` in `.npmrc` to
+  prevent supply chain attacks from malicious packages
 - **SBOM Generation:** Software Bill of Materials attached to every release for
   supply chain transparency
 
@@ -202,7 +205,7 @@ npm run build
 npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
 
 # Run security audit
-npm audit --audit-level=moderate
+npm audit --audit-level=high
 
 # Test bookmarklets manually in target browsers
 ```
