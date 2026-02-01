@@ -1,1 +1,1 @@
-javascript:'use%20strict'%3B(()=%3E%7Bconst%20o=document.querySelectorAll('body%20%2A')%3Bfor(const%20e%20of%20Array.from(o))if('fixed'===getComputedStyle(e).position)%7Bconst%20o=e.parentNode%3Bo%26%26o.removeChild(e)%7D%7D)()%3Bvoid'2.0.0'
+javascript:Array.from(document.querySelectorAll('body%20%2A')).filter(e=%3E%5B'fixed'%2C'sticky'%5D.includes(getComputedStyle(e).position)).forEach(e=%3Ee.remove())%3Bvoid'2.1.0'
