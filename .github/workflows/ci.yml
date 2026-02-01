@@ -34,7 +34,7 @@ jobs:
         cache: 'npm'
 
     - name: Security Audit
-      run: npm audit --omit=dev --audit-level=moderate
+      run: npm audit --omit=dev --audit-level=low
 
     - name: Install Dependencies
       run: npm ci --prefer-offline
