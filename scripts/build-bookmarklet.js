@@ -21,15 +21,9 @@ function buildBookmarklet(bookmarklet) {
     // Read minified code from dist/ directory
     let theCode = readFileOrFail(distPath);
 
-    // "unstrict" theCode in simplest cases
-    switch(bookmarklet.file) {
-        default:
-            break;
-        case 'delighter.bookmarklet':
-        case 'isitaws.bookmarklet':
-        case bookmarklet.file.startsWith('openin') ? bookmarklet.file : false :
-        case 'openurlparam.bookmarklet':
-            theCode = theCode.replace(/^'use strict';/,'');
+    // "unstrict" theCode in simplest cases (no vars or const in bookmarklet)
+    if (! /(const|let|var) /.test(theCode)) {
+        theCode = theCode.replace(/^'use strict';/,'');
     }
 
     // Append version string

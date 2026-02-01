@@ -1,12 +1,5 @@
-// use querySelectorAll() to find & delete all fixed position elements of body
-(() => {
-    const elements: NodeListOf<Element> = document.querySelectorAll('body *');
-    for (const element of Array.from(elements)) {
-        if (getComputedStyle(element).position === 'fixed') {
-            const parent: Node | null = element.parentNode;
-            if (parent) {
-                parent.removeChild(element);
-            }
-        }
-    }
-})();
+// find & delete all fixed/sticky position elements of body
+
+Array.from(document.querySelectorAll('body *'))
+	.filter(el => ['fixed', 'sticky'].includes(getComputedStyle(el).position))
+	.forEach(el => el.remove());
