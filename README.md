@@ -236,6 +236,10 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+4.1.0 Revise 11 bookmarklets- streamline simple ones, modernize KillStickHeaders
+      and OpenURLParam. Update scripts/build-bookmarklets.js to compact bookmarklets
+      that don't use vars.
+
 4.0.2 No functional changes. Hardened install, build, & ci
 
 4.0.0 MAJOR RELEASE - Migrated to TypeScript for type safety & more, updated

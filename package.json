@@ -59,5 +59,5 @@
     "test": "npm run build && npm run verify-build",
     "verify-build": "node scripts/verify-build.js"
   },
-  "version": "4.0.2"
+  "version": "4.1.0"
 }
