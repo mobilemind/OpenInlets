@@ -64,7 +64,7 @@ npm version patch  # or minor, or major
 git push --follow-tags
 
 # Or manually create and push a signed tag
-git tag -s 4.1.0 -m "Release version 4.0.0"
+git tag -s 4.1.0 -m "Release version 4.1.0"
 git push origin 4.1.0
 ```
 
@@ -205,7 +205,7 @@ npm run build
 npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
 
 # Run security audit
-npm audit --audit-level=high
+npm audit --audit-level=low
 
 # Test bookmarklets manually in target browsers
 ```

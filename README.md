@@ -135,7 +135,7 @@ followed link into a bookmark for JavaScript bookmarklet.
 
 + Mobile Safari 11.x or higher (last tested with iOS 26, macOS 26 Safari 26)
 + Corresponding iOS app (_except_ for "delighter", "FYI", "IsItAws",
-"Linklighter", "unskim", "UTMStrip", and "x-man" bookmarklets).
+  "Linklighter", "unskim", "UTMStrip", and "x-man" bookmarklets).
 
 ### Notes
 
@@ -236,7 +236,7 @@ using a URL protocol scheme.
 
 ## Version Notes
 
-4.1.0 Revise 11 bookmarklets- streamline simple ones, modernize KillStickHeaders
+4.1.0 Revise 11 bookmarklets- streamline simple ones, modernize KillStickyHeaders
       and OpenURLParam. Update scripts/build-bookmarklets.js to compact bookmarklets
       that don't use vars.
 
