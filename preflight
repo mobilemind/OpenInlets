@@ -54,10 +54,10 @@ echo
 
 ## npm security audit
 echo '  checking for npm security vulnerabilities'
-if npm audit --audit-level=moderate ; then
-	echo '    npm audit: no moderate+ vulnerabilities found'
+if npm audit --audit-level=low ; then
+	echo '    npm audit: no low+ vulnerabilities found'
 else
-	echo '    --- WARNING: npm audit found moderate or higher vulnerabilities'
+	echo '    --- WARNING: npm audit found low or higher vulnerabilities'
 	echo '        run "npm audit" for details'
 fi
 echo
