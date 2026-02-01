@@ -2,7 +2,7 @@
 
 (() => {
 	// default to getting the current address & making it a URL object to work with
-	let origUrl: URL = new URL(document.location.href);
+	const origUrl: URL = new URL(document.location.href);
 
 	// exit if the current URL object searchParam is less than 11 chars ('https://x.x)
 	if (origUrl.search.length < 11) {
