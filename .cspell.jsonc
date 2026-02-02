@@ -2,8 +2,8 @@
 {
     "allowCompoundWords": true,
     "dictionaries": [
-        "!bash","!cpp","!csharp","dictionary-src-sh","!en-gb","!go","html",
-        "!latex","node","!php","!python","typescript"
+        "!bash","!cpp","!csharp","dictionary-custom","dictionary-src-sh","!en-gb","!go","html",
+        "javascript","!latex","node","!php","!python","typescript"
     ],
     "dictionaryDefinitions": [
         {
@@ -16,13 +16,6 @@
     "ignorePaths": ["node_modules/**","dist/**",".temp/**"],
     "ignoreRegExpList": [
         "entities","mdanchors","regexes","urlencoded","webhosts"
-    ],
-    "languageSettings": [
-        {
-            "dictionaries": ["dictionary-custom"],
-            "languageId": "javascript,typescript,markdown",
-            "locale": "*"
-        }
     ],
     "patterns": [
         {
