@@ -1,0 +1,455 @@
+{
+  "description": "Test URLs for utmstrip.ts refactor validation",
+  "version": "1.0.0",
+  "testCases": [
+    {
+      "name": "Amazon - user provided example",
+      "category": "amazon",
+      "input": "https://www.amazon.com/s?k=5+mm+lead+holder+and+refills&crid=13ICN6SZ22528&sprefix=5+mm+lead+holder+and+refills%2Caps%2C182&ref=nb_sb_noss",
+      "expected": "https://www.amazon.com/s?k=5+mm+lead+holder+and+refills&ref=nb_sb_noss",
+      "note": "crid and sprefix should be stripped, k and ref preserved"
+    },
+    {
+      "name": "Amazon - pd_rd parameters",
+      "category": "amazon",
+      "input": "https://www.amazon.com/dp/B08N5WRWNW?pd_rd_i=B08N5WRWNW&pd_rd_r=abc123&pd_rd_w=xyz&pd_rd_wg=456",
+      "expected": "https://www.amazon.com/dp/B08N5WRWNW",
+      "note": "All pd_rd_* params should be stripped"
+    },
+    {
+      "name": "Amazon - pf_rd parameters",
+      "category": "amazon",
+      "input": "https://www.amazon.com/dp/B08N5WRWNW?pf_rd_i=desktop&pf_rd_m=ATVPDKIKX0DER&pf_rd_p=abc&pf_rd_r=xyz&pf_rd_s=slot&pf_rd_t=type",
+      "expected": "https://www.amazon.com/dp/B08N5WRWNW",
+      "note": "All pf_rd_* params should be stripped"
+    },
+    {
+      "name": "Amazon - mixed tracking params",
+      "category": "amazon",
+      "input": "https://www.amazon.com/dp/B08N5WRWNW?_encoding=UTF8&ie=UTF8&linkCode=ll1&linkId=abc123&pf=1&psc=1&ref_=nav_logo&tag=mytag-20",
+      "expected": "https://www.amazon.com/dp/B08N5WRWNW",
+      "note": "All Amazon tracking params should be stripped"
+    },
+    {
+      "name": "Amazon - content and search params",
+      "category": "amazon",
+      "input": "https://www.amazon.com/s?k=laptop&content-id=123&cv_ct_cx=laptop&language=en_US&qid=1234567890&sr=8-1&th=1",
+      "expected": "https://www.amazon.com/s?k=laptop",
+      "note": "content-id, cv_ct_cx, language, qid, sr, th should be stripped"
+    },
+    {
+      "name": "Amazon - asc and dib params",
+      "category": "amazon",
+      "input": "https://www.amazon.com/dp/B08N5WRWNW?asc_campaign=test&asc_refurl=http://example.com&asc_source=web&ascsubtag=abc&dib=eyJ2IjoiMSJ9&dib_tag=se",
+      "expected": "https://www.amazon.com/dp/B08N5WRWNW",
+      "note": "asc_* and dib* params should be stripped"
+    },
+    {
+      "name": "AliExpress - aff params",
+      "category": "aliexpress",
+      "input": "https://www.aliexpress.com/item/123.html?aff_platform=link&aff_trace_key=abc123&algo_evid=xyz&algo_pvid=456",
+      "expected": "https://www.aliexpress.com/item/123.html",
+      "note": "aff_* and algo_* params should be stripped"
+    },
+    {
+      "name": "AliExpress - spm/scm and other params",
+      "category": "aliexpress",
+      "input": "https://www.aliexpress.com/item/123.html?spm=a2g0o&scm=1007.123&btsid=abc&ws_ab_test=searchweb0_0",
+      "expected": "https://www.aliexpress.com/item/123.html",
+      "note": "spm, scm, btsid, ws_ab_test should be stripped"
+    },
+    {
+      "name": "Facebook - fb_ params",
+      "category": "facebook",
+      "input": "https://example.com/page?fb_action_ids=123&fb_action_types=og.likes&fb_ref=default&fb_source=timeline",
+      "expected": "https://example.com/page",
+      "note": "All fb_* params should be stripped"
+    },
+    {
+      "name": "Facebook - fbclid and related",
+      "category": "facebook",
+      "input": "https://example.com/page?fbclid=IwAR3abc123&hrc=1&refsrc=deprecated",
+      "expected": "https://example.com/page",
+      "note": "fbclid, hrc, refsrc should be stripped"
+    },
+    {
+      "name": "Facebook - action_*_map params",
+      "category": "facebook",
+      "input": "https://example.com/page?action_object_map={}&action_ref_map=[]&action_type_map={}",
+      "expected": "https://example.com/page",
+      "note": "action_*_map params should be stripped"
+    },
+    {
+      "name": "Google Analytics - utm params",
+      "category": "google-analytics",
+      "input": "https://example.com/page?utm_source=google&utm_medium=cpc&utm_campaign=spring&utm_term=shoes&utm_content=ad1",
+      "expected": "https://example.com/page",
+      "note": "All utm_* params should be stripped"
+    },
+    {
+      "name": "Google Analytics - ga params",
+      "category": "google-analytics",
+      "input": "https://example.com/page?ga_source=test&ga_medium=email&ga_campaign=newsletter",
+      "expected": "https://example.com/page",
+      "note": "All ga_* params should be stripped"
+    },
+    {
+      "name": "Google Analytics - gcl params",
+      "category": "google-analytics",
+      "input": "https://example.com/page?gclid=CjwKCAjw&gclsrc=aw.ds",
+      "expected": "https://example.com/page",
+      "note": "gclid and gclsrc should be stripped"
+    },
+    {
+      "name": "YouTube - tracking params",
+      "category": "youtube",
+      "input": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ac=1&annotation_id=abc&app=desktop&feature=youtu.be&gclid=xyz&kw=test&src_vid=abc",
+      "expected": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "note": "YouTube tracking params stripped, v param preserved"
+    },
+    {
+      "name": "YouTube mobile",
+      "category": "youtube",
+      "input": "https://m.youtube.com/watch?v=dQw4w9WgXcQ&feature=share&app=mobile",
+      "expected": "https://m.youtube.com/watch?v=dQw4w9WgXcQ",
+      "note": "Mobile YouTube tracking params stripped"
+    },
+    {
+      "name": "YouTube short URL",
+      "category": "youtube",
+      "input": "https://youtu.be/dQw4w9WgXcQ?feature=share",
+      "expected": "https://youtu.be/dQw4w9WgXcQ",
+      "note": "youtu.be tracking params stripped"
+    },
+    {
+      "name": "HubSpot - _hs params",
+      "category": "hubspot",
+      "input": "https://example.com/page?_hsenc=p2ANqtz-abc&_hsmi=123456789",
+      "expected": "https://example.com/page",
+      "note": "_hsenc and _hsmi should be stripped"
+    },
+    {
+      "name": "HubSpot - hmb params",
+      "category": "hubspot",
+      "input": "https://example.com/page?hmb_campaign=test&hmb_medium=email&hmb_source=newsletter",
+      "expected": "https://example.com/page",
+      "note": "All hmb_* params should be stripped"
+    },
+    {
+      "name": "MailChimp - mc params",
+      "category": "mailchimp",
+      "input": "https://example.com/page?mc_cid=abc123&mc_eid=def456",
+      "expected": "https://example.com/page",
+      "note": "mc_cid and mc_eid should be stripped"
+    },
+    {
+      "name": "Marketo - iesrc and mkt_tok",
+      "category": "marketo",
+      "input": "https://example.com/page?iesrc=ctr&mkt_tok=abc123",
+      "expected": "https://example.com/page",
+      "note": "iesrc and mkt_tok should be stripped"
+    },
+    {
+      "name": "Matomo - pk params",
+      "category": "matomo",
+      "input": "https://example.com/page?pk_campaign=test&pk_content=abc&pk_kwd=keyword&pk_medium=email&pk_source=newsletter",
+      "expected": "https://example.com/page",
+      "note": "All pk_* params should be stripped"
+    },
+    {
+      "name": "Generic - *id suffix params",
+      "category": "generic",
+      "input": "https://example.com/page?anid=123&assetid=456&campaignid=789&eid=abc&gclid=xyz&recipientid=user1&siteid=site1",
+      "expected": "https://example.com/page",
+      "note": "All *id suffix params should be stripped"
+    },
+    {
+      "name": "Generic - misc tracking params",
+      "category": "generic",
+      "input": "https://example.com/page?assetType=pdf&elqTrack=true&originalReferer=google&referrer=facebook&terminal_id=123&trk=public_post&trkCampaign=spring&trkInfo=abc",
+      "expected": "https://example.com/page",
+      "note": "Various generic tracking params should be stripped"
+    },
+    {
+      "name": "AMP path cleanup",
+      "category": "amp",
+      "input": "https://example.com/article/amp/",
+      "expected": "https://example.com/article",
+      "note": "/amp/ should be removed from path"
+    },
+    {
+      "name": "AMP path with params",
+      "category": "amp",
+      "input": "https://example.com/article/amp?utm_source=google",
+      "expected": "https://example.com/article",
+      "note": "/amp and utm params should be removed"
+    },
+    {
+      "name": "Mixed - multiple tracking systems",
+      "category": "mixed",
+      "input": "https://example.com/page?utm_source=google&fbclid=abc&gclid=xyz&mc_cid=123&_hsenc=456",
+      "expected": "https://example.com/page",
+      "note": "Multiple tracking systems in one URL"
+    },
+    {
+      "name": "Preserve legitimate params",
+      "category": "preserve",
+      "input": "https://example.com/search?q=test&page=2&sort=price&filter=active",
+      "expected": "https://example.com/search?q=test&page=2&sort=price&filter=active",
+      "note": "Non-tracking params should be preserved"
+    },
+    {
+      "name": "Preserve with tracking mixed in",
+      "category": "preserve",
+      "input": "https://example.com/search?q=test&utm_source=google&page=2&fbclid=abc",
+      "expected": "https://example.com/search?q=test&page=2",
+      "note": "Legitimate params preserved, tracking stripped"
+    },
+    {
+      "name": "No params - early exit",
+      "category": "edge-case",
+      "input": "https://example.com/page",
+      "expected": "https://example.com/page",
+      "note": "No query string should trigger early exit"
+    },
+    {
+      "name": "Short params - early exit",
+      "category": "edge-case",
+      "input": "https://example.com/page?a",
+      "expected": "https://example.com/page?a",
+      "note": "Very short query string should trigger early exit"
+    },
+    {
+      "name": "Hash preserved",
+      "category": "edge-case",
+      "input": "https://example.com/page?utm_source=google#section1",
+      "expected": "https://example.com/page#section1",
+      "note": "Hash fragment should be preserved"
+    },
+    {
+      "name": "Encoded characters in params",
+      "category": "edge-case",
+      "input": "https://www.amazon.com/s?k=test%20product&sprefix=test%20product%2Caps%2C100",
+      "expected": "https://www.amazon.com/s?k=test+product",
+      "note": "URL-encoded characters normalized by URLSearchParams (%20 becomes +)"
+    },
+    {
+      "name": "Ad platform click IDs",
+      "category": "ad-platforms",
+      "input": "https://example.com/page?msclkid=abc&dclid=def&twclid=ghi&ttclid=jkl",
+      "expected": "https://example.com/page",
+      "note": "Microsoft, DoubleClick, Twitter, TikTok click IDs should be stripped"
+    },
+    {
+      "name": "Instagram share tracking",
+      "category": "instagram",
+      "input": "https://example.com/page?igsh=abc123&igshid=def456",
+      "expected": "https://example.com/page",
+      "note": "Instagram share params should be stripped"
+    },
+    {
+      "name": "Google _gl and srsltid",
+      "category": "google-analytics",
+      "input": "https://example.com/page?_gl=abc&srsltid=def",
+      "expected": "https://example.com/page",
+      "note": "Google cross-domain linker and search result ID should be stripped"
+    },
+    {
+      "name": "HubSpot cookies params",
+      "category": "hubspot",
+      "input": "https://example.com/page?__hsfp=abc&__hssc=def&__hstc=ghi",
+      "expected": "https://example.com/page",
+      "note": "HubSpot cookie params should be stripped"
+    },
+    {
+      "name": "HubSpot Ads params",
+      "category": "hubspot",
+      "input": "https://example.com/page?hsa_cam=abc&hsa_grp=def&hsa_mt=ghi&hsa_src=jkl",
+      "expected": "https://example.com/page",
+      "note": "HubSpot Ads params (hsa_*) should be stripped"
+    },
+    {
+      "name": "Klaviyo params",
+      "category": "klaviyo",
+      "input": "https://example.com/page?_kx=abc&_ke=def",
+      "expected": "https://example.com/page",
+      "note": "Klaviyo tracking params should be stripped"
+    },
+    {
+      "name": "Brevo/Sendinblue params",
+      "category": "brevo",
+      "input": "https://example.com/page?sib_cuid=abc&sib_sid=def",
+      "expected": "https://example.com/page",
+      "note": "Brevo/Sendinblue params should be stripped"
+    },
+    {
+      "name": "Drip params",
+      "category": "drip",
+      "input": "https://example.com/page?__s=abc123",
+      "expected": "https://example.com/page",
+      "note": "Drip __s param should be stripped"
+    },
+    {
+      "name": "Bronto params",
+      "category": "bronto",
+      "input": "https://example.com/page?_bta_tid=abc&_bta_c=def",
+      "expected": "https://example.com/page",
+      "note": "Bronto (Oracle) params should be stripped"
+    },
+    {
+      "name": "Listrak params",
+      "category": "listrak",
+      "input": "https://example.com/page?trk_contact=abc&trk_msg=def&trk_module=ghi&trk_sid=jkl",
+      "expected": "https://example.com/page",
+      "note": "Listrak params should be stripped"
+    },
+    {
+      "name": "Pinterest epik",
+      "category": "pinterest",
+      "input": "https://example.com/page?epik=abc123",
+      "expected": "https://example.com/page",
+      "note": "Pinterest epik param should be stripped"
+    },
+    {
+      "name": "Vero params",
+      "category": "vero",
+      "input": "https://example.com/page?vero_id=abc123",
+      "expected": "https://example.com/page",
+      "note": "Vero vero_id param should be stripped"
+    },
+    {
+      "name": "Omeda params",
+      "category": "omeda",
+      "input": "https://example.com/page?oly_enc_id=abc&oly_anon_id=def&oly_campaign=ghi",
+      "expected": "https://example.com/page",
+      "note": "Omeda params (exact and oly_* prefix) should be stripped"
+    },
+    {
+      "name": "Matomo mtm prefix",
+      "category": "matomo",
+      "input": "https://example.com/page?mtm_campaign=test&mtm_content=abc&mtm_kwd=keyword",
+      "expected": "https://example.com/page",
+      "note": "Matomo mtm_* params should be stripped"
+    },
+    {
+      "name": "Sailthru stm prefix",
+      "category": "sailthru",
+      "input": "https://example.com/page?stm_campaign=test&stm_source=email&stm_medium=abc",
+      "expected": "https://example.com/page",
+      "note": "Sailthru stm_* params should be stripped"
+    },
+    {
+      "name": "Walmart tracking params",
+      "category": "walmart",
+      "input": "https://www.walmart.com/ip/12345?athcpid=abc&wmlspartner=test&affiliates_ad_id=xyz",
+      "expected": "https://www.walmart.com/ip/12345",
+      "note": "Walmart tracking params should be stripped"
+    },
+    {
+      "name": "Target tracking params",
+      "category": "target",
+      "input": "https://www.target.com/p/item?afid=123&clkid=456&lnm=xyz&tref=abc&preselect=1",
+      "expected": "https://www.target.com/p/item",
+      "note": "Target tracking params should be stripped"
+    },
+    {
+      "name": "Temu tracking params",
+      "category": "temu",
+      "input": "https://www.temu.com/product?_bg_fs=1&_p_jump_id=abc&_x_ads_channel=def&_x_ads_account=ghi",
+      "expected": "https://www.temu.com/product",
+      "note": "Temu tracking params (exact and _x_* prefix) should be stripped"
+    },
+    {
+      "name": "eBay tracking params",
+      "category": "ebay",
+      "input": "https://www.ebay.com/itm/12345?mkevt=1&mkcid=1&mkrid=abc&campid=def&toolid=ghi&amdata=xyz",
+      "expected": "https://www.ebay.com/itm/12345",
+      "note": "eBay tracking params should be stripped"
+    },
+    {
+      "name": "Twitter/X tracking params",
+      "category": "twitter",
+      "input": "https://twitter.com/user/status/12345?t=abc&s=20&ref_src=twsrc&ref_url=https://example.com",
+      "expected": "https://twitter.com/user/status/12345",
+      "note": "Twitter/X tracking params should be stripped"
+    },
+    {
+      "name": "X.com tracking params",
+      "category": "twitter",
+      "input": "https://x.com/user/status/12345?t=abc&s=20&cn=share",
+      "expected": "https://x.com/user/status/12345",
+      "note": "X.com tracking params should be stripped"
+    },
+    {
+      "name": "LinkedIn tracking params",
+      "category": "linkedin",
+      "input": "https://www.linkedin.com/posts/user?li_fat_id=abc&lipi=def&licu=ghi&midToken=jkl",
+      "expected": "https://www.linkedin.com/posts/user",
+      "note": "LinkedIn tracking params should be stripped"
+    },
+    {
+      "name": "Google Search - tracking params stripped, query preserved",
+      "category": "google-search",
+      "input": "https://www.google.com/search?q=test+query&ei=abc123&ved=xyz789&sca_esv=def456&aqs=chrome.0.0&gs_lp=Egxnd3M&oq=test",
+      "expected": "https://www.google.com/search?q=test+query",
+      "note": "Google Search tracking params stripped, q param preserved"
+    },
+    {
+      "name": "Google Search - functional params preserved",
+      "category": "google-search",
+      "input": "https://www.google.com/search?q=test&hl=en&safe=active&tbs=qdr:w&tbm=isch&ei=abc&ved=def",
+      "expected": "https://www.google.com/search?q=test&hl=en&safe=active&tbs=qdr%3Aw&tbm=isch",
+      "note": "Functional params (hl, safe, tbs, tbm) preserved, tracking stripped"
+    },
+    {
+      "name": "Google Search - client/browser clutter stripped",
+      "category": "google-search",
+      "input": "https://www.google.com/search?q=test&client=safari&bih=800&biw=1200&sclient=gws-wiz&source=hp&sourceid=chrome&ie=UTF-8&oe=UTF-8",
+      "expected": "https://www.google.com/search?q=test",
+      "note": "Browser/client info params stripped as clutter"
+    },
+    {
+      "name": "Google Search - country domain (google.co.uk)",
+      "category": "google-search",
+      "input": "https://www.google.co.uk/search?q=british+search&ei=abc&ved=def&rlz=1C1CHBD&sxsrf=xyz",
+      "expected": "https://www.google.co.uk/search?q=british+search",
+      "note": "Google country domain tracking params stripped"
+    },
+    {
+      "name": "Google Search - pagination preserved",
+      "category": "google-search",
+      "input": "https://www.google.com/search?q=paginated&start=20&num=10&ei=abc&ved=def&sa=N",
+      "expected": "https://www.google.com/search?q=paginated&start=20&num=10",
+      "note": "Pagination params (start, num) preserved, tracking stripped"
+    },
+    {
+      "name": "Google non-search path - no stripping",
+      "category": "google-search",
+      "input": "https://docs.google.com/document/d/abc123?ei=tracking&ved=param",
+      "expected": "https://docs.google.com/document/d/abc123?ei=tracking&ved=param",
+      "note": "Google Docs (non-search) should NOT have params stripped"
+    },
+    {
+      "name": "TikTok tracking params",
+      "category": "tiktok",
+      "input": "https://www.tiktok.com/@user/video/123?_t=abc&_r=def&share_item_id=xyz&is_from_webapp=1",
+      "expected": "https://www.tiktok.com/@user/video/123",
+      "note": "TikTok tracking params should be stripped"
+    },
+    {
+      "name": "Mixed new universal params",
+      "category": "mixed",
+      "input": "https://example.com/page?msclkid=abc&igsh=def&_kx=ghi&epik=jkl&vero_id=mno",
+      "expected": "https://example.com/page",
+      "note": "Multiple new universal tracking params in one URL"
+    }
+  ],
+  "excludedFromScope": [
+    {
+      "name": "IBM Coremetrics - cm_mmca numeric",
+      "category": "ibm-excluded",
+      "input": "https://example.com/page?cm_mmc=test&cm_mmca1=abc&cm_mmca2=def&cm_mmca99=xyz",
+      "note": "cm_mmca\\d+ pattern excluded from refactor scope - will still use regex in original"
+    }
+  ]
+}
