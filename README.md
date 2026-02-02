@@ -84,8 +84,9 @@ that URL.
 + __[UtmStrip] v2.2.0__: Strips off the UTM query string elements of the
 current URL to remove common "urchin" tracking information from youtube, etc.
 Also removes Google `/amp/` suffix from URL path. Asks to copy the new URL
-to the clipboard. Finally, replaces history & reloads the page. _NOTE:_ This
-bookmarklet also works with Safari and Firefox on macOS.
+to the clipboard. Finally, replaces history & reloads the page. Now works to
+remove host-specific trackers for common online retailers and Google Search.
+_NOTE:_ This bookmarklet also works with Safari and Firefox on macOS.
 
 + __[unskim] v2.0.1__: Bypass redirect and affiliate link wrappers by
 detecting common URL parameters (like `url=`, `destination=`, `redirect=`,
@@ -225,8 +226,9 @@ using a URL protocol scheme.
   that URL.
 + __UtmStrip__ -  Strips off the UTM query string elements of the current URL.
   Based on [safari-utm-stripper Bookmarklet][kiding-gist 589242021df49eb17be3].
-  NOTE: UtmStrip now borrows heavily from patterns provided by [Firefox
-  Extension Neat URL][Neat URL]
+  NOTE: UtmStrip borrowed heavily from [Firefox Extension Neat URL][Neat URL]
+  patterns, and now does much more. There are many site-specific tracking
+  elements removed and Google Search URLs are decluttered, too.
 + __x-man__ - Uses the current selection in the browser to create and open a
   link that uses the `x-man-page://` URL scheme supported by Safari and
   Terminal.app. There doesn't seem to be any official documentation for this
@@ -235,6 +237,10 @@ using a URL protocol scheme.
   [x-man-page: URL handler studied for the OSX Terminal.app][x-man-page URL handler]
 
 ## Version Notes
+
+4.1.1 Major update to UtmStrip with 26 new universal exact-match static keys,
+      4 new universal prefixes, 57 new host-specific keys/prefixes across 7 new
+      hosts, and host-specific tracking & decluttering for Google Search.
 
 4.1.0 Revise 11 bookmarklets- streamline simple ones, modernize KillStickyHeaders
       and OpenURLParam. Update scripts/build-bookmarklets.js to compact bookmarklets

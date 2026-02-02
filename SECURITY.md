@@ -64,8 +64,8 @@ npm version patch  # or minor, or major
 git push --follow-tags
 
 # Or manually create and push a signed tag
-git tag -s 4.1.0 -m "Release version 4.1.0"
-git push origin 4.1.0
+git tag -s 4.1.1 -m "Release version 4.1.1"
+git push origin 4.1.1
 ```
 
 ## Release Verification
@@ -76,10 +76,10 @@ All releases should be signed with GPG/SSH signatures for verification:
 
 ```bash
 # Verify the signature on a release tag
-git verify-tag 4.1.0
+git verify-tag 4.1.1
 
 # Show tag details with signature
-git tag -v 4.1.0
+git tag -v 4.1.1
 ```
 
 ### Verifying Signed Commits
