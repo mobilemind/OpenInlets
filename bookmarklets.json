@@ -58,7 +58,7 @@
     {
       "name": "OpenURLParam",
       "file": "openurlparam.bookmarklet",
-      "version": "1.2.0"
+      "version": "1.2.1"
     },
     {
       "name": "UtmStrip",
@@ -73,7 +73,7 @@
     {
       "name": "unskim",
       "file": "unskim.bookmarklet",
-      "version": "2.0.1"
+      "version": "2.0.2"
     },
     {
       "name": "x-man",
