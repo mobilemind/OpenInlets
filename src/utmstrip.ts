@@ -148,7 +148,7 @@
         prefixParams.push(...temuPrefixes);
     } else if (host.endsWith('.tiktok.com')) {
         exactParams.push(...tiktokExact);
-    } else if (host.endsWith('.twitter.com') || host.includes('x.com')) {
+    } else if ((/\.(twitter|x)\.com$/).test(host) || (/^(twitter|x)\.com$/).test(host)) {
         exactParams.push(...twitterExact);
     } else if (host.endsWith('.walmart.com')) {
         exactParams.push(...walmartExact);
