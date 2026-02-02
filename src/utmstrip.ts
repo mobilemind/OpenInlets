@@ -130,27 +130,27 @@
     const prefixParams: string[] = [...universalPrefixes];
 
     // Host-specific additions
-    if (host.includes('aliexpress.')) {
+    if ((/\.aliexpress\.[a-z]{2,3}$/).test(host)) {
         exactParams.push(...aliexpressExact);
         prefixParams.push(...aliexpressPrefixes);
     } else if ((/(|\.)amazon\.com$/).test(host)) {
         exactParams.push(...amazonExact);
-    } else if (host.includes('ebay.com') || host.includes('ebay.co.')) {
+    } else if (host.endsWith('.ebay.com') || (/\.ebay\.co\.[a-z]{2}$/).test(host)) {
         exactParams.push(...ebayExact);
     } else if ((/(^|\.)google\.(com|[a-z]{2}|com?\.[a-z]{2})$/).test(host) && locPath.startsWith('/search')) {
         exactParams.push(...googleSearchExact);
-    } else if (host.includes('linkedin.com')) {
+    } else if (host.endsWith('.linkedin.com')) {
         exactParams.push(...linkedinExact);
-    } else if (host.includes('target.com')) {
+    } else if (host.endsWith('.target.com')) {
         exactParams.push(...targetExact);
-    } else if (host.includes('temu.com')) {
+    } else if (host.endsWith('.temu.com')) {
         exactParams.push(...temuExact);
         prefixParams.push(...temuPrefixes);
-    } else if (host.includes('tiktok.com')) {
+    } else if (host.endsWith('.tiktok.com')) {
         exactParams.push(...tiktokExact);
-    } else if (host.includes('twitter.com') || host.includes('x.com')) {
+    } else if (host.endsWith('.twitter.com') || host.includes('x.com')) {
         exactParams.push(...twitterExact);
-    } else if (host.includes('walmart.com')) {
+    } else if (host.endsWith('.walmart.com')) {
         exactParams.push(...walmartExact);
     } else if ((/(m|www)\.youtube\.com$/).test(host) ||
         host === 'youtu.be' || host === 'www.youtube-nocookie.com') {
