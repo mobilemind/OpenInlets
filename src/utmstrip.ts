@@ -146,7 +146,7 @@
     } else if (host.endsWith('.temu.com')) {
         exactParams.push(...temuExact);
         prefixParams.push(...temuPrefixes);
-    } else if (host.endsWith('.tiktok.com')) {
+    } else if (host.endsWith('.tiktok.com') || host === 'tiktok.com') {
         exactParams.push(...tiktokExact);
     } else if ((/\.(twitter|x)\.com$/).test(host) || (/^(twitter|x)\.com$/).test(host)) {
         exactParams.push(...twitterExact);
