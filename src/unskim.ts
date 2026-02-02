@@ -17,8 +17,8 @@
 		}
 	}
 
-	// if the current URL object doesn't even have a searchParam, exit now
-	if (origUrl.search === '') {
+	// exit if searchParam is less than 13 chars ('u=https://x.y)
+	if (origUrl.search.length < 13 ) {
 		return;
 	}
 

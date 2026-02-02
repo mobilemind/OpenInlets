@@ -4,8 +4,8 @@
 	// default to getting the current address & making it a URL object to work with
 	const origUrl: URL = new URL(document.location.href);
 
-	// exit if the current URL object searchParam is less than 11 chars ('https://x.x)
-	if (origUrl.search.length < 11) {
+	// exit if URL isn't https or if searchParam is less than 13 chars ('u=https://x.y)
+	if (origUrl.protocol !== 'https:' || origUrl.search.length < 13) {
 		return;
 	}
 

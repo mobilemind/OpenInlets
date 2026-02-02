@@ -9,6 +9,7 @@ Listrak
 Matomo
 Octocat
 Omeda
+openurlparam
 smushing
 Temu
 Textastic
@@ -16,3 +17,4 @@ uglifyjs
 unskim
 utmstrip
 Vero
+x-man
