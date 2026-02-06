@@ -1,6 +1,6 @@
 const globals = require("globals");
 const js = require("@eslint/js");
-const security = require("eslint-plugin-security");
+const noUnsanitized = require("eslint-plugin-no-unsanitized");
 const tsParser = require("@typescript-eslint/parser");
 const tsPlugin = require("@typescript-eslint/eslint-plugin");
 
@@ -101,8 +101,7 @@ const baseRules = {
     "symbol-description": "error",
     "unicode-bom": "error",
     "vars-on-top": "error",
-    ...security.configs['recommended'].rules,
-    "security/detect-non-literal-regexp": "off"
+    ...noUnsanitized.configs.recommended.rules
 };
 
 module.exports = [
@@ -117,7 +116,9 @@ module.exports = [
             },
             sourceType: "script"
         },
-        plugins: {security},
+        plugins: {
+            "no-unsanitized": noUnsanitized
+        },
         rules: {
             ...baseRules,
             "init-declarations": "error",
@@ -141,7 +142,7 @@ module.exports = [
         },
         plugins: {
             "@typescript-eslint": tsPlugin,
-            security
+            "no-unsanitized": noUnsanitized
         },
         rules: {
             ...baseRules,
@@ -160,6 +161,29 @@ module.exports = [
         }
     },
     {
+        files: [".temp/*.js"],
+        ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "dist/*.bookmarklet"],
+        languageOptions: {
+            ecmaVersion: 2020,
+            globals: {...globals.browser, ...globals.node},
+            parserOptions: {
+                ecmaFeatures: {globalReturn: false, impliedStrict: true}
+            },
+            sourceType: "script"
+        },
+        plugins: {
+            "no-unsanitized": noUnsanitized
+        },
+        rules: {
+            ...baseRules,
+            "init-declarations": "error",
+            "no-await-in-loop": "error",
+            "no-console": "error",
+            "no-inline-comments": "error",
+            "no-param-reassign": "error"
+        }
+    },
+    {
         files: ["scripts/*.js", ".github/linters/*.js"],
         ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "dist/*.bookmarklet"],
         languageOptions: {
@@ -170,14 +194,15 @@ module.exports = [
             },
             sourceType: "script"
         },
-        plugins: {security},
+        plugins: {
+            "no-unsanitized": noUnsanitized
+        },
         rules: {
             ...baseRules,
             "no-await-in-loop": "off",
             "no-console": "off",
             "no-inline-comments": "off",
-            "no-param-reassign": "off",
-            "security/detect-non-literal-fs-filename": "off"
+            "no-param-reassign": "off"
         }
     }
 ];
