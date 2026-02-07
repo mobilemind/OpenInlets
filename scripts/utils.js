@@ -38,12 +38,10 @@ function readFileOrFail(filePath) {
 function validateBookmarklet(bookmarklet, index) {
     const required = ['name', 'file', 'version'];
     for (const field of required) {
-        // eslint-disable-next-line security/detect-object-injection
         if (!(field in bookmarklet) || bookmarklet[field] === null) {
             console.error(`Invalid config: bookmarklet at index ${index} missing required field '${field}'`);
             process.exit(1);
         }
-        // eslint-disable-next-line security/detect-object-injection
         const value = bookmarklet[field];
         if (typeof value === 'string' && value.trim().length === 0) {
             console.error(`Invalid config: bookmarklet at index ${index} has empty string for field '${field}'`);
