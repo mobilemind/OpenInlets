@@ -58,8 +58,8 @@ iPad, and Mac, and also works with Google Chrome on desktops.
 + __[OpenInChrome] v1.0.0__: Open the current web page in the Google Chrome app
 on iOS.
 
-+ __[OpenInEdge] v1.0.0__: Open the current web page in the Microsoft Edge 
-app on iOS.
++ __[OpenInEdge] v1.0.0__: Open the current web page in the Microsoft Edge app
+on iOS.
 
 + __[OpenInFirefox] v1.6.2__: Open the current web page in the Firefox app for
 iOS.
