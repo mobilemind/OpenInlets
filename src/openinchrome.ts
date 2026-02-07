@@ -2,6 +2,6 @@
 // googlechrome://URL_WITHOUT_SCHEME or googlechromes://URL_WITHOUT_SCHEME
 
 if (/iP(ad|hone)/.test(navigator.userAgent)) {
-		const proto = location.protocol;
-    location.href = `googlechrome${proto === 'https' ? 's' : ''}://${location.href.slice(proto.length + 2)}`;
+		const chromeScheme = `googlechrome${location.protocol === 'https:' ? 's' : ''}://`;
+    location.href = `${chromeScheme}${location.host}${location.pathname}${location.search}${location.hash}`;
 }
