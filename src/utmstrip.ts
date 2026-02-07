@@ -168,8 +168,8 @@
 
     // Iterate and delete matching params
     for (const key of [...params.keys()]) {
-    		if (shouldDelete(key)) {
-        		params.delete(key);
+        if (shouldDelete(key)) {
+            params.delete(key);
         }
     }
 
@@ -179,18 +179,18 @@
 
     // Clean up '/amp/' in pathname & assign newURL
     const pathStr: string = locPath.replace(/\/amp\/?$/, ''),
-    		newURL: string = `${location.protocol}//${location.host}${pathStr}${searchStr}${location.hash}`;
+        newURL: string = `${location.protocol}//${location.host}${pathStr}${searchStr}${location.hash}`;
 
-		// always _offer_ to copy the "cleaned" newURL
-		if (confirm('Update history and copy cleaned URL to clipboard?')) {
-				navigator.clipboard.writeText(newURL);
-				// If changed (truly cleaned), replace location with stripped version
-    		if (locSearch !== searchStr || locPath !== pathStr) {
-						history.replaceState(null, '', newURL);
-						const newWindow: Window | null = window.open(newURL, '_self', 'noreferrer');
-						if (newWindow) {
-								newWindow.opener = null;
-						}
-				}
+    // always _offer_ to copy the "cleaned" newURL
+    if (confirm('Update history and copy cleaned URL to clipboard?')) {
+        navigator.clipboard.writeText(newURL);
+        // If changed (truly cleaned), replace location with stripped version
+        if (locSearch !== searchStr || locPath !== pathStr) {
+            history.replaceState(null, '', newURL);
+            const newWindow: Window | null = window.open(newURL, '_self', 'noreferrer');
+            if (newWindow) {
+                newWindow.opener = null;
+            }
+        }
     }
 })();
