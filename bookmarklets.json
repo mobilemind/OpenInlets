@@ -26,6 +26,16 @@
       "version": "1.1.2"
     },
     {
+      "name": "OpenInChrome",
+      "file": "openinchrome.bookmarklet",
+      "version": "1.0.0"
+    },
+    {
+      "name": "OpenInEdge",
+      "file": "openinedge.bookmarklet",
+      "version": "1.0.0"
+    },
+    {
       "name": "OpenInFirefox",
       "file": "openinfirefox.bookmarklet",
       "version": "1.6.2"
@@ -44,6 +54,16 @@
       "name": "OpenInGoodReader",
       "file": "openingoodreader.bookmarklet",
       "version": "1.5.2"
+    },
+    {
+      "name": "OpenInOpera",
+      "file": "openinopera.bookmarklet",
+      "version": "1.0.0"
+    },
+    {
+      "name": "OpenInOrion",
+      "file": "openinorion.bookmarklet",
+      "version": "1.0.0"
     },
     {
       "name": "OpenInTextastic",
