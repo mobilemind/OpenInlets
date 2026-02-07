@@ -233,7 +233,7 @@ using a URL protocol scheme.
   target url for private browsing.
 + __OpenInGoodReader__ - Uses the `grhttp://` or `grhttps://` URL protocol
   scheme for GoodReader. See [GoodReader URL Scheme][GoodReader URL Scheme].
-+ __OpenInOpera__ - Uses the `opera-http://` or `opera-https://` scheme for the
++ __OpenInOpera__ - Uses the `touch-http://` or `touch-https://` scheme for the
   Opera app on iOS.
 + __OpenInOrion__ - Uses the `orion://open-url?url=` scheme for the Orion app
   on iOS.
