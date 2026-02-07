@@ -58,6 +58,9 @@ iPad, and Mac, and also works with Google Chrome on desktops.
 + __[OpenInChrome] v1.0.0__: Open the current web page in the Google Chrome app
 on iOS.
 
++ __[OpenInDDG] v1.0.0__: Open the current web page in the DuckDuckGo browser
+app on iOS.
+
 + __[OpenInEdge] v1.0.0__: Open the current web page in the Microsoft Edge app
 on iOS.
 
@@ -132,6 +135,7 @@ followed link into a bookmark for JavaScript bookmarklet.
 + __Mobile Safari setup link__ -- [Setup Linklighter] v2.1.0
 + __Mobile Safari setup link__ -- [Setup OpenInBrave] v1.1.2
 + __Mobile Safari setup link__ -- [Setup OpenInChrome] v1.0.0
++ __Mobile Safari setup link__ -- [Setup OpenInDDG] v1.0.0
 + __Mobile Safari setup link__ -- [Setup OpenInEdge] v1.0.0
 + __Mobile Safari setup link__ -- [Setup OpenInFirefox] v1.6.2
 + __Mobile Safari setup link__ -- [Setup OpenInFirefox-Focus] v1.1.2
@@ -220,9 +224,10 @@ using a URL protocol scheme.
   on Apple platforms, and Google Chrome for desktops.
 + __OpenInBrave__ - Uses the `brave://open-url?url=` scheme for the Brave app
   on iOS.
-+ __OpenInChrome__ - Uses the `googlechrome://` or `googlechromes://`scheme for
++ __OpenInChrome__ - Uses the `googlechrome://` or `googlechromes://` scheme for
   the Google Chrome app on iOS.
-  on iOS.
++ __OpenInDDG__ - Uses the `ddgQuickLink://` scheme for the DuckDuckGo browser
+  app on iOS.
 + __OpenInEdge__ - Uses the `microsoft-edge-http://` or `microsoft-edge-https://`
   scheme for the Google Chrome app on iOS.
 + __OpenInFirefox__ _and_ __OpenInFirefox-Private__ - Uses the
@@ -260,6 +265,10 @@ using a URL protocol scheme.
   [x-man-page: URL handler studied for the OSX Terminal.app][x-man-page URL handler]
 
 ## Version Notes
+
+4.2.0 Major update to browser coverage with addition of OpenInChrome, OpenInDDG,
+      OpenInEdge, OpenInOpera, & OpenInOrion. Improvements to unskim, UtmStrip,
+      & OpenURLParam. Refinements build process with updated dependencies.
 
 4.1.1 Major update to UtmStrip with 26 new universal exact-match static keys,
       4 new universal prefixes, 57 new host-specific keys/prefixes across 7 new
@@ -370,6 +379,7 @@ repos I had; doesn't build yet
 [Linklighter]: javascript:'use%20strict'%3B(()=%3E%7Bconst%20t=encodeURIComponent%2Ce=window.getSelection()%3Bif(!e)return%3Bconst%20n=e.toString()%2Co=n.length%2Ci=document.URL%2Cs=i.indexOf('%23')%3Blet%20r=i%2Cc=''%2Cl=''%2Ca=''%3Bif(e.rangeCount%3E0%26%26n%26%26(document.body.textContent%7C%7C'').split(n).length-1%3E1)%7Bconst%20t=e.getRangeAt(0)%2Cn=t.commonAncestorContainer.textContent%7C%7C''%2C%7BstartOffset:o%2CendOffset:i%7D=t%2Cs=Math.max(0%2Co-20)%3Bif(l=n.substring(s%2Co).trim()%2Cs%3E0%26%26'%20'!==n.charAt(s-1))%7Bconst%20t=l.indexOf('%20')%3Bt%3E0%26%26(l=l.substring(t%2B1))%7Dconst%20r=Math.min(n.length%2Ci%2B20)%3Bif(a=n.substring(i%2Cr).trim()%2Cr%3Cn.length%26%26'%20'!==n.charAt(r))%7Bconst%20t=a.lastIndexOf('%20')%3Bt%3E0%26%26(a=a.substring(0%2Ct))%7D%7Dif(e.removeAllRanges()%2Cn%26%26''!==n)%7Bs%3E-1%26%26(r=r.substring(0%2Cs))%3Blet%20e=''%3Bif(l%26%26(e=t(l)%2B'-%2C')%2C80%3Eo)c=n%2Ce%2B=t(n)%3Belse%7Blet%20i=~~(o%2F2-2)%3Bo%3E150%3Fi=48:o%3E100%26%26(i=~~(o%2F3))%3Blet%20s=n.substring(0%2Ci)%2Cr=n.slice(o-i)%3Bconst%20l=s.lastIndexOf('%20')%3Bl%3Ei%2F2%26%26(s=s.substring(0%2Cl))%3Bconst%20a=r.indexOf('%20')%3Ba%3E-1%26%26i%2F2%3Ea%26%26(r=r.substring(a%2B1))%2Cc=s%2B'%E2%80%A6'%2Ce%2B=%60%24%7Bt(s)%7D%2C%24%7Bt(r)%7D%60%7Da%26%26(e%2B='%2C-'%2Bt(a))%2Cr%2B='%23:~:text='%2Be%2Cr=r.replace(%2F(%250A%7C%250D%7C%2509%7C%2520)%2B%24%2F%2C'')%2Cr=r.replace(%2F(%2520)%7B2%2C%7D%2Fg%2C'%2520')%2Cr=r.replace(%2F%23%23%2B:~:text=%2F%2C'%23:~:text=')%7Dif(r!==i%26%26confirm(%60Open%20URL%20with%20highlight%20on%20%22%24%7Bc%7D%22%20and%20copy%20URL%20to%20clipboard%3F%60))%7Bnavigator.clipboard.writeText(r).catch(()=%3E%7Balert('Could%20not%20copy%20to%20clipboard.%20URL%20is%20in%20the%20new%20tab.')%7D)%3Bconst%20t=window.open(r%2C'%5Fblank')%3Bt%3Ft.opener=null:alert('Popup%20blocked.%20URL%20copied%20to%20clipboard.')%7D%7D)()%3Bvoid'2.1.0' "Linklighter"
 [OpenInBrave]: javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href='brave:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.1.2' "OpenInBrave"
 [OpenInChrome]: javascript:'use%20strict'%3Bif(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))%7Bconst%20o=location.protocol%3Blocation.href=%60googlechrome%24%7B'https'===o%3F's':''%7D:%2F%2F%24%7Blocation.href.slice(o.length%2B2)%7D%60%7Dvoid'1.0.0' "OpenInChrome"
+[OpenInDDG]: javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href='ddgQuickLink:%2F%2F'%2Blocation.href.slice(location.protocol.length%2B2)%3Bvoid'1.0.0' "OpenInDDG"
 [OpenInEdge]: javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href='microsoft-edge-'%2Blocation.href%3Bvoid'1.0.0' "OpenInEdge"
 [OpenInFirefox]: javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.6.2' "OpenInFirefox"
 [OpenInFirefox-Focus]: javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href=%60firefox-focus:%2F%2Fopen-url%3Furl=%24%7BencodeURIComponent(location.href)%7D%26private=true%60%3Bvoid'1.1.2' "OpenInFirefox-Focus"
@@ -393,6 +403,7 @@ repos I had; doesn't build yet
 [Setup Linklighter]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3B(()=%3E%7Bconst%20t=encodeURIComponent%2Ce=window.getSelection()%3Bif(!e)return%3Bconst%20n=e.toString()%2Co=n.length%2Ci=document.URL%2Cs=i.indexOf('%23')%3Blet%20r=i%2Cc=''%2Cl=''%2Ca=''%3Bif(e.rangeCount%3E0%26%26n%26%26(document.body.textContent%7C%7C'').split(n).length-1%3E1)%7Bconst%20t=e.getRangeAt(0)%2Cn=t.commonAncestorContainer.textContent%7C%7C''%2C%7BstartOffset:o%2CendOffset:i%7D=t%2Cs=Math.max(0%2Co-20)%3Bif(l=n.substring(s%2Co).trim()%2Cs%3E0%26%26'%20'!==n.charAt(s-1))%7Bconst%20t=l.indexOf('%20')%3Bt%3E0%26%26(l=l.substring(t%2B1))%7Dconst%20r=Math.min(n.length%2Ci%2B20)%3Bif(a=n.substring(i%2Cr).trim()%2Cr%3Cn.length%26%26'%20'!==n.charAt(r))%7Bconst%20t=a.lastIndexOf('%20')%3Bt%3E0%26%26(a=a.substring(0%2Ct))%7D%7Dif(e.removeAllRanges()%2Cn%26%26''!==n)%7Bs%3E-1%26%26(r=r.substring(0%2Cs))%3Blet%20e=''%3Bif(l%26%26(e=t(l)%2B'-%2C')%2C80%3Eo)c=n%2Ce%2B=t(n)%3Belse%7Blet%20i=~~(o%2F2-2)%3Bo%3E150%3Fi=48:o%3E100%26%26(i=~~(o%2F3))%3Blet%20s=n.substring(0%2Ci)%2Cr=n.slice(o-i)%3Bconst%20l=s.lastIndexOf('%20')%3Bl%3Ei%2F2%26%26(s=s.substring(0%2Cl))%3Bconst%20a=r.indexOf('%20')%3Ba%3E-1%26%26i%2F2%3Ea%26%26(r=r.substring(a%2B1))%2Cc=s%2B'%E2%80%A6'%2Ce%2B=%60%24%7Bt(s)%7D%2C%24%7Bt(r)%7D%60%7Da%26%26(e%2B='%2C-'%2Bt(a))%2Cr%2B='%23:~:text='%2Be%2Cr=r.replace(%2F(%250A%7C%250D%7C%2509%7C%2520)%2B%24%2F%2C'')%2Cr=r.replace(%2F(%2520)%7B2%2C%7D%2Fg%2C'%2520')%2Cr=r.replace(%2F%23%23%2B:~:text=%2F%2C'%23:~:text=')%7Dif(r!==i%26%26confirm(%60Open%20URL%20with%20highlight%20on%20%22%24%7Bc%7D%22%20and%20copy%20URL%20to%20clipboard%3F%60))%7Bnavigator.clipboard.writeText(r).catch(()=%3E%7Balert('Could%20not%20copy%20to%20clipboard.%20URL%20is%20in%20the%20new%20tab.')%7D)%3Bconst%20t=window.open(r%2C'%5Fblank')%3Bt%3Ft.opener=null:alert('Popup%20blocked.%20URL%20copied%20to%20clipboard.')%7D%7D)()%3Bvoid'2.1.0' "Setup Linklighter"
 [Setup OpenInBrave]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href='brave:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.1.2' "Setup OpenInBrave"
 [Setup OpenInChrome]: https://mobilemind.github.io/OpenInlets/x/#javascript:'use%20strict'%3Bif(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))%7Bconst%20o=location.protocol%3Blocation.href=%60googlechrome%24%7B'https'===o%3F's':''%7D:%2F%2F%24%7Blocation.href.slice(o.length%2B2)%7D%60%7Dvoid'1.0.0' "Setup OpenInChrome"
+[Setup OpenInDDG]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href='ddgQuickLink:%2F%2F'%2Blocation.href.slice(location.protocol.length%2B2)%3Bvoid'1.0.0' "Setup OpenInDDG"
 [Setup OpenInEdge]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href='microsoft-edge-'%2Blocation.href%3Bvoid'1.0.0' "Setup OpenInEdge"
 [Setup OpenInFirefox]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href='firefox:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.6.2' "Setup OpenInFirefox"
 [Setup OpenInFirefox-Focus]: https://mobilemind.github.io/OpenInlets/x/#javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href=%60firefox-focus:%2F%2Fopen-url%3Furl=%24%7BencodeURIComponent(location.href)%7D%26private=true%60%3Bvoid'1.1.2' "Setup OpenInFirefox-Focus"

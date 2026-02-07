@@ -31,6 +31,11 @@
       "version": "1.0.0"
     },
     {
+      "name": "OpenInDDG",
+      "file": "openinddg.bookmarklet",
+      "version": "1.0.0"
+    },
+    {
       "name": "OpenInEdge",
       "file": "openinedge.bookmarklet",
       "version": "1.0.0"

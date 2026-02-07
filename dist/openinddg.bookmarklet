@@ -1,0 +1,1 @@
+javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href='ddgQuickLink:%2F%2F'%2Blocation.href.slice(location.protocol.length%2B2)%3Bvoid'1.0.0'

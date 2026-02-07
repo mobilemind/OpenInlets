@@ -2,6 +2,7 @@ Blogsy
 Bronto
 Codacy
 cyclonedx
+DDG
 delighter
 Ghostery
 Klaviyo
