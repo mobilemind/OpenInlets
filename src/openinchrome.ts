@@ -3,5 +3,5 @@
 
 if (/iP(ad|hone)/.test(navigator.userAgent)) {
 		const proto = location.protocol;
-    location.href = `googlechrome${proto === 'https' ? 's' : ''}://{location.href.slice(proto.length + 2)}`;
+    location.href = `googlechrome${proto === 'https' ? 's' : ''}://${location.href.slice(proto.length + 2)}`;
 }
