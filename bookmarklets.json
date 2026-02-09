@@ -26,6 +26,21 @@
       "version": "1.1.2"
     },
     {
+      "name": "OpenInChrome",
+      "file": "openinchrome.bookmarklet",
+      "version": "1.0.0"
+    },
+    {
+      "name": "OpenInDDG",
+      "file": "openinddg.bookmarklet",
+      "version": "1.0.0"
+    },
+    {
+      "name": "OpenInEdge",
+      "file": "openinedge.bookmarklet",
+      "version": "1.0.0"
+    },
+    {
       "name": "OpenInFirefox",
       "file": "openinfirefox.bookmarklet",
       "version": "1.6.2"
@@ -46,6 +61,16 @@
       "version": "1.5.2"
     },
     {
+      "name": "OpenInOpera",
+      "file": "openinopera.bookmarklet",
+      "version": "1.0.0"
+    },
+    {
+      "name": "OpenInOrion",
+      "file": "openinorion.bookmarklet",
+      "version": "1.0.0"
+    },
+    {
       "name": "OpenInTextastic",
       "file": "openintextastic.bookmarklet",
       "version": "1.1.2"
@@ -58,12 +83,12 @@
     {
       "name": "OpenURLParam",
       "file": "openurlparam.bookmarklet",
-      "version": "1.2.0"
+      "version": "1.2.1"
     },
     {
       "name": "UtmStrip",
       "file": "utmstrip.bookmarklet",
-      "version": "2.2.0"
+      "version": "2.3.0"
     },
     {
       "name": "deLighter",
@@ -73,7 +98,7 @@
     {
       "name": "unskim",
       "file": "unskim.bookmarklet",
-      "version": "2.0.1"
+      "version": "2.0.2"
     },
     {
       "name": "x-man",
