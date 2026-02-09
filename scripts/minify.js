@@ -18,7 +18,7 @@ const {minify} = require('terser');
 // Security note: These settings do not introduce vulnerabilities, but can
 // change code semantics. See SECURITY.md for build verification procedures.
 const terserOptions = {
-    ecma: 2020, // Target ES2020 - fully supported by Safari 26.1+
+    ecma: 2023, // Target ES2023 - fully supported by Safari 26.2+
     module: false, // Not ES modules
     compress: {
         // Aggressive unsafe optimizations (matching UglifyJS config)

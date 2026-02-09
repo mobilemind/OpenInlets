@@ -109,7 +109,7 @@ module.exports = [
         files: ["src/*.js"],
         ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "dist/*.bookmarklet"],
         languageOptions: {
-            ecmaVersion: 2021,
+            ecmaVersion: 2023,
             globals: {...globals.browser, ...globals.node},
             parserOptions: {
                 ecmaFeatures: {globalReturn: false, impliedStrict: true}
@@ -187,7 +187,7 @@ module.exports = [
         files: ["scripts/*.js", ".github/linters/*.js"],
         ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "dist/*.bookmarklet"],
         languageOptions: {
-            ecmaVersion: 2020,
+            ecmaVersion: 2023,
             globals: globals.node,
             parserOptions: {
                 ecmaFeatures: {globalReturn: false, impliedStrict: true}

@@ -18,7 +18,7 @@
     }
 
     // exit if searchParam is less than 13 chars ('u=https://x.y)
-    if (origUrl.search.length < 13 ) {
+    if (origUrl.search.length < 13) {
         return;
     }
 

@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2023",
     "module": "none",
-    "lib": ["ES2021", "DOM"],
+    "lib": ["ES2023", "DOM"],
     "outDir": "./.temp",
     "strict": true,
     "noEmit": false,
