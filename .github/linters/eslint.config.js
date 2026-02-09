@@ -109,7 +109,7 @@ module.exports = [
         files: ["src/*.js"],
         ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "dist/*.bookmarklet"],
         languageOptions: {
-            ecmaVersion: 2020,
+            ecmaVersion: 2021,
             globals: {...globals.browser, ...globals.node},
             parserOptions: {
                 ecmaFeatures: {globalReturn: false, impliedStrict: true}
