@@ -1,5 +1,6 @@
 /* eslint max-statements: ["error", 55] */
 /* cSpell: ignore afid amdata anid ascsubtag assetid athancid athcgid athcpid athiession athmtid athpgid athposb athstid athznid btsid campaignid campid clkid crid customid dclid epik evid fbclid gclid gclsrc hsenc hsfp hsmi hssc hstc iesrc iflsig igsh igshid licu lipi mkcid mkevt mkrid mmca msclkid prmd pvid recipientid sclient siteid sourceid sprefix srsltid sxsrf ttclid twclid uact wmlspartner youtu */
+
 (() => {
     const locPath: string = location.pathname,
         locSearch: string = location.search;
@@ -76,34 +77,11 @@
         'pf', 'psc', 'qid', 'ref_', 'sprefix', 'sr', 'tag', 'th'
     ];
 
-    const youtubeExact: string[] = ['ac', 'annotation_id', 'app', 'feature', 'gclid', 'kw', 'src_vid'];
-
-    // Host-specific: Walmart
-    const walmartExact: string[] = [
-        'adsredirect', 'affiliates_ad_id', 'athcpid', 'athpgid', 'athcgid', 'athmtid', 'athstid',
-        'athznid', 'athiession', 'athancid', 'athposb', 'athena', 'campaign_id', 'wmlspartner'
-    ];
-
-    // Host-specific: Target
-    const targetExact: string[] = ['afid', 'clkid', 'lnm', 'preselect', 'tref'];
-
-    // Host-specific: Temu
-    const temuExact: string[] = [
-        '_bg_fs', '_p_jump_id', '_p_rfs', 'refer_page_id', 'refer_page_name', 'refer_page_sn'
-    ];
-    const temuPrefixes: string[] = ['_x_'];
-
     // Host-specific: eBay
     const ebayExact: string[] = [
         'mkevt', 'mkcid', 'mkrid', 'campid', 'toolid', 'customid',
         'norover', 'itm', 'amdata'
     ];
-
-    // Host-specific: Twitter/X
-    const twitterExact: string[] = ['cn', 'ref_src', 'ref_url', 's', 't'];
-
-    // Host-specific: LinkedIn
-    const linkedinExact: string[] = ['li_fat_id', 'licu', 'lipi', 'midSig', 'midToken', 'refId'];
 
     // Host-specific: Google Search (only on /search path)
     const googleSearchExact: string[] = [
@@ -119,11 +97,35 @@
         'ie', 'oe'
     ];
 
+    // Host-specific: LinkedIn
+    const linkedinExact: string[] = ['li_fat_id', 'licu', 'lipi', 'midSig', 'midToken', 'refId'];
+
+    // Host-specific: Target
+    const targetExact: string[] = ['afid', 'clkid', 'lnm', 'preselect', 'tref'];
+
+    // Host-specific: Temu
+    const temuExact: string[] = [
+        '_bg_fs', '_p_jump_id', '_p_rfs', 'refer_page_id', 'refer_page_name', 'refer_page_sn'
+    ];
+    const temuPrefixes: string[] = ['_x_'];
+
     // Host-specific: TikTok
     const tiktokExact: string[] = [
         '_d', '_r', '_t',  'is_from_webapp', 'preview_pb', 'share_app_name',
         'share_item_id', 'tt4d_t', 'timestamp', 'u_code', 'user_id'
     ];
+
+    // Host-specific: Twitter/X
+    const twitterExact: string[] = ['cn', 'ref_src', 'ref_url', 's', 't'];
+
+    // Host-specific: Walmart
+    const walmartExact: string[] = [
+        'adsredirect', 'affiliates_ad_id', 'athcpid', 'athpgid', 'athcgid', 'athmtid', 'athstid',
+        'athznid', 'athiession', 'athancid', 'athposb', 'athena', 'campaign_id', 'wmlspartner', 'wt_mc'
+    ];
+
+    // Host-specific youtube
+    const youtubeExact: string[] = ['ac', 'annotation_id', 'app', 'feature', 'gclid', 'kw', 'src_vid'];
 
     // Build combined param lists based on host
     const exactParams: string[] = [...universalExact];
