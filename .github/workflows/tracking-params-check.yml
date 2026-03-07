@@ -1,6 +1,7 @@
+---
 name: Tracking Parameter Monitor
 
-on:
+"on":
   schedule:
     - cron: '0 0 1 * *'   # 1st of each month at midnight UTC
   workflow_dispatch:        # allow manual trigger
@@ -25,11 +26,11 @@ jobs:
         id: compare
         run: |
           # Extract parameter names from DuckDuckGo JSON
-          # The DDG JSON has parameters as an array of objects with a "parameter" key
+          # DDG JSON has param as an array of objects w/ a "parameter" key
           jq -r '.settings.parameters[].parameter' /tmp/ddg-params.json \
             | sort > /tmp/ddg-list.txt
 
-          # Extract quoted string values from utmstrip.ts (single-quoted identifiers)
+          # Extract quoted strings from utmstrip.ts (single-quoted identifiers)
           # Matches 'param_name' patterns, strips quotes, excludes TypeScript types
           grep -oE "'[a-zA-Z_][a-zA-Z0-9_]*'" src/utmstrip.ts \
             | tr -d "'" | sort -u > /tmp/utmstrip-list.txt
@@ -60,14 +61,14 @@ jobs:
               body: [
                 '## Monthly Tracking Parameter Check',
                 '',
-                'The following parameters appear in DuckDuckGo\'s tracking protection list',
-                'but are not present in `src/utmstrip.ts`:',
+                'The following parameters appear in DuckDuckGo\'s tracking',
+                'protection list but are not present in `src/utmstrip.ts`:',
                 '',
                 '```',
                 process.env.MISSING_PARAMS,
                 '```',
                 '',
-                'Please review these against the quarterly maintenance checklist in',
-                '`docs/Maintenance-Plan-UtmStrip.md` and determine if they should be added.',
+                'Please review these against the quarterly maintenance checklist,',
+                '`docs/Maintenance-Plan-UtmStrip.md` to decide to add them.',
               ].join('\n')
             });
