@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint no-plusplus: 0 */
 // cSpell:words Bronto Klaviyo Listrak Omeda
-/* cSpell: ignore afid amdata anid ascsubtag assetid athancid athcgid athcpid athiession athmtid athpgid athposb athstid athznid btsid campaignid campid clkid crid customid dclid epik evid fbclid gclid gclsrc hsenc hsfp hsmi hssc hstc iesrc iflsig igsh igshid licu lipi mkcid mkevt mkrid mmca msclkid prmd pvid recipientid sclient siteid sourceid sprefix srsltid sxsrf ttclid twclid uact wmlspartner youtu */
+/* cSpell: ignore afid amdata anid ascsubtag assetid athancid athcgid athcpid athiession athmtid athpgid athposb athstid athznid btsid campaignid campid cjevent clkid crid customid dclid efid epik evid fbclid gclid gclsrc hsenc hsfp hsmi hssc hstc iesrc iflsig igsh igshid licu lipi mkcid mkevt mkrid mmca msclkid outbrain prmd pvid qclid rdtcid recipientid sclient sccid siteid sourceid sprefix srsltid sxsrf tblci ttclid twclid uact wmlspartner youtu */
 /**
  * Test utmstrip.ts logic against test URL corpus
  * Run: node scripts/test-utmstrip.js
@@ -44,7 +44,21 @@ const universalExact = [
     // Pinterest
     'epik',
     // Vero
-    'vero_id'
+    'vero_id',
+    // Reddit Ads
+    'rdt_cid',
+    // Snapchat Ads
+    'ScCid',
+    // Quora Ads
+    'qclid',
+    // Taboola
+    'tblci',
+    // CJ Affiliate
+    'cjevent',
+    // Adobe Advertising
+    'ef_id',
+    // Outbrain
+    'outbrain_cid'
 ];
 
 const universalPrefixes = [
@@ -119,7 +133,7 @@ const twitterExact = ['cn', 'ref_src', 'ref_url', 's', 't'];
 const walmartExact = [
     'adsredirect', 'affiliates_ad_id', 'athancid', 'athcgid', 'athcpid',
     'athena', 'athiession', 'athmtid', 'athpgid', 'athposb', 'athstid',
-    'athznid', 'campaign_id', 'wmlspartner'
+    'athznid', 'campaign_id', 'wmlspartner', 'wt_mc'
 ];
 
 

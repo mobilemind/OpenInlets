@@ -442,6 +442,111 @@
       "input": "https://example.com/page?msclkid=abc&igsh=def&_kx=ghi&epik=jkl&vero_id=mno",
       "expected": "https://example.com/page",
       "note": "Multiple new universal tracking params in one URL"
+    },
+    {
+      "name": "Walmart wt_mc param",
+      "category": "walmart",
+      "input": "https://www.walmart.com/ip/12345?wt_mc=test&price=9.99",
+      "expected": "https://www.walmart.com/ip/12345?price=9.99",
+      "note": "wt_mc should be stripped, price preserved"
+    },
+    {
+      "name": "Case-insensitive stripping",
+      "category": "generic",
+      "input": "https://example.com/page?UTM_SOURCE=google&UTM_MEDIUM=cpc&q=test",
+      "expected": "https://example.com/page?q=test",
+      "note": "Uppercase UTM params should be stripped via lowercase normalization"
+    },
+    {
+      "name": "LinkedIn midSig and midToken",
+      "category": "linkedin",
+      "input": "https://www.linkedin.com/posts/user?midSig=abc123&midToken=def456&refId=xyz",
+      "expected": "https://www.linkedin.com/posts/user",
+      "note": "LinkedIn midSig, midToken, and refId should all be stripped"
+    },
+    {
+      "name": "AliExpress regional domain (.ru)",
+      "category": "aliexpress",
+      "input": "https://www.aliexpress.ru/item/123.html?spm=a2g0o&scm=1007.123",
+      "expected": "https://www.aliexpress.ru/item/123.html",
+      "note": "AliExpress non-.com TLD should match /\\.aliexpress\\.[a-z]{2,3}$/ regex"
+    },
+    {
+      "name": "eBay UK domain (ebay.co.uk)",
+      "category": "ebay",
+      "input": "https://www.ebay.co.uk/itm/12345?mkevt=1&mkcid=1&mkrid=abc",
+      "expected": "https://www.ebay.co.uk/itm/12345",
+      "note": "eBay co.uk domain should match /\\.ebay\\.co\\.[a-z]{2}$/ regex"
+    },
+    {
+      "name": "YouTube nocookie domain",
+      "category": "youtube",
+      "input": "https://www.youtube-nocookie.com/embed/abc?feature=share",
+      "expected": "https://www.youtube-nocookie.com/embed/abc",
+      "note": "youtube-nocookie.com should have YouTube params stripped"
+    },
+    {
+      "name": "IBM cm_mmca numeric pattern",
+      "category": "ibm",
+      "input": "https://example.com/?cm_mmca1=abc&cm_mmca99=xyz",
+      "expected": "https://example.com/",
+      "note": "cm_mmca\\d+ regex pattern should strip both params"
+    },
+    {
+      "name": "Walmart hash preserved with tracking",
+      "category": "walmart",
+      "input": "https://www.walmart.com/ip/12345?wt_mc=test&athcpid=abc#reviews",
+      "expected": "https://www.walmart.com/ip/12345#reviews",
+      "note": "Hash fragment should be preserved when Walmart tracking params are stripped"
+    },
+    {
+      "name": "Reddit Ads click ID",
+      "category": "ad-platforms",
+      "input": "https://example.com/page?rdt_cid=abc123",
+      "expected": "https://example.com/page",
+      "note": "Reddit Ads rdt_cid should be stripped"
+    },
+    {
+      "name": "Snapchat click ID",
+      "category": "ad-platforms",
+      "input": "https://example.com/page?ScCid=abc123",
+      "expected": "https://example.com/page",
+      "note": "Snapchat ScCid should be stripped (case-insensitive match)"
+    },
+    {
+      "name": "Quora click ID",
+      "category": "ad-platforms",
+      "input": "https://example.com/page?qclid=abc123",
+      "expected": "https://example.com/page",
+      "note": "Quora Ads qclid should be stripped"
+    },
+    {
+      "name": "Taboola click ID",
+      "category": "ad-platforms",
+      "input": "https://example.com/page?tblci=abc123",
+      "expected": "https://example.com/page",
+      "note": "Taboola tblci should be stripped"
+    },
+    {
+      "name": "CJ Affiliate event ID",
+      "category": "ad-platforms",
+      "input": "https://example.com/page?cjevent=abc123",
+      "expected": "https://example.com/page",
+      "note": "CJ Affiliate cjevent should be stripped"
+    },
+    {
+      "name": "Adobe Advertising ef_id",
+      "category": "ad-platforms",
+      "input": "https://example.com/page?ef_id=abc123",
+      "expected": "https://example.com/page",
+      "note": "Adobe Advertising Cloud ef_id should be stripped"
+    },
+    {
+      "name": "Outbrain click ID",
+      "category": "ad-platforms",
+      "input": "https://example.com/page?outbrain_cid=abc123",
+      "expected": "https://example.com/page",
+      "note": "Outbrain outbrain_cid should be stripped"
     }
   ],
   "excludedFromScope": [

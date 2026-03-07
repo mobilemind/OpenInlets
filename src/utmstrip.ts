@@ -1,5 +1,5 @@
 /* eslint max-statements: ["error", 55] */
-/* cSpell: ignore afid amdata anid ascsubtag assetid athancid athcgid athcpid athiession athmtid athpgid athposb athstid athznid btsid campaignid campid clkid crid customid dclid epik evid fbclid gclid gclsrc hsenc hsfp hsmi hssc hstc iesrc iflsig igsh igshid licu lipi mkcid mkevt mkrid mmca msclkid prmd pvid recipientid sclient siteid sourceid sprefix srsltid sxsrf ttclid twclid uact wmlspartner youtu */
+/* cSpell: ignore afid amdata anid ascsubtag assetid athancid athcgid athcpid athiession athmtid athpgid athposb athstid athznid btsid campaignid campid cjevent clkid crid customid dclid efid epik evid fbclid gclid gclsrc hsenc hsfp hsmi hssc hstc iesrc iflsig igsh igshid licu lipi mkcid mkevt mkrid mmca msclkid outbrain prmd pvid qclid Quora rdtcid recipientid sclient sccid siteid sourceid sprefix srsltid sxsrf Taboola tblci ttclid twclid uact wmlspartner youtu */
 
 (() => {
     const locPath: string = location.pathname,
@@ -47,7 +47,21 @@
         // Pinterest
         'epik',
         // Vero
-        'vero_id'
+        'vero_id',
+        // Reddit Ads
+        'rdt_cid',
+        // Snapchat Ads
+        'ScCid',
+        // Quora Ads
+        'qclid',
+        // Taboola
+        'tblci',
+        // CJ Affiliate
+        'cjevent',
+        // Adobe Advertising
+        'ef_id',
+        // Outbrain
+        'outbrain_cid'
     ];
 
     // Universal prefix params to strip
