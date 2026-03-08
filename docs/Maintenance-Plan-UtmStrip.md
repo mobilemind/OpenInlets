@@ -53,7 +53,8 @@ process to keep `src/utmstrip.ts` current and the test infrastructure in sync.
 
 ## After Making Changes
 
-1. Update `tests/utmstrip-test-urls.json` (add test cases **before** code changes)
+1. Update `tests/utmstrip-test-urls.json` (add test cases **before** code
+   changes)
 2. Update `scripts/test-utmstrip.js` to match new `src/utmstrip.ts` arrays
 3. Update `src/utmstrip.ts` with the new parameters
 4. Update `/* cSpell: ignore ... */` comments in both `src/utmstrip.ts` and
@@ -66,15 +67,15 @@ process to keep `src/utmstrip.ts` current and the test infrastructure in sync.
 
 ## Quarterly Review Schedule
 
-| Approx. Timing | Focus                                                     |
-| -------------- | --------------------------------------------------------- |
-| Q1 - January   | Post-holiday changes; new January GA4 params              |
-| Q2 - April     | Spring marketing; browser spring privacy updates          |
-| Q3 - July      | Mid-year ad platform changes; iOS/Safari summer betas     |
-| Q4 - October   | Pre-holiday season; browser major releases; platform launches |
+| Approx. Timing | Focus                                                  |
+| -------------- | ------------------------------------------------------ |
+| Q1 - January   | Post-holiday changes; new January GA4 params           |
+| Q2 - April     | Spring marketing; browser spring privacy updates       |
+| Q3 - July      | Mid-year ad platform changes; iOS/Safari summer betas  |
+| Q4 - October   | Pre-holiday; browser major releases; platform launches |
 
-Each review should take approximately 1 hour: 30 min research, 20 min code/test changes,
-10 min PR.
+Each review should take approximately 1 hour: 30 min research, 20 min 
+code/test changes, 10 min PR.
 
 ---
 
@@ -84,25 +85,25 @@ Track decisions here to avoid re-researching the same parameters each quarter.
 
 ### Added Parameters (with rationale)
 
-| Parameter | Platform     | Added | Rationale                               |
-| --------- | ------------ | ----- | --------------------------------------- |
-| `rdt_cid` | Reddit Ads   | 2026-Q1 | Reddit is now a top-5 ad platform; confirmed in DDG list |
-| `ScCid`   | Snapchat Ads | 2026-Q1 | Major mobile ad platform; confirmed in DDG list |
-| `qclid`   | Quora Ads    | 2026-Q1 | Confirmed in official Quora Ads docs |
-| `tblci`   | Taboola      | 2026-Q1 | Native ad click ID; appears on news/media sites widely |
-| `cjevent` | CJ Affiliate | 2026-Q1 | Commission Junction; one of the largest affiliate networks |
-| `ef_id`   | Adobe Advertising | 2026-Q1 | Adobe Advertising Cloud redirect ID; common in enterprise |
-| `outbrain_cid` | Outbrain | 2026-Q1 | Outbrain native ad click ID; appears alongside Taboola |
+| Parameter      | Platform      | Added   | Rationale                             |
+| -------------- | ------------- | -----   | ------------------------------------- |
+| `rdt_cid`      | Reddit Ads    | 2026-Q1 | A top-5 ad platform;  in DDG list     |
+| `ScCid`        | Snapchat Ads  | 2026-Q1 | Major mobile ad platform; in DDG list |
+| `qclid`        | Quora Ads     | 2026-Q1 | Confirmed in official Quora Ads docs  |
+| `tblci`        | Taboola       | 2026-Q1 | Native ad appears on news/media sites |
+| `cjevent`      | CJ Affiliate  | 2026-Q1 | Commission Junction; large affiliate  |
+| `ef_id`        | Adobe         | 2026-Q1 | Adobe Advertising Cloud redirect ID   |
+| `outbrain_cid` | Outbrain      | 2026-Q1 | Native ad ID; often beside Taboola    |
 
 ### Skipped Parameters (with reasoning)
 
-| Parameter         | Reason to Skip                                         |
-| ----------------- | ------------------------------------------------------ |
-| `click_id`        | Too generic — not safely stripped universally          |
-| `distinct_id`     | Mixpanel user ID — functional, could break sites       |
-| `branch_match_id` | Branch.io deep linking — used for native apps, less on web |
-| `c_n`, `c_p`, `c_t` | Matomo content tracking — specialized params rare in shared URLs |
-| `mytarget_click_id` | VK/Mail.ru Russian platform — very regional, low impact for most users |
+| Parameter           | Reason to Skip                                          |
+| ------------------- | ------------------------------------------------------- |
+| `click_id`          | Too generic — not safely stripped universally           |
+| `distinct_id`       | Mixpanel user ID — functional, could break sites        |
+| `branch_match_id`   | Branch.io  linking — used for native apps, less on web  |
+| `c_n`, `c_p`, `c_t` | Matomo tracking — specialized, rare in shared URLs      |
+| `mytarget_click_id` | VK/Mail.ru Russian platform — very regional, low impact |
 
 ---
 
