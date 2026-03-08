@@ -7,28 +7,28 @@ click IDs, email platforms rename parameters, and browsers add their own
 stripping that shifts expectations. This guide documents a quarterly review
 process to keep `src/utmstrip.ts` current and the test infrastructure in sync.
 
----
-
 ## Quarterly Review Checklist
 
 ### Reference Sources to Check
 
 1. **DuckDuckGo** — <https://github.com/duckduckgo/privacy-configuration/blob/main/features/tracking-parameters.json>
-2. **ClearURLs** — <https://rules.clearurls.xyz/data.minify.json> (or GitHub rules file)
-3. **Firefox ETP** — search <https://docs.mozilla.org> for "query parameter stripping"
+2. **ClearURLs** — <https://rules.clearurls.xyz/data.minify.json> (or GitHub
+   rules file)
+3. **Firefox ETP** — search <https://docs.mozilla.org> for "query parameter
+   stripping"
 4. **Brave** — <https://github.com/brave/brave-core/blob/main/components/query_filter/>
 
 ### Review Steps
 
 1. Fetch each reference source (links above)
-2. Extract parameter names → compare against `universalExact`, `universalPrefixes`,
-   and host-specific arrays in `src/utmstrip.ts`
+2. Extract parameter names → compare against `universalExact`,
+   `universalPrefixes`, and host-specific arrays in `src/utmstrip.ts`
 3. For each param in reference sources but NOT in `utmstrip.ts`:
    research it → decide add/skip
 4. For each param in `utmstrip.ts` NOT in any reference source: research if
    deprecated → decide remove
-5. Update `src/utmstrip.ts` + `scripts/test-utmstrip.js` + `tests/utmstrip-test-urls.json`
-   together (all three files must stay in sync)
+5. Update `src/utmstrip.ts` + `scripts/test-utmstrip.js` +
+   `tests/utmstrip-test-urls.json` together (all three files must stay in sync)
 
 ### Decision Criteria
 
@@ -49,8 +49,6 @@ process to keep `src/utmstrip.ts` current and the test infrastructure in sync.
 - Rare but real (confirmed real-world examples), even if not in reference
   sources
 
----
-
 ## After Making Changes
 
 1. Update `tests/utmstrip-test-urls.json` (add test cases **before** code
@@ -62,8 +60,6 @@ process to keep `src/utmstrip.ts` current and the test infrastructure in sync.
 5. Run: `npm test`
 6. Run: `npm run deploy`
 7. File a PR; CI will validate the full build + tests
-
----
 
 ## Quarterly Review Schedule
 
@@ -77,35 +73,31 @@ process to keep `src/utmstrip.ts` current and the test infrastructure in sync.
 Each review should take approximately 1 hour: 30 min research, 20 min code
 & test changes, 10 min PR.
 
----
-
 ## Parameter Decision Log
 
 Track decisions here to avoid re-researching the same parameters each quarter.
 
 ### Added Parameters (with rationale)
 
-| Parameter      | Platform      | Added   | Rationale                             |
-| -------------- | ------------- | -----   | ------------------------------------- |
-| `rdt_cid`      | Reddit Ads    | 2026-Q1 | A top-5 ad platform;  in DDG list     |
-| `ScCid`        | Snapchat Ads  | 2026-Q1 | Major mobile ad platform; in DDG list |
-| `qclid`        | Quora Ads     | 2026-Q1 | Confirmed in official Quora Ads docs  |
-| `tblci`        | Taboola       | 2026-Q1 | Native ad appears on news/media sites |
-| `cjevent`      | CJ Affiliate  | 2026-Q1 | Commission Junction; large affiliate  |
-| `ef_id`        | Adobe         | 2026-Q1 | Adobe Advertising Cloud redirect ID   |
-| `outbrain_cid` | Outbrain      | 2026-Q1 | Native ad ID; often beside Taboola    |
+| Parameter      | Platform     | Added   | Rationale                       |
+| -------------- | ------------ | -----   | ------------------------------- |
+| `rdt_cid`      | Reddit Ads   | 2026-Q1 | A top-5 ad platform in DDG list |
+| `ScCid`        | Snapchat Ads | 2026-Q1 | Major mobile ad platform in DDG |
+| `qclid`        | Quora Ads    | 2026-Q1 | Confirmed in Quora Ads docs     |
+| `tblci`        | Taboola      | 2026-Q1 | Native ads on news/media sites  |
+| `cjevent`      | CJ Affiliate | 2026-Q1 | Commission Junction affiliates  |
+| `ef_id`        | Adobe        | 2026-Q1 | Adobe Advertising Cloud IDs     |
+| `outbrain_cid` | Outbrain     | 2026-Q1 | Native ad ID                    |
 
 ### Skipped Parameters (with reasoning)
 
-| Parameter           | Reason to Skip                                          |
-| ------------------- | ------------------------------------------------------- |
-| `click_id`          | Too generic — not safely stripped universally           |
-| `distinct_id`       | Mixpanel user ID — functional, could break sites        |
-| `branch_match_id`   | Branch.io  linking — used for native apps, less on web  |
-| `c_n`, `c_p`, `c_t` | Matomo tracking — specialized, rare in shared URLs      |
-| `mytarget_click_id` | VK/Mail.ru Russian platform — very regional, low impact |
-
----
+| Parameter           | Reason to Skip                              |
+| ------------------- | ------------------------------------------- |
+| `click_id`          | Too generic,not safely stripped universally |
+| `distinct_id`       | Mixpanel ID — functional, could break sites |
+| `branch_match_id`   | Branch.io linking used for native apps      |
+| `c_n`, `c_p`, `c_t` | Matomo tracking — rare in shared URLs       |
+| `mytarget_click_id` | VK/Mail.ru regional Russian platform        |
 
 ## Automated Monitoring
 
