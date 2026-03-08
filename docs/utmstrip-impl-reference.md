@@ -5,6 +5,7 @@ This file contains extracted param lists for the refactored implementation.
 ## Universal Params (All Hosts)
 
 ### Exact Matches
+
 ```typescript
 const universalExact = [
     // Generic tracking
@@ -26,6 +27,7 @@ const universalExact = [
 ```
 
 ### Prefix Matches
+
 ```typescript
 const universalPrefixes = [
     // Facebook
@@ -46,6 +48,7 @@ const universalPrefixes = [
 ## Host-Specific Params
 
 ### AliExpress (`hostStr.includes('aliexpress.')`)
+
 ```typescript
 const aliexpressExact = [
     'btsid', 'ws_ab_test',
@@ -58,6 +61,7 @@ const aliexpressPrefixes = [
 ```
 
 ### Amazon (`/(|\.)amazon\.com$/.test(hostStr)`)
+
 ```typescript
 const amazonExact = [
     // Line 23: _encoding, ie, linkCode, linkId, pf, psc, ref_, tag
@@ -75,6 +79,7 @@ const amazonExact = [
 ```
 
 ### YouTube (`/(m|www)\.youtube\.com$/.test(hostStr) || hostStr === 'youtu.be' || hostStr === 'www.youtube-nocookie.com'`)
+
 ```typescript
 const youtubeExact = [
     'ac', 'annotation_id', 'app', 'feature', 'gclid', 'kw', 'src_vid',
@@ -84,6 +89,7 @@ const youtubeExact = [
 ## Conditional Checks (Optimization)
 
 The original code uses `.includes()` checks before applying certain rules:
+
 - `searchStr.includes('fb_')` → apply Facebook fb_* rules
 - `searchStr.includes('action_')` → apply action_*_map rules
 - `searchStr.toLowerCase().includes('id=')` → apply *id rules
@@ -100,7 +106,9 @@ These can be preserved as optimizations or removed if URLSearchParams iteration 
 ## Excluded from Scope
 
 ### IBM Coremetrics (`cm_mmca\d+`)
+
 The numeric pattern `cm_mmca1`, `cm_mmca2`, etc. is **excluded** from this refactor.
+
 - Keep original regex: `/([?&])cm_(mmc|mmca\d+|re|sp)=[^&]+/ig`
 - Or remove entirely if IBM tracking is deprecated
 
@@ -114,6 +122,7 @@ pathStr = pathStr.replace(/\/amp\/?$/, '');
 ## Post-Strip Cleanup (Current)
 
 The current implementation does manual string cleanup:
+
 ```typescript
 searchStr = searchStr.replace(/&&+/g, '&').replace(/&$/, '');
 searchStr = searchStr[0] === '?' ? searchStr.replace(/^\?&/, '?') : `?${searchStr}`;
@@ -129,6 +138,7 @@ const newURL = `${location.protocol}//${location.host}${pathStr}${searchStr}${lo
 ```
 
 With URL object:
+
 ```typescript
 url.pathname = cleanedPath;
 url.search = params.toString();
