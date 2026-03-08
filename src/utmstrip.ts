@@ -27,7 +27,7 @@
         // Facebook/Instagram
         'fbclid', 'hrc', 'igsh', 'igshid', 'refsrc',
         // Google Analytics
-        '_gl', 'gclsrc', 'srsltid',
+        '_gl', 'gclsrc', 'gs_l', 'srsltid',
         // HubSpot
         '_hsenc', '_hsmi', '__hsfp', '__hssc', '__hstc',
         // IBM (non-numeric only)

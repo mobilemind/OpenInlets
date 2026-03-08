@@ -27,13 +27,17 @@ jobs:
         run: |
           # Extract parameter names from DuckDuckGo JSON
           # DDG JSON has param as an array of objects w/ a "parameter" key
+          # grep -v strips out common prefixes handled by UtmStrip
           jq -r '.settings.parameters[]' /tmp/ddg-params.json \
-            | sort > /tmp/ddg-list.txt
+            | grep -Ev '^(action|fb|ga|hmb|hsa|mtm|pk|oly|utm)_' \
+            | sort -u > /tmp/ddg-list.txt
 
           # Extract quoted strings from utmstrip.ts (single-quoted identifiers)
           # Matches 'param_name' patterns, strips quotes, excludes TypeScript types
+          # grep -v strips out common prefixes handled by UtmStrip
           grep -oE "'[a-zA-Z_][a-zA-Z0-9_]*'" src/utmstrip.ts \
-            | tr -d "'" | sort -u > /tmp/utmstrip-list.txt
+            | tr -d "'" | grep -Ev '^(action|fb|ga|hmb|hsa|mtm|pk|oly|utm)_' \
+            | sort -u > /tmp/utmstrip-list.txt
 
           # Find params in DDG list not covered in utmstrip.ts
           comm -23 /tmp/ddg-list.txt /tmp/utmstrip-list.txt > /tmp/missing.txt
