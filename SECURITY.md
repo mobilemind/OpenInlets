@@ -64,8 +64,8 @@ npm version patch  # or minor, or major
 git push --follow-tags
 
 # Or manually create and push a signed tag
-git tag -s 4.2.0 -m "Release version 4.2.0"
-git push origin 4.2.0
+git tag -s 4.2.2 -m "Release version 4.2.2"
+git push origin 4.2.2
 ```
 
 ## Release Verification
@@ -76,10 +76,10 @@ All releases should be signed with GPG/SSH signatures for verification:
 
 ```bash
 # Verify the signature on a release tag
-git verify-tag 4.2.0
+git verify-tag 4.2.2
 
 # Show tag details with signature
-git tag -v 4.2.0
+git tag -v 4.2.2
 ```
 
 ### Verifying Signed Commits
@@ -109,8 +109,8 @@ npm sbom --sbom-format=cyclonedx --omit=dev > sbom.json
 
 To ensure the integrity of published packages and repository security:
 
-- **2FA Required:** All project maintainers must enable two-factor authentication
-  on their GitHub accounts
+- **2FA Required:** All project maintainers must enable two-factor
+  authentication on their GitHub accounts
 - **Signed Commits:** All commits to the main branch must be GPG signed
 - **Code Review:** All changes require review and approval before merging
   (via CODEOWNERS)
@@ -303,6 +303,6 @@ All OpenInlets bookmarklets are:
 - **Tested** - Validated through automated builds and manual testing
 - **Documented** - Purpose and behavior documented in README.md
 
-To audit a bookmarklet, compare the URL-decoded `dist/*.bookmarklet` file with its
-corresponding `src/*.ts` source file. The build process is deterministic and
-reproducible.
+To audit a bookmarklet, compare the URL-decoded `dist/*.bookmarklet` file with
+its corresponding `src/*.ts` source file. The build process is deterministic
+and reproducible.
