@@ -74,8 +74,8 @@ process to keep `src/utmstrip.ts` current and the test infrastructure in sync.
 | Q3 - July      | Mid-year ad platform changes; iOS/Safari summer betas  |
 | Q4 - October   | Pre-holiday; browser major releases; platform launches |
 
-Each review should take approximately 1 hour: 30 min research, 20 min 
-code/test changes, 10 min PR.
+Each review should take approximately 1 hour: 30 min research, 20 min code
+& test changes, 10 min PR.
 
 ---
 
