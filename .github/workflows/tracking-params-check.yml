@@ -27,7 +27,7 @@ jobs:
         run: |
           # Extract parameter names from DuckDuckGo JSON
           # DDG JSON has param as an array of objects w/ a "parameter" key
-          jq -r '.settings.parameters[].parameter' /tmp/ddg-params.json \
+          jq -r '.settings.parameters[]' /tmp/ddg-params.json \
             | sort > /tmp/ddg-list.txt
 
           # Extract quoted strings from utmstrip.ts (single-quoted identifiers)
