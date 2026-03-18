@@ -14,9 +14,8 @@ process to keep `src/utmstrip.ts` current and the test infrastructure in sync.
 1. **DuckDuckGo** — <https://github.com/duckduckgo/privacy-configuration/blob/main/features/tracking-parameters.json>
 2. **ClearURLs** — <https://rules.clearurls.xyz/data.minify.json> (or GitHub
    rules file)
-3. **Firefox ETP** — search <https://docs.mozilla.org> for "query parameter
-   stripping"
-4. **Brave** — <https://github.com/brave/brave-core/blob/main/components/query_filter/>
+3. **Firefox** — <https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html>
+4. **Brave** — <https://github.com/brave/brave-core/blob/master/components/query_filter/utils.cc/>
 
 ### Review Steps
 
