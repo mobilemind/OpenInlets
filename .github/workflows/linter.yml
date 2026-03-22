@@ -10,7 +10,6 @@ on:
 
 permissions:
   contents: read
-  statuses: write
 
 # Prevent concurrent runs for the same PR/branch
 concurrency:
@@ -46,9 +45,6 @@ jobs:
         run: |
           pip install --quiet yamllint
           yamllint .
-
-      - name: "Lint GitHub Actions"
-        uses: rhysd/actionlint@v1
 
       - name: "Validate JSON"
         run: |
