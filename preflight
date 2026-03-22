@@ -63,9 +63,9 @@ fi
 echo
 
 ## check YAML
-echo "  checking YAML files (w/ yamllint, see .github/linters/.yaml-lint.yml)"
+echo "  checking YAML files (w/ yamllint, see .yamllint.yml)"
 if hash yamllint >/dev/null 2>&1 ; then
-  yamllint -c .github/linters/.yaml-lint.yml .github/ \
+  yamllint .github/ \
     || { echo '    *** ERROR yamllint YAML check failed.' ; exit 1 ; }
   echo '    .github/: YAML OK'
 else
@@ -75,8 +75,7 @@ echo
 
 ## check README.md
 echo '  checking README.md'
-[ -d 'node_modules/markdownlint' ] || npm install --no-save markdownlint-cli
-npx markdownlint -c .github/linters/.markdownlint.json README.md SECURITY.md \
+npx markdownlint-cli2 README.md SECURITY.md \
   || { echo '    *** ERROR markdownlint README.md SECURITY.md check failed.' ; exit 1 ; }
 if hash cspell >/dev/null 2>&1 ; then
   printf '  '
@@ -89,7 +88,7 @@ echo
 ## check .github/workflows
 echo '  checking GitHub Actions'
 if hash actionlint >/dev/null 2>&1 ; then
-  actionlint -config-file .github/linters/actionlint.yaml .github/workflows/*.yml \
+  actionlint -config-file .github/actionlint.yaml .github/workflows/*.yml \
     || { echo '    *** ERROR actionlint .github/workflows/*.yml check failed.' ; exit 1 ; }
   echo '    .github/workflows/*.yml: GitHub Actions .yml OK'
 else
@@ -98,15 +97,15 @@ fi
 echo
 
 ## check TypeScript and JavaScript
-echo '  checking TypeScript & JavaScript w/ eslint, see .github/linters/eslint.config.js'
-npx eslint -c .github/linters/eslint.config.js "scripts/*.js" "src/*.ts" ".github/linters/*.js" \
+echo '  checking TypeScript & JavaScript w/ eslint, see eslint.config.js'
+npx eslint . \
     || { echo '    *** ERROR eslint TypeScript & JavaScript check failed.' ; exit 1 ; }
 if hash cspell >/dev/null 2>&1 ; then
   printf '  '
 	cspell src/*.ts || \
 		{ echo '    *** ERROR "cspell src/*.ts" failed.' ; exit 1 ; }
 fi
-echo '    scripts/*.js, src/*.ts, .github/linters/*.js: TypeScript & JavaScript OK'
+echo '    TypeScript & JavaScript OK'
 echo
 
 ## check for @eslint/mcp updates (pinned in .mcp.json)

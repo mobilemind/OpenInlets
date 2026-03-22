@@ -184,7 +184,7 @@ module.exports = [
         }
     },
     {
-        files: ["scripts/*.js", ".github/linters/*.js"],
+        files: ["scripts/*.js"],
         ignores: [".cspell.json","*.json", "**/*{.,-}min.js", "node_modules/*", "dist/*.bookmarklet"],
         languageOptions: {
             ecmaVersion: 2023,
