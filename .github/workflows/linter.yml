@@ -18,50 +18,55 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  lint:
     name: "Lint Code Base"
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
-      # Checkout the code base
       - name: "Checkout Code"
         uses: actions/checkout@v6
-        with:
-          # Full git history needed to get list of changed files w/in `super-linter`
-          fetch-depth: 0
 
-      # Setup Node.js with cache
       - name: "Setup Node.js"
         uses: actions/setup-node@v6
         with:
           node-version: '24.x'
           cache: 'npm'
 
-      # install
       - name: "Install Dependencies"
         run: npm ci --prefer-offline
 
-      # Run project's ESLint
-      - name:  "Run ESLint"
-        run: npx eslint --config .github/linters/eslint.config.js .
+      - name: "Run ESLint"
+        run: npx eslint .
 
-      # Run Linter against code base
-      - name: Super-linter
-        uses: super-linter/super-linter/slim@v8
-        env:
-          ACTIONS_RUNNER_DEBUG: false
-          DEFAULT_BRANCH: main
-          FILTER_REGEX_EXCLUDE: dist\/.*\. bookmarklet
-          GITHUB_TOKEN: ${{ secrets. GITHUB_TOKEN }}
-          LOG_LEVEL:  NOTICE
-          SUPPRESS_POSSUM: true
-          VALIDATE_ALL_CODEBASE: true
-          # Only validate these specific things
-          VALIDATE_BASH: true
-          VALIDATE_BASH_EXEC: true
-          VALIDATE_GITHUB_ACTIONS: true
-          VALIDATE_JSON: true
-          VALIDATE_JSONC: true
-          VALIDATE_MARKDOWN: true
-          VALIDATE_YAML: true
+      - name: "Lint Markdown"
+        run: npx markdownlint-cli2 "**/*.md" "#node_modules" "#dist"
+
+      - name: "Lint YAML"
+        run: |
+          pip install --quiet yamllint
+          yamllint .
+
+      - name: "Lint GitHub Actions"
+        uses: rhysd/actionlint@v1
+
+      - name: "Validate JSON"
+        run: |
+          find . -name '*.json' \
+            -not -path './node_modules/*' \
+            -not -path './.git/*' \
+            -not -path './dist/*' \
+            -print0 | xargs -0 -I{} node -e \
+            "JSON.parse(require('fs').readFileSync('{}','utf8'))"
+
+      - name: "Validate JSONC"
+        run: |
+          node -e "
+            const fs = require('fs');
+            const c = fs.readFileSync('.cspell.jsonc','utf8')
+              .replace(/\/\/.*$/gm,'')
+              .replace(/\/\*[\s\S]*?\*\//g,'')
+              .replace(/,(\s*[}\]])/g,'\$1');
+            JSON.parse(c);
+            console.log('.cspell.jsonc: valid');
+          "

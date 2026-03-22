@@ -106,10 +106,10 @@ cp -fpv pre-push .git/hooks
 
 ### Linting
 
-ESLint configuration is in `.github/linters/eslint.config.js`:
+ESLint configuration is in `eslint.config.js` (project root, auto-discovered):
 
 ```bash
-npx eslint --config .github/linters/eslint.config.js .
+npx eslint .
 ```
 
 **Expected time**: 2-5 seconds
@@ -159,10 +159,10 @@ verify-build` to check this automatically.
 - **`tsconfig.json`** - TypeScript compiler configuration (src/)
 - **`tsconfig.scripts.json`** - TypeScript configuration for scripts (unused currently)
 - **`bookmarklets.json`** - Bookmarklet metadata (name, file, version)
-- **`.github/linters/eslint.config.js`** - ESLint rules (strict, security-focused)
-- **`.github/linters/.markdownlint.json`** - Markdown linting rules
-- **`.github/linters/.yaml-lint.yml`** - YAML linting rules
-- **`.github/linters/actionlint.yaml`** - GitHub Actions linting rules
+- **`eslint.config.js`** - ESLint rules (strict, security-focused)
+- **`.markdownlint.json`** - Markdown linting rules
+- **`.yamllint.yml`** - YAML linting rules
+- **`.github/actionlint.yaml`** - GitHub Actions linting rules
 - **`.cspell.jsonc`** - Spell checking configuration
 - **`.cspell/dictionary-custom.txt`** - Custom word dictionary
 
@@ -180,8 +180,7 @@ Located in `.github/workflows/`:
 
 2. **`linter.yml`** - Lint Code Base
    - Triggers: push to main/hotfix, PRs to main, manual dispatch
-   - Runs: ESLint + Super-Linter (Bash, GitHub Actions, JSON, JSONC, Markdown,
-     YAML)
+   - Runs: ESLint, markdownlint, yamllint, actionlint, JSON/JSONC validation
    - **Timeout**: 10 minutes
    - Excludes: `dist/*.bookmarklet` files from linting
 
@@ -309,7 +308,8 @@ npm install -g cspell
 - `scripts/` - Node.js build scripts (5 files)
 - `dist/` - Built bookmarklet files (16 .bookmarklet files)
 - `.github/workflows/` - CI/CD workflows (4 files)
-- `.github/linters/` - Linting configurations (4 files)
+- Root linter configs: `eslint.config.js`, `.markdownlint.json`, `.yamllint.yml`
+- `.github/actionlint.yaml` - GitHub Actions linting rules
 - `.cspell/` - Spell check dictionary
 - `.temp/` - Temporary build artifacts (gitignored)
 - `node_modules/` - Dependencies (gitignored)

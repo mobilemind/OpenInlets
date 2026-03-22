@@ -233,7 +233,7 @@ the source files where the code is readable and parseable.
 
 ### Security Configuration
 
-ESLint security rules enabled in `.github/linters/eslint.config.js`:
+ESLint security rules enabled in `eslint.config.js`:
 
 - `eslint-plugin-security` with recommended rules
 - No `eval()` or implied eval allowed
