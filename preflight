@@ -98,14 +98,14 @@ echo
 
 ## check TypeScript and JavaScript
 echo '  checking TypeScript & JavaScript w/ eslint, see eslint.config.js'
-npx eslint "scripts/*.js" "src/*.ts" \
+npx eslint . \
     || { echo '    *** ERROR eslint TypeScript & JavaScript check failed.' ; exit 1 ; }
 if hash cspell >/dev/null 2>&1 ; then
   printf '  '
 	cspell src/*.ts || \
 		{ echo '    *** ERROR "cspell src/*.ts" failed.' ; exit 1 ; }
 fi
-echo '    scripts/*.js, src/*.ts: TypeScript & JavaScript OK'
+echo '    TypeScript & JavaScript OK'
 echo
 
 ## check for @eslint/mcp updates (pinned in .mcp.json)
