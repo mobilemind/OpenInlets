@@ -12,12 +12,12 @@ minified JavaScript bookmarklets.
 - **Target Runtime**: Browser bookmarklets (ES2020)
 - **Build Tools**: TypeScript compiler, Terser for minification, Node.js
   scripts
-- **Lines of Code**: 16 TypeScript source files in `src/`, 5 Node.js scripts
+- **Lines of Code**: 21 TypeScript source files in `src/`, 6 Node.js scripts
   in `scripts/`
-- **Node Version Required**: >=24.12.0 (strict requirement via
+- **Node Version Required**: >=24.13.1 (strict requirement via
   `engineStrict: true`)
-- **npm Version Required**: >=11.6.0
-- **Primary Output**: 16 `.bookmarklet` files in `dist/` directory
+- **npm Version Required**: >=11.8.0
+- **Primary Output**: 21 `.bookmarklet` files in `dist/` directory
 
 ## Critical Build Instructions
 
@@ -71,7 +71,7 @@ npm test
 
 This runs `npm run build && npm run verify-build`. The verification ensures:
 
-- All 16 bookmarklets were built
+- All 21 bookmarklets were built
 - Calculates total size
 - **Expected time**: 5-10 seconds
 
@@ -129,14 +129,15 @@ file with current bookmarklet code.
 
 ### Source Files
 
-- **`src/*.ts`** - 16 TypeScript bookmarklet source files (human-readable)
+- **`src/*.ts`** - 21 TypeScript bookmarklet source files (human-readable)
   - Each file is a self-contained bookmarklet implementation
   - Uses strict TypeScript configuration (see `tsconfig.json`)
   - Target: ES2020 for modern browser compatibility
   
-- **`scripts/*.js`** - 5 Node.js build scripts:
+- **`scripts/*.js`** - 6 Node.js build/test scripts:
   - `build-bookmarklet.js` - Converts minified JS to bookmarklet URLs
   - `minify.js` - Minifies compiled JavaScript with Terser
+  - `test-utmstrip.js` - UTM strip parameter test suite
   - `update-readme.js` - Updates README.md with bookmarklet links
   - `verify-build.js` - Validates build output
   - `utils.js` - Shared utilities
@@ -144,14 +145,15 @@ file with current bookmarklet code.
 ### Build Artifacts
 
 - **`.temp/*.js`** - TypeScript compiler output (intermediate, gitignored)
-- **`dist/*.bookmarklet`** - Final bookmarklet files (16 files, committed to git)
+- **`dist/*.bookmarklet`** - Final bookmarklet files (21 files, committed to git)
 
 **CRITICAL**: Never examine or review the contents of `dist/*.bookmarklet`
 files. These are URL-encoded bookmarklets, not TypeScript or JavaScript. They
 start with `javascript:` and contain percent-encoded minified code. **The only
 validation needed is that for every `src/*.ts` file basename, there exists
-exactly one corresponding `dist/*.bookmarklet` file.** Use `npm run
-verify-build` to check this automatically.
+exactly one corresponding `dist/*.bookmarklet` file (plus any listed in
+`bookmarklets.json`).** Use `npm run verify-build` to check this
+automatically.
 
 ### Configuration Files
 
@@ -174,13 +176,11 @@ Located in `.github/workflows/`:
    - Triggers: push to main/hotfix, PRs to main
    - Matrix: Node 24.x and 25.x
    - Steps: Security audit → Install deps → Build & test → Generate SBOM
-   - **Note**: Security audit currently has `continue-on-error: true` until
-     Dec 18, 2025 (js-yaml issue)
    - **Timeout**: 5 minutes
 
 2. **`linter.yml`** - Lint Code Base
    - Triggers: push to main/hotfix, PRs to main, manual dispatch
-   - Runs: ESLint, markdownlint, yamllint, actionlint, JSON/JSONC validation
+   - Runs: ESLint, markdownlint, yamllint, JSON/JSONC validation
    - **Timeout**: 10 minutes
    - Excludes: `dist/*.bookmarklet` files from linting
 
@@ -229,24 +229,12 @@ Check that builds still work after updates.
 
 ## Known Issues and Workarounds
 
-### npm Audit Warnings (Temporary)
-
-**Issue**: npm audit may report moderate vulnerabilities in js-yaml transitive
-dependency.
-
-**Workaround**: Currently set to `continue-on-error: true` in workflows until
-December 18, 2025, or until js-yaml is updated. This is documented in:
-
-- `.github/workflows/ci.yml` (line 39)
-- `.github/workflows/release.yml` (line 47)
-- `pre-push` script (line 50)
-
 ### Node Version Mismatch Warnings
 
 **Issue**: If you see `EBADENGINE Unsupported engine` warnings:
 
 ```text
-npm warn EBADENGINE required: { node: '>=24.12.0', npm: '>=11.6.0' }
+npm warn EBADENGINE required: { node: '>=24.13.1', npm: '>=11.8.0' }
 npm warn EBADENGINE current: { node: 'v20.19.6', npm: '10.8.2' }
 ```
 
@@ -270,8 +258,9 @@ cp -fpv pre-push .git/hooks
 **Issue**: preflight skips checks if optional tools (shellcheck, yamllint,
 actionlint, cspell) aren't installed.
 
-**Workaround**: These checks are non-blocking locally but will run in CI.
-Install tools for full validation:
+**Workaround**: These are optional local checks. yamllint and markdownlint
+also run in CI; shellcheck and actionlint are local-only. Install tools for
+full local validation:
 
 ```sh
 # shellcheck
@@ -307,7 +296,7 @@ npm install -g cspell
 - `src/` - TypeScript bookmarklet source files (16 files)
 - `scripts/` - Node.js build scripts (5 files)
 - `dist/` - Built bookmarklet files (16 .bookmarklet files)
-- `.github/workflows/` - CI/CD workflows (4 files)
+- `.github/workflows/` - CI/CD workflows (5 files)
 - Root linter configs: `eslint.config.js`, `.markdownlint.json`, `.yamllint.yml`
 - `.github/actionlint.yaml` - GitHub Actions linting rules
 - `.cspell/` - Spell check dictionary
@@ -339,8 +328,14 @@ npm install -g cspell
 8. **ESLint is strict**. The configuration enforces security rules and strict
    coding standards. If eslint fails, fix the issues - don't disable rules.
 
-9. **Super-Linter runs in CI**. Local preflight may skip some checks if tools
-   are missing, but CI runs all checks.
+9. **Linter configs use convention over configuration.** `eslint.config.js`,
+   `.markdownlint.json`, and `.yamllint.yml` are in the project root where
+   their tools auto-discover them. Do not add explicit `--config` flags —
+   the default discovery is intentional.
 
-10. **GitHub Actions run automatically** on push/PR. Check workflow results if
+10. **CI runs individual linters** (ESLint, markdownlint, yamllint, JSON/JSONC
+    validation) directly on the Ubuntu runner — no Docker or Super-Linter.
+    actionlint runs locally only (via `preflight`).
+
+11. **GitHub Actions run automatically** on push/PR. Check workflow results if
     CI fails.
