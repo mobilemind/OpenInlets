@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES2023",
-    "module": "none",
-    "lib": ["ES2023", "DOM"],
-    "outDir": "./.temp",
-    "strict": true,
-    "noEmit": false,
     "allowUnreachableCode": false,
+    "lib": ["ES2023", "DOM"],
+    "module": "esnext",
+    "noEmit": false,
     "noImplicitAny": true,
+    "outDir": "./.temp",
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "strict": true,
     "strictNullChecks": true,
-    "skipLibCheck": true
+    "target": "ES2023"
   },
-  "include": ["src/*.ts"],
-  "exclude": ["node_modules", "dist", ".temp", "scripts"]
+  "exclude": ["node_modules", "dist", ".temp", "scripts"],
+  "include": ["src/*.ts"]
 }

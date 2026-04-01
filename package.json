@@ -11,14 +11,14 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@types/node": "25.5.0",
-    "@typescript-eslint/eslint-plugin": "~8.57.2",
-    "@typescript-eslint/parser": "~8.57.2",
+    "@typescript-eslint/eslint-plugin": "~8.58.0",
+    "@typescript-eslint/parser": "~8.58.0",
     "eslint": "10.1.0",
     "eslint-plugin-no-unsanitized": "~4.1.5",
     "globals": "17.4.0",
     "markdownlint-cli2": "~0.22.0",
     "terser": "5.46.1",
-    "typescript": "5.9.3"
+    "typescript": "6.0.2"
   },
   "engines": {
     "node": ">=24.13.1",
