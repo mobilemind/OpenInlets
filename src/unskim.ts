@@ -38,7 +38,7 @@
     // navigate to new URL if found, after stripping common tracking params
     if (urlCandidate) {
         const targetUrl: URL = new URL(urlCandidate);
-        if (targetUrl.search.length > 2) {
+        if (targetUrl.searchParams.size > 0) {
             const targetParams: URLSearchParams = new URLSearchParams(targetUrl.search);
             for (const key of [...targetParams.keys()]) {
                 const k: string = key.toLowerCase();
