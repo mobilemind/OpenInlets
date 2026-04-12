@@ -35,9 +35,21 @@
         })
         .find((url: string) => url.match(/^https?:/));
 
-    // navigate to new URL if found
+    // navigate to new URL if found, after stripping common tracking params
     if (urlCandidate) {
-        window.location.replace(new URL(urlCandidate));
+        const targetUrl: URL = new URL(urlCandidate);
+        if (targetUrl.searchParams.size > 0) {
+            const targetParams: URLSearchParams = new URLSearchParams(targetUrl.search);
+            for (const key of [...targetParams.keys()]) {
+                const k: string = key.toLowerCase();
+                if (k.startsWith('utm_') || k.startsWith('fb_') ||
+                    ['fbclid', 'gclid', 'msclkid', 'ref', 'referrer', 'ttclid', 'twclid'].includes(k)) {
+                    targetParams.delete(key);
+                }
+            }
+            targetUrl.search = targetParams.toString();
+        }
+        window.location.replace(targetUrl);
     }
 
 })();
