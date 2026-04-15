@@ -53,7 +53,7 @@
   "scripts": {
     "build": "npm run build:compile && npm run build:minify && npm run build:bookmarklet",
     "build:bookmarklet": "node scripts/build-bookmarklet.js",
-    "build:compile": "tsc && eslint ./.temp/*.js",
+    "build:compile": "rm -rf .temp && tsc && eslint ./.temp/*.js",
     "build:minify": "node scripts/minify.js",
     "build:readme": "node scripts/update-readme.js",
     "deploy": "npm run build && npm run build:readme",
@@ -66,5 +66,5 @@
       "smol-toml": "1.6.1"
     }
   },
-  "version": "4.2.2"
+  "version": "4.2.3"
 }
