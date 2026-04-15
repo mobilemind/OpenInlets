@@ -10,8 +10,8 @@
 
     // handle special case of Safari error page (DNS block of redirection service)
     if (origUrl.href === 'safari-resource:/ErrorPage.html') {
-        // DO NOT "UNCURL" the apostrophe or quotes in the match regex, that formatting IS CRITICAL
-        const urlStr: string | undefined = document.querySelector('p.error-message')?.textContent?.match(/Safari can't open the page "(https?:[^"]+)"/)?.[1];
+        // regex matches both straight AND curly (typographic) apostrophe/quotes
+        const urlStr: string | undefined = document.querySelector('p.error-message')?.textContent?.match(/Safari can['\u2019]t open the page ["\u201C](https?:[^"\u201D]+)["\u201D]/)?.[1];
         if (urlStr) {
             origUrl = new URL(urlStr);
         }
