@@ -68,9 +68,12 @@ jobs:
           "
 
       - name: "Lint Shell Scripts"
-        run: >
-          shellcheck -s sh -o add-default-case -o avoid-nullary-conditions
-          -o check-unassigned-uppercase -o deprecate-which pre-push
+        run: |
+          if ! command -v shellcheck >/dev/null 2>&1; then
+            sudo apt-get update -qq && sudo apt-get install -y -qq shellcheck
+          fi
+          shellcheck -s sh -o add-default-case -o avoid-nullary-conditions \
+            -o check-unassigned-uppercase -o deprecate-which pre-push
 
       - name: "Lint GitHub Actions"
         run: |

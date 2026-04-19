@@ -58,7 +58,7 @@
     "build:readme": "node scripts/update-readme.js",
     "deploy": "npm run build && npm run build:readme",
     "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules' '#dist' '#.claude' '#CLAUDE.md'",
-    "lint:sh": "command -v shellcheck >/dev/null 2>&1 && shellcheck -s sh -o add-default-case -o avoid-nullary-conditions -o check-unassigned-uppercase -o deprecate-which pre-push || echo 'shellcheck not installed, skipping'",
+    "lint:sh": "if command -v shellcheck >/dev/null 2>&1; then shellcheck -s sh -o add-default-case -o avoid-nullary-conditions -o check-unassigned-uppercase -o deprecate-which pre-push; else echo 'shellcheck not installed, skipping'; fi",
     "test": "npm run build && node scripts/test-utmstrip.js && npm run verify-build",
     "verify-build": "node scripts/verify-build.js"
   },

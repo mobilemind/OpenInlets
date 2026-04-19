@@ -59,8 +59,8 @@ echo
 
 # install node modules if missing
 if ! [ -d 'node_modules' ] ; then
-  echo '    Running "npm ci". This could take awhile.'
-  npm ci || { echo '    *** ERROR npm ci failed.' ; exit 1 ; }
+  echo '    Running "npm ci --prefer-offline". This could take awhile.'
+  npm ci --prefer-offline || { echo '    *** ERROR npm ci failed.' ; exit 1 ; }
   echo
 fi
 
