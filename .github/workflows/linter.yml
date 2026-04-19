@@ -66,3 +66,13 @@ jobs:
             JSON.parse(c);
             console.log('.cspell.jsonc: valid');
           "
+
+      - name: "Lint Shell Scripts"
+        run: >
+          shellcheck -s sh -o add-default-case -o avoid-nullary-conditions
+          -o check-unassigned-uppercase -o deprecate-which pre-push
+
+      - name: "Lint GitHub Actions"
+        run: |
+          bash <(curl -s https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+          ./actionlint -config-file .github/actionlint.yaml .github/workflows/*.yml

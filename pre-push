@@ -57,17 +57,19 @@ else
 fi
 echo
 
-# update (or implicit install) node modules
+# install node modules if missing
 if ! [ -d 'node_modules' ] ; then
-  echo '    Running "preflight" and "npm install". This could take awhile.'
-  if [ -f "./preflight" ] ; then
-    ./preflight || exit 1
-    echo
-  else
-    echo '      WARNING: "preflight" script not found.'
-  fi
+  echo '    Running "npm ci". This could take awhile.'
+  npm ci || { echo '    *** ERROR npm ci failed.' ; exit 1 ; }
   echo
 fi
+
+# lint TypeScript & JavaScript source
+echo '  npx eslint .'
+npx eslint . || \
+  { echo "  git hooks $HOOKNAME ($GITBRANCH): FAILED on 'npx eslint .'" ; exit 2 ; }
+echo "  git hooks $HOOKNAME ($GITBRANCH): OK, passed: 'npx eslint .'"
+echo
 
 # run build
 echo '  npm run build'

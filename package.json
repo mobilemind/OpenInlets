@@ -13,12 +13,12 @@
     "@types/node": "25.6.0",
     "@typescript-eslint/eslint-plugin": "~8.58.2",
     "@typescript-eslint/parser": "~8.58.2",
-    "eslint": "10.2.0",
+    "eslint": "10.2.1",
     "eslint-plugin-no-unsanitized": "~4.1.5",
     "globals": "17.5.0",
     "markdownlint-cli2": "~0.22.0",
     "terser": "5.46.1",
-    "typescript": "6.0.2"
+    "typescript": "6.0.3"
   },
   "engines": {
     "node": ">=24.13.1",
@@ -57,7 +57,8 @@
     "build:minify": "node scripts/minify.js",
     "build:readme": "node scripts/update-readme.js",
     "deploy": "npm run build && npm run build:readme",
-    "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules' '#dist'",
+    "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules' '#dist' '#.claude' '#CLAUDE.md'",
+    "lint:sh": "command -v shellcheck >/dev/null 2>&1 && shellcheck -s sh -o add-default-case -o avoid-nullary-conditions -o check-unassigned-uppercase -o deprecate-which pre-push || echo 'shellcheck not installed, skipping'",
     "test": "npm run build && node scripts/test-utmstrip.js && npm run verify-build",
     "verify-build": "node scripts/verify-build.js"
   },

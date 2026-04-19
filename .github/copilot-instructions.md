@@ -75,30 +75,28 @@ This runs `npm run build && npm run verify-build`. The verification ensures:
 - Calculates total size
 - **Expected time**: 5-10 seconds
 
-### Pre-commit Validation
+### Pre-push Validation
 
-**ALWAYS run before committing** (or the pre-push hook will catch it):
+The `pre-push` git hook runs automatically before every push. It performs:
 
-```bash
-./preflight
-```
+1. Hook drift check (ensures `.git/hooks/pre-push` matches `./pre-push`)
+2. `package-lock.json` existence check
+3. npm security audit
+4. ESLint on all TypeScript and JavaScript source (`npx eslint .`)
+5. Full build (`npm run build`)
+6. Spell checking with `cspell` (if installed)
+7. Version consistency checks (git tag, package.json, SECURITY.md)
+8. LICENSE year check
 
-This script checks:
+Additional checks run in CI (`linter.yml`):
 
-1. Shell scripts with `shellcheck` (pre-push, preflight) - skipped if
-   shellcheck not installed
-2. YAML files with `yamllint` - skipped if yamllint not installed
-3. Markdown files with `markdownlint` and `cspell`
-4. GitHub Actions with `actionlint` - skipped if actionlint not installed
-5. TypeScript/JavaScript with `eslint`
-6. npm security audit
-7. Verifies pre-push hook is installed at `.git/hooks/pre-push`
+- Shell script linting with `shellcheck`
+- GitHub Actions validation with `actionlint`
+- YAML validation with `yamllint`
+- Markdown linting with `markdownlint`
+- JSON/JSONC validation
 
-**Expected time**: 10-20 seconds with all tools, 5-10 seconds with minimal
-tools
-
-**Pre-requisite**: If preflight fails because `.git/hooks/pre-push` doesn't
-match `./pre-push`, run:
+**Pre-requisite**: If the pre-push hook is not installed or out of sync, run:
 
 ```sh
 cp -fpv pre-push .git/hooks
@@ -180,7 +178,8 @@ Located in `.github/workflows/`:
 
 2. **`linter.yml`** - Lint Code Base
    - Triggers: push to main/hotfix, PRs to main, manual dispatch
-   - Runs: ESLint, markdownlint, yamllint, JSON/JSONC validation
+   - Runs: ESLint, markdownlint, yamllint, JSON/JSONC validation, shellcheck,
+     actionlint
    - **Timeout**: 10 minutes
    - Excludes: `dist/*.bookmarklet` files from linting
 
@@ -202,7 +201,7 @@ Located in `.github/workflows/`:
 
 1. Modify `src/*.ts` files (TypeScript source)
 2. Run `npm run build` to compile and generate bookmarklets
-3. Run `./preflight` to validate (or wait for pre-push hook)
+3. Run `npm test` to validate (or wait for pre-push hook)
 4. Commit changes (both src/*.ts and dist/*.bookmarklet should be committed)
 
 ### Adding a New Bookmarklet
@@ -222,7 +221,6 @@ Located in `.github/workflows/`:
 npm update
 npm audit fix
 npm test
-./preflight
 ```
 
 Check that builds still work after updates.
@@ -244,7 +242,7 @@ to enforce these requirements.
 
 ### Missing Git Hooks
 
-**Issue**: preflight fails with "pre-push and active .git/hooks/pre-push
+**Issue**: Pre-push hook fails with "pre-push and active .git/hooks/pre-push
 differ".
 
 **Fix**: Run the following to install the pre-push hook:
@@ -255,23 +253,14 @@ cp -fpv pre-push .git/hooks
 
 ### Missing Optional Tools
 
-**Issue**: preflight skips checks if optional tools (shellcheck, yamllint,
-actionlint, cspell) aren't installed.
+**Issue**: Some checks are skipped if optional tools (cspell) aren't installed
+locally.
 
-**Workaround**: These are optional local checks. yamllint and markdownlint
-also run in CI; shellcheck and actionlint are local-only. Install tools for
-full local validation:
+**Workaround**: `cspell` is optional for local spell checking. Other linting
+tools (shellcheck, yamllint, actionlint) run in CI via `linter.yml`. Install
+cspell for full local validation:
 
 ```sh
-# shellcheck
-brew install shellcheck  # or: apt install shellcheck
-
-# yamllint
-pip install yamllint
-
-# actionlint
-brew install actionlint  # or download from https://github.com/rhysd/actionlint
-
 # cspell
 npm install -g cspell
 ```
@@ -287,7 +276,6 @@ npm install -g cspell
 - `package.json` - Project metadata and scripts
 - `package-lock.json` - Locked dependencies (always commit changes)
 - `bookmarklets.json` - Bookmarklet registry (name, file, version)
-- `preflight` - Pre-commit validation script (shell)
 - `pre-push` - Git pre-push hook (shell)
 - `tsconfig.json` - TypeScript compiler configuration
 
@@ -311,7 +299,7 @@ npm install -g cspell
 2. **Always run the build** (`npm run build`) after making code changes to
    TypeScript files.
 
-3. **Always validate** with `./preflight` or `npm test` before committing.
+3. **Always validate** with `npm test` before committing.
 
 4. **Never examine `dist/*.bookmarklet` contents**. They are URL-encoded
    bookmarklets, not source code. Only verify that the files exist (one per
@@ -334,8 +322,8 @@ npm install -g cspell
    the default discovery is intentional.
 
 10. **CI runs individual linters** (ESLint, markdownlint, yamllint, JSON/JSONC
-    validation) directly on the Ubuntu runner — no Docker or Super-Linter.
-    actionlint runs locally only (via `preflight`).
+    validation, shellcheck, actionlint) directly on the Ubuntu runner — no
+    Docker or Super-Linter.
 
 11. **GitHub Actions run automatically** on push/PR. Check workflow results if
     CI fails.
