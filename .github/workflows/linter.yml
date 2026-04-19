@@ -78,4 +78,4 @@ jobs:
       - name: "Lint GitHub Actions"
         uses: rhysd/actionlint@v1.7.12
         with:
-          args: -config-file .github/actionlint.yaml .github/workflows/*.yml
+          args: -config-file .github/actionlint.yaml
