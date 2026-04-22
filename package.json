@@ -16,7 +16,7 @@
     "eslint": "10.2.1",
     "eslint-plugin-no-unsanitized": "~4.1.5",
     "globals": "17.5.0",
-    "markdownlint-cli2": "~0.22.0",
+    "markdownlint-cli2": "~0.22.1",
     "terser": "5.46.1",
     "typescript": "6.0.3"
   },
@@ -61,11 +61,6 @@
     "lint:sh": "if command -v shellcheck >/dev/null 2>&1; then shellcheck -s sh -o add-default-case -o avoid-nullary-conditions -o check-unassigned-uppercase -o deprecate-which pre-push; else echo 'shellcheck not installed, skipping'; fi",
     "test": "npm run build && node scripts/test-utmstrip.js && npm run verify-build",
     "verify-build": "node scripts/verify-build.js"
-  },
-  "overrides": {
-    "markdownlint-cli2": {
-      "smol-toml": "1.6.1"
-    }
   },
   "version": "4.2.3"
 }
