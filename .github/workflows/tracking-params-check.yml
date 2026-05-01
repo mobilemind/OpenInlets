@@ -54,7 +54,7 @@ jobs:
         if: steps.compare.outputs.new_params == 'true'
         env:
           MISSING_PARAMS: ${{ env.MISSING_PARAMS }}
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             await github.rest.issues.create({
