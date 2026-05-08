@@ -266,6 +266,8 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+4.2.4 Update engines (node 26.0, npm 11.14) and dependencies
+
 4.2.3 Fix unskim regex issue, update dependency integrate a "clean" into compile
 
 4.2.2 UtmStrip removes 7 additional ad-platform click IDs and affiliate tracking
