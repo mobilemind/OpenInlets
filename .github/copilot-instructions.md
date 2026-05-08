@@ -14,9 +14,9 @@ minified JavaScript bookmarklets.
   scripts
 - **Lines of Code**: 21 TypeScript source files in `src/`, 6 Node.js scripts
   in `scripts/`
-- **Node Version Required**: >=24.13.1 (strict requirement via
+- **Node Version Required**: >=26.0 (strict requirement via
   `engineStrict: true`)
-- **npm Version Required**: >=11.8.0
+- **npm Version Required**: >=11.13
 - **Primary Output**: 21 `.bookmarklet` files in `dist/` directory
 
 ## Critical Build Instructions
@@ -26,8 +26,8 @@ minified JavaScript bookmarklets.
 **ALWAYS use the correct Node.js and npm versions.** The project uses
 `engineStrict: true` and requires:
 
-- Node.js >= 24.12.0
-- npm >= 11.6.0
+- Node.js >= 26.0
+- npm >= 11.13
 
 If you get version warnings during `npm ci`, the build may still work but is
 not supported.
@@ -172,7 +172,7 @@ Located in `.github/workflows/`:
 
 1. **`ci.yml`** - NodeJS Build
    - Triggers: push to main/hotfix, PRs to main
-   - Matrix: Node 24.x and 25.x
+   - Matrix: Node 26.x
    - Steps: Security audit → Install deps → Build & test → Generate SBOM
    - **Timeout**: 5 minutes
 
@@ -232,8 +232,7 @@ Check that builds still work after updates.
 **Issue**: If you see `EBADENGINE Unsupported engine` warnings:
 
 ```text
-npm warn EBADENGINE required: { node: '>=24.13.1', npm: '>=11.8.0' }
-npm warn EBADENGINE current: { node: 'v20.19.6', npm: '10.8.2' }
+npm warn EBADENGINE required: { node: '>=26.0', npm: '>=11.13' }
 ```
 
 **Workaround**: The build may work but is not officially supported. Upgrade

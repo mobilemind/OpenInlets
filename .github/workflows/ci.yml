@@ -22,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [24.x, 25.x]
+        node-version: [26.x]
       fail-fast: false
 
     steps:
