@@ -266,7 +266,7 @@ using a URL protocol scheme.
 
 ## Version Notes
 
-4.2.4 Update engines (node >=26.0.1, npm >=11.13.0) and dependencies
+4.2.4 Update engines (node >=26.0, npm >=11.13) and dependencies
 
 4.2.3 Fix unskim regex issue, update dependency integrate a "clean" into compile
 
