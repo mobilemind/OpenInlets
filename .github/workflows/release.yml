@@ -177,7 +177,7 @@ jobs:
 
     steps:
       - name: Checkout Tag
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.ref }}
           path: release-source
@@ -220,7 +220,7 @@ jobs:
           echo "README.md verified: $FILE_SIZE bytes"
 
       - name: Checkout gh-pages Branch
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: gh-pages
           path: gh-pages-branch
