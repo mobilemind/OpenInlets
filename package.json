@@ -18,7 +18,7 @@
     "globals": "17.7.0",
     "markdownlint-cli2": "~0.23.0",
     "terser": "5.49.0",
-    "typescript": "7.0.2"
+    "typescript": "6.0.3"
   },
   "engines": {
     "node": ">=26.2",
