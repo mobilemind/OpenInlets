@@ -182,7 +182,7 @@ jobs:
           ref: ${{ github.ref }}
           path: release-source
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 26.x
           cache: 'npm'
