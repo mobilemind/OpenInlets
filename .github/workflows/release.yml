@@ -35,7 +35,7 @@ jobs:
         with:
           fetch-depth: 0  # Need full history for release notes
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 26.x
           cache: 'npm'
@@ -182,7 +182,7 @@ jobs:
           ref: ${{ github.ref }}
           path: release-source
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 26.x
           cache: 'npm'
