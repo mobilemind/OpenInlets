@@ -6,7 +6,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const {readFileOrFail, validateBookmarklet} = require('./utils');
+const {readFileOrFail, validateBookmarklet, encodeBookmarklet} = require('./utils');
 
 function buildBookmarklet(bookmarklet) {
     // Source file in .temp/ is always .js (TypeScript compiler output)
@@ -29,12 +29,8 @@ function buildBookmarklet(bookmarklet) {
     // Append version string
     theCode = `${theCode}void'${bookmarklet.version}'`;
 
-    // URL encoding for javascript: URL avoids RegEx & HTML issues
-    // with things like: "$&*+/<>?[]\^; also force encode '*'–>%2A, '_'–>%5F for regex & Markdown
-    theCode = `javascript:${encodeURIComponent(theCode).replace(/\*/g, '%2A').replace(/_/g, '%5F')}`;
-
-    // Un-encode a couple of generally safe chars for URLs to reduce size
-    theCode = theCode.replace(/%3A/g, ':').replace(/%3D/g, '=');
+    // URL encode for javascript: URL; see encodeBookmarklet() in utils.js for the rules
+    theCode = encodeBookmarklet(theCode);
 
     // Write the bookmarklet back to dist/ directory
     fs.writeFileSync(distPath, theCode, 'utf8');

@@ -1,1 +1,1 @@
-javascript:if(%2FiP(ad%7Chone)%2F.test(navigator.userAgent))location.href='brave:%2F%2Fopen-url%3Furl='%2BencodeURIComponent(location.href)%3Bvoid'1.1.2'
+javascript:if(/iP(ad%7Chone)/.test(navigator.userAgent))location.href='brave://open-url?url='+encodeURIComponent(location.href);void'1.1.3'
