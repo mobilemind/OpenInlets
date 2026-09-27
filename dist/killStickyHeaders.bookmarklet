@@ -1,1 +1,1 @@
-javascript:Array.from(document.querySelectorAll('body%20%2A')).filter(e=%3E%5B'fixed'%2C'sticky'%5D.includes(getComputedStyle(e).position)).forEach(e=%3Ee.remove())%3Bvoid'2.1.0'
+javascript:Array.from(document.querySelectorAll('body%20%2A')).filter(e=%3E%5B'fixed','sticky'%5D.includes(getComputedStyle(e).position)).forEach(e=%3Ee.remove());void'2.1.1'

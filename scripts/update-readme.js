@@ -12,7 +12,8 @@ const {readFileOrFail, validateBookmarklet} = require('./utils');
 // eslint-disable-next-line consistent-return
 function replaceReadme(readMeString, regexPattern, newStr, bookmarkletName) {
     if (readMeString.match(regexPattern)) {
-        return readMeString.replace(regexPattern, newStr);
+        // Function replacer: stops `$'`, `$&`, `$1` in the code being treated as replacement patterns
+        return readMeString.replace(regexPattern, () => newStr);
     }
 
     // Fail if there's no match
