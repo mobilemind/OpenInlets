@@ -152,7 +152,7 @@ followed link into a bookmark for JavaScript bookmarklet.
 
 ## Requirements
 
-+ Mobile Safari 11.x or higher (last tested with iOS 26, macOS 26 Safari 26)
++ Mobile Safari 12.x or higher (last tested with iOS 27, macOS 27 Safari 27)
 + Corresponding iOS app (_except_ for "delighter", "FYI", "IsItAws",
   "Linklighter", "unskim", "UTMStrip", and "x-man" bookmarklets).
 
