@@ -44,6 +44,11 @@
   ],
   "license": "MIT",
   "name": "OpenInlets",
+  "overrides": {
+    "katex": "^0.18.2",
+    "minimatch": "~11.0.5",
+    "re2js": "^2.8.7"
+  },
   "private": true,
   "readmeFilename": "README.md",
   "repository": {
@@ -62,5 +67,5 @@
     "test": "npm run build && node scripts/test-utmstrip.js && node scripts/test-encoding.js && npm run verify-build",
     "verify-build": "node scripts/verify-build.js"
   },
-  "version": "4.3.1"
+  "version": "4.3.2"
 }

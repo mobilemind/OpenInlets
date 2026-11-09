@@ -271,6 +271,8 @@ using a URL protocol scheme.
 
 ## Version Notes
 
+4.3.2 Override some dependencies to resolve Dependabot alerts
+
 4.3.1 Update engines (node >=26.8, npm >=11.19) and dependencies
 
 4.3.0 Shorter bookmarklet URLs: leave `:=,/;$@+?` unescaped (~10% smaller
