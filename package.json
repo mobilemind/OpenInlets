@@ -16,7 +16,7 @@
     "eslint": "10.14.0",
     "eslint-plugin-no-unsanitized": "~4.1.5",
     "globals": "17.14.0",
-    "markdownlint-cli2": "~0.24.0",
+    "markdownlint-cli2": "~0.24.1",
     "terser": "5.51.2",
     "typescript": "6.0.3"
   },
@@ -46,8 +46,7 @@
   "name": "OpenInlets",
   "overrides": {
     "katex": "^0.18.2",
-    "minimatch": "~11.0.5",
-    "re2js": "^2.8.7"
+    "minimatch": "~11.0.5"
   },
   "private": true,
   "readmeFilename": "README.md",
